@@ -1,0 +1,10 @@
+.DS_Store
+*.psd
+*.ai
+*.sketch
+*.fig
+node_modules/
+.env
+.env.local
+thumbnails/**/wip*
+thumbnails/**/working*

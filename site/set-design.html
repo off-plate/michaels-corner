@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Set Design — Michael's Corner</title>
+<style>
+  :root {
+    --bg: #0e0e10;
+    --fg: #f3f3f0;
+    --muted: #8a8a85;
+    --accent: #e7c66b;
+    --card: #16161a;
+    --border: #232328;
+    --ok: #4ade80;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+  .back { color: var(--muted); font-size: 13px; }
+  h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.1;
+    margin: 16px 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) {
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .card h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  td { padding: 6px 0; vertical-align: top; }
+  td:first-child { color: var(--muted); width: 42%; padding-right: 12px; }
+  td:last-child { color: var(--fg); }
+  ul { margin: 0; padding-left: 20px; }
+  ul li { padding: 3px 0; }
+  pre {
+    background: #0a0a0c;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--fg);
+    overflow-x: auto;
+    margin: 0;
+  }
+  .check li { list-style: none; padding-left: 26px; position: relative; }
+  .check li::before {
+    content: "✓";
+    color: var(--ok);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-weight: 700;
+  }
+  .pill {
+    display: inline-block;
+    background: rgba(231, 198, 107, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(231, 198, 107, 0.3);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-right: 6px;
+  }
+  section { margin-top: 32px; }
+  section > .heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  section > .heading h2 {
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    text-transform: none;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="./">← Michael's Corner</a>
+    <h1>Set Design</h1>
+    <p class="sub">Talking-head shoot reference. Same scene, two crops: portrait for Shorts, landscape for long-form.</p>
+
+    <section>
+      <div class="heading"><span class="pill">9:16</span><span class="pill">16:9</span><h2>Scene overview</h2></div>
+      <div class="card">
+        <table>
+          <tr><td>Scene</td><td>Interview / conversation</td></tr>
+          <tr><td>Shot type</td><td>Medium close-up (MCU)</td></tr>
+          <tr><td>Angle</td><td>3/4 profile — 30°–45° away from camera</td></tr>
+          <tr><td>Framing</td><td>Half body, chest-up</td></tr>
+          <tr><td>Focus</td><td>Subject sharp, background slightly blurred</td></tr>
+          <tr><td>Purpose</td><td>Natural conversational look, engages off-camera interviewer</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="heading"><h2>Camera</h2></div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>Settings</h2>
+          <table>
+            <tr><td>Focal length</td><td>50mm – 85mm</td></tr>
+            <tr><td>Aperture</td><td>f/2.0 – f/2.8</td></tr>
+            <tr><td>Focus mode</td><td>AF single point — eyes</td></tr>
+            <tr><td>Resolution</td><td>4K</td></tr>
+            <tr><td>Frame rate</td><td>24 or 25 fps</td></tr>
+            <tr><td>White balance</td><td>5000K – 5600K</td></tr>
+            <tr><td>ISO</td><td>100 – 400</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h2>Top-view diagram</h2>
+<pre>      BACKGROUND
+      ──────────
+           🌿
+      SUBJECT
+          \
+           \ 30°–45°
+            \
+           📷 CAMERA</pre>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="heading"><h2>Lighting</h2></div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>3-point setup</h2>
+<pre>  KEY LIGHT             FILL LIGHT
+     ╲ 45°                  20°–30° ╱
+      ╲                            ╱
+       ╲      SUBJECT              ╱
+                ↓
+            BACK LIGHT</pre>
+        </div>
+        <div class="card">
+          <h2>Per light</h2>
+          <ul>
+            <li><b>Key</b>: 45° from subject (primary)</li>
+            <li><b>Fill</b>: opposite side, lower intensity</li>
+            <li><b>Back</b>: subtle rim on shoulders / hair</li>
+            <li><b>Background</b>: practical lamp for depth</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="heading"><h2>Set design & composition</h2></div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>Background</h2>
+          <ul>
+            <li>Clean and non-distracting</li>
+            <li>Add depth with practicals (lamp, shelf)</li>
+            <li>Neutral or warm tones</li>
+            <li>Maintain bokeh — wide aperture</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Composition</h2>
+          <ul>
+            <li>Subject on one side (rule of thirds)</li>
+            <li>Negative space on opposite side for text / overlays</li>
+            <li>Avoid centering</li>
+            <li>Open posture, natural pose</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="heading"><h2>Pre-roll checklist</h2></div>
+      <div class="card">
+        <ul class="check">
+          <li>Half body in frame (chest-up)</li>
+          <li>Subject angled 30°–45° away from camera</li>
+          <li>Looking at off-camera interviewer (not lens)</li>
+          <li>Face and body in focus</li>
+          <li>Background slightly blurred</li>
+          <li>Lighting balanced — no harsh face shadows</li>
+          <li>Natural expression, open posture</li>
+          <li>Practical light visible for depth</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
