@@ -10,7 +10,7 @@ Personal brand HQ. Where video scripts, thumbnails, publishing checklists, and p
 - `checklists/` — pre-publish checklists per platform + language
 - `production/` — camera setup, lighting, scenery, audio notes
 - `brand/` — colors, fonts, voice, visual identity
-- `site/` — public-facing personal site (GitHub Pages)
+- `docs/` — public-facing personal site (GitHub Pages serves from here)
 
 ## Platforms
 
