@@ -156,6 +156,4 @@ function PageScripts({ go, videoId }) {
   );
 }
 
-const Field = (p) => window.MC.ui.Field(p);
-
 window.MC.PageScripts = PageScripts;
