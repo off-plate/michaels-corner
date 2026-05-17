@@ -1,0 +1,1791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#0e0e10" />
+<title>Michael's Corner</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23e7c66b'/%3E%3Ctext x='50' y='70' font-size='60' font-family='-apple-system,sans-serif' font-weight='700' text-anchor='middle' fill='%230e0e10'%3EMC%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0e0e10;
+    --panel: #16161a;
+    --panel-2: #1d1d22;
+    --border: #232328;
+    --border-2: #2e2e35;
+    --fg: #f3f3f0;
+    --muted: #8a8a85;
+    --muted-2: #6a6a65;
+    --accent: #e7c66b;
+    --accent-ink: #1a1a14;
+    --accent-soft: rgba(231, 198, 107, 0.12);
+    --red: #e26d5c;
+    --green: #6ec27a;
+    --blue: #7aa8d8;
+    --radius: 12px;
+    --radius-lg: 16px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+  }
+  button, input, textarea, select {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: 0;
+  }
+  textarea { resize: vertical; }
+  a { color: var(--accent); text-decoration: none; }
+
+  /* App layout */
+  .app {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+  }
+  @media (max-width: 820px) {
+    .app { grid-template-columns: 1fr; }
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 8px 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 13px;
+  }
+  .brand-name {
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+  .nav { display: flex; flex-direction: column; gap: 2px; }
+  .nav-group-label {
+    color: var(--muted-2);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    padding: 16px 10px 6px;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.12s;
+    width: 100%;
+    text-align: left;
+  }
+  .nav-item:hover {
+    background: var(--panel-2);
+    color: var(--fg);
+  }
+  .nav-item.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .nav-icon { font-size: 16px; width: 18px; text-align: center; }
+
+  /* Mobile bottom-bar nav */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+    z-index: 20;
+    justify-content: space-around;
+  }
+  .mobile-nav button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 4px;
+    color: var(--muted-2);
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .mobile-nav button.active { color: var(--accent); }
+  .mobile-nav .nav-icon { font-size: 18px; width: auto; }
+  @media (max-width: 820px) {
+    .sidebar { display: none; }
+    .mobile-nav { display: flex; }
+    .main { padding-bottom: 80px; }
+    .mobile-header { display: flex; }
+  }
+
+  /* Mobile top header */
+  .mobile-header {
+    display: none;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    padding: 14px 20px;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+
+  /* Main */
+  .main { min-width: 0; }
+  .page {
+    padding: 32px 36px 64px;
+    max-width: 920px;
+  }
+  @media (max-width: 820px) { .page { padding: 20px 18px 40px; } }
+
+  .page-head {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .page-title {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .page-sub { color: var(--muted); margin: 4px 0 0; font-size: 14px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: 8px;
+    background: var(--panel-2);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .btn:hover { border-color: var(--border-2); background: var(--panel); }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+  .btn-primary:hover { filter: brightness(1.05); }
+  .btn-ghost {
+    background: transparent;
+    border-color: transparent;
+    color: var(--muted);
+    padding: 6px 10px;
+  }
+  .btn-ghost:hover { color: var(--fg); background: var(--panel-2); }
+  .btn-danger { color: var(--red); }
+  .btn-sm { padding: 6px 10px; font-size: 13px; }
+
+  /* Cards */
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .card + .card { margin-top: 14px; }
+  .card h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* Inputs */
+  .input, .textarea, .select {
+    width: 100%;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: var(--fg);
+    font-size: 14px;
+    transition: border-color 0.12s;
+  }
+  .input:focus, .textarea:focus, .select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .textarea { min-height: 80px; line-height: 1.5; }
+  .field { margin-bottom: 12px; }
+  .field label {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Pills / badges */
+  .pill {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: var(--panel-2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    text-transform: uppercase;
+  }
+  .pill-accent { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+  .pill-green { background: rgba(110, 194, 122, 0.14); color: var(--green); border-color: transparent; }
+  .pill-blue { background: rgba(122, 168, 216, 0.14); color: var(--blue); border-color: transparent; }
+  .pill-red { background: rgba(226, 109, 92, 0.14); color: var(--red); border-color: transparent; }
+
+  /* List rows */
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: border-color 0.12s;
+  }
+  .row + .row { margin-top: 8px; }
+  .row:hover { border-color: var(--border-2); }
+  .row .label { flex: 1; min-width: 0; }
+  .row .label .title { font-weight: 500; color: var(--fg); }
+  .row .label .meta { font-size: 12px; color: var(--muted); margin-top: 4px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .row .actions { display: flex; gap: 4px; }
+
+  /* Checklist */
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+  .check-item:last-child { border-bottom: 0; }
+  .check-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1.5px solid var(--border-2);
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: grid;
+    place-items: center;
+    transition: all 0.12s;
+  }
+  .check-item.done .check-box {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+  .check-item.done .check-box::after {
+    content: '✓';
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .check-item.done .check-text { color: var(--muted); text-decoration: line-through; }
+  .check-text { line-height: 1.45; font-size: 14px; }
+
+  /* Empty state */
+  .empty {
+    text-align: center;
+    padding: 56px 20px;
+    color: var(--muted);
+  }
+  .empty-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.5; }
+  .empty h3 { margin: 0 0 6px; font-weight: 600; color: var(--fg); }
+
+  /* Status board */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 820px) { .board { grid-template-columns: 1fr; } }
+  .board-col {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 12px;
+    min-height: 120px;
+  }
+  .board-col-head {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .board-card {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .board-card:hover { border-color: var(--border-2); }
+  .board-card .title { font-weight: 500; }
+  .board-card .meta { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* Reference page styling */
+  .ref-grid { display: grid; gap: 12px; }
+  @media (min-width: 720px) { .ref-grid-2 { grid-template-columns: 1fr 1fr; } }
+  .ref-table { width: 100%; font-size: 14px; }
+  .ref-table td { padding: 5px 0; vertical-align: top; }
+  .ref-table td:first-child { color: var(--muted); width: 45%; padding-right: 10px; }
+  pre.diagram {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-x: auto;
+    margin: 0;
+  }
+
+  /* Modal */
+  .modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    display: grid;
+    place-items: center;
+    z-index: 50;
+    padding: 20px;
+  }
+  .modal {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .modal-title { font-size: 18px; font-weight: 600; margin: 0; }
+
+  /* Utilities */
+  .row-h { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .gap-8 { gap: 8px; }
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+  .text-muted { color: var(--muted); }
+  .text-sm { font-size: 13px; }
+  .text-xs { font-size: 12px; }
+  .grow { flex: 1; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+  <div id="root">
+    <div style="display:grid;place-items:center;min-height:100vh;color:var(--muted)">Loading…</div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel" data-presets="react">
+// ===== src/data.jsx =====
+// Data layer — localStorage for now, Supabase swap-in later.
+// All pages read/write through window.MC.db.
+
+const STORAGE_KEY = 'mc-data-v1';
+
+const DEFAULT_DATA = {
+  ideas: [],
+  videos: [],
+  checklistRuns: {}, // { [videoId-platform]: { [itemKey]: bool } }
+  brand: {
+    primary: '#e7c66b',
+    secondary: '',
+    bgDark: '#0e0e10',
+    bgLight: '#f3f3f0',
+    text: '#f3f3f0',
+    displayFont: '',
+    bodyFont: 'Inter',
+    voiceNotes: ''
+  },
+  meta: { updatedAt: null }
+};
+
+function load() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return structuredClone(DEFAULT_DATA);
+    const parsed = JSON.parse(raw);
+    return { ...structuredClone(DEFAULT_DATA), ...parsed };
+  } catch (e) {
+    return structuredClone(DEFAULT_DATA);
+  }
+}
+
+function save(data) {
+  data.meta = { updatedAt: new Date().toISOString() };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+
+// Reactive store: subscribe to changes
+const listeners = new Set();
+let state = load();
+
+function emit() { listeners.forEach(fn => fn(state)); }
+
+function useStore() {
+  const [, force] = React.useReducer(x => x + 1, 0);
+  React.useEffect(() => {
+    const fn = () => force();
+    listeners.add(fn);
+    return () => listeners.delete(fn);
+  }, []);
+  return state;
+}
+
+// Mutators
+const db = {
+  getState: () => state,
+  useStore,
+
+  // Ideas
+  addIdea(data) {
+    const idea = { id: uid(), createdAt: new Date().toISOString(), status: 'active', ...data };
+    state.ideas.unshift(idea);
+    save(state); emit();
+    return idea;
+  },
+  updateIdea(id, patch) {
+    state.ideas = state.ideas.map(i => i.id === id ? { ...i, ...patch } : i);
+    save(state); emit();
+  },
+  deleteIdea(id) {
+    state.ideas = state.ideas.filter(i => i.id !== id);
+    save(state); emit();
+  },
+  promoteIdeaToVideo(id) {
+    const idea = state.ideas.find(i => i.id === id);
+    if (!idea) return;
+    const video = db.addVideo({
+      title: idea.title,
+      language: idea.language || 'en',
+      format: idea.format || 'long',
+      hookIdea: idea.notes || '',
+    });
+    db.updateIdea(id, { status: 'used', videoId: video.id });
+    return video;
+  },
+
+  // Videos
+  addVideo(data) {
+    const video = {
+      id: uid(),
+      createdAt: new Date().toISOString(),
+      status: 'idea',
+      title: '',
+      slug: '',
+      language: 'en',
+      format: 'long',
+      targetLength: '',
+      publishDate: '',
+      hookIdea: '',
+      promise: '',
+      outline: '',
+      script: '',
+      bRoll: '',
+      cta: '',
+      thumbnailConcept: '',
+      crossPostPlan: '',
+      ...data
+    };
+    state.videos.unshift(video);
+    save(state); emit();
+    return video;
+  },
+  updateVideo(id, patch) {
+    state.videos = state.videos.map(v => v.id === id ? { ...v, ...patch } : v);
+    save(state); emit();
+  },
+  deleteVideo(id) {
+    state.videos = state.videos.filter(v => v.id !== id);
+    Object.keys(state.checklistRuns)
+      .filter(k => k.startsWith(id + '-'))
+      .forEach(k => delete state.checklistRuns[k]);
+    save(state); emit();
+  },
+  getVideo(id) {
+    return state.videos.find(v => v.id === id);
+  },
+
+  // Checklist state per video+platform
+  getChecklist(videoId, platform) {
+    return state.checklistRuns[videoId + '-' + platform] || {};
+  },
+  toggleChecklistItem(videoId, platform, key) {
+    const k = videoId + '-' + platform;
+    const cur = state.checklistRuns[k] || {};
+    state.checklistRuns[k] = { ...cur, [key]: !cur[key] };
+    save(state); emit();
+  },
+  resetChecklist(videoId, platform) {
+    delete state.checklistRuns[videoId + '-' + platform];
+    save(state); emit();
+  },
+
+  // Brand
+  updateBrand(patch) {
+    state.brand = { ...state.brand, ...patch };
+    save(state); emit();
+  },
+
+  // Export / import
+  exportJson() {
+    return JSON.stringify(state, null, 2);
+  },
+  importJson(json) {
+    try {
+      const parsed = JSON.parse(json);
+      state = { ...structuredClone(DEFAULT_DATA), ...parsed };
+      save(state); emit();
+      return true;
+    } catch (e) { return false; }
+  },
+  reset() {
+    state = structuredClone(DEFAULT_DATA);
+    save(state); emit();
+  }
+};
+
+window.MC = window.MC || {};
+window.MC.db = db;
+window.MC.uid = uid;
+
+
+// ===== src/components.jsx =====
+// Shared UI components.
+
+function Modal({ open, onClose, title, children, footer }) {
+  if (!open) return null;
+  return (
+    <div className="modal-bg" onClick={onClose}>
+      <div className="modal" onClick={e => e.stopPropagation()}>
+        <div className="modal-head">
+          <h2 className="modal-title">{title}</h2>
+          <button className="btn-ghost btn" onClick={onClose}>✕</button>
+        </div>
+        {children}
+        {footer && <div className="mt-16" style={{display: 'flex', gap: 8, justifyContent: 'flex-end'}}>{footer}</div>}
+      </div>
+    </div>
+  );
+}
+
+function Field({ label, children }) {
+  return (
+    <div className="field">
+      {label && <label>{label}</label>}
+      {children}
+    </div>
+  );
+}
+
+function Empty({ icon, title, body, action }) {
+  return (
+    <div className="empty">
+      <div className="empty-icon">{icon}</div>
+      <h3>{title}</h3>
+      {body && <p>{body}</p>}
+      {action && <div className="mt-16">{action}</div>}
+    </div>
+  );
+}
+
+function LangPill({ value }) {
+  return <span className="pill">{(value || '').toUpperCase()}</span>;
+}
+
+function FormatPill({ value }) {
+  const cls = value === 'short' ? 'pill pill-blue' : 'pill pill-accent';
+  return <span className={cls}>{value === 'short' ? 'SHORT' : 'LONG'}</span>;
+}
+
+function StatusPill({ value }) {
+  const map = {
+    idea: ['pill', 'idea'],
+    drafting: ['pill pill-blue', 'drafting'],
+    filming: ['pill pill-accent', 'filming'],
+    editing: ['pill pill-accent', 'editing'],
+    published: ['pill pill-green', 'published']
+  };
+  const [cls, label] = map[value] || ['pill', value];
+  return <span className={cls}>{label.toUpperCase()}</span>;
+}
+
+window.MC.ui = { Modal, Field, Empty, LangPill, FormatPill, StatusPill };
+
+
+// ===== src/page-today.jsx =====
+function PageToday({ go }) {
+  const s = window.MC.db.useStore();
+  const { StatusPill, FormatPill, LangPill, Empty } = window.MC.ui;
+
+  const active = s.videos.filter(v => v.status !== 'published');
+  const recent = s.ideas.filter(i => i.status === 'active').slice(0, 5);
+  const upNext = active.filter(v => v.publishDate).sort((a, b) => a.publishDate.localeCompare(b.publishDate)).slice(0, 3);
+
+  const counts = {
+    ideas: s.ideas.filter(i => i.status === 'active').length,
+    drafting: s.videos.filter(v => v.status === 'drafting').length,
+    filming: s.videos.filter(v => v.status === 'filming').length,
+    editing: s.videos.filter(v => v.status === 'editing').length,
+    published: s.videos.filter(v => v.status === 'published').length,
+  };
+
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">Today</h1>
+          <p className="page-sub">What's moving right now.</p>
+        </div>
+      </div>
+
+      <div className="ref-grid ref-grid-2" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))'}}>
+        <StatCard label="Ideas" count={counts.ideas} onClick={() => go('ideas')} />
+        <StatCard label="Drafting" count={counts.drafting} onClick={() => go('videos')} />
+        <StatCard label="Filming" count={counts.filming} onClick={() => go('videos')} />
+        <StatCard label="Editing" count={counts.editing} onClick={() => go('videos')} />
+        <StatCard label="Published" count={counts.published} onClick={() => go('videos')} accent />
+      </div>
+
+      <div className="mt-24">
+        <h3 style={{margin: '0 0 12px', fontSize: 14, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Up next</h3>
+        {upNext.length === 0 ? (
+          <div className="card text-sm text-muted">No videos scheduled. Set a publish date on a video to see it here.</div>
+        ) : upNext.map(v => (
+          <div key={v.id} className="row" onClick={() => go('scripts', v.id)}>
+            <div className="label">
+              <div className="title">{v.title || 'Untitled'}</div>
+              <div className="meta">
+                <StatusPill value={v.status} />
+                <FormatPill value={v.format} />
+                <LangPill value={v.language} />
+                <span>📅 {v.publishDate}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-24">
+        <h3 style={{margin: '0 0 12px', fontSize: 14, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Recent ideas</h3>
+        {recent.length === 0 ? (
+          <div className="card text-sm text-muted">Capture ideas in the Ideas tab — they show up here.</div>
+        ) : recent.map(i => (
+          <div key={i.id} className="row" onClick={() => go('ideas')}>
+            <div className="label">
+              <div className="title">{i.title}</div>
+              <div className="meta">
+                <FormatPill value={i.format} />
+                <LangPill value={i.language} />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function StatCard({ label, count, onClick, accent }) {
+  return (
+    <div className="card" onClick={onClick} style={{cursor: 'pointer', textAlign: 'center', padding: '18px 12px'}}>
+      <div style={{fontSize: 28, fontWeight: 700, color: accent ? 'var(--accent)' : 'var(--fg)', letterSpacing: '-0.02em'}}>{count}</div>
+      <div className="text-xs text-muted" style={{textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600, marginTop: 4}}>{label}</div>
+    </div>
+  );
+}
+
+window.MC.PageToday = PageToday;
+
+
+// ===== src/page-ideas.jsx =====
+function PageIdeas({ go }) {
+  const s = window.MC.db.useStore();
+  const { Modal, Field, Empty, FormatPill, LangPill } = window.MC.ui;
+  const [adding, setAdding] = React.useState(false);
+  const [editing, setEditing] = React.useState(null);
+  const [filter, setFilter] = React.useState('active');
+
+  const filtered = s.ideas.filter(i => filter === 'all' || i.status === filter);
+
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">Ideas</h1>
+          <p className="page-sub">Capture fast. Promote later.</p>
+        </div>
+        <button className="btn btn-primary" onClick={() => setAdding(true)}>+ New idea</button>
+      </div>
+
+      <div className="row-h mt-8" style={{marginBottom: 16}}>
+        {['active', 'used', 'parked', 'all'].map(f => (
+          <button key={f} className={'btn btn-sm ' + (filter === f ? 'btn-primary' : '')} onClick={() => setFilter(f)}>
+            {f}
+          </button>
+        ))}
+      </div>
+
+      {filtered.length === 0 ? (
+        <Empty
+          icon="💡"
+          title="No ideas yet"
+          body="Hit + New idea to capture one. One line is enough."
+          action={<button className="btn btn-primary" onClick={() => setAdding(true)}>+ New idea</button>}
+        />
+      ) : filtered.map(i => (
+        <div key={i.id} className="row" onClick={() => setEditing(i)}>
+          <div className="label">
+            <div className="title">{i.title}</div>
+            <div className="meta">
+              <FormatPill value={i.format} />
+              <LangPill value={i.language} />
+              {i.status !== 'active' && <span className="pill">{i.status}</span>}
+              {i.notes && <span className="text-xs text-muted">— {i.notes.slice(0, 80)}{i.notes.length > 80 ? '…' : ''}</span>}
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {(adding || editing) && (
+        <IdeaModal
+          idea={editing}
+          onClose={() => { setAdding(false); setEditing(null); }}
+          go={go}
+        />
+      )}
+    </div>
+  );
+}
+
+function IdeaModal({ idea, onClose, go }) {
+  const { Modal, Field } = window.MC.ui;
+  const isEdit = !!idea;
+  const [form, setForm] = React.useState(idea || {
+    title: '', language: 'en', format: 'long', notes: '', status: 'active'
+  });
+
+  function update(k, v) { setForm({ ...form, [k]: v }); }
+  function save() {
+    if (!form.title.trim()) return;
+    if (isEdit) window.MC.db.updateIdea(idea.id, form);
+    else window.MC.db.addIdea(form);
+    onClose();
+  }
+  function del() {
+    if (!confirm('Delete this idea?')) return;
+    window.MC.db.deleteIdea(idea.id); onClose();
+  }
+  function promote() {
+    const v = window.MC.db.promoteIdeaToVideo(idea.id);
+    onClose();
+    if (v) go('scripts', v.id);
+  }
+
+  return (
+    <Modal
+      open={true}
+      onClose={onClose}
+      title={isEdit ? 'Edit idea' : 'New idea'}
+      footer={
+        <>
+          {isEdit && <button className="btn btn-danger btn-ghost" onClick={del}>Delete</button>}
+          {isEdit && form.status === 'active' && <button className="btn" onClick={promote}>Promote → Video</button>}
+          <button className="btn" onClick={onClose}>Cancel</button>
+          <button className="btn btn-primary" onClick={save}>Save</button>
+        </>
+      }
+    >
+      <Field label="Title">
+        <input className="input" autoFocus value={form.title} onChange={e => update('title', e.target.value)} placeholder="One line. Don't overthink." />
+      </Field>
+      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12}}>
+        <Field label="Language">
+          <select className="select" value={form.language} onChange={e => update('language', e.target.value)}>
+            <option value="en">English</option>
+            <option value="cz">Czech</option>
+          </select>
+        </Field>
+        <Field label="Format">
+          <select className="select" value={form.format} onChange={e => update('format', e.target.value)}>
+            <option value="long">Long-form</option>
+            <option value="short">Short</option>
+          </select>
+        </Field>
+      </div>
+      <Field label="Notes (optional)">
+        <textarea className="textarea" value={form.notes} onChange={e => update('notes', e.target.value)} placeholder="Hook, angle, reference…" />
+      </Field>
+      {isEdit && (
+        <Field label="Status">
+          <select className="select" value={form.status} onChange={e => update('status', e.target.value)}>
+            <option value="active">Active</option>
+            <option value="parked">Parked</option>
+            <option value="used">Used</option>
+          </select>
+        </Field>
+      )}
+    </Modal>
+  );
+}
+
+window.MC.PageIdeas = PageIdeas;
+
+
+// ===== src/page-videos.jsx =====
+function PageVideos({ go }) {
+  const s = window.MC.db.useStore();
+  const { Empty, StatusPill, FormatPill, LangPill } = window.MC.ui;
+
+  const cols = ['idea', 'drafting', 'filming', 'editing', 'published'];
+  const grouped = cols.reduce((acc, c) => {
+    acc[c] = s.videos.filter(v => v.status === c);
+    return acc;
+  }, {});
+
+  function newVideo() {
+    const v = window.MC.db.addVideo({ title: 'Untitled video' });
+    go('scripts', v.id);
+  }
+
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">Videos</h1>
+          <p className="page-sub">Pipeline from idea to published.</p>
+        </div>
+        <button className="btn btn-primary" onClick={newVideo}>+ New video</button>
+      </div>
+
+      {s.videos.length === 0 ? (
+        <Empty
+          icon="🎬"
+          title="No videos yet"
+          body="Start a video from scratch, or promote an idea from the Ideas tab."
+          action={<button className="btn btn-primary" onClick={newVideo}>+ New video</button>}
+        />
+      ) : (
+        <div className="board">
+          {cols.map(col => (
+            <div key={col} className="board-col">
+              <div className="board-col-head">
+                <span>{col}</span>
+                <span>{grouped[col].length}</span>
+              </div>
+              {grouped[col].map(v => (
+                <div key={v.id} className="board-card" onClick={() => go('scripts', v.id)}>
+                  <div className="title">{v.title || 'Untitled'}</div>
+                  <div className="meta row-h">
+                    <FormatPill value={v.format} />
+                    <LangPill value={v.language} />
+                    {v.publishDate && <span>📅 {v.publishDate}</span>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+window.MC.PageVideos = PageVideos;
+
+
+// ===== src/page-scripts.jsx =====
+function PageScripts({ go, videoId }) {
+  const s = window.MC.db.useStore();
+  const { Empty, StatusPill } = window.MC.ui;
+
+  if (!videoId) {
+    if (s.videos.length === 0) {
+      return (
+        <div className="page">
+          <div className="page-head"><div><h1 className="page-title">Scripts</h1></div></div>
+          <Empty icon="📝" title="No videos yet" body="Create a video in the Videos tab to write its script here." />
+        </div>
+      );
+    }
+    return (
+      <div className="page">
+        <div className="page-head"><div><h1 className="page-title">Scripts</h1><p className="page-sub">Pick a video to edit its script.</p></div></div>
+        {s.videos.map(v => (
+          <div key={v.id} className="row" onClick={() => go('scripts', v.id)}>
+            <div className="label">
+              <div className="title">{v.title || 'Untitled'}</div>
+              <div className="meta"><StatusPill value={v.status} /></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  const v = window.MC.db.getVideo(videoId);
+  if (!v) {
+    return (
+      <div className="page">
+        <Empty icon="🚫" title="Video not found" action={<button className="btn" onClick={() => go('videos')}>Back to videos</button>} />
+      </div>
+    );
+  }
+
+  function patch(p) { window.MC.db.updateVideo(v.id, p); }
+  function del() {
+    if (!confirm('Delete this video and its checklists?')) return;
+    window.MC.db.deleteVideo(v.id);
+    go('videos');
+  }
+
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div>
+          <button className="btn-ghost btn btn-sm" onClick={() => go('videos')}>← Videos</button>
+          <h1 className="page-title" style={{marginTop: 6}}>
+            <input
+              className="input"
+              style={{fontSize: 'inherit', fontWeight: 700, padding: '6px 10px', background: 'transparent', border: '1px solid transparent'}}
+              value={v.title}
+              onChange={e => patch({ title: e.target.value })}
+              onFocus={e => e.target.style.borderColor = 'var(--border)'}
+              onBlur={e => e.target.style.borderColor = 'transparent'}
+              placeholder="Video title…"
+            />
+          </h1>
+        </div>
+        <div className="row-h">
+          <button className="btn btn-sm" onClick={() => go('checklists', v.id)}>Checklists →</button>
+          <button className="btn btn-sm btn-danger btn-ghost" onClick={del}>Delete</button>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>Meta</h3>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 10}}>
+          <Field label="Status">
+            <select className="select" value={v.status} onChange={e => patch({ status: e.target.value })}>
+              <option value="idea">Idea</option>
+              <option value="drafting">Drafting</option>
+              <option value="filming">Filming</option>
+              <option value="editing">Editing</option>
+              <option value="published">Published</option>
+            </select>
+          </Field>
+          <Field label="Format">
+            <select className="select" value={v.format} onChange={e => patch({ format: e.target.value })}>
+              <option value="long">Long-form</option>
+              <option value="short">Short</option>
+            </select>
+          </Field>
+          <Field label="Language">
+            <select className="select" value={v.language} onChange={e => patch({ language: e.target.value })}>
+              <option value="en">English</option>
+              <option value="cz">Czech</option>
+            </select>
+          </Field>
+          <Field label="Target length">
+            <input className="input" value={v.targetLength} onChange={e => patch({ targetLength: e.target.value })} placeholder="8 min / 45 sec" />
+          </Field>
+          <Field label="Publish date">
+            <input className="input" type="date" value={v.publishDate} onChange={e => patch({ publishDate: e.target.value })} />
+          </Field>
+          <Field label="Slug">
+            <input className="input" value={v.slug} onChange={e => patch({ slug: e.target.value })} placeholder="yyyy-mm-dd-slug" />
+          </Field>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>Hook</h3>
+        <Field label={'First ' + (v.format === 'short' ? '1–2 seconds' : '5 seconds') + ' — exact words'}>
+          <textarea className="textarea" value={v.hookIdea} onChange={e => patch({ hookIdea: e.target.value })} />
+        </Field>
+        <Field label="One-sentence promise">
+          <input className="input" value={v.promise} onChange={e => patch({ promise: e.target.value })} placeholder="What the viewer gets if they stay." />
+        </Field>
+      </div>
+
+      <div className="card">
+        <h3>Outline</h3>
+        <Field>
+          <textarea className="textarea" style={{minHeight: 100}} value={v.outline} onChange={e => patch({ outline: e.target.value })} placeholder="1. …&#10;2. …&#10;3. …" />
+        </Field>
+      </div>
+
+      <div className="card">
+        <h3>Script</h3>
+        <Field>
+          <textarea className="textarea" style={{minHeight: 280, fontFamily: 'ui-monospace, monospace', fontSize: 14}} value={v.script} onChange={e => patch({ script: e.target.value })} placeholder="Full script or detailed bullets." />
+        </Field>
+      </div>
+
+      <div className="card">
+        <h3>B-roll / cutaways</h3>
+        <Field>
+          <textarea className="textarea" value={v.bRoll} onChange={e => patch({ bRoll: e.target.value })} placeholder="List of shots needed." />
+        </Field>
+      </div>
+
+      <div className="card">
+        <h3>CTA</h3>
+        <Field>
+          <input className="input" value={v.cta} onChange={e => patch({ cta: e.target.value })} placeholder="What do they do after watching?" />
+        </Field>
+      </div>
+
+      <div className="card">
+        <h3>Thumbnail concept</h3>
+        <Field>
+          <textarea className="textarea" value={v.thumbnailConcept} onChange={e => patch({ thumbnailConcept: e.target.value })} placeholder="Visual, text, reference…" />
+        </Field>
+      </div>
+
+      <div className="card">
+        <h3>Cross-post plan</h3>
+        <Field>
+          <textarea className="textarea" value={v.crossPostPlan} onChange={e => patch({ crossPostPlan: e.target.value })} placeholder="Which clips → which platforms → when" />
+        </Field>
+      </div>
+    </div>
+  );
+}
+
+const Field = (p) => window.MC.ui.Field(p);
+
+window.MC.PageScripts = PageScripts;
+
+
+// ===== src/page-checklists.jsx =====
+// Checklists per video per platform. State saved per (videoId, platform).
+
+const CHECKLISTS = {
+  'youtube-longform': {
+    label: 'YouTube long-form',
+    icon: '📺',
+    sections: [
+      { name: 'Pre-production', items: [
+        'Idea validated (hook works, audience clear)',
+        'Script written and read out loud once',
+        'Thumbnail concept sketched before filming',
+        'B-roll list ready'
+      ]},
+      { name: 'Filming', items: [
+        'Camera settings checked (see Set Design)',
+        'Audio levels checked (peaks -12 to -6 dB)',
+        'Lighting locked (3-point set)',
+        'Background tidy',
+        'Backup take of intro and outro'
+      ]},
+      { name: 'Editing', items: [
+        'Hook works in first 5 seconds — sound-off test',
+        'Pacing: every dead beat cut',
+        'Captions burned in for first 30s minimum',
+        'Chapters added (every 60–90s)',
+        'End screen with 1 video + subscribe'
+      ]},
+      { name: 'Metadata', items: [
+        'Title under 60 chars, curiosity gap, no clickbait lies',
+        'Description: first 2 lines are the hook',
+        'Tags: 5–8 relevant',
+        'Thumbnail readable at 120px width',
+        'Pinned comment ready'
+      ]},
+      { name: 'Publish', items: [
+        'Scheduled (not blind-published)',
+        'Short clip cross-posted to Shorts/TT/Reels within 48h',
+        'LinkedIn post if topic fits',
+        'Added to relevant playlist'
+      ]}
+    ]
+  },
+  'shorts-tiktok-reels': {
+    label: 'Shorts / TikTok / Reels',
+    icon: '📱',
+    sections: [
+      { name: 'Hook (first 1–2s)', items: [
+        'Visual movement in frame 1',
+        'First spoken word is intriguing or punchy',
+        'Text overlay reinforces hook',
+        'No slow intro — value lands immediately'
+      ]},
+      { name: 'Pacing', items: [
+        'Cut every 1–3 seconds',
+        'No dead air',
+        'One idea per video',
+        'Length in the 15–45s sweet spot'
+      ]},
+      { name: 'Captions', items: [
+        'Burned-in, large, high contrast',
+        'Not the native platform font',
+        'Keywords in caption for search'
+      ]},
+      { name: 'Audio', items: [
+        'Voice clear, no background noise',
+        'Trending sound used only if voice still cuts through'
+      ]},
+      { name: 'YouTube Shorts', items: [
+        'Clear title, no hashtag spam',
+        'Pinned comment drives to long-form'
+      ]},
+      { name: 'TikTok', items: [
+        '3–5 hashtags max (broad + niche)',
+        'Reply to top comments within 1h',
+        'Cover image set manually'
+      ]},
+      { name: 'Instagram Reels', items: [
+        'Cover image set manually (matters for grid)',
+        'Hook in caption line 1',
+        '3–5 hashtags inside caption',
+        'Shared to story after posting'
+      ]},
+      { name: 'Cross-post', items: [
+        'Posted to all 3 platforms within 24h',
+        'Raw 9:16 (no TikTok watermark) exported for cross-posting'
+      ]}
+    ]
+  },
+  'instagram': {
+    label: 'Instagram (posts + stories)',
+    icon: '📸',
+    sections: [
+      { name: 'Post / carousel', items: [
+        'First slide is the hook',
+        'Each carousel slide pulls to the next',
+        'Last slide has a CTA',
+        'Caption: hook line 1, body 2–4 short paragraphs',
+        '3–5 hashtags inside caption',
+        'Alt text added'
+      ]},
+      { name: 'Stories', items: [
+        'Native stickers used (poll/question/quiz)',
+        'Under 5 frames per sequence',
+        'Link sticker if driving traffic',
+        'Highlight cover prepared if adding to highlights'
+      ]},
+      { name: 'Publish', items: [
+        'Posted at peak time (check Insights)',
+        'Shared to story immediately',
+        'Replied to every comment in first hour'
+      ]}
+    ]
+  },
+  'linkedin': {
+    label: 'LinkedIn',
+    icon: '💼',
+    sections: [
+      { name: 'Text post', items: [
+        'Hook in line 1',
+        'Line 2 earns the "see more" click',
+        'Short paragraphs, one idea each',
+        'No corporate-speak',
+        'Specific over generic',
+        'One CTA at the end'
+      ]},
+      { name: 'Video / image', items: [
+        'Subtitles burned in (autoplay is muted)',
+        'First 3s work with no sound',
+        'Native upload (no external links in body)',
+        'Under 90 seconds if video'
+      ]},
+      { name: 'Engagement', items: [
+        'Replied to every comment in first hour',
+        'No edits in first 30 min',
+        'External links in first comment, not post body'
+      ]},
+      { name: 'Publish', items: [
+        'Posted Tue–Thu, 8–10am CET'
+      ]}
+    ]
+  }
+};
+
+function PageChecklists({ go, videoId }) {
+  const s = window.MC.db.useStore();
+  const { Empty, StatusPill, FormatPill, LangPill } = window.MC.ui;
+  const [platform, setPlatform] = React.useState(null);
+
+  if (!videoId) {
+    if (s.videos.length === 0) {
+      return (
+        <div className="page">
+          <div className="page-head"><div><h1 className="page-title">Checklists</h1></div></div>
+          <Empty icon="✅" title="No videos yet" body="Create a video first — checklists are tied to a specific video." />
+        </div>
+      );
+    }
+    return (
+      <div className="page">
+        <div className="page-head"><div><h1 className="page-title">Checklists</h1><p className="page-sub">Pick a video to run its checklists.</p></div></div>
+        {s.videos.map(v => (
+          <div key={v.id} className="row" onClick={() => go('checklists', v.id)}>
+            <div className="label">
+              <div className="title">{v.title || 'Untitled'}</div>
+              <div className="meta">
+                <StatusPill value={v.status} />
+                <FormatPill value={v.format} />
+                <LangPill value={v.language} />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  const v = window.MC.db.getVideo(videoId);
+  if (!v) {
+    return <div className="page"><Empty icon="🚫" title="Video not found" action={<button className="btn" onClick={() => go('videos')}>Back</button>} /></div>;
+  }
+
+  if (!platform) {
+    return (
+      <div className="page">
+        <div className="page-head">
+          <div>
+            <button className="btn-ghost btn btn-sm" onClick={() => go('scripts', v.id)}>← {v.title || 'Video'}</button>
+            <h1 className="page-title" style={{marginTop: 6}}>Checklists</h1>
+            <p className="page-sub">Pick a platform.</p>
+          </div>
+        </div>
+        {Object.entries(CHECKLISTS).map(([key, cl]) => {
+          const state = window.MC.db.getChecklist(v.id, key);
+          const total = cl.sections.reduce((a, s) => a + s.items.length, 0);
+          const done = cl.sections.reduce((a, s) => a + s.items.filter((_, i) => state[s.name + ':' + i]).length, 0);
+          return (
+            <div key={key} className="row" onClick={() => setPlatform(key)}>
+              <div className="label">
+                <div className="title">{cl.icon} {cl.label}</div>
+                <div className="meta">
+                  <span className={'pill ' + (done === total ? 'pill-green' : done > 0 ? 'pill-accent' : '')}>{done}/{total}</span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
+  const cl = CHECKLISTS[platform];
+  const state = window.MC.db.getChecklist(v.id, platform);
+  const total = cl.sections.reduce((a, s) => a + s.items.length, 0);
+  const done = cl.sections.reduce((a, s) => a + s.items.filter((_, i) => state[s.name + ':' + i]).length, 0);
+
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div>
+          <button className="btn-ghost btn btn-sm" onClick={() => setPlatform(null)}>← Platforms</button>
+          <h1 className="page-title" style={{marginTop: 6}}>{cl.icon} {cl.label}</h1>
+          <p className="page-sub">{v.title || 'Untitled video'} · {done}/{total} done</p>
+        </div>
+        <button className="btn btn-sm btn-ghost btn-danger" onClick={() => { if (confirm('Reset this checklist?')) window.MC.db.resetChecklist(v.id, platform); }}>Reset</button>
+      </div>
+
+      {cl.sections.map(section => (
+        <div key={section.name} className="card">
+          <h3>{section.name}</h3>
+          {section.items.map((item, i) => {
+            const key = section.name + ':' + i;
+            const isDone = !!state[key];
+            return (
+              <div key={i} className={'check-item ' + (isDone ? 'done' : '')} onClick={() => window.MC.db.toggleChecklistItem(v.id, platform, key)}>
+                <div className="check-box" />
+                <div className="check-text">{item}</div>
+              </div>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+window.MC.PageChecklists = PageChecklists;
+
+
+// ===== src/page-setdesign.jsx =====
+function PageSetDesign() {
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">Set Design</h1>
+          <p className="page-sub">Talking-head reference. Same scene, two crops.</p>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>Scene overview</h3>
+        <table className="ref-table">
+          <tbody>
+            <tr><td>Scene</td><td>Interview / conversation</td></tr>
+            <tr><td>Shot type</td><td>Medium close-up (MCU)</td></tr>
+            <tr><td>Angle</td><td>3/4 profile — 30°–45° away from camera</td></tr>
+            <tr><td>Framing</td><td>Half body, chest-up</td></tr>
+            <tr><td>Focus</td><td>Subject sharp, background slightly blurred</td></tr>
+            <tr><td>Purpose</td><td>Natural conversational look, off-camera interviewer</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="ref-grid ref-grid-2 mt-16" style={{display: 'grid', gap: 14}}>
+        <div className="card">
+          <h3>Camera settings</h3>
+          <table className="ref-table">
+            <tbody>
+              <tr><td>Focal length</td><td>50mm – 85mm</td></tr>
+              <tr><td>Aperture</td><td>f/2.0 – f/2.8</td></tr>
+              <tr><td>Focus mode</td><td>AF single point on eyes</td></tr>
+              <tr><td>Resolution</td><td>4K</td></tr>
+              <tr><td>Frame rate</td><td>24 or 25 fps</td></tr>
+              <tr><td>White balance</td><td>5000K – 5600K</td></tr>
+              <tr><td>ISO</td><td>100 – 400</td></tr>
+              <tr><td>Shutter</td><td>1/50</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="card">
+          <h3>Top-view diagram</h3>
+          <pre className="diagram">{`      BACKGROUND
+      ──────────
+           🌿
+      SUBJECT
+          \\
+           \\ 30°–45°
+            \\
+           📷 CAMERA`}</pre>
+        </div>
+      </div>
+
+      <div className="ref-grid ref-grid-2 mt-16" style={{display: 'grid', gap: 14}}>
+        <div className="card">
+          <h3>3-point lighting</h3>
+          <pre className="diagram">{`  KEY LIGHT       FILL LIGHT
+     \\ 45°         20°–30° /
+      \\                   /
+       \\    SUBJECT      /
+              ↓
+          BACK LIGHT`}</pre>
+        </div>
+        <div className="card">
+          <h3>Per light</h3>
+          <ul style={{margin: 0, paddingLeft: 18}}>
+            <li><b>Key</b>: 45° from subject (primary)</li>
+            <li><b>Fill</b>: opposite side, lower intensity</li>
+            <li><b>Back</b>: subtle rim on shoulders / hair</li>
+            <li><b>Background</b>: practical lamp for depth</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="ref-grid ref-grid-2 mt-16" style={{display: 'grid', gap: 14}}>
+        <div className="card">
+          <h3>Background</h3>
+          <ul style={{margin: 0, paddingLeft: 18}}>
+            <li>Clean, non-distracting</li>
+            <li>Add depth with practicals (lamp, shelf)</li>
+            <li>Neutral or warm tones</li>
+            <li>Maintain bokeh via wide aperture</li>
+          </ul>
+        </div>
+        <div className="card">
+          <h3>Composition</h3>
+          <ul style={{margin: 0, paddingLeft: 18}}>
+            <li>Subject on one side (rule of thirds)</li>
+            <li>Negative space opposite for text/overlays</li>
+            <li>Avoid centering</li>
+            <li>Open posture, natural pose</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="card mt-16">
+        <h3>Pre-roll checklist</h3>
+        {[
+          'Half body in frame (chest-up)',
+          'Subject angled 30°–45° away from camera',
+          'Looking at off-camera interviewer (not lens)',
+          'Face and body in focus',
+          'Background slightly blurred',
+          'Lighting balanced — no harsh face shadows',
+          'Natural expression, open posture',
+          'Practical light visible for depth'
+        ].map((item, i) => <PreRollItem key={i} text={item} />)}
+      </div>
+    </div>
+  );
+}
+
+function PreRollItem({ text }) {
+  const [done, setDone] = React.useState(false);
+  return (
+    <div className={'check-item ' + (done ? 'done' : '')} onClick={() => setDone(!done)}>
+      <div className="check-box" />
+      <div className="check-text">{text}</div>
+    </div>
+  );
+}
+
+window.MC.PageSetDesign = PageSetDesign;
+
+
+// ===== src/page-camera.jsx =====
+function PageCamera() {
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">Camera Setup</h1>
+          <p className="page-sub">Quick lookup card. Defaults dialed in.</p>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>Talking head defaults</h3>
+        <table className="ref-table">
+          <tbody>
+            <tr><td>Focal length</td><td>50mm – 85mm</td></tr>
+            <tr><td>Aperture</td><td>f/2.0 – f/2.8</td></tr>
+            <tr><td>Focus</td><td>AF single point, locked on eyes</td></tr>
+            <tr><td>Resolution</td><td>4K</td></tr>
+            <tr><td>Frame rate</td><td>24 or 25 fps (PAL — CZ standard)</td></tr>
+            <tr><td>White balance</td><td>5000K – 5600K (manual)</td></tr>
+            <tr><td>ISO</td><td>100 – 400</td></tr>
+            <tr><td>Shutter</td><td>1/50 (matches 25fps)</td></tr>
+            <tr><td>Profile</td><td>Flat / log if grading, standard otherwise</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="card">
+        <h3>Phone (Shorts / on-the-go)</h3>
+        <ul style={{margin: 0, paddingLeft: 18}}>
+          <li>4K 30p, 1x lens (not ultrawide — face distortion)</li>
+          <li>Native camera app, not in-app capture (TikTok/IG)</li>
+          <li>Lock exposure + focus before recording</li>
+        </ul>
+      </div>
+
+      <div className="card">
+        <h3>Audio</h3>
+        <ul style={{margin: 0, paddingLeft: 18}}>
+          <li>Levels peak at -12 to -6 dB. Never touch 0.</li>
+          <li>Always record on-camera audio as backup</li>
+          <li>5 seconds of room tone before each session</li>
+        </ul>
+      </div>
+
+      <div className="card">
+        <h3>Pre-roll checklist</h3>
+        {[
+          'Battery > 50%',
+          'Card formatted, has space',
+          'Mic on, levels checked',
+          'Focus locked on eyes',
+          'Red dot confirmed before talking'
+        ].map((item, i) => <PreRollItem key={i} text={item} />)}
+      </div>
+    </div>
+  );
+}
+
+window.MC.PageCamera = PageCamera;
+
+
+// ===== src/page-brand.jsx =====
+function PageBrand() {
+  const s = window.MC.db.useStore();
+  const { Field } = window.MC.ui;
+  const b = s.brand;
+  function patch(p) { window.MC.db.updateBrand(p); }
+
+  return (
+    <div className="page">
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">Brand</h1>
+          <p className="page-sub">Colors, fonts, voice. One source of truth.</p>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>Colors</h3>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 10}}>
+          <ColorField label="Primary" value={b.primary} onChange={v => patch({ primary: v })} />
+          <ColorField label="Secondary" value={b.secondary} onChange={v => patch({ secondary: v })} />
+          <ColorField label="Background dark" value={b.bgDark} onChange={v => patch({ bgDark: v })} />
+          <ColorField label="Background light" value={b.bgLight} onChange={v => patch({ bgLight: v })} />
+          <ColorField label="Text" value={b.text} onChange={v => patch({ text: v })} />
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>Typography</h3>
+        <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10}}>
+          <Field label="Display / thumbnails">
+            <input className="input" value={b.displayFont} onChange={e => patch({ displayFont: e.target.value })} placeholder="e.g. Inter, Migra" />
+          </Field>
+          <Field label="Body / captions">
+            <input className="input" value={b.bodyFont} onChange={e => patch({ bodyFont: e.target.value })} />
+          </Field>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>Voice & tone</h3>
+        <Field>
+          <textarea className="textarea" style={{minHeight: 160}} value={b.voiceNotes} onChange={e => patch({ voiceNotes: e.target.value })} placeholder="Direct, no padding. Slightly warm. CZ: conversational. EN: B2 clarity. Never: clickbait, fake urgency, corporate-speak." />
+        </Field>
+      </div>
+
+      <div className="card">
+        <h3>Thumbnail style rules</h3>
+        <ul style={{margin: 0, paddingLeft: 18}}>
+          <li>Max 3 visual elements: face, object, text</li>
+          <li>Text: 3–4 words max, one font weight</li>
+          <li>Readable at 120px width (zoom out to test)</li>
+          <li>Face: clear expression, eye contact</li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function ColorField({ label, value, onChange }) {
+  return (
+    <div className="field">
+      <label>{label}</label>
+      <div className="row-h">
+        <input
+          type="color"
+          value={value || '#000000'}
+          onChange={e => onChange(e.target.value)}
+          style={{width: 38, height: 38, padding: 0, border: '1px solid var(--border)', borderRadius: 6, background: 'transparent', cursor: 'pointer'}}
+        />
+        <input
+          className="input"
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          placeholder="#hex"
+        />
+      </div>
+    </div>
+  );
+}
+
+window.MC.PageBrand = PageBrand;
+
+
+// ===== src/app.jsx =====
+const NAV = [
+  { group: 'Work', items: [
+    { key: 'today', label: 'Today', icon: '☀️' },
+    { key: 'ideas', label: 'Ideas', icon: '💡' },
+    { key: 'videos', label: 'Videos', icon: '🎬' },
+    { key: 'scripts', label: 'Scripts', icon: '📝' },
+    { key: 'checklists', label: 'Checklists', icon: '✅' },
+  ]},
+  { group: 'Reference', items: [
+    { key: 'setdesign', label: 'Set Design', icon: '🎥' },
+    { key: 'camera', label: 'Camera Setup', icon: '📷' },
+    { key: 'brand', label: 'Brand', icon: '🎨' },
+  ]}
+];
+
+const MOBILE_NAV = [
+  { key: 'today', label: 'Today', icon: '☀️' },
+  { key: 'ideas', label: 'Ideas', icon: '💡' },
+  { key: 'videos', label: 'Videos', icon: '🎬' },
+  { key: 'checklists', label: 'Lists', icon: '✅' },
+  { key: 'setdesign', label: 'Set', icon: '🎥' },
+];
+
+function App() {
+  // Route is "page" + optional "id" for detail pages
+  const [page, setPage] = React.useState(() => {
+    const h = window.location.hash.replace('#', '');
+    return h.split('/')[0] || 'today';
+  });
+  const [pageId, setPageId] = React.useState(() => {
+    const h = window.location.hash.replace('#', '');
+    return h.split('/')[1] || null;
+  });
+
+  function go(p, id = null) {
+    setPage(p);
+    setPageId(id);
+    window.location.hash = id ? p + '/' + id : p;
+    window.scrollTo(0, 0);
+  }
+
+  React.useEffect(() => {
+    function onHash() {
+      const h = window.location.hash.replace('#', '');
+      const [p, id] = h.split('/');
+      setPage(p || 'today');
+      setPageId(id || null);
+    }
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  const pages = {
+    today: () => <window.MC.PageToday go={go} />,
+    ideas: () => <window.MC.PageIdeas go={go} />,
+    videos: () => <window.MC.PageVideos go={go} />,
+    scripts: () => <window.MC.PageScripts go={go} videoId={pageId} />,
+    checklists: () => <window.MC.PageChecklists go={go} videoId={pageId} />,
+    setdesign: () => <window.MC.PageSetDesign />,
+    camera: () => <window.MC.PageCamera />,
+    brand: () => <window.MC.PageBrand />,
+  };
+
+  const PageEl = pages[page] || pages.today;
+
+  return (
+    <div className="app">
+      <aside className="sidebar">
+        <div className="brand">
+          <div className="brand-mark">MC</div>
+          <div className="brand-name">Michael's Corner</div>
+        </div>
+        <nav className="nav">
+          {NAV.map(group => (
+            <React.Fragment key={group.group}>
+              <div className="nav-group-label">{group.group}</div>
+              {group.items.map(item => (
+                <button
+                  key={item.key}
+                  className={'nav-item ' + (page === item.key ? 'active' : '')}
+                  onClick={() => go(item.key)}
+                >
+                  <span className="nav-icon">{item.icon}</span>
+                  <span>{item.label}</span>
+                </button>
+              ))}
+            </React.Fragment>
+          ))}
+        </nav>
+      </aside>
+
+      <main className="main">
+        <header className="mobile-header">
+          <div className="brand-mark">MC</div>
+          <div className="brand-name">Michael's Corner</div>
+        </header>
+        <PageEl />
+      </main>
+
+      <nav className="mobile-nav">
+        {MOBILE_NAV.map(item => (
+          <button
+            key={item.key}
+            className={page === item.key ? 'active' : ''}
+            onClick={() => go(item.key)}
+          >
+            <span className="nav-icon">{item.icon}</span>
+            <span>{item.label}</span>
+          </button>
+        ))}
+      </nav>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+
+</script>
+</body>
+</html>
