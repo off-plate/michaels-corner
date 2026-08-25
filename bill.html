@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apps / Michael's Corner</title>
-<meta name="description" content="The apps I have built with AI in the evenings: Tuck, Recall, and Refill.">
+<meta name="description" content="The apps I have built with AI in the evenings: Tuck, Recall, Refill, and Frost.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Michael's Corner">
 <meta property="og:title" content="Apps / Michael's Corner">
-<meta property="og:description" content="The apps I have built with AI in the evenings: Tuck, Recall, and Refill.">
+<meta property="og:description" content="The apps I have built with AI in the evenings: Tuck, Recall, Refill, and Frost.">
 <meta property="og:image" content="https://off-plate.github.io/michaelscorner-v2/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg">
@@ -26,9 +26,8 @@
 <script>(function(){try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;var l=document.createElement('div');l.className='mc-loader';l.id='mc-loader';l.setAttribute('aria-hidden','true');l.innerHTML='<div class="lm">Michaels <span>Corner</span></div><div class="lw"></div>';(document.body||document.documentElement).appendChild(l);setTimeout(function(){var e=document.getElementById('mc-loader');if(e&&e.parentNode)e.parentNode.removeChild(e);},3000);}catch(e){}})();</script>
 <style>
 /* Projects: inviting app tiles with the real logo. No receipt narrative. */
-/* three across on desktop so no tile is ever stranded in a half-empty row */
-.proj-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,2.4vw,32px); }
-@media (max-width:980px){ .proj-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+/* two across on desktop so an even count never strands a tile alone in a row */
+.proj-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,2.4vw,32px); }
 @media (max-width:720px){ .proj-grid{ grid-template-columns:1fr; } }
 </style>
 </head>
@@ -60,7 +59,7 @@
           <h1 class="h-page">Apps</h1>
         </div>
         <div>
-          <p class="hero-intro">The apps I have actually built with AI in the evenings, not demos. Three so far, all of them things I use myself every day.</p>
+          <p class="hero-intro">The apps I have actually built with AI in the evenings, not demos. Four so far, all of them things I use myself every day.</p>
         </div>
       </div>
     </div>
@@ -91,6 +90,14 @@
         <div>
           <div class="proj-top"><h2>Refill</h2><span class="proj-plat">macOS menu bar</span></div>
           <p class="proj-desc">Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers, so you can see when the five-hour window resets instead of finding out by hitting the limit.</p>
+        </div>
+      </article>
+
+      <article class="proj-tile">
+        <div class="proj-logo"><img src="assets/proj-frost.png" alt="Frost app icon" width="92" height="92"></div>
+        <div>
+          <div class="proj-top"><h2>Frost</h2><span class="proj-plat">Chrome extension</span></div>
+          <p class="proj-desc">Freezes tabs you have not touched in a while using Chrome's own discard, so a sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, title, and full history.</p>
         </div>
       </article>
 
