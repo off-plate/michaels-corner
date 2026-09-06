@@ -12,7 +12,23 @@
   --pad:clamp(20px,4vw,88px);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{width:0;height:0;display:none}
+
+/* Custom scrollbar. The native one is hidden, so this has to do the whole job:
+   show position, be draggable, and take a click on the track. */
+#sb{position:fixed;top:0;right:0;bottom:0;width:22px;z-index:80;display:none;
+  touch-action:none;-webkit-user-select:none;user-select:none}
+#sb.on{display:block}
+#sb::before{content:'';position:absolute;top:10px;bottom:10px;right:9px;width:4px;border-radius:99px;
+  background:rgba(26,26,26,.13)}
+#sbt{position:absolute;right:6px;width:10px;border-radius:99px;background:var(--ink);
+  border:2px solid var(--ground);cursor:grab;transition:width .16s cubic-bezier(.22,.61,.36,1),right .16s cubic-bezier(.22,.61,.36,1),background .16s}
+#sb:hover #sbt{width:14px;right:4px}
+#sbt:active{cursor:grabbing;background:var(--coral)}
+#sb.drag #sbt{width:14px;right:4px;background:var(--coral)}
+@media (pointer:coarse){ #sb{display:none!important} }
+@media (max-width:720px){ #sb{display:none!important} }
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -95,14 +111,8 @@ main{min-height:60vh}
 /* section head */
 .shead{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:clamp(24px,3vw,64px);row-gap:14px;
   margin-bottom:clamp(22px,2.6vw,34px)}
-.shead .lede{max-width:60ch;margin-top:12px}
+.shead .lede{max-width:64ch;margin-top:14px}
 .shead>div:first-child{min-width:0}
-@media (min-width:1200px){
-  .shead{grid-template-columns:minmax(0,auto) minmax(0,1fr) auto}
-  .shead>div:first-child{display:contents}
-  .shead h2{align-self:end}
-  .shead .lede{margin-top:0;align-self:end;max-width:52ch}
-}
 @media (max-width:720px){ .shead{grid-template-columns:1fr} .shead>a,.shead>div:last-child{justify-self:start} }
 
 /* cards */
@@ -167,10 +177,11 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .fmark{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .fmark img{height:56px;width:auto}
 .fmark span{font-weight:900;font-stretch:64%;text-transform:uppercase;font-size:22px;line-height:0.9}
-.closer{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr) auto;align-items:end;column-gap:clamp(28px,4vw,80px);row-gap:18px}
-.closer .lede{max-width:52ch}
-.closer .btn{justify-self:end}
-@media (max-width:1100px){ .closer{grid-template-columns:1fr} .closer .btn{justify-self:start} }
+.closer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:clamp(28px,4vw,80px);row-gap:20px}
+.closer h2{grid-column:1;grid-row:1}
+.closer .lede{grid-column:1;grid-row:2;max-width:64ch;margin-top:2px}
+.closer .btn{grid-column:2;grid-row:1/span 2;align-self:end;justify-self:end}
+@media (max-width:900px){ .closer{grid-template-columns:1fr} .closer .btn{grid-column:1;grid-row:3;justify-self:start} }
 .fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid rgba(245,242,232,.16);font-size:12.5px;color:rgba(245,242,232,.5)}
 
 /* ---------- home ---------- */
@@ -386,6 +397,8 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   .brand img{height:36px}
 }
 </style>
+
+<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
 <div id="load" aria-hidden="true">
   <div class="ldwrap">
@@ -998,6 +1011,7 @@ function render(){
   window.scrollTo({top:0,behavior:'instant'});
   wire(page);
   reveal();
+  if(window.__sbPlace) requestAnimationFrame(window.__sbPlace);
 }
 
 /* ---------- per-page wiring ---------- */
@@ -1162,6 +1176,68 @@ function fitNav(){
   hdr.classList.toggle('compact', navNeed > window.innerWidth);
   if(!hdr.classList.contains('compact')) document.getElementById('nav').classList.remove('open');
 }
+/* ---------- custom scrollbar ---------- */
+(function(){
+  const bar = document.getElementById('sb'), thumb = document.getElementById('sbt');
+  if(!bar || !thumb) return;
+  const PAD = 10, MIN = 44;
+  let track = 0, thumbH = 0, range = 0;
+
+  function measure(){
+    const doc = document.documentElement;
+    const sh = doc.scrollHeight, ch = window.innerHeight;
+    range = sh - ch;
+    if(range <= 4){ bar.classList.remove('on'); return false; }
+    bar.classList.add('on');
+    track = ch - PAD * 2;
+    thumbH = Math.max(MIN, Math.round(track * (ch / sh)));
+    thumb.style.height = thumbH + 'px';
+    return true;
+  }
+  function place(){
+    if(!measure()) return;
+    const y = PAD + (track - thumbH) * (window.scrollY / range);
+    thumb.style.transform = 'translateY(' + Math.round(y) + 'px)';
+  }
+
+  let ticking = false;
+  const onScroll = () => { if(ticking) return; ticking = true;
+    requestAnimationFrame(()=>{ place(); ticking = false; }); };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', place);
+  if(window.ResizeObserver) new ResizeObserver(place).observe(document.body);
+
+  // dragging the thumb
+  let dragging = false, grabOffset = 0;
+  thumb.addEventListener('pointerdown', e => {
+    if(!measure()) return;
+    dragging = true; bar.classList.add('drag');
+    grabOffset = e.clientY - thumb.getBoundingClientRect().top;
+    thumb.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  thumb.addEventListener('pointermove', e => {
+    if(!dragging) return;
+    const y = e.clientY - grabOffset - PAD;
+    const ratio = Math.min(1, Math.max(0, y / (track - thumbH)));
+    window.scrollTo({top: ratio * range});
+  });
+  const stop = e => { if(!dragging) return; dragging = false; bar.classList.remove('drag');
+    try{ thumb.releasePointerCapture(e.pointerId); }catch(_){} };
+  thumb.addEventListener('pointerup', stop);
+  thumb.addEventListener('pointercancel', stop);
+
+  // clicking the track jumps there
+  bar.addEventListener('pointerdown', e => {
+    if(e.target === thumb || !measure()) return;
+    const ratio = Math.min(1, Math.max(0, (e.clientY - PAD - thumbH / 2) / (track - thumbH)));
+    window.scrollTo({top: ratio * range, behavior:'smooth'});
+  });
+
+  place();
+  window.__sbPlace = place;
+})();
+
 /* The loader runs once, on the first load only. */
 (function(){
   const l = document.getElementById('load');
