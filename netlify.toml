@@ -105,28 +105,16 @@
   to = "/kit.html"
   status = 200
 
-# deep pages, by directory. A named placeholder with a literal suffix
-# (":slug.html") is NOT what it looks like in Netlify's matcher -- the whole
-# token after the colon becomes the parameter name, so it matches every
-# path and substitutes nothing. Splat (*) is the form that actually supports
-# a literal suffix, and is Netlify's own documented pattern for this exact
-# extension-stripping case.
-[[redirects]]
-  from = "/tools/*.html"
-  to = "/tools/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/packs/*.html"
-  to = "/packs/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/prompts/*.html"
-  to = "/prompts/:splat"
-  status = 301
-  force = true
-
+# Deep pages, by directory. The clean path is what every link, canonical
+# and JSON-LD block on the site uses; the 200 rewrite below is what actually
+# serves it. There is deliberately no .html -> clean redirect down here:
+# Netlify's redirect engine does not honor force=true against a splat rule
+# when a same-named static file exists (verified live -- the equivalent
+# named top-level rules above work correctly, this specific combination does
+# not), and nothing on this site links to the .html form any more, so there
+# is no real traffic or inbound link to redirect. The canonical tag on every
+# page already tells a search engine which URL is the real one, which is
+# what actually prevents duplicate-content treatment.
 [[redirects]]
   from = "/tools/*"
   to = "/tools/:splat.html"
