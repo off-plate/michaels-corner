@@ -39,7 +39,29 @@ function fillTokens(text) {
 }
 
 /* ---------- shared chrome (verbatim from SPEC, prefix = "" for root, "../" for subfolders) ---------- */
-function head(title, desc, prefix) {
+const SITE = "https://michaels-corner.netlify.app/";
+const TODAY = new Date().toISOString().slice(0, 10);
+
+/* Structured data. A pack is a list of prompts, a prompt page is a HowTo with
+   one step, and both name the same author, so an answer engine can tie every
+   page on the site back to one person. */
+function jsonld(obj) {
+  return `<script type="application/ld+json">${JSON.stringify(obj)}<\/script>`;
+}
+const PERSON = { "@type": "Person", name: "Michael Florian", url: SITE };
+
+function head(title, desc, prefix, canonPath, extraLd) {
+  const CANON = SITE + (canonPath || "");
+  const LD = [
+    jsonld({ "@context": "https://schema.org", "@type": "WebPage", name: title,
+             description: desc, url: CANON, inLanguage: "en", dateModified: TODAY,
+             isPartOf: { "@type": "WebSite", name: "Michael's Corner", url: SITE },
+             author: PERSON }),
+  ].concat(extraLd ? extraLd.map(jsonld) : []).join("\n");
+  return _head(title, desc, prefix, CANON, LD);
+}
+
+function _head(title, desc, prefix, CANON, LD) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +69,9 @@ function head(title, desc, prefix) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)} / Michael's Corner</title>
 <meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${CANON}">
+<meta name="author" content="Michael Florian">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#E9EEE7">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
@@ -58,7 +83,8 @@ function head(title, desc, prefix) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
-<link rel="stylesheet" href="${prefix}styles.css">`;
+<link rel="stylesheet" href="${prefix}styles.css">
+${LD}`;
 }
 
 function header(prefix) {
@@ -344,7 +370,16 @@ function buildPack(pack, i) {
 </div>
 `;
 
-  const html = head(pack.name, pack.blurb[0], prefix)
+  const html = head(pack.name, pack.blurb[0], prefix, `packs/${pack.id}.html`, [
+    { "@context": "https://schema.org", "@type": "ItemList", name: pack.name,
+      description: pack.blurb.join(" "), numberOfItems: pack.prompts.length,
+      itemListElement: pack.prompts.map((q, n) => ({
+        "@type": "ListItem", position: n + 1, name: q.title,
+        url: `${SITE}prompts/${q.id}.html` })) },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Michael's Corner", item: SITE },
+      { "@type": "ListItem", position: 2, name: "Prompts that can help you", item: SITE + "library.html" },
+      { "@type": "ListItem", position: 3, name: pack.name, item: `${SITE}packs/${pack.id}.html` }] }])
     + css + "\n</head>\n<body>\n<a class=\"skip-link\" href=\"#main\">Skip to content</a>\n"
     + header(prefix) + "\n" + body + "\n" + footer(prefix) + "\n</body>\n</html>\n";
 
@@ -480,7 +515,16 @@ function buildPrompt(pack, packIndex, pr, promptIndex) {
 })();
 </script>`;
 
-  const html = head(pr.title, pr.when, prefix)
+  const html = head(pr.title, pr.when, prefix, `prompts/${pr.id}.html`, [
+    { "@context": "https://schema.org", "@type": "HowTo", name: pr.title,
+      description: pr.when, author: PERSON,
+      step: [{ "@type": "HowToStep", position: 1, name: "Copy the prompt and fill the brackets",
+               text: pr.when }] },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Michael's Corner", item: SITE },
+      { "@type": "ListItem", position: 2, name: "Prompts that can help you", item: SITE + "library.html" },
+      { "@type": "ListItem", position: 3, name: pack.name, item: `${SITE}packs/${pack.id}.html` },
+      { "@type": "ListItem", position: 4, name: pr.title, item: `${SITE}prompts/${pr.id}.html` }] }])
     + css + "\n</head>\n<body>\n<a class=\"skip-link\" href=\"#main\">Skip to content</a>\n"
     + header(prefix) + "\n" + body + "\n" + footer(prefix) + script + "\n</body>\n</html>\n";
 
