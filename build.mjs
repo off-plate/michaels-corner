@@ -136,7 +136,7 @@ function buildLibrary() {
 .rlink:focus-visible{ background:var(--sage); outline:2px solid var(--orange); outline-offset:-2px; }
 .rlink .rt{ font-weight:900; font-stretch:80%; text-transform:uppercase; font-size:18px; line-height:1.15; letter-spacing:-0.01em; grid-column:1; }
 .rlink .rw{ grid-column:1; font-size:14px; line-height:1.45; color:var(--grey); margin-top:2px; }
-.rlink .rpack{ grid-column:2; grid-row:1 / span 2; font-family:'Space Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-2); white-space:nowrap; align-self:center; }
+.rlink .rpack{ grid-column:2; grid-row:1 / span 2; font-family:'Space Mono',ui-monospace,monospace; font-size:12.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-2); white-space:nowrap; align-self:center; }
 .rlink .rpack .oa{ color:var(--green); margin-left:8px; }
 
 /* the pack grid: clear, clickable cards */
@@ -251,7 +251,7 @@ function buildPack(pack, i) {
 .d-back{ margin-bottom:clamp(20px,2.4vw,28px); }
 /* all-packs cross-nav: a full-width row under the ledger */
 .pack-nav{ margin-top:clamp(36px,4.5vw,60px); border-top:1px solid var(--ink); padding-top:22px; display:flex; flex-wrap:wrap; gap:12px 22px; align-items:baseline; }
-.pack-nav .pn-label{ width:100%; font-family:'Space Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:6px; }
+.pack-nav .pn-label{ width:100%; font-family:'Space Mono',ui-monospace,monospace; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:6px; }
 .pack-nav a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; transition:color 150ms ease, border-color 150ms ease; }
 .pack-nav a:hover{ color:var(--brick); border-color:var(--brick); }
 .pack-nav .pn-here{ color:var(--orange); font-weight:600; border-bottom:1px solid var(--orange); padding-bottom:2px; }
@@ -368,7 +368,7 @@ function buildPrompt(pack, packIndex, pr, promptIndex) {
 
 /* the terminal specimen */
 .term{ background:var(--ink); color:var(--ink-text); border:1px solid var(--ink); border-radius:2px; overflow:hidden; }
-.term-bar{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 16px; border-bottom:1px solid #34302a; font-family:'Space Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#b9b2a4; }
+.term-bar{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 16px; border-bottom:1px solid #34302a; font-family:'Space Mono',ui-monospace,monospace; font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase; color:#b9b2a4; }
 .term-bar .dot{ display:inline-flex; align-items:center; gap:8px; }
 .term-body{ padding:clamp(16px,2.4vw,24px); font-family:'Space Mono',ui-monospace,Menlo,monospace; font-size:13.5px; line-height:1.7; white-space:pre-wrap; word-break:break-word; margin:0; color:var(--ink-text); }
 .term-body .cur{ display:inline-block; width:0.62em; height:1.05em; background:var(--orange); vertical-align:-0.16em; margin-left:2px; animation:mc-cur 1s steps(1) infinite; }
@@ -387,7 +387,7 @@ function buildPrompt(pack, packIndex, pr, promptIndex) {
 /* spec fields: a prominent panel ABOVE the prompt so you know how to use it before you copy */
 .specfields{ margin-bottom:clamp(24px,3vw,36px); background:var(--cream-2); border:1px solid var(--ink); border-radius:2px;
   padding:clamp(22px,2.6vw,32px); display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:clamp(20px,2.6vw,36px); }
-.sf h3{ font-family:'Space Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin:0 0 10px; font-weight:700; }
+.sf h3{ font-family:'Space Mono',ui-monospace,monospace; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin:0 0 10px; font-weight:700; }
 .sf p{ margin:0; font-size:15px; line-height:1.6; color:var(--ink); }
 .tokens{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
 .tokens li{ font-family:'Space Mono',ui-monospace,monospace; font-size:13.5px; color:var(--ink); }

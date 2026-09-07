@@ -113,7 +113,8 @@ a:hover .oa{ transform:translateX(3px); }
 .head-mark{ height:42px; width:auto; transition:transform .28s var(--ease); }
 .head-word:hover .head-mark{ transform:translateX(4px) rotate(-3deg); }
 .head-word .hw{ font-size:21px; line-height:.9; }
-.nav-extra,.nav-toggle{ display:none !important; }
+.nav-extra{ display:none !important; }
+.nav-toggle{ display:none; }
 .head-handle{ display:none; }
 .head-cta{ display:inline-flex; align-items:center; gap:10px; margin-left:auto; flex:none; order:3;
   background:var(--sun); color:var(--ink); border:2px solid var(--ink); border-radius:999px;
@@ -127,10 +128,33 @@ a:hover .oa{ transform:translateX(3px); }
   color:var(--ink-soft); text-decoration:none; white-space:nowrap; transition:background .15s,color .15s; }
 .head-nav a:hover{ background:var(--card-bg); color:var(--ink); }
 .head-nav a.active,.head-nav a[aria-current="page"]{ background:var(--ink); color:var(--ink-text); font-weight:700; }
+/* Below 1180 the labels are whole sentences and cannot share a row, so the nav
+   becomes a real menu. shared.js builds the .nav-toggle button and flips
+   .nav-open on the header; this is the panel it opens. */
 @media (max-width:1180px){
-  .site-head .wrap{ padding-bottom:10px; }
-  .head-top{ height:68px; }
-  .head-nav{ order:2; flex:1 0 100%; padding-top:2px; }
+  .site-head .wrap{ position:relative; }
+  .head-top{ height:68px; gap:12px; }
+  .head-nav{ display:none; position:absolute; left:var(--pad); right:var(--pad); top:calc(100% + 2px);
+    flex-direction:column; align-items:stretch; gap:2px; overflow:visible;
+    background:var(--cream-3); border:2px solid var(--ink); border-radius:20px; padding:10px;
+    z-index:70; box-shadow:0 18px 40px rgba(26,26,26,.14); }
+  .site-head.nav-open .head-nav{ display:flex; }
+  .head-nav a{ text-align:left; padding:12px 16px; font-size:15.5px; border-radius:12px; }
+  .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; gap:5px;
+    flex-direction:column; margin-left:auto; flex:none; order:2;
+    width:auto; padding:11px 15px; background:transparent; border:2px solid var(--ink);
+    border-radius:999px; cursor:pointer; }
+  .nav-toggle span{ display:block; width:17px; height:2px; background:var(--ink); border-radius:2px;
+    transition:transform .2s var(--ease),opacity .2s; }
+  .site-head.nav-open .nav-toggle span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .site-head.nav-open .nav-toggle span:nth-child(2){ opacity:0; }
+  .site-head.nav-open .nav-toggle span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .head-cta{ order:3; margin-left:0; padding:10px 16px; font-size:13.5px; }
+}
+@media (max-width:520px){
+  .head-word .hw{ font-size:18px; }
+  .head-mark{ height:34px; }
+  .head-top{ height:64px; }
 }
 
 /* ---------------- page hero ---------------- */
@@ -182,7 +206,7 @@ a.card:hover,a.hcard:hover,a.tcard:hover,a.pack-card:hover,a.pcard:hover,a.vcard
   transform:scale(1.02); background:var(--raised); color:var(--ink);
 }
 .pc-top,.proj-top,.list-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-.pc-tag,.tag,.fl-tag{ display:inline-flex; align-items:center; font-weight:800; font-size:11px;
+.pc-tag,.tag,.fl-tag{ display:inline-flex; align-items:center; font-weight:800; font-size:12px;
   letter-spacing:.1em; text-transform:uppercase; background:var(--ink); color:var(--ink-text);
   border-radius:999px; padding:5px 11px; font-family:var(--sans); }
 .pc-n{ font-family:var(--mono-f); font-size:12.5px; color:var(--grey-2); }
@@ -269,3 +293,9 @@ th{ font-weight:800; font-size:12.5px; letter-spacing:.06em; text-transform:uppe
   *{ animation:none !important; transition:none !important; }
   .btn:hover,.card:hover,a.card:hover,.head-cta:hover{ transform:none !important; }
 }
+
+
+/* No type below 12px, on any page. The generated pages and the tools each set
+   a few 11px labels of their own; this is the floor. */
+.q-wt,.pn-label,.copy-stamp,.fineprint,.left-note,.t-note,.hint,.phint,
+.desig,.t-desig,.updated,.t-updated,.dur,.k,.head-handle,.mono{ font-size:12.5px; }
