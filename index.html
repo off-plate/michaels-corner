@@ -454,6 +454,14 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   footer{padding:clamp(34px,8vw,46px) 0 26px}
   .fgrid{gap:24px}
   .fmark img{height:46px}
+  /* Tap targets. A standalone link in a footer, a rail or a list is something
+     you aim a thumb at, so it gets 44px of height. Links inside a paragraph
+     are not targets and keep their normal line height. */
+  .fgrid a{padding:12px 0;min-height:44px;display:flex;align-items:center}
+  .sidenote a{padding:11px 0;min-height:44px;display:flex;align-items:center}
+  .reslist a{min-height:52px}
+  .foot-col a{padding:12px 0;min-height:44px;display:flex;align-items:center}
+  .brand{min-height:44px}
 }
 @media (max-width:520px){
   .stats{grid-template-columns:1fr}

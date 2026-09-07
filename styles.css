@@ -299,3 +299,22 @@ th{ font-weight:800; font-size:12.5px; letter-spacing:.06em; text-transform:uppe
    a few 11px labels of their own; this is the floor. */
 .q-wt,.pn-label,.copy-stamp,.fineprint,.left-note,.t-note,.hint,.phint,
 .desig,.t-desig,.updated,.t-updated,.dur,.k,.head-handle,.mono{ font-size:12.5px; }
+
+
+/* Tap targets on a phone. A standalone link in a footer, a rail, a pack list or
+   a back-link is something you aim a thumb at, so it gets 44px of height. Links
+   inside a paragraph are not targets and keep their normal line height. */
+@media (max-width:720px){
+  .foot-col a,.pack-nav a,.pn-list a,.links-list a{
+    padding:12px 0; min-height:44px; display:flex; align-items:center; }
+  .backlink,.hero-back,.t-back{ min-height:44px; align-items:center; }
+  .lrow,.rlink,.reslist a{ min-height:52px; }
+  /* Standalone links and controls inside a tool or a spec sheet. */
+  .link,.a-head a,.spec a,.term a{ padding:12px 0; min-height:44px; display:inline-flex; align-items:center; }
+  .copy-btn,.reset,.term-bar button,.runbar button{ min-height:44px; padding:11px 18px; }
+  .head-word{ min-height:44px; }
+  /* Every button is a control, never inline prose, so the floor applies to all
+     of them. This catches the tools' own segmented controls and action rows,
+     which are styled inside each page and out of reach of a class selector. */
+  button{ min-height:44px; }
+}
