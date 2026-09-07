@@ -44,50 +44,42 @@ function head(title, desc, prefix) {
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)} / Michael's Corner</title>
 <meta name="description" content="${esc(desc)}">
+<meta name="theme-color" content="#E9EEE7">
+<meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Michael's Corner">
 <meta property="og:title" content="${esc(title)} / Michael's Corner">
 <meta property="og:description" content="${esc(desc)}">
-<meta property="og:image" content="https://off-plate.github.io/michaelscorner-v2/assets/og.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="${prefix}assets/favicon.svg">
-<link rel="preload" href="${prefix}assets/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${prefix}assets/fonts/fonts.css">
-<link rel="stylesheet" href="${prefix}styles.css">
-<style>
-.mc-loader{position:fixed;inset:0;z-index:9999;background:#FAF7F2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity 420ms cubic-bezier(.22,.61,.36,1)}
-.mc-loader.hide{opacity:0;pointer-events:none}
-.mc-loader .lm{font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(20px,2.4vw,26px);color:#15130F}
-.mc-loader .lm span{color:#F2541B}
-.mc-loader .lw{font-family:'Space Mono',ui-monospace,monospace;font-size:clamp(20px,2.6vw,28px);letter-spacing:2px;color:#F2541B;white-space:pre;line-height:1}
-@media(prefers-reduced-motion:reduce){.mc-loader{display:none}}
-</style>
-<script>(function(){try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;var l=document.createElement('div');l.className='mc-loader';l.id='mc-loader';l.setAttribute('aria-hidden','true');l.innerHTML='<div class="lm">Michaels <span>Corner</span></div><div class="lw"></div>';(document.body||document.documentElement).appendChild(l);setTimeout(function(){var e=document.getElementById('mc-loader');if(e&&e.parentNode)e.parentNode.removeChild(e);},3000);}catch(e){}})();</script>`;
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="${prefix}assets/brand/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="${prefix}styles.css">`;
 }
 
 function header(prefix) {
-  return `<header class="site-head">
+  return `<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head">
   <div class="wrap">
     <div class="head-top">
-      <span class="head-handle mono">@michaelflorian_ai</span>
-      <a class="head-word no-fx" href="${prefix}index.html"><img src="${prefix}assets/mark.svg" alt="" class="head-mark" width="30" height="30" aria-hidden="true">Michaels Corner</a>
-      <a class="head-cta" href="${prefix}kit.html" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
+      <a class="head-word no-fx" href="${prefix}index.html"><img src="${prefix}assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michaels<br>Corner<span style="color:#E45B52">.</span></span></a>
+      <nav class="head-nav" aria-label="Main">
+        <a href="${prefix}index.html" data-nav="home">Home</a>
+        <a href="${prefix}start.html" data-nav="start">First time? Start here</a>
+        <a href="${prefix}library.html" data-nav="library">Prompts that can help you</a>
+        <a href="${prefix}tools.html" data-nav="tools">Most useful tools</a>
+        <a href="${prefix}bill.html" data-nav="bill">Apps I built</a>
+        <a href="${prefix}channel.html" data-nav="channel">More free tutorials</a>
+        <a href="${prefix}about.html" data-nav="about">Who I am</a>
+      </nav>
+      <a class="head-cta no-fx" href="${prefix}kit.html" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
     </div>
-    <nav class="head-nav" aria-label="Main">
-      <a href="${prefix}index.html" data-nav="home">Home</a>
-      <a href="${prefix}start.html" data-nav="start">First time? Start here</a>
-      <a href="${prefix}library.html" data-nav="library">Prompts that can help you</a>
-      <a href="${prefix}tools.html" data-nav="tools">Most useful tools</a>
-      <a href="${prefix}bill.html" data-nav="bill">Apps I built</a>
-      <a href="${prefix}channel.html" data-nav="channel">More free tutorials</a>
-      <a href="${prefix}about.html" data-nav="about">Who I am</a>
-    </nav>
   </div>
-</header>
-<main id="main" tabindex="-1">`;
+</header>`;
 }
 
 function footer(prefix) {
@@ -99,19 +91,17 @@ function footer(prefix) {
       <p class="foot-line">AI did not take my job. It made me faster.</p>
     </div>
     <div class="foot-col">
-      <a href="${prefix}library.html">Prompts</a>
-      <a href="${prefix}tools.html">Tools</a>
-      <a href="${prefix}bill.html">Apps</a>
+      <a href="${prefix}library.html">Prompts that can help you</a>
+      <a href="${prefix}tools.html">Most useful tools</a>
+      <a href="${prefix}bill.html">Apps I built</a>
     </div>
     <div class="foot-col">
-      <a href="${prefix}start.html">Start here</a>
+      <a href="${prefix}start.html">First time? Start here</a>
       <a href="${prefix}kit.html">The Starter Kit</a>
-      <a href="${prefix}about.html">About</a>
+      <a href="${prefix}about.html">Who I am</a>
     </div>
   </div>
 </footer>
-<script src="${prefix}icons.js"></script>
-<script src="${prefix}signature.js"></script>
 <script src="${prefix}data/prompts-index.js"></script>
 <script src="${prefix}shared.js"></script>`;
 }
@@ -144,7 +134,7 @@ function buildLibrary() {
   border-bottom:1px solid var(--line); padding:15px 8px; text-decoration:none; color:var(--ink); transition:background 150ms ease; }
 .rlink:hover{ background:var(--sage); }
 .rlink:focus-visible{ background:var(--sage); outline:2px solid var(--orange); outline-offset:-2px; }
-.rlink .rt{ font-family:'Clash Display',sans-serif; font-weight:600; font-size:18px; line-height:1.15; letter-spacing:-0.01em; grid-column:1; }
+.rlink .rt{ font-weight:900; font-stretch:80%; text-transform:uppercase; font-size:18px; line-height:1.15; letter-spacing:-0.01em; grid-column:1; }
 .rlink .rw{ grid-column:1; font-size:14px; line-height:1.45; color:var(--grey); margin-top:2px; }
 .rlink .rpack{ grid-column:2; grid-row:1 / span 2; font-family:'Space Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-2); white-space:nowrap; align-self:center; }
 .rlink .rpack .oa{ color:var(--green); margin-left:8px; }
@@ -245,7 +235,7 @@ function buildLibrary() {
     + css + "\n</head>\n<body>\n<a class=\"skip-link\" href=\"#main\">Skip to content</a>\n"
     + header(prefix) + "\n" + body + "\n" + footer(prefix) + script + "\n</body>\n</html>\n";
 
-  writeFileSync(join(ROOT, "library.html"), html);
+  /* library.html is the single-page app route now, not a generated page. */
   return total;
 }
 
@@ -288,9 +278,9 @@ function buildPack(pack, i) {
 }
 .lrow:hover{ background:var(--sage); }
 .lrow:focus-visible{ background:var(--sage); outline:2px solid var(--orange); outline-offset:-2px; }
-.lrow .fno{ font-family:'Clash Display',sans-serif; font-weight:700; font-size:clamp(22px,2.4vw,30px); color:var(--ink); line-height:1; letter-spacing:-0.02em; }
+.lrow .fno{ font-weight:900; font-stretch:66%; font-size:clamp(22px,2.4vw,30px); color:var(--ink); line-height:1; letter-spacing:-0.02em; }
 .lrow .lt{ }
-.lrow .lt h3{ font-family:'Clash Display',sans-serif; font-weight:600; font-size:clamp(18px,1.8vw,21px); line-height:1.15; letter-spacing:-0.01em; margin:0 0 4px; }
+.lrow .lt h3{ font-weight:900; font-stretch:80%; text-transform:uppercase; font-size:clamp(18px,1.8vw,21px); line-height:1.15; letter-spacing:-0.01em; margin:0 0 4px; }
 .lrow .lt p{ margin:0; font-size:14.5px; line-height:1.5; color:var(--grey); }
 .lrow .open{ font-family:'Space Mono',monospace; font-size:20px; color:var(--ink); align-self:center; transition:color 150ms ease, transform 180ms var(--ease); }
 .lrow:hover .open, .lrow:focus-visible .open{ color:var(--brick); transform:translateX(3px); }

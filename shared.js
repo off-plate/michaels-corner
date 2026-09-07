@@ -179,10 +179,8 @@ window.MC2 = window.MC2 || {};
     top.appendChild(btn);
 
     /* the handle + free-kit link, shown only inside the open panel on mobile */
-    var extra = document.createElement('div');
-    extra.className = 'nav-extra';
-    extra.innerHTML = '<span class="h">@michaelflorian_ai</span><a href="kit.html">Free kit <span class="oa">↗</span></a>';
-    nav.appendChild(extra);
+    /* The 2026-09 header carries the Free kit button itself and has no handle,
+       so the old mobile nav-extra strip is not injected any more. */
 
     function setOpen(open) {
       head.classList.toggle('nav-open', open);

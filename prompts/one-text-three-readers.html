@@ -2,28 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rewrite for a different reader / Michael's Corner</title>
 <meta name="description" content="Use this when one text has to land with a second audience and a copy paste will not do it.">
+<meta name="theme-color" content="#E9EEE7">
+<meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Michael's Corner">
 <meta property="og:title" content="Rewrite for a different reader / Michael's Corner">
 <meta property="og:description" content="Use this when one text has to land with a second audience and a copy paste will not do it.">
-<meta property="og:image" content="https://off-plate.github.io/michaelscorner-v2/assets/og.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../assets/favicon.svg">
-<link rel="preload" href="../assets/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/brand/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
 <link rel="stylesheet" href="../styles.css">
-<style>
-.mc-loader{position:fixed;inset:0;z-index:9999;background:#FAF7F2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity 420ms cubic-bezier(.22,.61,.36,1)}
-.mc-loader.hide{opacity:0;pointer-events:none}
-.mc-loader .lm{font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(20px,2.4vw,26px);color:#15130F}
-.mc-loader .lm span{color:#F2541B}
-.mc-loader .lw{font-family:'Space Mono',ui-monospace,monospace;font-size:clamp(20px,2.6vw,28px);letter-spacing:2px;color:#F2541B;white-space:pre;line-height:1}
-@media(prefers-reduced-motion:reduce){.mc-loader{display:none}}
-</style>
-<script>(function(){try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;var l=document.createElement('div');l.className='mc-loader';l.id='mc-loader';l.setAttribute('aria-hidden','true');l.innerHTML='<div class="lm">Michaels <span>Corner</span></div><div class="lw"></div>';(document.body||document.documentElement).appendChild(l);setTimeout(function(){var e=document.getElementById('mc-loader');if(e&&e.parentNode)e.parentNode.removeChild(e);},3000);}catch(e){}})();</script>
 <style>
 /* ---- Prompt page: the spec sheet. Terminal specimen + Copy in the body, spec fields in the rail. ---- */
 .spec{ padding-block:clamp(28px,4vw,44px) 0; }
@@ -64,25 +57,24 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap">
     <div class="head-top">
-      <span class="head-handle mono">@michaelflorian_ai</span>
-      <a class="head-word no-fx" href="../index.html"><img src="../assets/mark.svg" alt="" class="head-mark" width="30" height="30" aria-hidden="true">Michaels Corner</a>
-      <a class="head-cta" href="../kit.html" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
+      <a class="head-word no-fx" href="../index.html"><img src="../assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michaels<br>Corner<span style="color:#E45B52">.</span></span></a>
+      <nav class="head-nav" aria-label="Main">
+        <a href="../index.html" data-nav="home">Home</a>
+        <a href="../start.html" data-nav="start">First time? Start here</a>
+        <a href="../library.html" data-nav="library">Prompts that can help you</a>
+        <a href="../tools.html" data-nav="tools">Most useful tools</a>
+        <a href="../bill.html" data-nav="bill">Apps I built</a>
+        <a href="../channel.html" data-nav="channel">More free tutorials</a>
+        <a href="../about.html" data-nav="about">Who I am</a>
+      </nav>
+      <a class="head-cta no-fx" href="../kit.html" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
     </div>
-    <nav class="head-nav" aria-label="Main">
-      <a href="../index.html" data-nav="home">Home</a>
-      <a href="../start.html" data-nav="start">First time? Start here</a>
-      <a href="../library.html" data-nav="library">Prompts that can help you</a>
-      <a href="../tools.html" data-nav="tools">Most useful tools</a>
-      <a href="../bill.html" data-nav="bill">Apps I built</a>
-      <a href="../channel.html" data-nav="channel">More free tutorials</a>
-      <a href="../about.html" data-nav="about">Who I am</a>
-    </nav>
   </div>
 </header>
-<main id="main" tabindex="-1">
 
 <section class="page-hero">
   <div class="wrap">
@@ -150,19 +142,17 @@ Return each version under a clear heading with one line stating the reader and t
       <p class="foot-line">AI did not take my job. It made me faster.</p>
     </div>
     <div class="foot-col">
-      <a href="../library.html">Prompts</a>
-      <a href="../tools.html">Tools</a>
-      <a href="../bill.html">Apps</a>
+      <a href="../library.html">Prompts that can help you</a>
+      <a href="../tools.html">Most useful tools</a>
+      <a href="../bill.html">Apps I built</a>
     </div>
     <div class="foot-col">
-      <a href="../start.html">Start here</a>
+      <a href="../start.html">First time? Start here</a>
       <a href="../kit.html">The Starter Kit</a>
-      <a href="../about.html">About</a>
+      <a href="../about.html">Who I am</a>
     </div>
   </div>
 </footer>
-<script src="../icons.js"></script>
-<script src="../signature.js"></script>
 <script src="../data/prompts-index.js"></script>
 <script src="../shared.js"></script>
 <script>

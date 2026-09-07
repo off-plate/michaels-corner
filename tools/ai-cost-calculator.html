@@ -5,19 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI cost calculator / Michael's Corner</title>
 <meta name="description" content="Drag three sliders, see what a month of AI actually costs, on rates you can edit.">
-<link rel="icon" href="../assets/favicon.svg">
-<link rel="preload" href="../assets/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<meta name="theme-color" content="#E9EEE7">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="../assets/brand/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
 <link rel="stylesheet" href="../styles.css">
-<style>
-.mc-loader{position:fixed;inset:0;z-index:9999;background:#FAF7F2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity 420ms cubic-bezier(.22,.61,.36,1)}
-.mc-loader.hide{opacity:0;pointer-events:none}
-.mc-loader .lm{font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(20px,2.4vw,26px);color:#15130F}
-.mc-loader .lm span{color:#F2541B}
-.mc-loader .lw{font-family:'Space Mono',ui-monospace,monospace;font-size:clamp(20px,2.6vw,28px);letter-spacing:2px;color:#F2541B;white-space:pre;line-height:1}
-@media(prefers-reduced-motion:reduce){.mc-loader{display:none}}
-</style>
-<script>(function(){try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;var l=document.createElement('div');l.className='mc-loader';l.id='mc-loader';l.setAttribute('aria-hidden','true');l.innerHTML='<div class="lm">Michaels <span>Corner</span></div><div class="lw"></div>';(document.body||document.documentElement).appendChild(l);setTimeout(function(){var e=document.getElementById('mc-loader');if(e&&e.parentNode)e.parentNode.removeChild(e);},3000);}catch(e){}})();</script>
 <style>
 /* ---- instrument face: controls left, ink readout right, cream receipt on the ink ---- */
 .wrap-tool{ max-width:1200px; margin:0 auto; padding-left:var(--pad); padding-right:var(--pad); }
@@ -32,7 +26,7 @@
 .controls{ display:flex; flex-direction:column; gap:clamp(18px,2.4vw,26px); }
 .ctl .row-lab{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin:0 0 8px; }
 .ctl label{ font-size:14px; font-weight:500; }
-.echo{ font-family:'Clash Display',sans-serif; font-weight:600; font-size:22px; letter-spacing:-0.01em; font-variant-numeric:tabular-nums; }
+.echo{ font-weight:900; font-stretch:80%; text-transform:uppercase; font-size:22px; letter-spacing:-0.01em; font-variant-numeric:tabular-nums; }
 .ctl input[type=range]{ width:100%; display:block; }
 .seg{ display:inline-flex; border:1px solid var(--ink); border-radius:2px; overflow:hidden; }
 .seg button{ background:none; border:none; border-right:1px solid var(--ink); padding:10px 16px; font-family:inherit; font-size:14px; cursor:pointer; color:var(--ink); }
@@ -56,7 +50,7 @@ input.assumef:focus-visible{ outline:none; border-bottom-color:var(--ink); }
 .readout{ background:var(--ink); color:var(--ink-text); border-radius:2px; padding:clamp(22px,3vw,32px); position:sticky; top:96px; }
 @media(max-width:900px){ .readout{ position:static; } }
 .figure-lab{ font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#b9b2a4; margin:0 0 4px; }
-.figure{ font-family:'Clash Display',sans-serif; font-weight:700; font-size:clamp(46px,8vw,80px); line-height:0.95; letter-spacing:-0.03em; font-variant-numeric:tabular-nums; margin:0; }
+.figure{ font-weight:900; font-stretch:66%; font-size:clamp(46px,8vw,80px); line-height:0.95; letter-spacing:-0.03em; font-variant-numeric:tabular-nums; margin:0; }
 .figure-sub{ font-family:'Space Mono',monospace; font-size:14px; color:#d9d2c5; margin:8px 0 0; }
 .rec-wrap{ margin:clamp(20px,3vw,26px) 0 0; }
 .fineprint{ font-family:'Space Mono',monospace; font-size:11px; line-height:1.75; color:#b9b2a4; margin:16px 0 0; }
@@ -75,19 +69,18 @@ input.assumef:focus-visible{ outline:none; border-bottom-color:var(--ink); }
 <header class="site-head">
   <div class="wrap">
     <div class="head-top">
-      <span class="head-handle mono">@michaelflorian_ai</span>
-      <a class="head-word no-fx" href="../index.html"><img src="../assets/mark.svg" alt="" class="head-mark" width="30" height="30" aria-hidden="true">Michaels Corner</a>
-      <a class="head-cta" href="../kit.html" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
+      <a class="head-word no-fx" href="../index.html"><img src="../assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michaels<br>Corner<span style="color:#E45B52">.</span></span></a>
+      <nav class="head-nav" aria-label="Main">
+        <a href="../index.html" data-nav="home">Home</a>
+        <a href="../start.html" data-nav="start">First time? Start here</a>
+        <a href="../library.html" data-nav="library">Prompts that can help you</a>
+        <a href="../tools.html" data-nav="tools">Most useful tools</a>
+        <a href="../bill.html" data-nav="bill">Apps I built</a>
+        <a href="../channel.html" data-nav="channel">More free tutorials</a>
+        <a href="../about.html" data-nav="about">Who I am</a>
+      </nav>
+      <a class="head-cta no-fx" href="../kit.html" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
     </div>
-    <nav class="head-nav" aria-label="Main">
-      <a href="../index.html" data-nav="home">Home</a>
-      <a href="../start.html" data-nav="start">First time? Start here</a>
-      <a href="../library.html" data-nav="library">Prompts that can help you</a>
-      <a href="../tools.html" data-nav="tools">Most useful tools</a>
-      <a href="../bill.html" data-nav="bill">Apps I built</a>
-      <a href="../channel.html" data-nav="channel">More free tutorials</a>
-      <a href="../about.html" data-nav="about">Who I am</a>
-    </nav>
   </div>
 </header>
 <main id="main" tabindex="-1">
@@ -180,19 +173,17 @@ input.assumef:focus-visible{ outline:none; border-bottom-color:var(--ink); }
       <p class="foot-line">AI did not take my job. It made me faster.</p>
     </div>
     <div class="foot-col">
-      <a href="../library.html">Prompts</a>
-      <a href="../tools.html">Tools</a>
-      <a href="../bill.html">Apps</a>
+      <a href="../library.html">Prompts that can help you</a>
+      <a href="../tools.html">Most useful tools</a>
+      <a href="../bill.html">Apps I built</a>
     </div>
     <div class="foot-col">
-      <a href="../start.html">Start here</a>
+      <a href="../start.html">First time? Start here</a>
       <a href="../kit.html">The Starter Kit</a>
-      <a href="../about.html">About</a>
+      <a href="../about.html">Who I am</a>
     </div>
   </div>
 </footer>
-<script src="../icons.js"></script>
-<script src="../signature.js"></script>
 <script src="../shared.js"></script>
 <script>
 (function(){
