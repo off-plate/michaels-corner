@@ -8,31 +8,31 @@ const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRe
 const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}};
 const NAV = [
   ['home','Home'],
-  ['start','First time? Start here'],
-  ['library','Prompts that can help you'],
-  ['tools','Most useful tools'],
+  ['start','Start here'],
+  ['library','Prompt library'],
+  ['tools','Free tools'],
   ['bill','Apps I built'],
-  ['channel','More free tutorials'],
+  ['channel','Videos'],
   ['about','Who I am']
 ];
 
 const PAGE_META = {
   home:    {t:"Michael's Corner",
-            d:"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate."},
+            d:"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, five finished apps. Everything is free and nothing sits behind a signup."},
   start:   {t:"Your first hour with AI",
-            d:"A 7-point checklist and a 5-step guide for your first hour with ChatGPT, Claude or Gemini. One real task from your own week, no theory, free to work through."},
+            d:"A seven-point checklist and a five-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week."},
   library: {t:"Steal these prompts",
-            d:"64 free prompts in 8 packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students."},
+            d:"Sixty-four free prompts in eight packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students."},
   tools:   {t:"Most useful AI tools",
-            d:"7 free AI tools that run in your browser with no signup: an AI cost calculator, a context-window checker, a subscription versus API breakeven, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
+            d:"Seven free AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
   bill:    {t:"Apps I built",
-            d:"5 apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished, all in daily use."},
+            d:"Five apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished and all in daily use by the person who built them."},
   channel: {t:"Watch and learn",
-            d:"Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now."},
+            d:"Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now, first episodes soon."},
   about:   {t:"Who I am",
-            d:"Michael Florian. Not a developer, with a normal day job and more than twenty finished projects built with AI in the evenings. What he got good at, and what he did not."},
+            d:"Michael Florian has a normal day job and builds things with AI in the evenings, more than twenty finished projects so far. What he got good at, and what he still cannot do."},
   kit:     {t:"Michael's AI Starter Kit",
-            d:"Six free things for anyone starting with AI this week: 10 reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. Listed in full before you give an email."}
+            d:"A free starter kit for anyone beginning with AI: ten reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. The whole list is on the page before any email is asked for."}
 };
 const SITE = 'https://michaels-corner.netlify.app/';
 function applyMeta(page){
@@ -60,33 +60,33 @@ const TOOLS = [
 const TCATS = ['Money & size','The decision','The words'];
 
 const PACKS = [
-  {id:'beginners', chip:'Beginners', n:'Best prompts for beginners', d:'Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets, paste it in, and see for yourself what these tools can do.'},
-  {id:'writing', chip:'Writing', n:'Best prompts for writing', d:'Draft faster and still sound like yourself. These keep your voice and cut the filler. They also stop your text from reading like a machine wrote it. Readers can tell.'},
-  {id:'building', chip:'Building', n:'Building software with AI', d:'Go from a rough idea to working software, even if you do not code. Plan small. Brief the AI properly. Get unstuck when it breaks, and it will break.'},
-  {id:'founders', chip:'Founders', n:'Founders and small business owners', d:'For people running a small business. Customers, reviews, numbers, suppliers. Plus the messages you keep putting off, drafted so you can send them today.'},
-  {id:'freelancers', chip:'Freelancers', n:'Freelancers and solo operators', d:'Your business is you. Briefs, proposals, feedback rounds, unpaid invoices. These push the admin down so more of your week goes to the actual work.'},
-  {id:'office', chip:'Office work', n:'Office and operations work', d:'Inbox, meetings, reports, spreadsheets. Small routines for the everyday grind. Nothing fancy, just the stuff that quietly gives you back an hour most days.'},
-  {id:'creators', chip:'Creators', n:'Content creators', d:'Make more from what you already record. Repurpose, script, and publish faster. Your feed does not start to sound generated. That is the fastest way to lose people.'},
-  {id:'students', chip:'Students', n:'Students and learning', d:'Learn faster and remember more. These make AI quiz you and question you. The thinking stays yours. That is the part that passes exams.'}
+  {id:'beginners', chip:'Beginners', n:'Best prompts for beginners', d:'Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets and paste it in.'},
+  {id:'writing', chip:'Writing', n:'Best prompts for writing', d:'Draft faster and still sound like yourself. These keep your voice, cut the filler and stop your text from reading like something a machine wrote.'},
+  {id:'building', chip:'Building', n:'Building software with AI', d:'Go from a rough idea to working software even if you do not code. Plan small, brief the AI properly, and get unstuck when it breaks. It will break.'},
+  {id:'founders', chip:'Founders', n:'Founders and small business owners', d:'For people running a small business: customers, reviews, numbers and suppliers, plus the messages you keep putting off, drafted so you can actually send them.'},
+  {id:'freelancers', chip:'Freelancers', n:'Freelancers and solo operators', d:'Your business is you. Briefs, proposals, feedback rounds and unpaid invoices. These push the admin down so the week has more room for the work you actually got into this for.'},
+  {id:'office', chip:'Office work', n:'Office and operations work', d:'Inbox, meetings, reports and spreadsheets. Small routines for the everyday work, the kind that quietly gives you back an hour most days.'},
+  {id:'creators', chip:'Creators', n:'Content creators', d:'Make more from what you already record: repurpose it, script it and publish faster, without your feed starting to sound generated.'},
+  {id:'students', chip:'Students', n:'Students and learning', d:'Learn faster and remember more. These make AI quiz you and question you, and the thinking stays yours.'}
 ];
 
 const VIDS = [
   {t:'I built 20 apps in 30 days', c:'Building with AI', d:'What happened, what broke, and what I would skip next time.'},
   {t:'Build a website with AI, start to finish', c:'Building with AI', d:'A full build, from empty folder to live page.'},
   {t:'Build a small app in a weekend', c:'Building with AI', d:'Pick a tiny idea and get it working in two days.'},
-  {t:'From idea to live site in one sitting', c:'Building with AI', d:'No planning week. Just open the laptop and build it.'},
+  {t:'From idea to live site in one sitting', c:'Building with AI', d:'I skip the planning week, open the laptop and build it.'},
   {t:'Connect AI to a real database', c:'Building with AI', d:'Store and read real data without a backend team.'},
   {t:'Make it look good without a designer', c:'Building with AI', d:'Simple rules that make a rough build look finished.'},
   {t:'Add a feature without breaking things', c:'Building with AI', d:'How I change working code and stay calm.'},
-  {t:'AI for people who are not techies', c:'For beginners', d:'No code, no jargon. Just what it is good for.'},
+  {t:'AI for people who are not techies', c:'For beginners', d:'What AI is actually good at, explained without jargon.'},
   {t:'Your first hour with an AI assistant', c:'For beginners', d:'Set it up and do something useful right away.'},
   {t:'The five prompts I use every day', c:'For beginners', d:'The short, boring prompts that do most of the work.'},
   {t:'Stop overthinking your prompts', c:'For beginners', d:'Say what you want, what to keep, what to drop.'},
   {t:'What can AI actually do for you?', c:'For beginners', d:'A plain tour of the jobs it is genuinely good at.'},
   {t:'Pick the right AI tool', c:'For beginners', d:'How to choose without trying all of them.'},
   {t:'Common beginner mistakes', c:'For beginners', d:'The small habits that lead to bad answers.'},
-  {t:'How to talk to AI like a person', c:'For beginners', d:'Plain language beats clever tricks, every time.'},
-  {t:'A simple daily AI habit', c:'For beginners', d:'One small routine that compounds fast.'},
+  {t:'How to talk to AI like a person', c:'For beginners', d:'Why plain language works better than clever tricks.'},
+  {t:'A simple daily AI habit', c:'For beginners', d:'A small daily routine that adds up.'},
   {t:'Write prompts that actually work', c:'Prompting', d:'A simple shape for prompts that get good answers.'},
   {t:'Make AI sound like you', c:'Prompting', d:'Teach the model your voice in a few lines.'},
   {t:'Give the model a job, not a wish', c:'Prompting', d:'Why clear roles beat vague requests.'},
@@ -97,7 +97,7 @@ const VIDS = [
   {t:'I am not a developer. I build anyway.', c:'Behind the build', d:'Why the old gatekeeping does not hold up.'},
   {t:'A week of building in public', c:'Behind the build', d:'Five days, one project, shown in full.'},
   {t:'My exact daily setup', c:'Behind the build', d:'The tools and tabs I actually keep open.'},
-  {t:'What I got wrong this month', c:'Behind the build', d:'The mistakes, said out loud. Skip them.'}
+  {t:'What I got wrong this month', c:'Behind the build', d:'Said out loud, so you can skip the same ones.'}
 ];
 const VCATS = ['Building with AI','For beginners','Prompting','Behind the build'];
 
@@ -113,9 +113,9 @@ const APPS = [
 const STEPS = [
   ['Pick one tool','ChatGPT, Claude, or Gemini, and the free version is fine. Do not spend your first hour comparing tools. For beginner tasks they are all good enough. Pick one and stay with it for a week.'],
   ['Bring a real task','Skip test questions like "write me a poem." Bring something real from today: an email you owe someone, a long document you need to understand, a plan you keep postponing. You learn what AI is for by using it on your actual work.'],
-  ['Give it the whole picture','Write to it the way you would brief a colleague. Say who you are, what you need, and what the result should look like. Three full sentences of context will beat five keywords every time.'],
+  ['Give it the whole picture','Write to it the way you would brief a colleague. Say who you are, what you need, and what the result should look like. A few full sentences of context beat five keywords.'],
   ['Push back on the draft','The first answer is a draft, and treating it as final is the most common beginner mistake. Tell it what is wrong and ask again, as many times as you need. Check every fact and number before you use it. AI presents its guesses with full confidence.'],
-  ['Keep what worked','When a prompt gives you a good result, save it in your notes. Next time you paste it and change a few words instead of starting over. That habit is the entire secret behind the prompt library on this site.']
+  ['Keep what worked','When a prompt gives you a good result, save it in your notes. Next time you paste it and change a few words instead of starting over. Most of the library on this site came out of that habit.']
 ];
 
 const CHECKS = [
@@ -185,7 +185,7 @@ PAGES.home = () => `
     <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools most evenings and write down what actually works, free for you to take.</p>
     <div class="hero-cta">
       <a class="btn btn-ink" href="/library" data-go="library">Browse the library <span class="arw">&#8594;</span></a>
-      <a class="btn btn-ghost" href="/bill" data-go="bill">See the projects</a>
+      <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
     </div>
     <dl class="herostats">
       <div><dt>64</dt><dd>free prompts, in eight packs</dd></div>
@@ -205,7 +205,7 @@ PAGES.home = () => `
 
 
 <section class="wrap sec-tight">
-  ${shead('Apps I built','The apps I have actually built with AI in the evenings, not demos. All of them things I use myself every day.',
+  ${shead('Apps I built','The apps I have built with AI in the evenings, and the same ones I use myself every day.',
     '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
   <div class="autogrid">
     ${APPS.filter(a=>!a.appsPageOnly).map(a=>`
@@ -221,11 +221,11 @@ PAGES.home = () => `
   <div class="wrap split">
     <div class="rv split-copy">
       <h2 class="dsp h2" style="color:var(--cream)">What using it is really like<i class="dot" style="font-style:normal">.</i></h2>
-      <p class="lede" style="margin-top:20px">The first rough version usually comes together in a few minutes. That part feels like magic. Then the slower work starts: the checking, the fixing, the small calls that are yours to make. Most of the real time goes there. The shortcuts here are for the fast part.</p>
+      <p class="lede" style="margin-top:20px">A first draft comes together in minutes and that part feels like magic. Then the real work starts: the checking, the fixing and the small calls only you can make. Most of the time goes there, and none of it gets automated. The shortcuts on this site are for the fast part.</p>
       <div class="splitrow">
-        <div><span class="bignum">5 min</span><span class="numlab">to a first draft that looks finished</span></div>
-        <div><span class="bignum" style="color:var(--sun)">2 hrs</span><span class="numlab">to make it actually true</span></div>
-        <div><span class="bignum">0</span><span class="numlab">of that second part gets automated</span></div>
+        <div><span class="bignum">Minutes</span><span class="numlab">to a first draft that looks finished</span></div>
+        <div><span class="bignum" style="color:var(--sun)">The evening</span><span class="numlab">to make it actually true</span></div>
+        <div><span class="bignum">0</span><span class="numlab">of the evening part gets automated</span></div>
       </div>
     </div>
     <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
@@ -234,7 +234,7 @@ PAGES.home = () => `
 
 <section class="sec">
   <div class="wrap">
-  ${shead('Small tools that do the math for you','Free calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating. No signup, nothing leaves the page.',
+  ${shead('Small tools that do the math for you','Free calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating. Type into one and nothing leaves the page.',
     '<div style="display:flex;gap:12px;align-items:center"><a class="btn btn-ghost" href="/tools" data-go="tools">All the tools <span class="arw">&#8594;</span></a><div class="paddles"><button class="paddle" data-scroll="-1" aria-label="Scroll left">&#8592;</button><button class="paddle" data-scroll="1" aria-label="Scroll right">&#8594;</button></div></div>')}
   </div>
   <div class="scroll" data-scroller>
@@ -257,7 +257,7 @@ PAGES.home = () => `
 </section>
 
 <section class="wrap sec-tight">
-  ${shead('Prompts you can steal right now','Copy one, fill in the brackets, paste it into ChatGPT, Claude, or Gemini. These are the ones I reach for most. The full library has sixty-four.',
+  ${shead('Prompts you can steal right now','Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini. These are the ones I reach for most, out of the sixty-four in the full library.',
     '<a class="btn btn-ghost" href="/library" data-go="library">The whole library <span class="arw">&#8594;</span></a>')}
   <div class="autogrid">
     ${PACKS.slice(0,4).map((p,i)=>`
@@ -271,7 +271,7 @@ PAGES.home = () => `
 </section>
 
 <section class="wrap sec">
-  ${shead('Watch how it actually goes','Short videos of real builds. The wins and the dead ends. Filming now. The cards fill in as episodes go up.',
+  ${shead('Watch how it actually goes','Short videos of real builds, the dead ends included. I am filming now and the cards get their links as episodes go up.',
     '<a class="btn btn-ghost" href="/channel" data-go="channel">The channel <span class="arw">&#8594;</span></a>')}
   <div class="grid4">
     ${VIDS.slice(0,4).map((v,i)=>`
@@ -286,7 +286,7 @@ PAGES.home = () => `
   <div class="wrap split">
     <div class="rv split-copy">
       <h2 class="dsp h2">Everything I would hand a friend starting out<i class="dot" style="font-style:normal">.</i></h2>
-      <p class="lede" style="color:#4A421F;margin-top:20px">Six things, listed in full before you give an email. The 10 prompts I reuse, the model guide, the first-hour walkthrough, the cost cheat sheet, and more.</p>
+      <p class="lede" style="color:#4A421F;margin-top:20px">The full thing is written out on the kit page before any email is asked for: the prompts I reuse, the model guide, the first-hour walkthrough, the cost cheat sheet and the rest.</p>
       <ol class="kitlist">
         <li><span>01</span>The 10 prompts I actually reuse</li>
         <li><span>02</span>The plain-words model guide</li>
@@ -306,7 +306,7 @@ PAGES.start = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1" style="font-size:clamp(40px,6vw,80px)">Your first hour with AI<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">A short checklist to tick off as you go, then the full guide underneath. The exact first hour I would walk a friend through, one real task and no theory.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Tick the checklist off as you go and the full guide is underneath. It is the exact first hour I would walk a friend through: one real task, no theory.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
   </div>
@@ -349,7 +349,7 @@ PAGES.library = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Steal these prompts<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">64 prompts in eight packs, all free. Copy one, fill in the brackets, and paste it into ChatGPT, Claude, or Gemini. These are the ones I keep going back to.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Sixty-four prompts in eight packs, all free. Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini. These are the ones I keep going back to.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.sign}" width="${DIM.sign.w}" height="${DIM.sign.h}" alt="A hanging shop sign reading Michael's Corner"></div>
   </div>
@@ -367,7 +367,7 @@ PAGES.library = () => `
 <section class="band sec">
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">Take what helps<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">Copy anything here, change the words, make it yours. If one prompt saves you an hour this week, that is the whole point.</p>
+    <p class="lede">Copy anything, change the words and make it yours. If one of them saves you an hour this week, the page has done its job.</p>
     <a class="btn btn-onink" href="/kit" data-go="kit">Get the free kit <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
@@ -377,7 +377,7 @@ PAGES.tools = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1">Tools<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that actually run in your browser, no signup and no email gate. Open any one and the number is real, computed on the spot. Nothing you type ever leaves this page.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that run in your browser. Open any one and the number is real, computed on the spot, and nothing you type leaves the page.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
@@ -395,8 +395,8 @@ PAGES.tools = () => `
     </div>
     <aside class="benchcol">
       <div class="card rv" style="gap:10px">
-        <h2 class="h3">Considered, not built</h2>
-        <p class="small">Three that got planned and then cut. The reason is written down so the same idea does not come back next month.</p>
+        <h2 class="h3">Tools I decided not to build</h2>
+        <p class="small">Three got planned and then cut, and the reason for each is written down so the same idea does not come back next month.</p>
         <ul class="bench">
           ${BENCH.map(b=>`<li><span class="bn">${b[0]}</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">${esc(b[1])}</b> ${esc(b[2])}</span></li>`).join('')}
         </ul>
@@ -417,8 +417,8 @@ PAGES.tools = () => `
 <section class="band sec">
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">Nothing you type leaves this page<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">Every tool here runs in your browser. No signup, no email gate, no server behind it. Close the tab and it is gone.</p>
-    <a class="btn btn-onink" href="/library" data-go="library">Prompts that can help you <span class="arw">&#8594;</span></a>
+    <p class="lede">Every tool runs in your browser and there is no server behind it, so there is nowhere for your data to go. Close the tab and it is gone.</p>
+    <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
 
@@ -427,7 +427,7 @@ PAGES.bill = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1">Apps<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">The apps I have actually built with AI in the evenings, not demos. All of them things I use myself every day.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">The apps I have built with AI in the evenings, and the same ones I use myself every day.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
@@ -450,8 +450,8 @@ PAGES.bill = () => `
 <section class="band sec">
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">Built in the evenings<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">None of these needed a team. If you want to see how one gets made, the channel shows the whole thing, dead ends included.</p>
-    <a class="btn btn-onink" href="/channel" data-go="channel">More free tutorials <span class="arw">&#8594;</span></a>
+    <p class="lede">None of these needed a team. If you want to see how one gets made, the videos show the whole thing, dead ends included.</p>
+    <a class="btn btn-onink" href="/channel" data-go="channel">Watch the videos <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
 
@@ -460,8 +460,8 @@ PAGES.channel = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1">Watch and learn<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk and no hype. You watch how it actually goes. Dead ends included. Filter by topic or search for one.</p>
-      <p style="margin-top:24px"><a class="btn btn-ghost" href="https://youtube.com" target="_blank" rel="noopener">Subscribe on YouTube <span class="arw">&#8599;</span></a></p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk about real builds, with the dead ends left in. Filter by topic or search for one.</p>
+      
     </div>
     <div class="phero-art rv"><img src="${IMG.cornerman}" width="${DIM.cornerman.w}" height="${DIM.cornerman.h}" alt="A boxing corner with a stool and towel"></div>
   </div>
@@ -490,15 +490,15 @@ PAGES.channel = () => `
 <section class="band sec">
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">Watch how it actually goes<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">Every build, the wins and the parts that broke. New episodes land here as they go up.</p>
-    <a class="btn btn-onink" href="https://youtube.com" target="_blank" rel="noopener">Subscribe on YouTube <span class="arw">&#8599;</span></a>
+    <p class="lede">Every build, the parts that worked and the parts that broke. Episodes land here as they go up.</p>
+    <a class="btn btn-onink" href="/library" data-go="library">Take the prompts in the meantime <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
 
 PAGES.about = () => `
 <section class="wrap phero abouthero">
   <h1 class="dsp h1 rv" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I build anyway<i class="dot" style="font-style:normal">.</i></h1>
-  <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. I have a normal day job, and in the evenings I build things with AI. More than twenty finished projects so far.</p>
+  <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. The evenings around a normal day job add up to more than twenty finished projects so far.</p>
   <div class="abouthero-art rv"><img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder"></div>
 </section>
 
@@ -523,12 +523,11 @@ PAGES.about = () => `
     </div>
 
     <div class="prose rv">
-      <p class="leadin">I am Michael. I am not a developer. I have a normal day job, and in the evenings I build things with AI.</p>
-      <p>So far that adds up to more than twenty finished projects: a finance app that tracks my debts and my budget, a training site with a 3D wireframe figure I could never have coded myself, a road-trip planner with maps and expense splitting that four of us used on a real holiday in Italy, two Chrome extensions, a small tool that turns one sentence into a Spotify playlist, and this website.</p>
+      <p class="leadin">I am not a developer. I have a normal day job, and in the evenings I build things with AI anyway.</p>
+      <p>The list so far includes a finance app that tracks my debts and my budget, a training site with a 3D wireframe figure I could never have coded myself, a road-trip planner with maps and expense splitting that four of us used on a real holiday in Italy, two Chrome extensions, a small tool that turns one sentence into a Spotify playlist, and this website.</p>
       <p>None of that made me an engineer. What I got good at is different: describing what I want clearly, pushing back when the answer is wrong, and doing the hands-on work a tool will not do for you. Most of what I put here comes straight out of that, the prompts I lean on and the small tools I built.</p>
       <p class="pull">I take what has worked for me and write it down, <span style="color:var(--coral)">free for you to take</span>.</p>
-      <p>That is what this site is: the prompts I keep reusing and the tools I built along the way.</p>
-      <p>After two years of this, one line has stayed true the whole time. AI did not take my job. It made me faster. Take whatever helps, and let me know how it goes.</p>
+      <p>Two years in, I still have the same day job. The evenings just produce more than they used to. Take whatever helps, and let me know how it goes.</p>
     </div>
 
     <aside class="numrail">
@@ -545,7 +544,7 @@ PAGES.kit = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1" style="font-size:clamp(38px,5.4vw,74px)">Michael&#8217;s AI Starter Kit<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Everything I would hand a friend who is starting with AI this week. Six things. All of them listed in full below. You know exactly what you trade your email for.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Everything I would hand a friend who is starting with AI this week. The full list is below, so you know exactly what you trade your email for.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.kiosk}" width="${DIM.kiosk.w}" height="${DIM.kiosk.h}" alt="A small corner shop with the name over the awning"></div>
   </div>
@@ -569,7 +568,7 @@ PAGES.kit = () => `
       <h2 class="dsp h2">Send me the kit<i class="dot" style="font-style:normal">.</i></h2>
       <p class="lede" style="color:#4A421F;margin-top:16px;max-width:52ch">There is no signup form behind this yet. Email me and I reply with the kit. One click below fills in the subject for you.</p>
       <p style="margin:28px 0 0"><a class="btn btn-ink" href="mailto:mihael.florian@gmail.com?subject=Starter%20Kit&amp;body=Hi%20Michael%2C%20please%20send%20me%20the%20AI%20Starter%20Kit.">Email me for the kit <span class="arw">&#8594;</span></a></p>
-      <p class="small" style="color:#4A421F;margin-top:16px">Free, no countdown, no catch. I reply by hand, usually within a day.</p>
+      <p class="small" style="color:#4A421F;margin-top:16px">I reply by hand, usually within a day.</p>
     </div>
     <ul class="nolist">
       <li>No form</li>
@@ -581,7 +580,7 @@ PAGES.kit = () => `
 
   <div class="grid2 rv" style="margin-top:26px">
     <div class="card"><p class="small">Your address is used for the kit and my occasional emails, never sold, never shared. When the proper list is ready you will be the first on it, and every email will have an unsubscribe link.</p></div>
-    <div class="card card-ink"><p class="small">The kit is free and stays free. There is no countdown. Nothing expires. You get the kit. After that I write when I have something useful. That is not every day.</p></div>
+    <div class="card card-ink"><p class="small">The kit never expires and never gets taken back. After it, I write when I actually have something useful, which is closer to twice a month than twice a day.</p></div>
   </div>
 </section>`;
 
