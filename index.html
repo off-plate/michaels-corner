@@ -164,7 +164,7 @@ main{min-height:60vh}
 
 /* scroller */
 .scroll{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
-  padding-block-end:10px;padding-inline:var(--pad);scroll-padding-inline:var(--pad);scrollbar-width:none}
+  padding-block:14px 16px;margin-block:-14px -6px;padding-inline:var(--pad);scroll-padding-inline:var(--pad);scrollbar-width:none}
 .scroll::-webkit-scrollbar{display:none}
 .scroll>*{scroll-snap-align:start;flex:0 0 clamp(250px,22vw,360px)}
 .scroll::after{content:'';flex:0 0 1px}
@@ -183,7 +183,7 @@ main{min-height:60vh}
 .ldname{font-weight:900;font-stretch:64%;text-transform:uppercase;letter-spacing:-0.01em;line-height:.9;
   font-size:clamp(28px,3.6vw,62px);color:var(--cream);opacity:0;transform:translateY(16px);
   animation:nameIn .46s cubic-bezier(.22,.61,.36,1) .52s forwards}
-.ldtag{position:absolute;bottom:clamp(34px,5vw,60px);left:0;right:0;text-align:center;font-weight:700;font-size:11px;
+.ldtag{position:absolute;bottom:clamp(34px,5vw,60px);left:0;right:0;text-align:center;font-weight:700;font-size:12.5px;
   letter-spacing:.22em;text-transform:uppercase;color:rgba(245,242,232,.45);opacity:0;
   animation:nameIn .5s ease .78s forwards}
 .ldbar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(245,242,232,.14)}
@@ -303,7 +303,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .search{display:flex;align-items:center;gap:12px;background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:12px 22px}
 .search input{flex:1;border:0;background:transparent;font:inherit;font-size:16px;outline:0;min-width:0}
 .search input::placeholder{color:var(--mute)}
-.tag{display:inline-flex;align-items:center;font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+.tag{display:inline-flex;align-items:center;font-weight:800;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
   background:var(--ink);color:var(--cream);border-radius:999px;padding:5px 11px}
 .pack{background:var(--card);border-radius:20px;padding:clamp(20px,2.2vw,26px);display:flex;flex-direction:column;gap:12px;text-decoration:none}
 .pack .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -318,8 +318,8 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .trow{transform-origin:center;display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:clamp(14px,2vw,26px);align-items:center;
   background:var(--card);border-radius:18px;padding:20px clamp(18px,2vw,26px);text-decoration:none;transition:transform .18s,background .18s}
 .trow:hover{transform:scale(1.01);background:var(--sun)}
-.trow .desig{font-family:var(--mono);font-size:11.5px;color:var(--mute)}
-.trow .hint{font-family:var(--mono);font-size:11.5px;color:var(--mute);margin-top:5px}
+.trow .desig{font-family:var(--mono);font-size:12.5px;color:var(--mute)}
+.trow .hint{font-family:var(--mono);font-size:12.5px;color:var(--mute);margin-top:5px}
 .toolsplit{display:grid;grid-template-columns:1fr;gap:clamp(28px,3vw,48px);align-items:start}
 @media (min-width:1500px){ .toolsplit{grid-template-columns:minmax(0,1.5fr) minmax(340px,0.5fr)} }
 .benchcol{display:flex;flex-direction:column;gap:16px}
@@ -329,12 +329,12 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .ticks li::before{content:'';position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:2px;background:var(--sun)}
 .bench{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .bench li{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
-.bench .bn{font-family:var(--mono);font-size:11.5px;color:var(--coral)}
+.bench .bn{font-family:var(--mono);font-size:12.5px;color:var(--coral)}
 
 /* ---------- apps ---------- */
 .app{background:var(--card);border-radius:22px;padding:clamp(22px,2.4vw,30px);display:grid;grid-template-columns:88px 1fr;gap:clamp(16px,2vw,24px);align-items:start}
 .app img{width:88px;height:88px;border-radius:20px}
-.plat{font-family:var(--mono);font-size:11.5px;color:var(--mute)}
+.plat{font-family:var(--mono);font-size:12.5px;color:var(--mute)}
 
 /* ---------- watch ---------- */
 .notice{display:flex;align-items:center;gap:11px;background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:11px 20px;font-size:14px;width:max-content;max-width:100%}
@@ -351,7 +351,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .vthumb .p{width:44px;height:44px;border-radius:999px;background:var(--cream);border:2px solid var(--ink);display:grid;place-items:center}
 .vthumb .p::after{content:"";width:0;height:0;border-left:13px solid var(--ink);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
 .vbody{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px}
-.soon{position:absolute;top:10px;right:10px;background:var(--ink);color:var(--cream);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.soon{position:absolute;top:10px;right:10px;background:var(--ink);color:var(--cream);font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
 
 /* ---------- about ---------- */
 .profile{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,3vw,56px);align-items:start}
@@ -608,7 +608,7 @@ const APPS = [
   {n:'Recall', img:'recall', plat:'macOS app', d:'Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.'},
   {n:'Refill', img:'refill', plat:'macOS menu bar', d:'Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers, so you can see when the five-hour window resets instead of finding out by hitting the limit.'},
   {n:'Frost', img:'frost', plat:'Chrome extension', d:"Freezes tabs you have not touched in a while using Chrome's own discard, so a sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, title, and full history."},
-  {n:'Cropper', img:'cutter', plat:'macOS app', d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'}
+  {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'}
 ];
 
 const STEPS = [
@@ -687,7 +687,7 @@ PAGES.home = () => `
   ${shead('Apps I built','The apps I have actually built with AI in the evenings, not demos. All of them things I use myself every day.',
     '<a class="btn btn-ghost" href="#/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
   <div class="autogrid">
-    ${APPS.map(a=>`
+    ${APPS.filter(a=>!a.appsPageOnly).map(a=>`
       <article class="appcard rv">
         <img src="${IMG[a.img]}" alt="${esc(a.n)} app icon">
         <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">${a.n}</h3><span class="plat">${esc(a.plat)}</span></div>
