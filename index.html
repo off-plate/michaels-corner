@@ -12,8 +12,13 @@
 <meta property="og:description" content="Free AI prompts, small browser tools, and the apps I built with AI in the evenings. No signup, no email gate. AI did not take my job. It made me faster.">
 <meta property="og:url" content="https://michaels-corner.netlify.app/">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="assets/inline/x1-bec81f6e7a.png">
+<link rel="icon" href="assets/inline/x1-bec81f6e7a.webp">
 <link rel="apple-touch-icon" href="assets/inline/x1-bec81f6e7a.png">
+<!-- LCP element on the home route: app.js only inserts this <img> after it
+     loads and runs, so without this hint the browser wouldn't discover the
+     image until well after first paint. Preloading it here lets the fetch
+     start in parallel with the script instead of after it. -->
+<link rel="preload" as="image" href="assets/inline/hero.webp" fetchpriority="high">
 <style>
   *,*::before,*::after{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -486,7 +491,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 
 <div id="load" aria-hidden="true">
   <div class="ldwrap">
-    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.png" alt=""></span>
+    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
     <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
   </div>
   <span class="ldtag">Practical AI, no hype</span>
@@ -497,7 +502,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   <div class="wrap">
     <div class="htop">
       <button class="brand" data-go="home" aria-label="Michael's Corner, home">
-        <img src="assets/inline/x2-f6b82ff513.png" alt="">
+        <img src="assets/inline/x2-f6b82ff513.webp" alt="">
         <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </button>
       <nav class="main" id="nav" aria-label="Main"></nav>
@@ -515,7 +520,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.png" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>

@@ -1,5 +1,5 @@
 
-const IMG = {"mark": "assets/inline/mark.png", "markRev": "assets/inline/markRev.png", "cornerman": "assets/inline/cornerman.png", "lamp": "assets/inline/lamp.png", "machine": "assets/inline/machine.png", "kiosk": "assets/inline/kiosk.png", "sign": "assets/inline/sign.png", "tuck": "assets/inline/tuck.png", "recall": "assets/inline/recall.png", "refill": "assets/inline/refill.png", "frost": "assets/inline/frost.png", "hero": "assets/inline/hero.png", "cutter": "assets/inline/cutter.png"};
+const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRev.webp", "cornerman": "assets/inline/cornerman.webp", "lamp": "assets/inline/lamp.webp", "machine": "assets/inline/machine.webp", "kiosk": "assets/inline/kiosk.webp", "sign": "assets/inline/sign.webp", "tuck": "assets/inline/tuck.webp", "recall": "assets/inline/recall.webp", "refill": "assets/inline/refill.webp", "frost": "assets/inline/frost.webp", "hero": "assets/inline/hero.webp", "cutter": "assets/inline/cutter.webp"};
 // Real pixel dimensions of each IMG entry, so every <img> can carry width/height
 // attributes and the browser reserves its box before the file loads over the
 // network -- these used to be inline base64 (available synchronously, no CLS
@@ -142,7 +142,7 @@ PAGES.home = () => `
     </dl>
   </div>
   <div class="hero-art rv">
-    <img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" alt="Michael, drawn, with the character peeking over his shoulder">
+    <img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder">
     <span class="hero-badge" style="top:4%;left:-10px">Free, all of it</span>
     <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">No signup</span>
   </div>
@@ -446,7 +446,7 @@ PAGES.about = () => `
 <section class="wrap phero abouthero">
   <h1 class="dsp h1 rv" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I build anyway<i class="dot" style="font-style:normal">.</i></h1>
   <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. I have a normal day job, and in the evenings I build things with AI. More than twenty finished projects so far.</p>
-  <div class="abouthero-art rv"><img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" alt="Michael, drawn, with the character peeking over his shoulder"></div>
+  <div class="abouthero-art rv"><img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder"></div>
 </section>
 
 <section class="wrap sec-tight">
