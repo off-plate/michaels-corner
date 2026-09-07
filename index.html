@@ -670,7 +670,7 @@ PAGES.home = () => `
       <div><dt>64</dt><dd>free prompts, in eight packs</dd></div>
       <div><dt>7</dt><dd>tools that run in your browser</dd></div>
       <div><dt>20+</dt><dd>projects shipped in the evenings</dd></div>
-      <div><dt>0</dt><dd>things behind an email gate</dd></div>
+      <div><dt>0</dt><dd>signup forms anywhere on this site</dd></div>
     </dl>
   </div>
   <div class="hero-art rv">
@@ -977,7 +977,7 @@ PAGES.channel = () => `
 PAGES.about = () => `
 <section class="wrap phero abouthero">
   <h1 class="dsp h1 rv" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I ship anyway<i class="dot" style="font-style:normal">.</i></h1>
-  <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. I have a normal day job, and in the evenings I build things with AI. More than twenty shipped projects so far, and an honest receipt for each.</p>
+  <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. I have a normal day job, and in the evenings I build things with AI. More than twenty shipped projects so far.</p>
   <div class="abouthero-art rv"><img src="${IMG.hero}" alt="Michael, drawn, with the character peeking over his shoulder"></div>
 </section>
 
@@ -985,7 +985,7 @@ PAGES.about = () => `
   <div class="profile">
     <div class="rail">
       <div class="sidenote rv">
-        <h3 class="h4" style="margin-bottom:12px">The receipts</h3>
+        <h3 class="h4" style="margin-bottom:12px">What I have shipped</h3>
         <div class="r2"><span>Tuck, Chrome extension</span><span class="mono">2026</span></div>
         <div class="r2"><span>Recall, macOS launcher</span><span class="mono">2026</span></div>
         <div class="r2"><span>Refill, macOS menu bar</span><span class="mono">2026</span></div>
@@ -1011,9 +1011,9 @@ PAGES.about = () => `
     <div class="prose rv">
       <p class="leadin">I am Michael. I am not a developer. I have a normal day job, and in the evenings I build things with AI.</p>
       <p>So far that adds up to more than twenty shipped projects: a finance app that tracks my debts and my budget, a training site with a 3D wireframe figure I could never have coded myself, a road-trip planner with maps and expense splitting that four of us used on a real holiday in Italy, two Chrome extensions, a small tool that turns one sentence into a Spotify playlist, and this website.</p>
-      <p>None of that made me an engineer. What I got good at is different: describing what I want clearly, pushing back when the answer is wrong, and doing the hands-on work a tool will not do for you. Most of what I put here comes straight out of that, the prompts I lean on, the small tools I built, and an honest receipt for what each project really cost.</p>
+      <p>None of that made me an engineer. What I got good at is different: describing what I want clearly, pushing back when the answer is wrong, and doing the hands-on work a tool will not do for you. Most of what I put here comes straight out of that, the prompts I lean on and the small tools I built.</p>
       <p class="pull">I take what has worked for me and write it down, <span style="color:var(--coral)">free for you to take</span>.</p>
-      <p>That is what this site is: the prompts I keep reusing, the tools I built along the way, and a receipt for every project with the hours and the koruna filled in, even when the honest verdict is that AI was not worth it.</p>
+      <p>That is what this site is: the prompts I keep reusing and the tools I built along the way.</p>
       <p>After two years of this, one line has stayed true the whole time. AI did not take my job. It made me faster. Take whatever helps, and let me know how it goes.</p>
     </div>
 
@@ -1101,7 +1101,7 @@ function wire(page){
   });
 
   if(page === 'home'){
-    const words = ['Free prompts','No signup','No email gate','Built in the evenings','Honest receipts','Take what helps'];
+    const words = ['Free prompts','No signup','Built in the evenings','Take what helps'];
     const one = words.map(w=>`<span>${w} <i class="dot" style="font-style:normal">&#9679;</i></span>`).join('');
     const mq = document.getElementById('mq');
     // one half of the track must be at least as wide as the viewport, or the
