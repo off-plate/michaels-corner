@@ -226,7 +226,7 @@ End with a table: task, what AI does, what stays mine, minutes saved per week.`,
     name: "Best prompts for writing",
     blurb: [
       "Draft faster and still sound like yourself. These keep your voice and cut the filler.",
-      "They also stop your text from reading like a machine wrote it, because readers can tell."
+      "They also stop your text from reading like a machine wrote it. Readers can tell."
     ],
     updated: UPDATED,
     prompts: [
@@ -447,7 +447,7 @@ Return each version under a clear heading with one line stating the reader and t
     name: "Building software with AI",
     blurb: [
       "Go from a rough idea to working software, even if you do not code.",
-      "Plan small, brief the AI properly, and get unstuck when it breaks. It will break."
+      "Plan small. Brief the AI properly. Get unstuck when it breaks, and it will break."
     ],
     updated: UPDATED,
     prompts: [
@@ -1352,7 +1352,7 @@ Return: flagged risks first, then the handover, then the out of office message.`
     name: "Content creators",
     blurb: [
       "Make more from what you already record. Repurpose, script, and publish faster.",
-      "Without your feed starting to sound generated, because that is the fastest way to lose people."
+      "Your feed does not start to sound generated. That is the fastest way to lose people."
     ],
     updated: UPDATED,
     prompts: [
@@ -1569,7 +1569,7 @@ End with five lines: what worked, what did not, what we cannot know yet, the exp
     name: "Students and learning",
     blurb: [
       "Learn faster and remember more. These make AI quiz you and question you.",
-      "The thinking stays yours, which is the part that passes exams."
+      "The thinking stays yours. That is the part that passes exams."
     ],
     updated: UPDATED,
     prompts: [

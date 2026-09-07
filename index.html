@@ -570,13 +570,13 @@ const TCATS = ['Money & size','The decision','The words'];
 
 const PACKS = [
   {id:'beginners', chip:'Beginners', n:'Best prompts for beginners', d:'Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets, paste it in, and see for yourself what these tools can do.'},
-  {id:'writing', chip:'Writing', n:'Best prompts for writing', d:'Draft faster and still sound like yourself. These keep your voice and cut the filler. They also stop your text from reading like a machine wrote it, because readers can tell.'},
-  {id:'building', chip:'Building', n:'Building software with AI', d:'Go from a rough idea to working software, even if you do not code. Plan small, brief the AI properly, and get unstuck when it breaks. It will break.'},
+  {id:'writing', chip:'Writing', n:'Best prompts for writing', d:'Draft faster and still sound like yourself. These keep your voice and cut the filler. They also stop your text from reading like a machine wrote it. Readers can tell.'},
+  {id:'building', chip:'Building', n:'Building software with AI', d:'Go from a rough idea to working software, even if you do not code. Plan small. Brief the AI properly. Get unstuck when it breaks, and it will break.'},
   {id:'founders', chip:'Founders', n:'Founders and small business owners', d:'For people running a small business. Customers, reviews, numbers, suppliers. Plus the messages you keep putting off, drafted so you can send them today.'},
   {id:'freelancers', chip:'Freelancers', n:'Freelancers and solo operators', d:'Your business is you. Briefs, proposals, feedback rounds, unpaid invoices. These push the admin down so more of your week goes to the actual work.'},
   {id:'office', chip:'Office work', n:'Office and operations work', d:'Inbox, meetings, reports, spreadsheets. Small routines for the everyday grind. Nothing fancy, just the stuff that quietly gives you back an hour most days.'},
-  {id:'creators', chip:'Creators', n:'Content creators', d:'Make more from what you already record. Repurpose, script, and publish faster. Without your feed starting to sound generated, because that is the fastest way to lose people.'},
-  {id:'students', chip:'Students', n:'Students and learning', d:'Learn faster and remember more. These make AI quiz you and question you. The thinking stays yours, which is the part that passes exams.'}
+  {id:'creators', chip:'Creators', n:'Content creators', d:'Make more from what you already record. Repurpose, script, and publish faster. Your feed does not start to sound generated. That is the fastest way to lose people.'},
+  {id:'students', chip:'Students', n:'Students and learning', d:'Learn faster and remember more. These make AI quiz you and question you. The thinking stays yours. That is the part that passes exams.'}
 ];
 
 const VIDS = [
@@ -606,24 +606,24 @@ const VIDS = [
   {t:'I am not a developer. I build anyway.', c:'Behind the build', d:'Why the old gatekeeping does not hold up.'},
   {t:'A week of building in public', c:'Behind the build', d:'Five days, one project, shown in full.'},
   {t:'My exact daily setup', c:'Behind the build', d:'The tools and tabs I actually keep open.'},
-  {t:'What I got wrong this month', c:'Behind the build', d:'The mistakes, said out loud, so you can skip them.'}
+  {t:'What I got wrong this month', c:'Behind the build', d:'The mistakes, said out loud. Skip them.'}
 ];
 const VCATS = ['Building with AI','For beginners','Prompting','Behind the build'];
 
 const APPS = [
-  {n:'Tuck', img:'tuck', plat:'Chrome extension', d:'Hides all your other extensions behind one icon with a clean dropdown, so your toolbar stops looking like a cockpit.',
+  {n:'Tuck', img:'tuck', plat:'Chrome extension', d:'Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.',
    cta:{label:"Add to Chrome, it's free", href:'https://chromewebstore.google.com/detail/tuck/njpclpglfhldbhlngnmkenjphjpjaijb'}},
   {n:'Recall', img:'recall', plat:'macOS app', d:'Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.'},
-  {n:'Refill', img:'refill', plat:'macOS menu bar', d:'Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers, so you can see when the five-hour window resets instead of finding out by hitting the limit.'},
-  {n:'Frost', img:'frost', plat:'Chrome extension', d:"Freezes tabs you have not touched in a while using Chrome's own discard, so a sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, title, and full history."},
+  {n:'Refill', img:'refill', plat:'macOS menu bar', d:'Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.'},
+  {n:'Frost', img:'frost', plat:'Chrome extension', d:"Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history."},
   {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'}
 ];
 
 const STEPS = [
-  ['Pick one tool','ChatGPT, Claude, or Gemini, and the free version is fine. Do not spend your first hour comparing tools, because for beginner tasks they are all good enough. Pick one and stay with it for a week.'],
+  ['Pick one tool','ChatGPT, Claude, or Gemini, and the free version is fine. Do not spend your first hour comparing tools. For beginner tasks they are all good enough. Pick one and stay with it for a week.'],
   ['Bring a real task','Skip test questions like "write me a poem." Bring something real from today: an email you owe someone, a long document you need to understand, a plan you keep postponing. You learn what AI is for by using it on your actual work.'],
   ['Give it the whole picture','Write to it the way you would brief a colleague. Say who you are, what you need, and what the result should look like. Three full sentences of context will beat five keywords every time.'],
-  ['Push back on the draft','The first answer is a draft, and treating it as final is the most common beginner mistake. Tell it what is wrong and ask again, as many times as you need. Check every fact and number before you use it, because AI presents its guesses with full confidence.'],
+  ['Push back on the draft','The first answer is a draft, and treating it as final is the most common beginner mistake. Tell it what is wrong and ask again, as many times as you need. Check every fact and number before you use it. AI presents its guesses with full confidence.'],
   ['Keep what worked','When a prompt gives you a good result, save it in your notes. Next time you paste it and change a few words instead of starting over. That habit is the entire secret behind the prompt library on this site.']
 ];
 
@@ -634,7 +634,7 @@ const CHECKS = [
   'Give it full context, like briefing a colleague',
   'Treat the first answer as a draft and push back',
   'Check every fact and number before you use it',
-  'Save the prompts that work, so you can reuse them'
+  'Save the prompts that work. You will reuse them'
 ];
 
 const KIT = [
@@ -708,7 +708,7 @@ PAGES.home = () => `
   <div class="wrap split">
     <div class="rv split-copy">
       <h2 class="dsp h2" style="color:var(--cream)">What using it is really like<i class="dot" style="font-style:normal">.</i></h2>
-      <p class="lede" style="margin-top:20px">The first rough version usually comes together in a few minutes, and that part feels like magic. Then the slower work starts, the checking, the fixing, and the small calls that are yours to make, and that is where most of the real time goes. The shortcuts here are for the fast part. I try to stay honest about the part that does not get faster.</p>
+      <p class="lede" style="margin-top:20px">The first rough version usually comes together in a few minutes. That part feels like magic. Then the slower work starts: the checking, the fixing, the small calls that are yours to make. Most of the real time goes there. The shortcuts here are for the fast part.</p>
       <div class="splitrow">
         <div><span class="bignum">5 min</span><span class="numlab">to a first draft that looks finished</span></div>
         <div><span class="bignum" style="color:var(--sun)">2 hrs</span><span class="numlab">to make it actually true</span></div>
@@ -758,7 +758,7 @@ PAGES.home = () => `
 </section>
 
 <section class="wrap sec">
-  ${shead('Watch how it actually goes','Short videos of real builds, the wins and the dead ends included. Filming now, so the cards fill in as episodes go up.',
+  ${shead('Watch how it actually goes','Short videos of real builds. The wins and the dead ends. Filming now. The cards fill in as episodes go up.',
     '<a class="btn btn-ghost" href="#/channel" data-go="channel">The channel <span class="arw">&#8594;</span></a>')}
   <div class="grid4">
     ${VIDS.slice(0,4).map((v,i)=>`
@@ -893,7 +893,7 @@ PAGES.tools = () => `
         <ul class="ticks">
           <li>It answers a question you would otherwise guess at.</li>
           <li>It runs entirely in your browser, with no key and no account.</li>
-          <li>The maths is visible, so you can argue with it.</li>
+          <li>The math is visible. You can argue with it.</li>
           <li>It does not go stale the week a model is renamed.</li>
         </ul>
       </div>
@@ -947,7 +947,7 @@ PAGES.channel = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1">Watch and learn<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk and no hype, so you can watch how it actually goes, dead ends included. Filter by topic or search for one.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk and no hype. You watch how it actually goes. Dead ends included. Filter by topic or search for one.</p>
       <p style="margin-top:24px"><a class="btn btn-ghost" href="https://youtube.com" target="_blank" rel="noopener">Subscribe on YouTube <span class="arw">&#8599;</span></a></p>
     </div>
     <div class="phero-art rv"><img src="${IMG.cornerman}" alt="A boxing corner with a stool and towel"></div>
@@ -1032,7 +1032,7 @@ PAGES.kit = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1" style="font-size:clamp(38px,5.4vw,74px)">Michael&#8217;s AI Starter Kit<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Everything I would hand a friend who is starting with AI this week. Six things, listed in full below, so you know exactly what you trade your email for.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Everything I would hand a friend who is starting with AI this week. Six things. All of them listed in full below. You know exactly what you trade your email for.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.kiosk}" alt="A small corner shop with the name over the awning"></div>
   </div>
@@ -1054,7 +1054,7 @@ PAGES.kit = () => `
   <div class="card rv sendbox" style="margin-top:36px;background:var(--sun);padding:clamp(26px,3vw,48px)">
     <div>
       <h2 class="dsp h2">Send me the kit<i class="dot" style="font-style:normal">.</i></h2>
-      <p class="lede" style="color:#4A421F;margin-top:16px;max-width:52ch">There is no signup form behind this yet, so we keep it honest and simple: email me and I reply with the kit. One click below fills in the subject for you.</p>
+      <p class="lede" style="color:#4A421F;margin-top:16px;max-width:52ch">There is no signup form behind this yet. Email me and I reply with the kit. One click below fills in the subject for you.</p>
       <p style="margin:28px 0 0"><a class="btn btn-ink" href="mailto:mihael.florian@gmail.com?subject=Starter%20Kit&amp;body=Hi%20Michael%2C%20please%20send%20me%20the%20AI%20Starter%20Kit.">Email me for the kit <span class="arw">&#8594;</span></a></p>
       <p class="small" style="color:#4A421F;margin-top:16px">Free, no countdown, no catch. I reply by hand, usually within a day.</p>
     </div>
@@ -1068,7 +1068,7 @@ PAGES.kit = () => `
 
   <div class="grid2 rv" style="margin-top:26px">
     <div class="card"><p class="small">Your address is used for the kit and my occasional emails, never sold, never shared. When the proper list is ready you will be the first on it, and every email will have an unsubscribe link.</p></div>
-    <div class="card card-ink"><p class="small">The kit is free and stays free. There is no countdown and nothing expires, because that trick is exactly what this site stands against. You get the kit, and after that I write when I have something useful, which is not every day.</p></div>
+    <div class="card card-ink"><p class="small">The kit is free and stays free. There is no countdown. Nothing expires. You get the kit. After that I write when I have something useful. That is not every day.</p></div>
   </div>
 </section>`;
 
