@@ -105,34 +105,39 @@
   to = "/kit.html"
   status = 200
 
-# deep pages, by directory
+# deep pages, by directory. A named placeholder with a literal suffix
+# (":slug.html") is NOT what it looks like in Netlify's matcher -- the whole
+# token after the colon becomes the parameter name, so it matches every
+# path and substitutes nothing. Splat (*) is the form that actually supports
+# a literal suffix, and is Netlify's own documented pattern for this exact
+# extension-stripping case.
 [[redirects]]
-  from = "/tools/:slug.html"
-  to = "/tools/:slug"
+  from = "/tools/*.html"
+  to = "/tools/:splat"
   status = 301
   force = true
 [[redirects]]
-  from = "/packs/:slug.html"
-  to = "/packs/:slug"
+  from = "/packs/*.html"
+  to = "/packs/:splat"
   status = 301
   force = true
 [[redirects]]
-  from = "/prompts/:slug.html"
-  to = "/prompts/:slug"
+  from = "/prompts/*.html"
+  to = "/prompts/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/tools/:slug"
-  to = "/tools/:slug.html"
+  from = "/tools/*"
+  to = "/tools/:splat.html"
   status = 200
 [[redirects]]
-  from = "/packs/:slug"
-  to = "/packs/:slug.html"
+  from = "/packs/*"
+  to = "/packs/:splat.html"
   status = 200
 [[redirects]]
-  from = "/prompts/:slug"
-  to = "/prompts/:slug.html"
+  from = "/prompts/*"
+  to = "/prompts/:splat.html"
   status = 200
 
 [[redirects]]
