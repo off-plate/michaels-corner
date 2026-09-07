@@ -477,8 +477,8 @@ Keep the whole spec readable in two minutes. End with the one risk most likely t
       },
       {
         id: "smallest-version",
-        title: "Plan the smallest version worth shipping",
-        when: "Use this when your idea keeps growing and you need to ship something small first.",
+        title: "Plan the smallest version worth building",
+        when: "Use this when your idea keeps growing and you need to build something small first.",
         prompt: `You are a strict product advisor. Your job is to shrink my idea down to the smallest version that is genuinely useful to one real person.
 
 My idea:
@@ -635,7 +635,7 @@ End with a three row comparison table: option, monthly cost, setup effort, bigge
         tip: "Ask it separately what happens to your data if you quit each tool. Exit cost is the spec nobody prints."
       },
       {
-        id: "ship-checklist",
+        id: "test-before-launch",
         title: "Test it before anyone sees it",
         when: "Use this when the build looks done and you want to find the embarrassing bugs before your first user does.",
         prompt: `You are a pragmatic tester. Build me a manual test checklist for my project, focused on what breaks in front of real users.
@@ -656,7 +656,7 @@ Do this:
 Rules:
 - Assume I will test by hand in a browser. No automated testing talk unless one thing truly needs it, and then explain it plainly.
 
-End with the checklist in copyable form, and a one line rule for when I am allowed to stop testing and ship.`,
+End with the checklist in copyable form, and a one line rule for when I am allowed to stop testing and launch.`,
         tip: "Test on your phone before you share the link. Half of first visits come from a phone, and that is where layouts die."
       }
     ]
