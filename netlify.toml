@@ -3,8 +3,19 @@
   publish = "."
   command = ""
 
-# llms.txt and llms-full.txt are markdown-ish plain text and must not be
-# served as a download or as HTML.
+# app.js is shared and cached across all 8 pages; a short cache keeps it fresh
+# within an hour of a future deploy without re-fetching on every navigation.
+[[headers]]
+  for = "/app.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# llms.txt and llms-full.txt are plain text and must not be served as HTML.
 [[headers]]
   for = "/llms.txt"
   [headers.values]
@@ -16,11 +27,6 @@
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
     X-Robots-Tag = "index"
-
-[[headers]]
-  for = "/assets/img/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
 
 [[redirects]]
   from = "/*"
