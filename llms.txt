@@ -7,38 +7,38 @@ The position is anti-hype: the first rough version out of a model takes minutes 
 ## Pages
 
 - [Michael's Corner](https://michaels-corner.netlify.app/): Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate.
-- [Your first hour with AI](https://michaels-corner.netlify.app/start.html): A 7-point checklist and a 5-step guide for your first hour with ChatGPT, Claude or Gemini. One real task from your own week, no theory, free to work through.
-- [Steal these prompts](https://michaels-corner.netlify.app/library.html): 64 free prompts in 8 packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students.
-- [Most useful AI tools](https://michaels-corner.netlify.app/tools.html): 7 free AI tools that run in your browser with no signup: an AI cost calculator, a context-window checker, a subscription versus API breakeven, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder.
-- [Apps I built](https://michaels-corner.netlify.app/bill.html): 5 apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished, all in daily use.
-- [Watch and learn](https://michaels-corner.netlify.app/channel.html): Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now.
-- [Who I am](https://michaels-corner.netlify.app/about.html): Michael Florian. Not a developer, with a normal day job and more than twenty finished projects built with AI in the evenings. What he got good at, and what he did not.
-- [Michael's AI Starter Kit](https://michaels-corner.netlify.app/kit.html): Six free things for anyone starting with AI this week: 10 reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. Listed in full before you give an email.
+- [Your first hour with AI](https://michaels-corner.netlify.app/start): A 7-point checklist and a 5-step guide for your first hour with ChatGPT, Claude or Gemini. One real task from your own week, no theory, free to work through.
+- [Steal these prompts](https://michaels-corner.netlify.app/library): 64 free prompts in 8 packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students.
+- [Most useful AI tools](https://michaels-corner.netlify.app/tools): 7 free AI tools that run in your browser with no signup: an AI cost calculator, a context-window checker, a subscription versus API breakeven, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder.
+- [Apps I built](https://michaels-corner.netlify.app/bill): 5 apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished, all in daily use.
+- [Watch and learn](https://michaels-corner.netlify.app/channel): Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now.
+- [Who I am](https://michaels-corner.netlify.app/about): Michael Florian. Not a developer, with a normal day job and more than twenty finished projects built with AI in the evenings. What he got good at, and what he did not.
+- [Michael's AI Starter Kit](https://michaels-corner.netlify.app/kit): Six free things for anyone starting with AI this week: 10 reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. Listed in full before you give an email.
 
 ## Free browser tools
 
 Seven calculators and checkers. Each runs entirely in the visitor's browser, computes a real number rather than a canned one, and needs no account.
 
-- [AI cost calculator](https://michaels-corner.netlify.app/tools/ai-cost-calculator.html): What a month of AI actually costs, on rates you can edit. Drag three sliders and the number is computed on the page.
-- [AI-slop detector](https://michaels-corner.netlify.app/tools/ai-slop-detector.html): Paste any text and a public rule list counts the AI tells and stamps a score, with every flagged line shown.
-- [Difficult-email prompt builder](https://michaels-corner.netlify.app/tools/difficult-email-prompt-assembler.html): Six questions about the email you dread, then a copy-ready prompt with your facts and hard lines in it.
-- [Fits-in-context checker](https://michaels-corner.netlify.app/tools/fits-in-context.html): Whether your document fits a model's context window or needs splitting, across five window sizes.
-- [Prompt tightener](https://michaels-corner.netlify.app/tools/prompt-tightener.html): Strips the filler it can prove is filler and flags the vague asks it cannot fix. Deletion only, never a rewrite.
-- [Should you automate it?](https://michaels-corner.netlify.app/tools/should-you-automate.html): Six questions about a task, one verdict: automate now, assist only, or leave it human. The weights are published.
-- [Subscription vs API breakeven](https://michaels-corner.netlify.app/tools/subscription-vs-api.html): Your usage against both prices, and the point where one becomes cheaper than the other.
+- [AI cost calculator](https://michaels-corner.netlify.app/tools/ai-cost-calculator): What a month of AI actually costs, on rates you can edit. Drag three sliders and the number is computed on the page.
+- [AI-slop detector](https://michaels-corner.netlify.app/tools/ai-slop-detector): Paste any text and a public rule list counts the AI tells and stamps a score, with every flagged line shown.
+- [Difficult-email prompt builder](https://michaels-corner.netlify.app/tools/difficult-email-prompt-assembler): Six questions about the email you dread, then a copy-ready prompt with your facts and hard lines in it.
+- [Fits-in-context checker](https://michaels-corner.netlify.app/tools/fits-in-context): Whether your document fits a model's context window or needs splitting, across five window sizes.
+- [Prompt tightener](https://michaels-corner.netlify.app/tools/prompt-tightener): Strips the filler it can prove is filler and flags the vague asks it cannot fix. Deletion only, never a rewrite.
+- [Should you automate it?](https://michaels-corner.netlify.app/tools/should-you-automate): Six questions about a task, one verdict: automate now, assist only, or leave it human. The weights are published.
+- [Subscription vs API breakeven](https://michaels-corner.netlify.app/tools/subscription-vs-api): Your usage against both prices, and the point where one becomes cheaper than the other.
 
 ## Prompt packs
 
 Sixty-four prompts, free to copy, grouped by who they are for. Each prompt has bracketed fill slots and a note on when to use it.
 
-- [Best prompts for beginners](https://michaels-corner.netlify.app/packs/beginners.html): Start here. Simple prompts that work on your first day with ChatGPT or Claude.
-- [Building software with AI](https://michaels-corner.netlify.app/packs/building.html): Go from a rough idea to working software, even if you do not code.
-- [Content creators](https://michaels-corner.netlify.app/packs/creators.html): Make more from what you already record. Repurpose, script, and publish faster.
-- [Founders and small business owners](https://michaels-corner.netlify.app/packs/founders.html): For people running a small business. Customers, reviews, numbers, suppliers.
-- [Freelancers and solo operators](https://michaels-corner.netlify.app/packs/freelancers.html): Your business is you. Briefs, proposals, feedback rounds, unpaid invoices.
-- [Office and operations work](https://michaels-corner.netlify.app/packs/office.html): Inbox, meetings, reports, spreadsheets. Small routines for the everyday grind.
-- [Students and learning](https://michaels-corner.netlify.app/packs/students.html): Learn faster and remember more. These make AI quiz you and question you.
-- [Best prompts for writing](https://michaels-corner.netlify.app/packs/writing.html): Draft faster and still sound like yourself. These keep your voice and cut the filler.
+- [Best prompts for beginners](https://michaels-corner.netlify.app/packs/beginners): Start here. Simple prompts that work on your first day with ChatGPT or Claude.
+- [Building software with AI](https://michaels-corner.netlify.app/packs/building): Go from a rough idea to working software, even if you do not code.
+- [Content creators](https://michaels-corner.netlify.app/packs/creators): Make more from what you already record. Repurpose, script, and publish faster.
+- [Founders and small business owners](https://michaels-corner.netlify.app/packs/founders): For people running a small business. Customers, reviews, numbers, suppliers.
+- [Freelancers and solo operators](https://michaels-corner.netlify.app/packs/freelancers): Your business is you. Briefs, proposals, feedback rounds, unpaid invoices.
+- [Office and operations work](https://michaels-corner.netlify.app/packs/office): Inbox, meetings, reports, spreadsheets. Small routines for the everyday grind.
+- [Students and learning](https://michaels-corner.netlify.app/packs/students): Learn faster and remember more. These make AI quiz you and question you.
+- [Best prompts for writing](https://michaels-corner.netlify.app/packs/writing): Draft faster and still sound like yourself. These keep your voice and cut the filler.
 
 ## Optional
 

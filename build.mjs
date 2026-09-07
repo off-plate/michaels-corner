@@ -92,17 +92,17 @@ function header(prefix) {
 <header class="site-head">
   <div class="wrap">
     <div class="head-top">
-      <a class="head-word no-fx" href="${prefix}index.html"><img src="${prefix}assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michaels<br>Corner<span style="color:#E45B52">.</span></span></a>
+      <a class="head-word no-fx" href="/"><img src="${prefix}assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michaels<br>Corner<span style="color:#E45B52">.</span></span></a>
       <nav class="head-nav" aria-label="Main">
-        <a href="${prefix}index.html" data-nav="home">Home</a>
-        <a href="${prefix}start.html" data-nav="start">First time? Start here</a>
-        <a href="${prefix}library.html" data-nav="library">Prompts that can help you</a>
-        <a href="${prefix}tools.html" data-nav="tools">Most useful tools</a>
-        <a href="${prefix}bill.html" data-nav="bill">Apps I built</a>
-        <a href="${prefix}channel.html" data-nav="channel">More free tutorials</a>
-        <a href="${prefix}about.html" data-nav="about">Who I am</a>
+        <a href="/" data-nav="home">Home</a>
+        <a href="/start" data-nav="start">First time? Start here</a>
+        <a href="/library" data-nav="library">Prompts that can help you</a>
+        <a href="/tools" data-nav="tools">Most useful tools</a>
+        <a href="/bill" data-nav="bill">Apps I built</a>
+        <a href="/channel" data-nav="channel">More free tutorials</a>
+        <a href="/about" data-nav="about">Who I am</a>
       </nav>
-      <a class="head-cta no-fx" href="${prefix}kit.html" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
+      <a class="head-cta no-fx" href="/kit" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
     </div>
   </div>
 </header>`;
@@ -117,14 +117,14 @@ function footer(prefix) {
       <p class="foot-line">AI did not take my job. It made me faster.</p>
     </div>
     <div class="foot-col">
-      <a href="${prefix}library.html">Prompts that can help you</a>
-      <a href="${prefix}tools.html">Most useful tools</a>
-      <a href="${prefix}bill.html">Apps I built</a>
+      <a href="/library">Prompts that can help you</a>
+      <a href="/tools">Most useful tools</a>
+      <a href="/bill">Apps I built</a>
     </div>
     <div class="foot-col">
-      <a href="${prefix}start.html">First time? Start here</a>
-      <a href="${prefix}kit.html">The Starter Kit</a>
-      <a href="${prefix}about.html">Who I am</a>
+      <a href="/start">First time? Start here</a>
+      <a href="/kit">The Starter Kit</a>
+      <a href="/about">Who I am</a>
     </div>
   </div>
 </footer>
@@ -178,7 +178,7 @@ function buildLibrary() {
   const total = PACKS.reduce((n, p) => n + p.prompts.length, 0);
 
   const cards = PACKS.map((p) => `
-      <a class="pack-card" href="packs/${esc(p.id)}.html">
+      <a class="pack-card" href="/packs/${esc(p.id)}">
         <div class="pc-top"><span class="pc-tag">${esc(p.chip)}</span><span class="pc-n">${p.prompts.length} prompts</span></div>
         <h2>${esc(p.name)}</h2>
         <p>${esc(p.blurb[0])} ${esc(p.blurb[1])}</p>
@@ -329,7 +329,7 @@ function buildPack(pack, i) {
   let rows = "";
   pack.prompts.forEach((pr, j) => {
     rows += `
-    <a class="lrow" href="../prompts/${esc(pr.id)}.html">
+    <a class="lrow" href="/prompts/${esc(pr.id)}">
       <span class="fno">${promptNo(j)}</span>
       <span class="lt">
         <h3>${esc(pr.title)}</h3>
@@ -341,12 +341,12 @@ function buildPack(pack, i) {
 
   const packsNav = PACKS.map((p2, k) => k === i
     ? `<span class="pn-here">${esc(p2.name)}</span>`
-    : `<a href="${esc(p2.id)}.html">${esc(p2.name)}</a>`).join("");
+    : `<a href="/prompts/${esc(p2.id)}">${esc(p2.name)}</a>`).join("");
 
   const body = `
 <section class="page-hero">
   <div class="wrap">
-    <a class="backlink hero-back" href="../library.html"><span aria-hidden="true">&#8592;</span> Back to all prompts</a>
+    <a class="backlink hero-back" href="/library"><span aria-hidden="true">&#8592;</span> Back to all prompts</a>
     <div class="hero-grid">
       <div>
         <h1 class="h-page">${esc(pack.name)}</h1>
@@ -370,16 +370,16 @@ function buildPack(pack, i) {
 </div>
 `;
 
-  const html = head(pack.name, pack.blurb[0], prefix, `packs/${pack.id}.html`, [
+  const html = head(pack.name, pack.blurb[0], prefix, `packs/${pack.id}`, [
     { "@context": "https://schema.org", "@type": "ItemList", name: pack.name,
       description: pack.blurb.join(" "), numberOfItems: pack.prompts.length,
       itemListElement: pack.prompts.map((q, n) => ({
         "@type": "ListItem", position: n + 1, name: q.title,
-        url: `${SITE}prompts/${q.id}.html` })) },
+        url: `${SITE}prompts/${q.id}` })) },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Michael's Corner", item: SITE },
-      { "@type": "ListItem", position: 2, name: "Prompts that can help you", item: SITE + "library.html" },
-      { "@type": "ListItem", position: 3, name: pack.name, item: `${SITE}packs/${pack.id}.html` }] }])
+      { "@type": "ListItem", position: 2, name: "Prompts that can help you", item: SITE + "library" },
+      { "@type": "ListItem", position: 3, name: pack.name, item: `${SITE}packs/${pack.id}` }] }])
     + css + "\n</head>\n<body>\n<a class=\"skip-link\" href=\"#main\">Skip to content</a>\n"
     + header(prefix) + "\n" + body + "\n" + footer(prefix) + "\n</body>\n</html>\n";
 
@@ -441,7 +441,7 @@ function buildPrompt(pack, packIndex, pr, promptIndex) {
   const body = `
 <section class="page-hero">
   <div class="wrap">
-    <a class="backlink hero-back" href="../library.html"><span aria-hidden="true">&#8592;</span> Back to all prompts</a>
+    <a class="backlink hero-back" href="/library"><span aria-hidden="true">&#8592;</span> Back to all prompts</a>
     <div class="hero-grid">
       <div>
         <h1 class="h-page">${esc(pr.title)}</h1>
@@ -458,7 +458,7 @@ function buildPrompt(pack, packIndex, pr, promptIndex) {
     <div class="sf"><h3>What to fill in</h3>${tokenList}</div>
     <div class="sf"><h3>The tip</h3><p>${esc(pr.tip)}</p></div>
     <div class="sf"><h3>Works in</h3><p>ChatGPT / Claude / Gemini</p></div>
-    <div class="sf"><h3>This pack</h3><a class="link" href="../packs/${esc(pack.id)}.html">${esc(pack.chip)}</a></div>
+    <div class="sf"><h3>This pack</h3><a class="link" href="/packs/${esc(pack.id)}">${esc(pack.chip)}</a></div>
   </div>
 
   <div class="spec-body" id="spec-body">
@@ -515,16 +515,16 @@ function buildPrompt(pack, packIndex, pr, promptIndex) {
 })();
 </script>`;
 
-  const html = head(pr.title, pr.when, prefix, `prompts/${pr.id}.html`, [
+  const html = head(pr.title, pr.when, prefix, `prompts/${pr.id}`, [
     { "@context": "https://schema.org", "@type": "HowTo", name: pr.title,
       description: pr.when, author: PERSON,
       step: [{ "@type": "HowToStep", position: 1, name: "Copy the prompt and fill the brackets",
                text: pr.when }] },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Michael's Corner", item: SITE },
-      { "@type": "ListItem", position: 2, name: "Prompts that can help you", item: SITE + "library.html" },
-      { "@type": "ListItem", position: 3, name: pack.name, item: `${SITE}packs/${pack.id}.html` },
-      { "@type": "ListItem", position: 4, name: pr.title, item: `${SITE}prompts/${pr.id}.html` }] }])
+      { "@type": "ListItem", position: 2, name: "Prompts that can help you", item: SITE + "library" },
+      { "@type": "ListItem", position: 3, name: pack.name, item: `${SITE}packs/${pack.id}` },
+      { "@type": "ListItem", position: 4, name: pr.title, item: `${SITE}prompts/${pr.id}` }] }])
     + css + "\n</head>\n<body>\n<a class=\"skip-link\" href=\"#main\">Skip to content</a>\n"
     + header(prefix) + "\n" + body + "\n" + footer(prefix) + script + "\n</body>\n</html>\n";
 
@@ -544,7 +544,7 @@ function buildIndex() {
         when: pr.when,
         pack: p.id,
         packName: p.name,
-        url: `prompts/${pr.id}.html`
+        url: `prompts/${pr.id}`
       });
     });
   });

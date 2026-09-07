@@ -42,8 +42,8 @@ function applyMeta(page){
   set('meta[name="description"]','content',m.d);
   set('meta[property="og:title"]','content',document.title);
   set('meta[property="og:description"]','content',m.d);
-  set('link[rel="canonical"]','href', SITE + (page==='home'?'':ROUTE_FILE[page]));
-  set('meta[property="og:url"]','content', SITE + (page==='home'?'':ROUTE_FILE[page]));
+  set('link[rel="canonical"]','href', SITE + ROUTE_CLEAN[page].replace(/^\//,''));
+  set('meta[property="og:url"]','content', SITE + ROUTE_CLEAN[page].replace(/^\//,''));
 }
 
 const LIVE = 'https://michaels-corner.netlify.app/';
@@ -149,13 +149,20 @@ const el = (h) => { const t=document.createElement('template'); t.innerHTML=h.tr
 /* Real URLs, not hash fragments. A crawler strips everything after #, so a
    hash-routed site is one indexable page no matter how many views it has.
    Every route is a real file that the server returns on its own. */
-const ROUTE_FILE = {home:'index.html', start:'start.html', library:'library.html',
+/* Two maps: FILE is the real file on disk (what a server-side rewrite serves),
+   CLEAN is what the address bar and every generated link show. Netlify
+   rewrites /start (200, no visible redirect) to start.html and 301s the old
+   start.html link to /start, so both resolve, but /start is canonical. */
+const ROUTE_FILE  = {home:'index.html', start:'start.html', library:'library.html',
   tools:'tools.html', bill:'bill.html', channel:'channel.html', about:'about.html', kit:'kit.html'};
-const FILE_ROUTE = Object.fromEntries(Object.entries(ROUTE_FILE).map(([k,v])=>[v,k]));
-const href = (p) => p==='home' ? './' : ROUTE_FILE[p];
+const ROUTE_CLEAN = {home:'/', start:'/start', library:'/library', tools:'/tools',
+  bill:'/bill', channel:'/channel', about:'/about', kit:'/kit'};
+const CLEAN_ROUTE = Object.fromEntries(Object.entries(ROUTE_CLEAN).map(([k,v])=>[v,k]));
+const href = (p) => ROUTE_CLEAN[p];
 function currentRoute(){
-  const f = (location.pathname.split('/').pop() || 'index.html');
-  return FILE_ROUTE[f] || 'home';
+  let path = location.pathname.replace(/\/$/, '') || '/';
+  if(path.endsWith('.html')) path = path.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '') || '/';
+  return CLEAN_ROUTE[path] || 'home';
 }
 const go = (p) => {
   if(p === currentRoute()) return;
@@ -177,8 +184,8 @@ PAGES.home = () => `
   <div class="hero-body rv">
     <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools most evenings and write down what actually works, free for you to take.</p>
     <div class="hero-cta">
-      <a class="btn btn-ink" href="library.html" data-go="library">Browse the library <span class="arw">&#8594;</span></a>
-      <a class="btn btn-ghost" href="bill.html" data-go="bill">See the projects</a>
+      <a class="btn btn-ink" href="/library" data-go="library">Browse the library <span class="arw">&#8594;</span></a>
+      <a class="btn btn-ghost" href="/bill" data-go="bill">See the projects</a>
     </div>
     <dl class="herostats">
       <div><dt>64</dt><dd>free prompts, in eight packs</dd></div>
@@ -199,7 +206,7 @@ PAGES.home = () => `
 
 <section class="wrap sec-tight">
   ${shead('Apps I built','The apps I have actually built with AI in the evenings, not demos. All of them things I use myself every day.',
-    '<a class="btn btn-ghost" href="bill.html" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
+    '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
   <div class="autogrid">
     ${APPS.filter(a=>!a.appsPageOnly).map(a=>`
       <article class="appcard rv">
@@ -228,7 +235,7 @@ PAGES.home = () => `
 <section class="sec">
   <div class="wrap">
   ${shead('Small tools that do the math for you','Free calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating. No signup, nothing leaves the page.',
-    '<div style="display:flex;gap:12px;align-items:center"><a class="btn btn-ghost" href="tools.html" data-go="tools">All the tools <span class="arw">&#8594;</span></a><div class="paddles"><button class="paddle" data-scroll="-1" aria-label="Scroll left">&#8592;</button><button class="paddle" data-scroll="1" aria-label="Scroll right">&#8594;</button></div></div>')}
+    '<div style="display:flex;gap:12px;align-items:center"><a class="btn btn-ghost" href="/tools" data-go="tools">All the tools <span class="arw">&#8594;</span></a><div class="paddles"><button class="paddle" data-scroll="-1" aria-label="Scroll left">&#8592;</button><button class="paddle" data-scroll="1" aria-label="Scroll right">&#8594;</button></div></div>')}
   </div>
   <div class="scroll" data-scroller>
     ${TOOLS.slice(0,5).map((t,i)=>{
@@ -240,7 +247,7 @@ PAGES.home = () => `
         {bg:'var(--cream)', fg:'var(--ink)',   sub:'var(--mute)',           arw:'var(--coral)'}
       ][i];
       return `
-      <a class="card lcard" href="${LIVE}tools/${t.id}.html" target="_blank" rel="noopener" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">
+      <a class="card lcard" href="${LIVE}tools/${t.id}" target="_blank" rel="noopener" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">
         <span class="mono" style="color:${sk.sub}">${esc(t.desig)}</span>
         <h3 class="h3">${esc(t.n)}</h3>
         <p class="small" style="color:${sk.sub}">${esc(t.desc)}</p>
@@ -251,10 +258,10 @@ PAGES.home = () => `
 
 <section class="wrap sec-tight">
   ${shead('Prompts you can steal right now','Copy one, fill in the brackets, paste it into ChatGPT, Claude, or Gemini. These are the ones I reach for most. The full library has sixty-four.',
-    '<a class="btn btn-ghost" href="library.html" data-go="library">The whole library <span class="arw">&#8594;</span></a>')}
+    '<a class="btn btn-ghost" href="/library" data-go="library">The whole library <span class="arw">&#8594;</span></a>')}
   <div class="autogrid">
     ${PACKS.slice(0,4).map((p,i)=>`
-      <a class="pack lcard rv" href="${LIVE}packs/${p.id}.html" target="_blank" rel="noopener" style="${i===1?'background:var(--sun)':''}">
+      <a class="pack lcard rv" href="${LIVE}packs/${p.id}" target="_blank" rel="noopener" style="${i===1?'background:var(--sun)':''}">
         <div class="top"><span class="tag">${esc(p.chip)}</span><span class="mono">8 prompts</span></div>
         <h3 class="h3">${esc(p.n)}</h3>
         <p class="small" style="color:var(--soft)">${esc(p.d)}</p>
@@ -265,7 +272,7 @@ PAGES.home = () => `
 
 <section class="wrap sec">
   ${shead('Watch how it actually goes','Short videos of real builds. The wins and the dead ends. Filming now. The cards fill in as episodes go up.',
-    '<a class="btn btn-ghost" href="channel.html" data-go="channel">The channel <span class="arw">&#8594;</span></a>')}
+    '<a class="btn btn-ghost" href="/channel" data-go="channel">The channel <span class="arw">&#8594;</span></a>')}
   <div class="grid4">
     ${VIDS.slice(0,4).map((v,i)=>`
       <article class="vid rv">
@@ -288,7 +295,7 @@ PAGES.home = () => `
         <li><span>05</span>The &#8220;is this an AI job?&#8221; checklist</li>
         <li><span>06</span>The fix-it lines</li>
       </ol>
-      <p style="margin-top:28px"><a class="btn btn-ink" href="kit.html" data-go="kit">See what is inside <span class="arw">&#8594;</span></a></p>
+      <p style="margin-top:28px"><a class="btn btn-ink" href="/kit" data-go="kit">See what is inside <span class="arw">&#8594;</span></a></p>
     </div>
     <div class="rv split-art"><img src="${IMG.kiosk}" width="${DIM.kiosk.w}" height="${DIM.kiosk.h}" alt="A small corner shop with the name over the awning"></div>
   </div>
@@ -333,7 +340,7 @@ PAGES.start = () => `
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">That is the hour<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">When you want prompts already written this way, the library is next door. Sixty-four of them, in eight packs, free.</p>
-    <a class="btn btn-onink" href="library.html" data-go="library">Open the prompt library <span class="arw">&#8594;</span></a>
+    <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
 
@@ -361,7 +368,7 @@ PAGES.library = () => `
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">Take what helps<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">Copy anything here, change the words, make it yours. If one prompt saves you an hour this week, that is the whole point.</p>
-    <a class="btn btn-onink" href="kit.html" data-go="kit">Get the free kit <span class="arw">&#8594;</span></a>
+    <a class="btn btn-onink" href="/kit" data-go="kit">Get the free kit <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
 
@@ -411,7 +418,7 @@ PAGES.tools = () => `
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">Nothing you type leaves this page<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">Every tool here runs in your browser. No signup, no email gate, no server behind it. Close the tab and it is gone.</p>
-    <a class="btn btn-onink" href="library.html" data-go="library">Prompts that can help you <span class="arw">&#8594;</span></a>
+    <a class="btn btn-onink" href="/library" data-go="library">Prompts that can help you <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
 
@@ -444,7 +451,7 @@ PAGES.bill = () => `
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">Built in the evenings<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">None of these needed a team. If you want to see how one gets made, the channel shows the whole thing, dead ends included.</p>
-    <a class="btn btn-onink" href="channel.html" data-go="channel">More free tutorials <span class="arw">&#8594;</span></a>
+    <a class="btn btn-onink" href="/channel" data-go="channel">More free tutorials <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
 
@@ -468,7 +475,7 @@ PAGES.channel = () => `
     <div style="padding:clamp(24px,3vw,40px)">
       <h2 class="dsp" style="font-size:clamp(24px,2.8vw,38px);color:var(--cream)">Your first hour with an AI assistant</h2>
       <p class="lede" style="margin-top:14px;max-width:44ch">Set it up and do something useful right away. The exact hour I would walk a friend through, no theory.</p>
-      <p style="margin-top:24px"><a class="btn btn-onink" href="start.html" data-go="start">Read the written version <span class="arw">&#8594;</span></a></p>
+      <p style="margin-top:24px"><a class="btn btn-onink" href="/start" data-go="start">Read the written version <span class="arw">&#8594;</span></a></p>
     </div>
   </div>
 
@@ -509,8 +516,8 @@ PAGES.about = () => `
         <h3 class="h4" style="margin-bottom:12px">Where to find me</h3>
         <div style="display:flex;flex-direction:column;gap:7px">
           <a href="mailto:mihael.florian@gmail.com" style="font-size:14px">mihael.florian@gmail.com</a>
-          <a href="channel.html" data-go="channel" style="font-size:14px">Watch</a>
-          <a href="bill.html" data-go="bill" style="font-size:14px">Apps</a>
+          <a href="/channel" data-go="channel" style="font-size:14px">Watch</a>
+          <a href="/bill" data-go="bill" style="font-size:14px">Apps</a>
         </div>
       </div>
     </div>
@@ -640,7 +647,7 @@ function wire(page){
       const hits = PACKS.filter(p => !s || (p.n + ' ' + p.chip + ' ' + p.d).toLowerCase().includes(s));
       count.textContent = s ? (hits.length + (hits.length === 1 ? ' pack matches' : ' packs match')) : '8 packs, sorted by who they are for';
       grid.innerHTML = hits.length ? hits.map((p,i)=>`
-        <a class="pack lcard" href="${LIVE}packs/${p.id}.html" target="_blank" rel="noopener"${i%3===1?' style="background:var(--sun)"':''}>
+        <a class="pack lcard" href="${LIVE}packs/${p.id}" target="_blank" rel="noopener"${i%3===1?' style="background:var(--sun)"':''}>
           <div class="top"><span class="tag">${esc(p.chip)}</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">${esc(p.n)}</h2>
           <p class="small" style="color:var(--soft)">${esc(p.d)}</p>
@@ -671,7 +678,7 @@ function wire(page){
           <h2 class="h4" style="color:var(--mute);margin-bottom:12px">${esc(c)}</h2>
           <div style="display:flex;flex-direction:column;gap:10px">
             ${byCat[c].map(t=>`
-              <a class="trow" href="${LIVE}tools/${t.id}.html" target="_blank" rel="noopener">
+              <a class="trow" href="${LIVE}tools/${t.id}" target="_blank" rel="noopener">
                 <span class="desig">${esc(t.desig)}</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">${esc(t.n)}</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">${esc(t.desc)}</span><span class="hint">${esc(t.hint)}</span></span>
                 <span class="open" style="margin:0">Open <span class="arw">&#8599;</span></span>
@@ -841,7 +848,7 @@ window.addEventListener('popstate', render);
 (function(){
   const m = (location.hash||'').match(/^#\/([a-z]*)$/);
   if(m){ const p = m[1]===''? 'home' : m[1];
-    if(ROUTE_FILE[p]) history.replaceState({p}, '', href(p)); }
+    if(ROUTE_CLEAN[p]) history.replaceState({p}, '', href(p)); }
 })();
 render();
 fitNav();

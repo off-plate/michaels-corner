@@ -11,7 +11,7 @@
     Cache-Control = "public, max-age=3600"
 
 [[headers]]
-  for = "/assets/img/*"
+  for = "/assets/inline/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
@@ -27,6 +27,113 @@
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
     X-Robots-Tag = "index"
+
+# Clean URLs, no .html anywhere a visitor or a search engine sees. Netlify's
+# own pretty_urls post-processing did this invisibly and inconsistently (see
+# the 2026-09-07 commit that turned it off), so it is explicit here instead:
+# an old .html link 301s to the clean one first, then the clean path is
+# rewritten (200, no visible redirect) to the real file that serves it.
+
+# top-level pages
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/start.html"
+  to = "/start"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/library.html"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/tools.html"
+  to = "/tools"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/bill.html"
+  to = "/bill"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/channel.html"
+  to = "/channel"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/kit.html"
+  to = "/kit"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/start"
+  to = "/start.html"
+  status = 200
+[[redirects]]
+  from = "/library"
+  to = "/library.html"
+  status = 200
+[[redirects]]
+  from = "/tools"
+  to = "/tools.html"
+  status = 200
+[[redirects]]
+  from = "/bill"
+  to = "/bill.html"
+  status = 200
+[[redirects]]
+  from = "/channel"
+  to = "/channel.html"
+  status = 200
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+[[redirects]]
+  from = "/kit"
+  to = "/kit.html"
+  status = 200
+
+# deep pages, by directory
+[[redirects]]
+  from = "/tools/:slug.html"
+  to = "/tools/:slug"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/packs/:slug.html"
+  to = "/packs/:slug"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/:slug.html"
+  to = "/prompts/:slug"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tools/:slug"
+  to = "/tools/:slug.html"
+  status = 200
+[[redirects]]
+  from = "/packs/:slug"
+  to = "/packs/:slug.html"
+  status = 200
+[[redirects]]
+  from = "/prompts/:slug"
+  to = "/prompts/:slug.html"
+  status = 200
 
 [[redirects]]
   from = "/*"
