@@ -1,5 +1,11 @@
 
 const IMG = {"mark": "assets/inline/mark.png", "markRev": "assets/inline/markRev.png", "cornerman": "assets/inline/cornerman.png", "lamp": "assets/inline/lamp.png", "machine": "assets/inline/machine.png", "kiosk": "assets/inline/kiosk.png", "sign": "assets/inline/sign.png", "tuck": "assets/inline/tuck.png", "recall": "assets/inline/recall.png", "refill": "assets/inline/refill.png", "frost": "assets/inline/frost.png", "hero": "assets/inline/hero.png", "cutter": "assets/inline/cutter.png"};
+// Real pixel dimensions of each IMG entry, so every <img> can carry width/height
+// attributes and the browser reserves its box before the file loads over the
+// network -- these used to be inline base64 (available synchronously, no CLS
+// risk); now they're separate files, so without this every one of them is a
+// layout-shift hazard the instant it finishes loading.
+const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}};
 const NAV = [
   ['home','Home'],
   ['start','First time? Start here'],
@@ -136,7 +142,7 @@ PAGES.home = () => `
     </dl>
   </div>
   <div class="hero-art rv">
-    <img src="${IMG.hero}" alt="Michael, drawn, with the character peeking over his shoulder">
+    <img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" alt="Michael, drawn, with the character peeking over his shoulder">
     <span class="hero-badge" style="top:4%;left:-10px">Free, all of it</span>
     <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">No signup</span>
   </div>
@@ -151,7 +157,7 @@ PAGES.home = () => `
   <div class="autogrid">
     ${APPS.filter(a=>!a.appsPageOnly).map(a=>`
       <article class="appcard rv">
-        <img src="${IMG[a.img]}" alt="${esc(a.n)} app icon">
+        <img src="${IMG[a.img]}" width="${DIM[a.img].w}" height="${DIM[a.img].h}" alt="${esc(a.n)} app icon">
         <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">${a.n}</h3><span class="plat">${esc(a.plat)}</span></div>
         <p class="small" style="color:var(--soft)">${esc(a.d)}</p>
       </article>`).join('')}
@@ -169,7 +175,7 @@ PAGES.home = () => `
         <div><span class="bignum">0</span><span class="numlab">of that second part gets automated</span></div>
       </div>
     </div>
-    <div class="rv split-art"><img src="${IMG.lamp}" alt="A desk lamp lighting the work"></div>
+    <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
   </div>
 </section>
 
@@ -238,7 +244,7 @@ PAGES.home = () => `
       </ol>
       <p style="margin-top:28px"><a class="btn btn-ink" href="#/kit" data-go="kit">See what is inside <span class="arw">&#8594;</span></a></p>
     </div>
-    <div class="rv split-art"><img src="${IMG.kiosk}" alt="A small corner shop with the name over the awning"></div>
+    <div class="rv split-art"><img src="${IMG.kiosk}" width="${DIM.kiosk.w}" height="${DIM.kiosk.h}" alt="A small corner shop with the name over the awning"></div>
   </div>
 </section>`;
 
@@ -249,7 +255,7 @@ PAGES.start = () => `
       <h1 class="dsp h1" style="font-size:clamp(40px,6vw,80px)">Your first hour with AI<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">A short checklist to tick off as you go, then the full guide underneath. The exact first hour I would walk a friend through, one real task and no theory.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.lamp}" alt="A desk lamp lighting the work"></div>
+    <div class="phero-art rv"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
   </div>
 </section>
 
@@ -292,7 +298,7 @@ PAGES.library = () => `
       <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Steal these prompts<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">64 prompts in eight packs, all free. Copy one, fill in the brackets, and paste it into ChatGPT, Claude, or Gemini. These are the ones I keep going back to.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.sign}" alt="A hanging shop sign reading Michael's Corner"></div>
+    <div class="phero-art rv"><img src="${IMG.sign}" width="${DIM.sign.w}" height="${DIM.sign.h}" alt="A hanging shop sign reading Michael's Corner"></div>
   </div>
 </section>
 
@@ -320,7 +326,7 @@ PAGES.tools = () => `
       <h1 class="dsp h1">Tools<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that actually run in your browser, no signup and no email gate. Open any one and the number is real, computed on the spot. Nothing you type ever leaves this page.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.machine}" alt="A workshop machine with a screen"></div>
+    <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
 </section>
 
@@ -370,7 +376,7 @@ PAGES.bill = () => `
       <h1 class="dsp h1">Apps<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">The apps I have actually built with AI in the evenings, not demos. All of them things I use myself every day.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.machine}" alt="A workshop machine with a screen"></div>
+    <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
 </section>
 
@@ -378,7 +384,7 @@ PAGES.bill = () => `
   <div class="grid2">
     ${APPS.map(a=>`
       <article class="app rv">
-        <img src="${IMG[a.img]}" alt="${esc(a.n)} app icon">
+        <img src="${IMG[a.img]}" width="${DIM[a.img].w}" height="${DIM[a.img].h}" alt="${esc(a.n)} app icon">
         <div>
           <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">${a.n}</h2><span class="plat">${esc(a.plat)}</span></div>
           <p class="small" style="margin-top:9px;color:var(--soft)">${esc(a.d)}</p>
@@ -404,7 +410,7 @@ PAGES.channel = () => `
       <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk and no hype. You watch how it actually goes. Dead ends included. Filter by topic or search for one.</p>
       <p style="margin-top:24px"><a class="btn btn-ghost" href="https://youtube.com" target="_blank" rel="noopener">Subscribe on YouTube <span class="arw">&#8599;</span></a></p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.cornerman}" alt="A boxing corner with a stool and towel"></div>
+    <div class="phero-art rv"><img src="${IMG.cornerman}" width="${DIM.cornerman.w}" height="${DIM.cornerman.h}" alt="A boxing corner with a stool and towel"></div>
   </div>
 </section>
 
@@ -440,7 +446,7 @@ PAGES.about = () => `
 <section class="wrap phero abouthero">
   <h1 class="dsp h1 rv" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I build anyway<i class="dot" style="font-style:normal">.</i></h1>
   <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. I have a normal day job, and in the evenings I build things with AI. More than twenty finished projects so far.</p>
-  <div class="abouthero-art rv"><img src="${IMG.hero}" alt="Michael, drawn, with the character peeking over his shoulder"></div>
+  <div class="abouthero-art rv"><img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" alt="Michael, drawn, with the character peeking over his shoulder"></div>
 </section>
 
 <section class="wrap sec-tight">
@@ -488,7 +494,7 @@ PAGES.kit = () => `
       <h1 class="dsp h1" style="font-size:clamp(38px,5.4vw,74px)">Michael&#8217;s AI Starter Kit<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Everything I would hand a friend who is starting with AI this week. Six things. All of them listed in full below. You know exactly what you trade your email for.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.kiosk}" alt="A small corner shop with the name over the awning"></div>
+    <div class="phero-art rv"><img src="${IMG.kiosk}" width="${DIM.kiosk.w}" height="${DIM.kiosk.h}" alt="A small corner shop with the name over the awning"></div>
   </div>
 </section>
 
