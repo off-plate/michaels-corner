@@ -1,4 +1,11 @@
-const IMG = {"mark": "assets/img/mark.png", "markRev": "assets/img/markRev.png", "cornerman": "assets/img/cornerman.png", "lamp": "assets/img/lamp.png", "machine": "assets/img/machine.png", "kiosk": "assets/img/kiosk.png", "sign": "assets/img/sign.png", "tuck": "assets/img/tuck.png", "recall": "assets/img/recall.png", "refill": "assets/img/refill.png", "frost": "assets/img/frost.png", "hero": "assets/img/hero.png", "cutter": "assets/img/cutter.png"};
+
+const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRev.webp", "cornerman": "assets/inline/cornerman.webp", "lamp": "assets/inline/lamp.webp", "machine": "assets/inline/machine.webp", "kiosk": "assets/inline/kiosk.webp", "sign": "assets/inline/sign.webp", "tuck": "assets/inline/tuck.webp", "recall": "assets/inline/recall.webp", "refill": "assets/inline/refill.webp", "frost": "assets/inline/frost.webp", "hero": "assets/inline/hero.webp", "cutter": "assets/inline/cutter.webp"};
+// Real pixel dimensions of each IMG entry, so every <img> can carry width/height
+// attributes and the browser reserves its box before the file loads over the
+// network -- these used to be inline base64 (available synchronously, no CLS
+// risk); now they're separate files, so without this every one of them is a
+// layout-shift hazard the instant it finishes loading.
+const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}};
 const NAV = [
   ['home','Home'],
   ['start','First time? Start here'],
@@ -8,6 +15,37 @@ const NAV = [
   ['channel','More free tutorials'],
   ['about','Who I am']
 ];
+
+const PAGE_META = {
+  home:    {t:"Michael's Corner",
+            d:"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate."},
+  start:   {t:"Your first hour with AI",
+            d:"A 7-point checklist and a 5-step guide for your first hour with ChatGPT, Claude or Gemini. One real task from your own week, no theory, free to work through."},
+  library: {t:"Steal these prompts",
+            d:"64 free prompts in 8 packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students."},
+  tools:   {t:"Most useful AI tools",
+            d:"7 free AI tools that run in your browser with no signup: an AI cost calculator, a context-window checker, a subscription versus API breakeven, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
+  bill:    {t:"Apps I built",
+            d:"5 apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished, all in daily use."},
+  channel: {t:"Watch and learn",
+            d:"Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now."},
+  about:   {t:"Who I am",
+            d:"Michael Florian. Not a developer, with a normal day job and more than twenty finished projects built with AI in the evenings. What he got good at, and what he did not."},
+  kit:     {t:"Michael's AI Starter Kit",
+            d:"Six free things for anyone starting with AI this week: 10 reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. Listed in full before you give an email."}
+};
+const SITE = 'https://michaels-corner.netlify.app/';
+function applyMeta(page){
+  const m = PAGE_META[page]; if(!m) return;
+  document.title = page==='home' ? m.t : m.t + " / Michael's Corner";
+  const set = (sel, attr, val) => { const e=document.querySelector(sel); if(e) e.setAttribute(attr, val); };
+  set('meta[name="description"]','content',m.d);
+  set('meta[property="og:title"]','content',document.title);
+  set('meta[property="og:description"]','content',m.d);
+  set('link[rel="canonical"]','href', SITE + (page==='home'?'':ROUTE_FILE[page]));
+  set('meta[property="og:url"]','content', SITE + (page==='home'?'':ROUTE_FILE[page]));
+}
+
 const LIVE = 'https://michaels-corner.netlify.app/';
 
 const TOOLS = [
@@ -111,40 +149,6 @@ const el = (h) => { const t=document.createElement('template'); t.innerHTML=h.tr
 /* Real URLs, not hash fragments. A crawler strips everything after #, so a
    hash-routed site is one indexable page no matter how many views it has.
    Every route is a real file that the server returns on its own. */
-/* One record per route. The static build writes these into each file's head;
-   applyMeta keeps them correct after a client-side navigation. Descriptions
-   are answer-first: a self-contained claim with a number in it, because that
-   is the shape an answer engine can lift whole. */
-const PAGE_META = {
-  home:    {t:"Michael's Corner",
-            d:"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate."},
-  start:   {t:"Your first hour with AI",
-            d:"A 7-point checklist and a 5-step guide for your first hour with ChatGPT, Claude or Gemini. One real task from your own week, no theory, free to work through."},
-  library: {t:"Steal these prompts",
-            d:"64 free prompts in 8 packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students."},
-  tools:   {t:"Most useful AI tools",
-            d:"7 free AI tools that run in your browser with no signup: an AI cost calculator, a context-window checker, a subscription versus API breakeven, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
-  bill:    {t:"Apps I built",
-            d:"5 apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished, all in daily use."},
-  channel: {t:"Watch and learn",
-            d:"Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now."},
-  about:   {t:"Who I am",
-            d:"Michael Florian. Not a developer, with a normal day job and more than twenty finished projects built with AI in the evenings. What he got good at, and what he did not."},
-  kit:     {t:"Michael's AI Starter Kit",
-            d:"Six free things for anyone starting with AI this week: 10 reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. Listed in full before you give an email."}
-};
-const SITE = 'https://michaels-corner.netlify.app/';
-function applyMeta(page){
-  const m = PAGE_META[page]; if(!m) return;
-  document.title = page==='home' ? m.t : m.t + " / Michael's Corner";
-  const set = (sel, attr, val) => { const e=document.querySelector(sel); if(e) e.setAttribute(attr, val); };
-  set('meta[name="description"]','content',m.d);
-  set('meta[property="og:title"]','content',document.title);
-  set('meta[property="og:description"]','content',m.d);
-  set('link[rel="canonical"]','href', SITE + (page==='home'?'':ROUTE_FILE[page]));
-  set('meta[property="og:url"]','content', SITE + (page==='home'?'':ROUTE_FILE[page]));
-}
-
 const ROUTE_FILE = {home:'index.html', start:'start.html', library:'library.html',
   tools:'tools.html', bill:'bill.html', channel:'channel.html', about:'about.html', kit:'kit.html'};
 const FILE_ROUTE = Object.fromEntries(Object.entries(ROUTE_FILE).map(([k,v])=>[v,k]));
@@ -184,7 +188,7 @@ PAGES.home = () => `
     </dl>
   </div>
   <div class="hero-art rv">
-    <img src="${IMG.hero}" alt="Michael, drawn, with the character peeking over his shoulder">
+    <img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder">
     <span class="hero-badge" style="top:4%;left:-10px">Free, all of it</span>
     <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">No signup</span>
   </div>
@@ -199,7 +203,7 @@ PAGES.home = () => `
   <div class="autogrid">
     ${APPS.filter(a=>!a.appsPageOnly).map(a=>`
       <article class="appcard rv">
-        <img src="${IMG[a.img]}" alt="${esc(a.n)} app icon">
+        <img src="${IMG[a.img]}" width="${DIM[a.img].w}" height="${DIM[a.img].h}" alt="${esc(a.n)} app icon">
         <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">${a.n}</h3><span class="plat">${esc(a.plat)}</span></div>
         <p class="small" style="color:var(--soft)">${esc(a.d)}</p>
       </article>`).join('')}
@@ -217,7 +221,7 @@ PAGES.home = () => `
         <div><span class="bignum">0</span><span class="numlab">of that second part gets automated</span></div>
       </div>
     </div>
-    <div class="rv split-art"><img src="${IMG.lamp}" alt="A desk lamp lighting the work"></div>
+    <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
   </div>
 </section>
 
@@ -286,7 +290,7 @@ PAGES.home = () => `
       </ol>
       <p style="margin-top:28px"><a class="btn btn-ink" href="kit.html" data-go="kit">See what is inside <span class="arw">&#8594;</span></a></p>
     </div>
-    <div class="rv split-art"><img src="${IMG.kiosk}" alt="A small corner shop with the name over the awning"></div>
+    <div class="rv split-art"><img src="${IMG.kiosk}" width="${DIM.kiosk.w}" height="${DIM.kiosk.h}" alt="A small corner shop with the name over the awning"></div>
   </div>
 </section>`;
 
@@ -297,7 +301,7 @@ PAGES.start = () => `
       <h1 class="dsp h1" style="font-size:clamp(40px,6vw,80px)">Your first hour with AI<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">A short checklist to tick off as you go, then the full guide underneath. The exact first hour I would walk a friend through, one real task and no theory.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.lamp}" alt="A desk lamp lighting the work"></div>
+    <div class="phero-art rv"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
   </div>
 </section>
 
@@ -340,7 +344,7 @@ PAGES.library = () => `
       <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Steal these prompts<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">64 prompts in eight packs, all free. Copy one, fill in the brackets, and paste it into ChatGPT, Claude, or Gemini. These are the ones I keep going back to.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.sign}" alt="A hanging shop sign reading Michael's Corner"></div>
+    <div class="phero-art rv"><img src="${IMG.sign}" width="${DIM.sign.w}" height="${DIM.sign.h}" alt="A hanging shop sign reading Michael's Corner"></div>
   </div>
 </section>
 
@@ -368,7 +372,7 @@ PAGES.tools = () => `
       <h1 class="dsp h1">Tools<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that actually run in your browser, no signup and no email gate. Open any one and the number is real, computed on the spot. Nothing you type ever leaves this page.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.machine}" alt="A workshop machine with a screen"></div>
+    <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
 </section>
 
@@ -418,7 +422,7 @@ PAGES.bill = () => `
       <h1 class="dsp h1">Apps<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">The apps I have actually built with AI in the evenings, not demos. All of them things I use myself every day.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.machine}" alt="A workshop machine with a screen"></div>
+    <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
 </section>
 
@@ -426,7 +430,7 @@ PAGES.bill = () => `
   <div class="grid2">
     ${APPS.map(a=>`
       <article class="app rv">
-        <img src="${IMG[a.img]}" alt="${esc(a.n)} app icon">
+        <img src="${IMG[a.img]}" width="${DIM[a.img].w}" height="${DIM[a.img].h}" alt="${esc(a.n)} app icon">
         <div>
           <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">${a.n}</h2><span class="plat">${esc(a.plat)}</span></div>
           <p class="small" style="margin-top:9px;color:var(--soft)">${esc(a.d)}</p>
@@ -452,7 +456,7 @@ PAGES.channel = () => `
       <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk and no hype. You watch how it actually goes. Dead ends included. Filter by topic or search for one.</p>
       <p style="margin-top:24px"><a class="btn btn-ghost" href="https://youtube.com" target="_blank" rel="noopener">Subscribe on YouTube <span class="arw">&#8599;</span></a></p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.cornerman}" alt="A boxing corner with a stool and towel"></div>
+    <div class="phero-art rv"><img src="${IMG.cornerman}" width="${DIM.cornerman.w}" height="${DIM.cornerman.h}" alt="A boxing corner with a stool and towel"></div>
   </div>
 </section>
 
@@ -488,7 +492,7 @@ PAGES.about = () => `
 <section class="wrap phero abouthero">
   <h1 class="dsp h1 rv" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I build anyway<i class="dot" style="font-style:normal">.</i></h1>
   <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. I have a normal day job, and in the evenings I build things with AI. More than twenty finished projects so far.</p>
-  <div class="abouthero-art rv"><img src="${IMG.hero}" alt="Michael, drawn, with the character peeking over his shoulder"></div>
+  <div class="abouthero-art rv"><img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder"></div>
 </section>
 
 <section class="wrap sec-tight">
@@ -536,7 +540,7 @@ PAGES.kit = () => `
       <h1 class="dsp h1" style="font-size:clamp(38px,5.4vw,74px)">Michael&#8217;s AI Starter Kit<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Everything I would hand a friend who is starting with AI this week. Six things. All of them listed in full below. You know exactly what you trade your email for.</p>
     </div>
-    <div class="phero-art rv"><img src="${IMG.kiosk}" alt="A small corner shop with the name over the awning"></div>
+    <div class="phero-art rv"><img src="${IMG.kiosk}" width="${DIM.kiosk.w}" height="${DIM.kiosk.h}" alt="A small corner shop with the name over the awning"></div>
   </div>
 </section>
 
@@ -725,8 +729,6 @@ function reveal(){
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-go]');
   if(!t) return;
-  /* a middle click, a modifier or a new-tab target is the visitor asking the
-     browser for a real navigation, so it is left alone */
   if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
   e.preventDefault();
   go(t.dataset.go);
@@ -836,7 +838,6 @@ function fitNav(){
 })();
 window.addEventListener('resize', fitNav);
 window.addEventListener('popstate', render);
-/* Anything still pointing at an old #/route lands on the real URL once. */
 (function(){
   const m = (location.hash||'').match(/^#\/([a-z]*)$/);
   if(m){ const p = m[1]===''? 'home' : m[1];

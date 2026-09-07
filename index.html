@@ -2,12 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Michael's Corner</title>
 <meta name="description" content="Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate.">
 <link rel="canonical" href="https://michaels-corner.netlify.app/">
-<meta name="theme-color" content="#E9EEE7">
-<meta name="color-scheme" content="light">
 <meta name="author" content="Michael Florian">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -19,11 +16,22 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Michael's Corner">
 <meta name="twitter:description" content="Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate.">
-<link rel="icon" href="assets/img/favicon.png">
-<link rel="apple-touch-icon" href="assets/img/favicon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/","description":"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate.","inLanguage":"en","author":{"@type":"Person","name":"Michael Florian"},"publisher":{"@type":"Person","name":"Michael Florian"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/","description":"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate.","inLanguage":"en","author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"publisher":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/","description":"Not a developer. Builds things with AI in the evenings and gives away the prompts, tools and apps.","email":"mailto:mihael.florian@gmail.com","knowsAbout":["Artificial intelligence","Prompt engineering","ChatGPT","Claude","Google Gemini","AI automation","Browser extensions"],"mainEntityOfPage":"https://michaels-corner.netlify.app/about.html"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Michael's Corner","description":"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate.","url":"https://michaels-corner.netlify.app/","inLanguage":"en","dateModified":"2026-09-07","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Michael's Corner","description":"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate.","url":"https://michaels-corner.netlify.app/","inLanguage":"en","dateModified":"2026-09-07","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"}}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E9EEE7">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Michael&#8217;s Corner">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/inline/x1-bec81f6e7a.webp">
+<link rel="apple-touch-icon" href="assets/inline/x1-bec81f6e7a.png">
+<!-- LCP element on the home route: app.js only inserts this <img> after it
+     loads and runs, so without this hint the browser wouldn't discover the
+     image until well after first paint. Preloading it here lets the fetch
+     start in parallel with the script instead of after it. -->
+<link rel="preload" as="image" href="assets/inline/hero.webp" fetchpriority="high">
 <style>
   *,*::before,*::after{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -496,17 +504,18 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 
 
 
+
 <header class="" id="hdr">
   <div class="wrap">
     <div class="htop">
-      <a class="brand" href="./" data-go="home" aria-label="Michael's Corner, home">
-        <img src="assets/img/mark.png" alt="">
+      <button class="brand" data-go="home" aria-label="Michael's Corner, home">
+        <img src="assets/inline/x2-f6b82ff513.webp" alt="">
         <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
-      </a>
+      </button>
       <nav class="main" id="nav" aria-label="Main"><a href="./" data-go="home" aria-current="page">Home</a><a href="start.html" data-go="start">First time? Start here</a><a href="library.html" data-go="library">Prompts that can help you</a><a href="tools.html" data-go="tools">Most useful tools</a><a href="bill.html" data-go="bill">Apps I built</a><a href="channel.html" data-go="channel">More free tutorials</a><a href="about.html" data-go="about">Who I am</a></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="kit.html" data-go="kit">Free kit <span class="arw">→</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="#/kit" data-go="kit">Free kit <span class="arw">→</span></a>
       </span>
     </div>
   </div>
@@ -529,7 +538,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
     </dl>
   </div>
   <div class="hero-art rv in">
-    <img src="assets/img/hero.png" alt="Michael, drawn, with the character peeking over his shoulder">
+    <img src="assets/inline/hero.webp" width="620" height="720" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder">
     <span class="hero-badge" style="top:4%;left:-10px">Free, all of it</span>
     <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">No signup</span>
   </div>
@@ -547,22 +556,22 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   <div class="autogrid">
     
       <article class="appcard rv">
-        <img src="assets/img/tuck.png" alt="Tuck app icon">
+        <img src="assets/inline/tuck.webp" width="160" height="160" alt="Tuck app icon">
         <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">Tuck</h3><span class="plat">Chrome extension</span></div>
         <p class="small" style="color:var(--soft)">Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.</p>
       </article>
       <article class="appcard rv">
-        <img src="assets/img/recall.png" alt="Recall app icon">
+        <img src="assets/inline/recall.webp" width="160" height="160" alt="Recall app icon">
         <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">Recall</h3><span class="plat">macOS app</span></div>
         <p class="small" style="color:var(--soft)">Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.</p>
       </article>
       <article class="appcard rv">
-        <img src="assets/img/refill.png" alt="Refill app icon">
+        <img src="assets/inline/refill.webp" width="160" height="160" alt="Refill app icon">
         <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">Refill</h3><span class="plat">macOS menu bar</span></div>
         <p class="small" style="color:var(--soft)">Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.</p>
       </article>
       <article class="appcard rv">
-        <img src="assets/img/frost.png" alt="Frost app icon">
+        <img src="assets/inline/frost.webp" width="128" height="128" alt="Frost app icon">
         <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">Frost</h3><span class="plat">Chrome extension</span></div>
         <p class="small" style="color:var(--soft)">Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history.</p>
       </article>
@@ -580,7 +589,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
         <div><span class="bignum">0</span><span class="numlab">of that second part gets automated</span></div>
       </div>
     </div>
-    <div class="rv split-art"><img src="assets/img/lamp.png" alt="A desk lamp lighting the work"></div>
+    <div class="rv split-art"><img src="assets/inline/lamp.webp" width="422" height="440" alt="A desk lamp lighting the work"></div>
   </div>
 </section>
 
@@ -704,7 +713,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
       </ol>
       <p style="margin-top:28px"><a class="btn btn-ink" href="kit.html" data-go="kit">See what is inside <span class="arw">→</span></a></p>
     </div>
-    <div class="rv split-art"><img src="assets/img/kiosk.png" alt="A small corner shop with the name over the awning"></div>
+    <div class="rv split-art"><img src="assets/inline/kiosk.webp" width="440" height="416" alt="A small corner shop with the name over the awning"></div>
   </div>
 </section></main>
 
@@ -712,25 +721,25 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/img/markRev.png" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
         <p class="h4" style="color:var(--sun);margin-bottom:10px">Take something</p>
-        <a href="library.html" data-go="library">Prompts that can help you</a>
-        <a href="tools.html" data-go="tools">Most useful tools</a>
-        <a href="kit.html" data-go="kit">The Starter Kit</a>
+        <a data-go="library">Prompts that can help you</a>
+        <a data-go="tools">Most useful tools</a>
+        <a data-go="kit">The Starter Kit</a>
       </div>
       <div>
         <p class="h4" style="color:var(--sun);margin-bottom:10px">Look around</p>
-        <a href="start.html" data-go="start">First time? Start here</a>
-        <a href="bill.html" data-go="bill">Apps I built</a>
-        <a href="channel.html" data-go="channel">More free tutorials</a>
+        <a data-go="start">First time? Start here</a>
+        <a data-go="bill">Apps I built</a>
+        <a data-go="channel">More free tutorials</a>
       </div>
       <div>
         <p class="h4" style="color:var(--sun);margin-bottom:10px">Say hello</p>
         <a href="mailto:mihael.florian@gmail.com">mihael.florian@gmail.com</a>
-        <a href="about.html" data-go="about">Who I am</a>
+        <a data-go="about">Who I am</a>
         <p class="handle" style="color:rgba(245,242,232,.5);margin:10px 0 0">@michaelflorian_ai</p>
       </div>
     </div>
@@ -741,7 +750,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script src="app.js" defer=""></script>
+<script defer="" src="app.js"></script>
 
 
 
