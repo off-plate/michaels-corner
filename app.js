@@ -53,9 +53,9 @@ const TOOLS = [
   {id:'fits-in-context', n:'Fits-in-context checker', desig:'TOOL/02', cat:'Money & size', desc:"Whether your document fits a model's window or needs splitting.", hint:'five window sizes'},
   {id:'subscription-vs-api', n:'Subscription vs API', desig:'TOOL/03', cat:'Money & size', desc:'Your usage, both prices, one answer: which way is cheaper and where the lines cross.', hint:'shares your edited rates'},
   {id:'should-you-automate', n:'Should you automate it?', desig:'TOOL/04', cat:'The decision', desc:'Six honest questions, one stamped verdict: automate now, assist only, or leave it human. Weights are published.', hint:'a scorecard with hard overrides'},
-  {id:'ai-slop-detector', n:'AI-slop detector', desig:'TOOL/05', cat:'The words', desc:'Paste text; a public rule list counts the AI tells and stamps a slop score, every flagged line shown.', hint:'English and Czech rules'},
+  {id:'ai-slop-detector', n:'AI-slop detector', desig:'TOOL/05', cat:'The words', desc:'Paste text. A public rule list counts the AI tells and stamps a slop score, every flagged line shown.', hint:'English and Czech rules'},
   {id:'prompt-tightener', n:'Prompt tightener', desig:'TOOL/06', cat:'The words', desc:'Strips the filler it can prove is filler, flags the vague asks it cannot fix, shows the word drop. Deletion only.', hint:'never rewrites your meaning'},
-  {id:'difficult-email-prompt-assembler', n:'Difficult-email prompt builder', desig:'TOOL/07', cat:'The words', desc:'Six questions about the email you dread; a copy-ready prompt with your facts and hard lines baked in.', hint:'builds the prompt, your AI runs it'}
+  {id:'difficult-email-prompt-assembler', n:'Difficult-email prompt builder', desig:'TOOL/07', cat:'The words', desc:'Six questions about the email you dread. The output is a copy-ready prompt with your facts and hard lines baked in.', hint:'builds the prompt, your AI runs it'}
 ];
 const TCATS = ['Money & size','The decision','The words'];
 
@@ -108,7 +108,7 @@ const APPS = [
   {n:'Refill', img:'refill', plat:'macOS menu bar', d:'Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.'},
   {n:'Frost', img:'frost', plat:'Chrome extension', d:"Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history."},
   {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'},
-  {n:'TITIS', img:'titis', plat:'macOS app', appsPageOnly:true, d:'Select any text on your Mac and hear it read aloud, entirely offline. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.'},
+  {n:'TITIS', img:'titis', plat:'macOS app', appsPageOnly:true, d:'Select any text on your Mac and hear it read aloud. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.'},
   {n:'OWCO', img:'owco', plat:'Web app', appsPageOnly:true, d:'Points at your website and finds what it still claims that is no longer true: a stale number, an executive who left, an award given to someone else. Each finding comes back ranked with the fix and the source.',
    cta:{label:'Try the free scan', href:'https://owco.netlify.app'}},
   {n:'Nexus', img:'nexus', plat:'Off-Plate tool', appsPageOnly:true, d:'Reads a prospect\'s Google profile, site, socials and the company register, then hands back one sentence: what is measurably broken, who can approve fixing it, and how to reach them. Built for Off-Plate, not for this site.',
@@ -511,8 +511,8 @@ PAGES.channel = () => `
 
 <section class="band sec">
   <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">Watch how it actually goes<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">Every build, the parts that worked and the parts that broke. Episodes land here as they go up.</p>
+    <h2 class="dsp h2" style="color:var(--cream)">Every build, dead ends included<i class="dot" style="font-style:normal">.</i></h2>
+    <p class="lede">The parts that worked and the parts that broke, both shown. Episodes land here as they go up.</p>
     <a class="btn btn-onink" href="/library" data-go="library">Take the prompts in the meantime <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
