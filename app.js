@@ -1,11 +1,11 @@
 
-const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRev.webp", "cornerman": "assets/inline/cornerman.webp", "lamp": "assets/inline/lamp.webp", "machine": "assets/inline/machine.webp", "kiosk": "assets/inline/kiosk.webp", "sign": "assets/inline/sign.webp", "tuck": "assets/inline/tuck.webp", "recall": "assets/inline/recall.webp", "refill": "assets/inline/refill.webp", "frost": "assets/inline/frost.webp", "hero": "assets/inline/hero.webp", "cutter": "assets/inline/cutter.webp"};
+const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRev.webp", "cornerman": "assets/inline/cornerman.webp", "lamp": "assets/inline/lamp.webp", "machine": "assets/inline/machine.webp", "kiosk": "assets/inline/kiosk.webp", "sign": "assets/inline/sign.webp", "tuck": "assets/inline/tuck.webp", "recall": "assets/inline/recall.webp", "refill": "assets/inline/refill.webp", "frost": "assets/inline/frost.webp", "hero": "assets/inline/hero.webp", "cutter": "assets/inline/cutter.webp", "titis": "assets/inline/titis.webp"};
 // Real pixel dimensions of each IMG entry, so every <img> can carry width/height
 // attributes and the browser reserves its box before the file loads over the
 // network -- these used to be inline base64 (available synchronously, no CLS
 // risk); now they're separate files, so without this every one of them is a
 // layout-shift hazard the instant it finishes loading.
-const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}};
+const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}, titis:{w:160,h:160}};
 const NAV = [
   ['home','Home'],
   ['start','First time? Start here'],
@@ -107,7 +107,8 @@ const APPS = [
   {n:'Recall', img:'recall', plat:'macOS app', d:'Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.'},
   {n:'Refill', img:'refill', plat:'macOS menu bar', d:'Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.'},
   {n:'Frost', img:'frost', plat:'Chrome extension', d:"Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history."},
-  {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'}
+  {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'},
+  {n:'TITIS', img:'titis', plat:'macOS app', appsPageOnly:true, d:'Select any text on your Mac and hear it read aloud, entirely offline. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.'}
 ];
 
 const STEPS = [
@@ -160,6 +161,9 @@ const ROUTE_CLEAN = {home:'/', start:'/start', library:'/library', tools:'/tools
 const CLEAN_ROUTE = Object.fromEntries(Object.entries(ROUTE_CLEAN).map(([k,v])=>[v,k]));
 const href = (p) => ROUTE_CLEAN[p];
 function currentRoute(){
+  /* The build's pre-render step opens each route via a file:// URL, which
+     has no real pathname to read a route from -- it sets this instead. */
+  if(window.__PRERENDER_ROUTE) return window.__PRERENDER_ROUTE;
   let path = location.pathname.replace(/\/$/, '') || '/';
   if(path.endsWith('.html')) path = path.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '') || '/';
   return CLEAN_ROUTE[path] || 'home';
