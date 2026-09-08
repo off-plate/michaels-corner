@@ -179,15 +179,32 @@ main{min-height:60vh}
 .open{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:13.5px;margin-top:auto;padding-top:6px}
 .open .arw{color:var(--coral)}
 
-/* scroller */
+/* scroller. The track is grab-scrollable with a mouse (wire() adds the drag
+   listeners) as well as touch and the native trackpad/wheel gesture -- .dragging
+   is the only thing JS toggles here, everything else is a hover/active state. */
+.scrollwrap{position:relative}
 .scroll{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
-  padding-block:14px 16px;margin-block:-14px -6px;padding-inline:var(--pad);scroll-padding-inline:var(--pad);scrollbar-width:none}
+  padding-block:14px 16px;margin-block:-14px -6px;padding-inline:var(--pad);scroll-padding-inline:var(--pad);scrollbar-width:none;
+  cursor:grab;user-select:none;-webkit-user-select:none}
+.scroll.dragging{cursor:grabbing;scroll-snap-type:none}
 .scroll::-webkit-scrollbar{display:none}
-.scroll>*{scroll-snap-align:start;flex:0 0 clamp(250px,22vw,360px)}
+.scroll>*{scroll-snap-align:start;flex:0 0 clamp(250px,22vw,360px);-webkit-user-drag:none;user-drag:none}
 .scroll::after{content:'';flex:0 0 1px}
-.paddles{display:flex;gap:8px}
-.paddle{width:40px;height:40px;border-radius:999px;border:2px solid var(--ink);background:transparent;cursor:pointer;display:grid;place-items:center;transition:background .15s,color .15s}
-.paddle:hover{background:var(--ink);color:var(--cream)}
+.scroll img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+
+/* One arrow at the left edge, one at the right, both vertically centred over
+   the track -- not two buttons stacked next to the section's own CTA link.
+   Each fades out rather than disappearing, so the row never reflows. */
+.edgearrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;flex:none;
+  border-radius:999px;border:2px solid var(--ink);background:rgba(245,242,232,.92);backdrop-filter:blur(6px);
+  display:grid;place-items:center;cursor:pointer;z-index:5;color:var(--ink);
+  box-shadow:0 8px 20px rgba(26,26,26,.16);transition:opacity .18s,transform .16s,background .15s,color .15s}
+.edgearrow:hover{background:var(--ink);color:var(--cream);transform:translateY(-50%) scale(1.06)}
+.edgearrow.left{left:calc(var(--pad) - 6px)}
+.edgearrow.right{right:calc(var(--pad) - 6px)}
+.edgearrow.is-hidden{opacity:0;pointer-events:none}
+@media (pointer:coarse){ .edgearrow{display:none} }
+@media (max-width:720px){ .edgearrow{display:none} }
 
 /* ---------- the loader: the mark does what the mark does, it peeks round a corner ---------- */
 #load{position:fixed;inset:0;z-index:999;background:var(--ink);display:grid;place-items:center;

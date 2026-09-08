@@ -215,7 +215,7 @@ PAGES.home = () => `
 <section class="sec">
   <div class="wrap">
   ${shead('Apps I built','The apps I have built with AI in the evenings, and the same ones I use myself every day.',
-    '<div style="display:flex;gap:12px;align-items:center"><a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a><div class="paddles"><button class="paddle" data-scroll="-1" aria-label="Scroll left">&#8592;</button><button class="paddle" data-scroll="1" aria-label="Scroll right">&#8594;</button></div></div>')}
+    '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
   </div>
   <div class="scroll" data-scroller>
     ${APPS.map((a,i)=>{
@@ -257,7 +257,7 @@ PAGES.home = () => `
 <section class="sec">
   <div class="wrap">
   ${shead('Small tools that do the math for you','Free calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating. Type into one and nothing leaves the page.',
-    '<div style="display:flex;gap:12px;align-items:center"><a class="btn btn-ghost" href="/tools" data-go="tools">All the tools <span class="arw">&#8594;</span></a><div class="paddles"><button class="paddle" data-scroll="-1" aria-label="Scroll left">&#8592;</button><button class="paddle" data-scroll="1" aria-label="Scroll right">&#8594;</button></div></div>')}
+    '<a class="btn btn-ghost" href="/tools" data-go="tools">All the tools <span class="arw">&#8594;</span></a>')}
   </div>
   <div class="scroll" data-scroller>
     ${TOOLS.slice(0,5).map((t,i)=>{
@@ -628,13 +628,89 @@ function render(){
 }
 
 /* ---------- per-page wiring ---------- */
-function wire(page){
-  document.querySelectorAll('[data-scroller]').forEach(sc=>{
-    const box = sc.closest('section');
-    box && box.querySelectorAll('[data-scroll]').forEach(b=>{
-      b.onclick = () => sc.scrollBy({left: Number(b.dataset.scroll) * (sc.firstElementChild ? sc.firstElementChild.offsetWidth + 16 : 300), behavior:'smooth'});
-    });
+const ARROW = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
+
+/* One overlay arrow at each edge of the track, vertically centred, instead of
+   a pair of buttons stacked next to the section's own link. Also makes the
+   track grab-scrollable with a mouse: touch and the trackpad already scroll
+   it natively, a mouse drag did not, so this adds that one path. Runs for
+   every [data-scroller] on the page, current or future, with no per-section
+   markup required. */
+function wireScroller(sc){
+  const wrap = sc.parentElement;
+  wrap.classList.add('scrollwrap');
+
+  let left = wrap.querySelector(':scope > .edgearrow.left');
+  let right = wrap.querySelector(':scope > .edgearrow.right');
+  if(!left){
+    left = document.createElement('button');
+    left.className = 'edgearrow left'; left.setAttribute('aria-label','Scroll left');
+    left.innerHTML = ARROW.replace('<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>', '<path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/>');
+    wrap.appendChild(left);
+  }
+  if(!right){
+    right = document.createElement('button');
+    right.className = 'edgearrow right'; right.setAttribute('aria-label','Scroll right');
+    right.innerHTML = ARROW;
+    wrap.appendChild(right);
+  }
+
+  const step = () => (sc.firstElementChild ? sc.firstElementChild.getBoundingClientRect().width + 16 : 300);
+  left.onclick = () => sc.scrollBy({left: -step(), behavior:'smooth'});
+  right.onclick = () => sc.scrollBy({left: step(), behavior:'smooth'});
+
+  const updateArrows = () => {
+    const max = sc.scrollWidth - sc.clientWidth;
+    left.classList.toggle('is-hidden', sc.scrollLeft <= 4);
+    right.classList.toggle('is-hidden', sc.scrollLeft >= max - 4 || max <= 4);
+  };
+  sc.addEventListener('scroll', updateArrows, {passive:true});
+  window.addEventListener('resize', updateArrows);
+  requestAnimationFrame(updateArrows);
+
+  /* Grab-to-scroll. A short pointer movement still counts as a click on the
+     card underneath; only a real drag suppresses it, once, on release.
+     Chrome cancels pointer capture if scrollLeft is written synchronously
+     inside the pointermove handler that owns the capture, so the write is
+     deferred one animation frame instead -- same drag, no dropped gesture. */
+  let down = false, dragged = false, startX = 0, startLeft = 0, pendingDx = null, raf = null;
+  const applyDx = () => {
+    raf = null;
+    if(pendingDx === null) return;
+    sc.scrollLeft = startLeft - pendingDx;
+  };
+  sc.addEventListener('pointerdown', e => {
+    if(e.pointerType === 'touch') return; // touch already scrolls natively
+    if(e.button !== undefined && e.button !== 0) return;
+    down = true; dragged = false; startX = e.clientX; startLeft = sc.scrollLeft;
+    sc.setPointerCapture(e.pointerId);
   });
+  sc.addEventListener('pointermove', e => {
+    if(!down) return;
+    const dx = e.clientX - startX;
+    if(Math.abs(dx) > 4 && !dragged){ dragged = true; sc.classList.add('dragging'); }
+    if(dragged){
+      e.preventDefault();
+      pendingDx = dx;
+      if(raf === null) raf = requestAnimationFrame(applyDx);
+    }
+  });
+  const release = () => {
+    down = false; dragged = false; sc.classList.remove('dragging');
+    pendingDx = null;
+    if(raf !== null){ cancelAnimationFrame(raf); raf = null; }
+  };
+  sc.addEventListener('pointerup', release);
+  sc.addEventListener('pointercancel', release);
+  sc.addEventListener('pointerleave', () => { if(down) release(); });
+  sc.addEventListener('click', e => {
+    if(dragged){ e.preventDefault(); e.stopPropagation(); }
+    dragged = false;
+  }, true);
+}
+
+function wire(page){
+  document.querySelectorAll('[data-scroller]').forEach(wireScroller);
 
   if(page === 'home'){
     const words = ['Free prompts','No signup','Built in the evenings','Take what helps'];
