@@ -196,10 +196,10 @@ PAGES.home = () => `
       <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
     </div>
     <dl class="herostats">
-      <div><dt>64</dt><dd>free prompts, in eight packs</dd></div>
-      <div><dt>7</dt><dd>tools that run in your browser</dd></div>
-      <div><dt>20+</dt><dd>projects built in the evenings</dd></div>
-      <div><dt>0</dt><dd>signup forms anywhere on this site</dd></div>
+      <div class="hs-coral"><dt>64</dt><dd>free prompts, in eight packs</dd></div>
+      <div class="hs-sun"><dt>7</dt><dd>tools that run in your browser</dd></div>
+      <div class="hs-peri"><dt>20+</dt><dd>projects built in the evenings</dd></div>
+      <div class="hs-sage"><dt>0</dt><dd>signup forms anywhere on this site</dd></div>
     </dl>
   </div>
   <div class="hero-art rv">
