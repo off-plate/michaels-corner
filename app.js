@@ -1,11 +1,11 @@
 
-const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRev.webp", "cornerman": "assets/inline/cornerman.webp", "lamp": "assets/inline/lamp.webp", "machine": "assets/inline/machine.webp", "kiosk": "assets/inline/kiosk.webp", "sign": "assets/inline/sign.webp", "tuck": "assets/inline/tuck.webp", "recall": "assets/inline/recall.webp", "refill": "assets/inline/refill.webp", "frost": "assets/inline/frost.webp", "hero": "assets/inline/hero.webp", "cutter": "assets/inline/cutter.webp", "titis": "assets/inline/titis.webp", "owco": "assets/inline/owco.webp"};
+const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRev.webp", "cornerman": "assets/inline/cornerman.webp", "lamp": "assets/inline/lamp.webp", "machine": "assets/inline/machine.webp", "kiosk": "assets/inline/kiosk.webp", "sign": "assets/inline/sign.webp", "tuck": "assets/inline/tuck.webp", "recall": "assets/inline/recall.webp", "refill": "assets/inline/refill.webp", "frost": "assets/inline/frost.webp", "hero": "assets/inline/hero.webp", "cutter": "assets/inline/cutter.webp", "titis": "assets/inline/titis.webp", "owco": "assets/inline/owco.webp", "nexus": "assets/inline/nexus.webp"};
 // Real pixel dimensions of each IMG entry, so every <img> can carry width/height
 // attributes and the browser reserves its box before the file loads over the
 // network -- these used to be inline base64 (available synchronously, no CLS
 // risk); now they're separate files, so without this every one of them is a
 // layout-shift hazard the instant it finishes loading.
-const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}, titis:{w:160,h:160}, owco:{w:160,h:160}};
+const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}, titis:{w:160,h:160}, owco:{w:160,h:160}, nexus:{w:160,h:160}};
 const NAV = [
   ['home','Home'],
   ['start','Start here'],
@@ -110,7 +110,9 @@ const APPS = [
   {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'},
   {n:'TITIS', img:'titis', plat:'macOS app', appsPageOnly:true, d:'Select any text on your Mac and hear it read aloud, entirely offline. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.'},
   {n:'OWCO', img:'owco', plat:'Web app', appsPageOnly:true, d:'Points at your website and finds what it still claims that is no longer true: a stale number, an executive who left, an award given to someone else. Each finding comes back ranked with the fix and the source.',
-   cta:{label:'Try the free scan', href:'https://owco.netlify.app'}}
+   cta:{label:'Try the free scan', href:'https://owco.netlify.app'}},
+  {n:'Nexus', img:'nexus', plat:'Off-Plate tool', appsPageOnly:true, d:'Reads a prospect\'s Google profile, site, socials and the company register, then hands back one sentence: what is measurably broken, who can approve fixing it, and how to reach them. Built for Off-Plate, not for this site.',
+   cta:{label:'See the demo', href:'https://claude.ai/code/artifact/ed6fb81f-4f4b-49c5-85e7-96490e19fbc9'}}
 ];
 
 const STEPS = [
