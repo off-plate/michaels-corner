@@ -637,8 +637,17 @@ const ARROW = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" strok
    every [data-scroller] on the page, current or future, with no per-section
    markup required. */
 function wireScroller(sc){
-  const wrap = sc.parentElement;
-  wrap.classList.add('scrollwrap');
+  // The wrap must bound only the track itself, not the section's heading/CTA
+  // row above it -- otherwise top:50% centres the arrows on the whole
+  // section instead of the card row. So a dedicated wrapper is inserted
+  // around sc here rather than reusing sc.parentElement.
+  let wrap = sc.parentElement;
+  if(!wrap.classList.contains('scrollwrap')){
+    wrap = document.createElement('div');
+    wrap.className = 'scrollwrap';
+    sc.parentElement.insertBefore(wrap, sc);
+    wrap.appendChild(sc);
+  }
 
   let left = wrap.querySelector(':scope > .edgearrow.left');
   let right = wrap.querySelector(':scope > .edgearrow.right');
