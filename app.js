@@ -212,16 +212,30 @@ PAGES.home = () => `
 <div class="marquee" aria-hidden="true"><div class="mq" id="mq"></div></div>
 
 
-<section class="wrap sec-tight">
+<section class="sec">
+  <div class="wrap">
   ${shead('Apps I built','The apps I have built with AI in the evenings, and the same ones I use myself every day.',
-    '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
-  <div class="autogrid">
-    ${APPS.filter(a=>!a.appsPageOnly).map(a=>`
-      <article class="appcard rv">
-        <img src="${IMG[a.img]}" width="${DIM[a.img].w}" height="${DIM[a.img].h}" alt="${esc(a.n)} app icon">
-        <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">${a.n}</h3><span class="plat">${esc(a.plat)}</span></div>
-        <p class="small" style="color:var(--soft)">${esc(a.d)}</p>
-      </article>`).join('')}
+    '<div style="display:flex;gap:12px;align-items:center"><a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a><div class="paddles"><button class="paddle" data-scroll="-1" aria-label="Scroll left">&#8592;</button><button class="paddle" data-scroll="1" aria-label="Scroll right">&#8594;</button></div></div>')}
+  </div>
+  <div class="scroll" data-scroller>
+    ${APPS.map((a,i)=>{
+      const sk = [
+        {bg:'var(--coral)', fg:'var(--cream)', sub:'rgba(245,242,232,.84)'},
+        {bg:'var(--sun)',   fg:'var(--ink)',   sub:'#4A421F'},
+        {bg:'var(--peri)',  fg:'var(--cream)', sub:'rgba(245,242,232,.84)'},
+        {bg:'var(--sage)',  fg:'var(--ink)',   sub:'#2E362C'},
+        {bg:'var(--cream)', fg:'var(--ink)',   sub:'var(--mute)'}
+      ][i % 5];
+      const tag = a.cta
+        ? `<a class="card lcard" href="${a.cta.href}" target="_blank" rel="noopener" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">`
+        : `<a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">`;
+      return `
+      ${tag}
+        <img src="${IMG[a.img]}" width="56" height="56" style="border-radius:14px" alt="${esc(a.n)} app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">${esc(a.n)}</h3><span class="mono" style="color:${sk.sub}">${esc(a.plat)}</span></div>
+        <p class="small" style="color:${sk.sub}">${esc(a.d)}</p>
+        <span class="open">${a.cta ? esc(a.cta.label) : 'See it on the Apps page'} <span class="arw" style="color:${sk.fg==='var(--ink)'?'var(--coral)':'var(--sun)'}">${a.cta?'&#8599;':'&#8594;'}</span></span>
+      </a>`;}).join('')}
   </div>
 </section>
 

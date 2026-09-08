@@ -556,34 +556,64 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 <div class="marquee" aria-hidden="true"><div class="mq" id="mq" style="--mqdur: 45s;"><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span></div></div>
 
 
-<section class="wrap sec-tight">
+<section class="sec">
+  <div class="wrap">
   
   <div class="shead rv">
     <div><h2 class="dsp h2">Apps I built<i class="dot" style="font-style:normal">.</i></h2><p class="lede">The apps I have built with AI in the evenings, and the same ones I use myself every day.</p></div>
-    <a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">→</span></a>
+    <div style="display:flex;gap:12px;align-items:center"><a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">→</span></a><div class="paddles"><button class="paddle" data-scroll="-1" aria-label="Scroll left">←</button><button class="paddle" data-scroll="1" aria-label="Scroll right">→</button></div></div>
   </div>
-  <div class="autogrid">
+  </div>
+  <div class="scroll" data-scroller="">
     
-      <article class="appcard rv">
-        <img src="assets/inline/tuck.webp" width="160" height="160" alt="Tuck app icon">
-        <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">Tuck</h3><span class="plat">Chrome extension</span></div>
-        <p class="small" style="color:var(--soft)">Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.</p>
-      </article>
-      <article class="appcard rv">
-        <img src="assets/inline/recall.webp" width="160" height="160" alt="Recall app icon">
-        <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">Recall</h3><span class="plat">macOS app</span></div>
-        <p class="small" style="color:var(--soft)">Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.</p>
-      </article>
-      <article class="appcard rv">
-        <img src="assets/inline/refill.webp" width="160" height="160" alt="Refill app icon">
-        <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">Refill</h3><span class="plat">macOS menu bar</span></div>
-        <p class="small" style="color:var(--soft)">Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.</p>
-      </article>
-      <article class="appcard rv">
-        <img src="assets/inline/frost.webp" width="128" height="128" alt="Frost app icon">
-        <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 class="h3">Frost</h3><span class="plat">Chrome extension</span></div>
-        <p class="small" style="color:var(--soft)">Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history.</p>
-      </article>
+      <a class="card lcard" href="https://chromewebstore.google.com/detail/tuck/njpclpglfhldbhlngnmkenjphjpjaijb" target="_blank" rel="noopener" style="text-decoration:none;background:var(--coral);color:var(--cream)">
+        <img src="assets/inline/tuck.webp" width="56" height="56" style="border-radius:14px" alt="Tuck app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Tuck</h3><span class="mono" style="color:rgba(245,242,232,.84)">Chrome extension</span></div>
+        <p class="small" style="color:rgba(245,242,232,.84)">Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.</p>
+        <span class="open">Add to Chrome, it's free <span class="arw" style="color:var(--sun)">↗</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--sun);color:var(--ink)">
+        <img src="assets/inline/recall.webp" width="56" height="56" style="border-radius:14px" alt="Recall app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Recall</h3><span class="mono" style="color:#4A421F">macOS app</span></div>
+        <p class="small" style="color:#4A421F">Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--peri);color:var(--cream)">
+        <img src="assets/inline/refill.webp" width="56" height="56" style="border-radius:14px" alt="Refill app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Refill</h3><span class="mono" style="color:rgba(245,242,232,.84)">macOS menu bar</span></div>
+        <p class="small" style="color:rgba(245,242,232,.84)">Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--sun)">→</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--sage);color:var(--ink)">
+        <img src="assets/inline/frost.webp" width="56" height="56" style="border-radius:14px" alt="Frost app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Frost</h3><span class="mono" style="color:#2E362C">Chrome extension</span></div>
+        <p class="small" style="color:#2E362C">Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--cream);color:var(--ink)">
+        <img src="assets/inline/cutter.webp" width="56" height="56" style="border-radius:14px" alt="Cropper app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Cropper</h3><span class="mono" style="color:var(--mute)">macOS app</span></div>
+        <p class="small" style="color:var(--mute)">A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--coral);color:var(--cream)">
+        <img src="assets/inline/titis.webp" width="56" height="56" style="border-radius:14px" alt="TITIS app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">TITIS</h3><span class="mono" style="color:rgba(245,242,232,.84)">macOS app</span></div>
+        <p class="small" style="color:rgba(245,242,232,.84)">Select any text on your Mac and hear it read aloud, entirely offline. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--sun)">→</span></span>
+      </a>
+      <a class="card lcard" href="https://owco.netlify.app" target="_blank" rel="noopener" style="text-decoration:none;background:var(--sun);color:var(--ink)">
+        <img src="assets/inline/owco.webp" width="56" height="56" style="border-radius:14px" alt="OWCO app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">OWCO</h3><span class="mono" style="color:#4A421F">Web app</span></div>
+        <p class="small" style="color:#4A421F">Points at your website and finds what it still claims that is no longer true: a stale number, an executive who left, an award given to someone else. Each finding comes back ranked with the fix and the source.</p>
+        <span class="open">Try the free scan <span class="arw" style="color:var(--coral)">↗</span></span>
+      </a>
+      <a class="card lcard" href="https://claude.ai/code/artifact/ed6fb81f-4f4b-49c5-85e7-96490e19fbc9" target="_blank" rel="noopener" style="text-decoration:none;background:var(--peri);color:var(--cream)">
+        <img src="assets/inline/nexus.webp" width="56" height="56" style="border-radius:14px" alt="Nexus app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Nexus</h3><span class="mono" style="color:rgba(245,242,232,.84)">Off-Plate tool</span></div>
+        <p class="small" style="color:rgba(245,242,232,.84)">Reads a prospect's Google profile, site, socials and the company register, then hands back one sentence: what is measurably broken, who can approve fixing it, and how to reach them. Built for Off-Plate, not for this site.</p>
+        <span class="open">See the demo <span class="arw" style="color:var(--sun)">↗</span></span>
+      </a>
   </div>
 </section>
 
