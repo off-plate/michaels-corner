@@ -113,21 +113,35 @@ function header(prefix) {
 
 function footer(prefix) {
   return `</main>
-<footer class="site-foot">
-  <div class="wrap foot-grid">
-    <div>
-      <p class="foot-word">Michael&#8217;s Corner</p>
-      <p class="foot-line">Everything on this site was built by the person who uses it.</p>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fmark"><img src="${prefix}assets/brand/mark.png" alt="" width="42" height="62"><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI is my superpower. Not my replacement.</p>
+      </div>
+      <div>
+        <p class="h4" style="color:var(--sun);margin-bottom:10px">Take something</p>
+        <a href="/library">Prompt library</a>
+        <a href="/tools">Tools</a>
+        <a href="/kit">The Starter Kit</a>
+      </div>
+      <div>
+        <p class="h4" style="color:var(--sun);margin-bottom:10px">Look around</p>
+        <a href="/start">Start here</a>
+        <a href="/bill">Apps I built</a>
+        <a href="/channel">Videos</a>
+      </div>
+      <div>
+        <p class="h4" style="color:var(--sun);margin-bottom:10px">Say hello</p>
+        <a href="mailto:mihael.florian@gmail.com">mihael.florian@gmail.com</a>
+        <a href="/about">Who I am</a>
+        <p class="handle" style="margin:10px 0 0">@michaelflorian_ai</p>
+      </div>
     </div>
-    <div class="foot-col">
-      <a href="/library">Prompt library</a>
-      <a href="/tools">Tools</a>
-      <a href="/bill">Apps I built</a>
-    </div>
-    <div class="foot-col">
-      <a href="/start">Start here</a>
-      <a href="/kit">The Starter Kit</a>
-      <a href="/about">Who I am</a>
+    <div class="fbot">
+      <span>Michael Florian.</span>
+      <span>Say hello any time.</span>
     </div>
   </div>
 </footer>
@@ -299,7 +313,7 @@ function buildPack(pack, i) {
 .cover-note .rest{ color:var(--grey-2); }
 
 /* the ledger of prompts */
-.ledger-list{ border-top:1px solid var(--ink); }
+.ledger-list{ max-width:1180px;  border-top:1px solid var(--ink); }
 .lrow{
   display:grid; grid-template-columns:auto 1fr auto; gap:4px 20px; align-items:baseline;
   border-bottom:1px solid var(--line); padding:clamp(16px,2vw,22px) clamp(4px,1vw,10px);

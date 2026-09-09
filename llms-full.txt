@@ -251,7 +251,7 @@ Menu
 Get the kit →
 Steal these prompts .
 Eighty prompts in ten packs. Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.
-10 packs, sorted by who they are for
+Ten packs, sorted by who they are for
 Start here 8 prompts
 Best prompts for beginners
 The prompts to learn first, for anyone who has heard of AI but never really used it.
@@ -272,6 +272,10 @@ For owners 8 prompts
 Running a small business
 For people running a small business, from the follow-up you keep not sending to the price you keep not raising.
 Open pack →
+For owners 8 prompts
+Getting found by AI
+What AI assistants say about your business when a customer asks, and how to fix what is wrong.
+Open pack →
 For office work 8 prompts
 Awkward work messages
 The messages you rewrite five times before sending: the no, the chase, the bad news, the disagreement.
@@ -279,10 +283,6 @@ Open pack →
 For solo operators 8 prompts
 Freelance client handling
 For solo operators. Quoting, scope, silence and the money conversation you dread.
-Open pack →
-For owners 8 prompts
-Getting found by AI
-What AI assistants say about your business when a customer asks, and how to fix what is wrong.
 Open pack →
 Personal 8 prompts
 Money decisions
@@ -1061,15 +1061,24 @@ Work out what to hand over
 Use this in your first week, once you have a rough sense of what it can do.
 →
 More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1124,15 +1133,24 @@ Reply to silence, and to a low offer
 Use this when you are staring at the message box, rewriting the first line for the fifth time.
 →
 More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1187,15 +1205,24 @@ Plan the week before the exam
 Use this when you know what is coming and have no idea how to fit it in.
 →
 More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1250,15 +1277,24 @@ Titles that are not clickbait
 Use this when you need a subject line, a heading or a title and every option sounds either dull or oversold.
 →
 More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1313,141 +1349,24 @@ Ten questions about my own business
 Use this when things are fine but you have a feeling something is off and cannot name it.
 →
 More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## Awkward work messages
-URL: https://michaels-corner.netlify.app/packs/work
-
-Skip to content
-Skip to content
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
 Michael’s
 Corner .
-Home
-Start here
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
+The Starter Kit
+Look around
+Start here
 Apps I built
 Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
-Get the kit →
-&#8592; Back to all prompts
-Awkward work messages
-The messages you rewrite five times and still do not send. Saying no, chasing for the third time, disagreeing with your manager, delivering news nobody wants. Each of these keeps your facts and fixes only the wording.
-01
-Make this professionally neutral
-Use this when what you wrote is accurate but says out loud what you actually think of someone.
-→
-02
-Say no without burning it
-Use this on the request you should decline and have been avoiding for three days.
-→
-03
-Chase without nagging
-Use this on the third follow-up, when polite is starting to feel like a lie.
-→
-04
-Deliver the bad news
-Use this on the message you keep starting and deleting.
-→
-05
-Push back on my manager, in writing
-Use this when you think a decision is wrong and it needs to be on record.
-→
-06
-Forty minutes of meeting into five lines
-Use this straight after the call, while you still remember who meant what.
-→
-07
-Write feedback that is specific, not personal
-Use this before a review conversation you are dreading.
-→
-08
-The version I can actually send
-Use this when you have written the honest reply and know you must not send it.
-→
-More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## Freelance client handling
-URL: https://michaels-corner.netlify.app/packs/freelance
-
-Skip to content
-Skip to content
-Michael’s
-Corner .
-Home
-Start here
-Prompt library
-Tools
-Apps I built
-Videos
-Who I am
-Get the kit →
-&#8592; Back to all prompts
-Freelance client handling
-For people who are the whole business. The recurring theme from freelancers is the conversations around the work: quoting, scope creep, silence and chasing money. These are for those.
-01
-The client has gone quiet
-Use this five days into silence, when you are not sure if you are being ignored or forgotten.
-→
-02
-Talk me to a number before I lowball it
-Use this before you send a price, especially if you have a habit of going in low.
-→
-03
-This is out of scope, said kindly
-Use this on the third small favour that was never in the agreement.
-→
-04
-Turn their vague brief into a specification
-Use this before you quote on anything described in a paragraph or less.
-→
-05
-Chase the invoice
-Use this when payment is overdue and you have started rehearsing the message in the shower.
-→
-06
-The update they did not ask for
-Use this mid-project, on a Friday, on anything running longer than a fortnight.
-→
-07
-Rehearse the price conversation
-Use this before a call where you have to say a number out loud.
-→
-08
-Turn down the wrong project
-Use this on the job you know you should not take and are talking yourself into.
-→
-More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1502,15 +1421,168 @@ Does my page answer before it sells
 Use this on any page you expect a stranger to land on.
 →
 More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## Awkward work messages
+URL: https://michaels-corner.netlify.app/packs/work
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
 Prompt library
 Tools
 Apps I built
-Start here
-The Starter Kit
+Videos
 Who I am
+Get the kit →
+&#8592; Back to all prompts
+Awkward work messages
+The messages you rewrite five times and still do not send. Saying no, chasing for the third time, disagreeing with your manager, delivering news nobody wants. Each of these keeps your facts and fixes only the wording.
+01
+Make this professionally neutral
+Use this when what you wrote is accurate but says out loud what you actually think of someone.
+→
+02
+Say no without burning it
+Use this on the request you should decline and have been avoiding for three days.
+→
+03
+Chase without nagging
+Use this on the third follow-up, when polite is starting to feel like a lie.
+→
+04
+Deliver the bad news
+Use this on the message you keep starting and deleting.
+→
+05
+Push back on my manager, in writing
+Use this when you think a decision is wrong and it needs to be on record.
+→
+06
+Forty minutes of meeting into five lines
+Use this straight after the call, while you still remember who meant what.
+→
+07
+Write feedback that is specific, not personal
+Use this before a review conversation you are dreading.
+→
+08
+The version I can actually send
+Use this when you have written the honest reply and know you must not send it.
+→
+More packs
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## Freelance client handling
+URL: https://michaels-corner.netlify.app/packs/freelance
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
+Prompt library
+Tools
+Apps I built
+Videos
+Who I am
+Get the kit →
+&#8592; Back to all prompts
+Freelance client handling
+For people who are the whole business. The recurring theme from freelancers is the conversations around the work: quoting, scope creep, silence and chasing money. These are for those.
+01
+The client has gone quiet
+Use this five days into silence, when you are not sure if you are being ignored or forgotten.
+→
+02
+Talk me to a number before I lowball it
+Use this before you send a price, especially if you have a habit of going in low.
+→
+03
+This is out of scope, said kindly
+Use this on the third small favour that was never in the agreement.
+→
+04
+Turn their vague brief into a specification
+Use this before you quote on anything described in a paragraph or less.
+→
+05
+Chase the invoice
+Use this when payment is overdue and you have started rehearsing the message in the shower.
+→
+06
+The update they did not ask for
+Use this mid-project, on a Friday, on anything running longer than a fortnight.
+→
+07
+Rehearse the price conversation
+Use this before a call where you have to say a number out loud.
+→
+08
+Turn down the wrong project
+Use this on the job you know you should not take and are talking yourself into.
+→
+More packs
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1565,15 +1637,24 @@ Rehearse the money conversation
 Use this before talking to a partner, a bank, or someone you owe.
 →
 More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1628,15 +1709,24 @@ What would need to be true for this to work
 Use this before starting something big, while quitting is still cheap.
 →
 More packs
-Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Awkward work messages Freelance client handling Getting found by AI Money decisions Health and habits
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Best prompts for beginners Job hunting Study smarter Sounding like a human Running a small business Getting found by AI Awkward work messages Freelance client handling Money decisions Health and habits
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1676,14 +1766,23 @@ While you are interviewing me:
 - Do not start solving it while we are still talking.
 When you have enough, say "Ready" and give me your answer. If something is still missing, name it and say what you assumed instead of quietly guessing.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1723,14 +1822,23 @@ Before answering, do this:
 3. Rewrite it as the question I should have asked, and show me the rewrite.
 Then wait. Do not answer the rewritten question until I say go, because I may want to correct your version first.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1772,14 +1880,23 @@ Rules for your answer:
 - If the text does not settle my question, say "not in the source" and say what would settle it.
 - Do not smooth over a gap by guessing what the document probably means.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1818,14 +1935,23 @@ Look back at the answer you just gave me.
 4. Tell me the one thing I could check that would most change whether your answer holds.
 Do not defend the answer. I want the weak points, not a summary of it.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1871,14 +1997,23 @@ Rules:
 - If you must use a technical word, put its plain meaning in brackets straight after it.
 - If my context is not enough to be sure which meaning I need, ask me one question instead of picking.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1918,14 +2053,23 @@ Before you do any of it, say back to me:
 3. Anything in my request you found unclear.
 Then stop and wait for me to correct you. If I have contradicted myself anywhere, point at it rather than picking whichever version you prefer.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -1967,14 +2111,23 @@ Do this:
 4. Tell me which step is the one I am really avoiding, and why you think so.
 Keep it to one screen. No pep talk.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2015,14 +2168,23 @@ For each item, tell me honestly which of these it is:
 - A bad fit, because it needs live information, exact arithmetic, or a judgement only I can make.
 Be blunt in the last two categories. I would rather find out now than after a wasted fortnight.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2067,14 +2229,23 @@ Hard rules, and these matter more than the rewrite:
 - Where you reword a bullet, keep the fact and change only the framing.
 Then show me what you changed and why, line by line, so I can check each one.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2115,14 +2286,23 @@ Tell me:
 4. What the posting does not say that I would want to know.
 If the posting is too vague to read this way, say so instead of inventing a reading.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2166,14 +2346,23 @@ Be blunt with me:
 4. Given all that, is this a reasonable application or a long shot? Say which.
 Do not be encouraging. I want the read.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2213,14 +2402,23 @@ Turn each one into a result rather than a duty. But:
 - After I answer, rewrite the bullets using only what I gave you.
 - If I do not have a number for something, write the bullet without one rather than reaching for a word like "significantly".
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2265,14 +2463,23 @@ Rules:
 - Plain sentences. It should read like I typed it.
 - End with a simple next step, not a flourish.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2315,14 +2522,23 @@ Read it as a recruiter with 200 of these to get through today, skimming rather t
 4. What would put it in the no pile before you finish it?
 Be harsh. I would rather hear it from you.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2363,14 +2579,23 @@ After each answer:
 - If I waffled, say so, and tell me what the tighter version would be.
 Include at least one question about the weakest part of my background. Do not go easy on me because I am practising.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2420,14 +2645,23 @@ Rules:
 - For a salary reply: state my number once, give the reason in one line, then stop. Do not undercut it in the next sentence.
 - Do not use "just", "quickly", or "I was wondering if".
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2470,14 +2704,23 @@ Rules:
 - Every fifth question, ask one that connects back to something earlier.
 Start with question one.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2521,14 +2764,23 @@ When I get one wrong:
 5. Then carry on getting harder.
 If I am getting everything right, get harder faster.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2572,14 +2824,23 @@ Do not just tell me the right answer. Tell me:
 4. Two practice questions that would catch this same mistake again.
 If my answer is closer to right than it looks, say that too.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2622,14 +2883,23 @@ Then ask me one question about the weakest part.
 Here is my explanation:
 [write it out, badly if necessary, without looking at your notes]
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2670,14 +2940,23 @@ Do this:
 4. Tell me what I would need to already know for this to make sense, and whether the passage assumes it.
 Work only from this passage. If it depends on something earlier in the text I have not given you, say so.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2721,14 +3000,23 @@ Rules:
 - Mark any card where the material was too vague for you to be sure, rather than guessing.
 Give them as a plain list I can paste into a card app: question, then answer, one per line.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2771,14 +3059,23 @@ Do not tell me I am ready or not yet. First find out.
 5. Give me a plan for the days I have left, weighted to the real gaps rather than my ratings.
 Be honest, including if the honest answer is that a week is not enough for a topic.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2825,14 +3122,23 @@ Rules:
 - Tell me which topic to drop if I fall behind, and why that one.
 - No motivational filler. Just the plan.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2876,14 +3182,23 @@ Before writing anything, tell me what you noticed about my voice in five bullets
 Then write this in my voice: [what you want written]
 Do not smooth me out. If I write short blunt sentences, keep them short and blunt.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2928,14 +3243,23 @@ Remove the things that make it read as machine written:
 Keep every fact and every point. Change only how it sounds.
 Then list what you removed, so I can see the pattern and stop writing it myself.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -2978,14 +3302,23 @@ Rules:
 - Do not turn it into notes. It should still read as prose.
 Show me the cut version, then tell me the three things you removed that you were least sure about, in case I wanted them.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3026,14 +3359,23 @@ Tell me whether a reader would suspect this was AI written, and be specific.
 4. Give me a score out of ten for how machine written it reads, and explain the score.
 Do not rewrite it. I want to know what to fix, not have it fixed.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3081,14 +3423,23 @@ Do not:
 If a sentence is wrong but I might have meant it, leave it and flag it at the bottom rather than fixing it.
 Show me the corrected text, then list the changes you made.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3136,14 +3487,23 @@ Rules:
 - Mark anything that should not go in the outside version at all.
 - Keep each one under [number] words.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3185,14 +3545,23 @@ Rewrite it the way I would say it out loud to one person across a table.
 - Contractions are fine.
 Keep every fact and every commitment exactly as I have them. Then show me the two lines that changed the most, so I can check you have not changed my meaning along with my tone.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3239,14 +3608,23 @@ Rules:
 - Under [number] characters.
 Then tell me which two you would pick and why, and which one is the most dishonest of the ten.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3288,14 +3666,23 @@ Read it as someone who needs what I sell, is comparing me against two competitor
 5. What would make you pick a competitor instead?
 Do not suggest improvements yet. I want the read first.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3344,14 +3731,23 @@ Rules:
 - No hashtag walls, no emoji every line.
 - Each one short enough to read on a phone without tapping more.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3396,14 +3792,23 @@ Do this:
 5. Say what you would want to know that I do not seem to have.
 Do not tell me it depends and stop there. Take a position, and say what would change it.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3451,14 +3856,23 @@ Rules:
 - If price was likely the issue, make it easy to say so without embarrassment.
 Then give me a second version I could send two weeks after that one, if this gets no reply either.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3507,14 +3921,23 @@ Do this:
 5. Tell me the walk-away number and how to say no politely.
 Do not tell me to charge what I am worth. Give me a figure and the reasoning.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3557,14 +3980,23 @@ Rules:
 - Short enough to read on a phone.
 Flag anything in my notes you think I would not want the customer to see.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3614,14 +4046,23 @@ Rules:
 - It must fit on one side of A4 when printed.
 - Where I have not given you enough, leave a [bracket] rather than writing something plausible.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3666,14 +4107,496 @@ Rules for your questions:
 - Do not offer advice while we are still going.
 At the end, tell me what you think the real constraint is, what evidence in my answers points at it, and what you would look at first.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## What does it say about my business
+URL: https://michaels-corner.netlify.app/prompts/what-does-ai-say
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
 Prompt library
 Tools
 Apps I built
-Start here
-The Starter Kit
+Videos
 Who I am
+Get the kit →
+&#8592; Back to all prompts
+What does it say about my business
+Use this first. Run it in two or three different assistants, because they will not agree.
+What to fill in
+[ business name ]
+[ town or city ]
+[ the thing you actually do ]
+The tip
+Run it in ChatGPT, Claude and Gemini and compare. Where they disagree is usually where your own information is thin or contradicts itself.
+Works in
+ChatGPT / Claude / Gemini
+This pack
+For owners
+The prompt
+copy target
+Answer these as if I were a customer who has never heard of this business, and answer from what you know rather than from anything I tell you.
+1. What do you know about [business name] in [town or city]?
+2. What do they sell, and who for?
+3. What are their opening hours and how do people contact them?
+4. What do people say about them?
+5. Would you recommend them for [the thing you actually do]? If not, who would you recommend instead, and why?
+For each answer, tell me how confident you are and where the impression comes from. If you do not know, say you do not know rather than filling it in.
+Copy prompt
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## Find the facts that are out of date
+URL: https://michaels-corner.netlify.app/prompts/find-the-wrong-facts
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
+Prompt library
+Tools
+Apps I built
+Videos
+Who I am
+Get the kit →
+&#8592; Back to all prompts
+Find the facts that are out of date
+Use this after the first prompt, on anything it got wrong.
+What to fill in
+[ paste its answer ]
+[ paste the correct details: services, hours, prices, locations, staff, anything it got wrong ]
+The tip
+Most wrong answers trace back to something you control and forgot about. An old page, a directory listing from years ago, a footer nobody has read since.
+Works in
+ChatGPT / Claude / Gemini
+This pack
+For owners
+The prompt
+copy target
+Here is what an AI assistant said about my business:
+[paste its answer]
+Here is what is actually true:
+[paste the correct details: services, hours, prices, locations, staff, anything it got wrong]
+Do this:
+1. List every point where its answer differs from the truth.
+2. For each one, suggest where the wrong version most likely came from. An old listing, a directory, a stale page on my own site, a review, a news mention.
+3. Rank them by how much damage the wrong version does to someone deciding whether to contact me.
+4. Tell me which ones I can fix myself and which depend on someone else updating something.
+Do not guess a source you have no basis for. Say "unknown source" instead.
+Copy prompt
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## Who gets recommended instead of me
+URL: https://michaels-corner.netlify.app/prompts/who-gets-recommended
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
+Prompt library
+Tools
+Apps I built
+Videos
+Who I am
+Get the kit →
+&#8592; Back to all prompts
+Who gets recommended instead of me
+Use this when the assistant names competitors and you want to know what they have that you do not.
+What to fill in
+[ for example, "who is the best [your trade ]
+[ your town ]
+[ specific need ]
+[ my business name ]
+The tip
+Point 3 is the actionable one. It is usually a plain answerable fact you have never written down anywhere.
+Works in
+ChatGPT / Claude / Gemini
+This pack
+For owners
+The prompt
+copy target
+Question a customer would ask: [for example, "who is the best [your trade] in [your town] for [specific need]"]
+Answer it as you would for a real customer. Then:
+1. Name who you would recommend and why, in order.
+2. For each one, say what specific information made you confident enough to name them.
+3. Say what you would need to know about [my business name] to include it in that list.
+4. Tell me which of those gaps are about information that exists but is hard to find, and which are about information that does not exist anywhere.
+Be honest if the answer is that you have too little to go on for any of them.
+Copy prompt
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## The twenty questions my customers actually ask
+URL: https://michaels-corner.netlify.app/prompts/questions-customers-type
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
+Prompt library
+Tools
+Apps I built
+Videos
+Who I am
+Get the kit →
+&#8592; Back to all prompts
+The twenty questions my customers actually ask
+Use this to find out what you should have a clear answer to on your site.
+What to fill in
+[ what you do, who for, where ]
+[ list what you can remember, however few ]
+The tip
+The questions you have never answered are the list. Answer them plainly on your own site and you have done most of the work.
+Works in
+ChatGPT / Claude / Gemini
+This pack
+For owners
+The prompt
+copy target
+My business: [what you do, who for, where]
+What people usually ask me before they buy: [list what you can remember, however few]
+Write the twenty questions a real customer would type into an assistant before choosing someone like me.
+Rules:
+- Real phrasing, the way a person types when they are in a hurry and not an expert.
+- Include the awkward ones about price, timing, and what happens when something goes wrong.
+- Include the ones where they do not yet know the right word for what they need.
+- Mark which of these my own answers would settle, based on what I told you, and which I have never answered anywhere.
+Do not write questions that are really adverts for me.
+Copy prompt
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## Write the who this is not for section
+URL: https://michaels-corner.netlify.app/prompts/who-this-is-not-for
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
+Prompt library
+Tools
+Apps I built
+Videos
+Who I am
+Get the kit →
+&#8592; Back to all prompts
+Write the who this is not for section
+Use this when you are trying to be right for everyone and ending up specific to nobody.
+What to fill in
+[ describe it ]
+[ be specific ]
+[ the enquiries you turn down or regret taking ]
+[ the adjacent things people assume you do ]
+The tip
+The second list is what makes a recommendation possible. Being clearly wrong for some people is what makes you obviously right for others.
+Works in
+ChatGPT / Claude / Gemini
+This pack
+For owners
+The prompt
+copy target
+What I do: [describe it]
+Who it is genuinely right for: [be specific]
+Who keeps contacting me that I am wrong for: [the enquiries you turn down or regret taking]
+What I do not do: [the adjacent things people assume you do]
+Write two short sections:
+1. "This is for you if" with three or four concrete situations.
+2. "This is not for you if" with three or four, stated plainly and without insult.
+Rules:
+- Situations, not adjectives. Not "businesses that value quality", but the actual circumstance they would recognise.
+- The second section has to genuinely rule people out. If it does not lose me anyone, it is not doing anything.
+- No apology for what I do not do.
+Copy prompt
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## Turn my services into plain answerable facts
+URL: https://michaels-corner.netlify.app/prompts/plain-answerable-sentences
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
+Prompt library
+Tools
+Apps I built
+Videos
+Who I am
+Get the kit →
+&#8592; Back to all prompts
+Turn my services into plain answerable facts
+Use this on service pages that describe what you do without ever quite saying it.
+What to fill in
+[ paste it ]
+The tip
+Step 2 is uncomfortable and useful. Most service pages are 80% filler and the owner cannot see it because they wrote it.
+Works in
+ChatGPT / Claude / Gemini
+This pack
+For owners
+The prompt
+copy target
+Here is my current services page:
+[paste it]
+The problem: this is written to sound good, not to answer a question.
+1. Pull out every actual fact in it. What is done, for whom, where, how long it takes, what it costs.
+2. Show me what is left once the facts are removed. That is the filler.
+3. Rewrite it as plain statements a person or an assistant could quote as an answer.
+4. List the facts a customer would want that are simply not on the page.
+Rules for the rewrite: no adjectives about quality, no "we pride ourselves", one fact per sentence.
+Copy prompt
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## An FAQ from questions people really asked
+URL: https://michaels-corner.netlify.app/prompts/faq-from-real-questions
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
+Prompt library
+Tools
+Apps I built
+Videos
+Who I am
+Get the kit →
+&#8592; Back to all prompts
+An FAQ from questions people really asked
+Use this when you have a pile of enquiry emails and no FAQ.
+What to fill in
+[ paste enquiry emails, messages, or just the questions you remember being asked ]
+[ bracket ]
+The tip
+Never translate the question into your own jargon. People search using the words they already have.
+Works in
+ChatGPT / Claude / Gemini
+This pack
+For owners
+The prompt
+copy target
+Here are real questions people have sent me:
+[paste enquiry emails, messages, or just the questions you remember being asked]
+Turn them into an FAQ.
+Rules:
+- Keep the customer's phrasing in the question. Do not translate it into industry language.
+- Group the ones that are really the same question, and say which you merged.
+- Answer only from what I give you. Where you need a fact I have not supplied, leave a [bracket].
+- Answer the price question with a real structure, even if it is a range or "it depends on X and Y". Do not write "contact us for a quote" as an answer.
+- Short answers. Two or three sentences each.
+Copy prompt
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
+
+---
+
+## Does my page answer before it sells
+URL: https://michaels-corner.netlify.app/prompts/does-my-page-answer
+
+Skip to content
+Skip to content
+Michael’s
+Corner .
+Home
+Start here
+Prompt library
+Tools
+Apps I built
+Videos
+Who I am
+Get the kit →
+&#8592; Back to all prompts
+Does my page answer before it sells
+Use this on any page you expect a stranger to land on.
+What to fill in
+[ paste the text ]
+[ what they typed or wanted to know ]
+The tip
+Answer first, sell second. A page that makes someone scroll to find out whether you do the thing usually loses them before they get there.
+Works in
+ChatGPT / Claude / Gemini
+This pack
+For owners
+The prompt
+copy target
+Here is the page:
+[paste the text]
+The question a visitor arrived with: [what they typed or wanted to know]
+1. Does the page answer that question? Quote where, or say it does not.
+2. How far down does the answer sit? Count the sentences before it.
+3. What does the page do instead in that space?
+4. Rewrite the opening so the answer comes first and the selling follows.
+Do not touch anything below the opening. I only want to know what happens in the first ten seconds.
+Copy prompt
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
+Prompt library
+Tools
+The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
+Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3716,14 +4639,23 @@ Rules:
 - If any part of what I wrote could not be said at all in a professional setting, tell me rather than translating it.
 Then tell me which line is still most likely to cause a reaction.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3771,14 +4703,23 @@ Rules:
 - Do not say "unfortunately" more than once, and do not say "at this time".
 Under 100 words.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3827,14 +4768,23 @@ Rules:
 - Make replying take them ten seconds. Yes, no, or a date.
 - Short. Long chasing messages get read last.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3882,14 +4832,23 @@ Rules:
 - No "I wanted to reach out" and no passive voice hiding who did what.
 Then tell me the question they will ask first, so I can answer it before they have to.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3940,14 +4899,23 @@ Rules:
 - End by making clear I will get behind the decision either way, if that is true.
 Then tell me how this reads if they are already defensive.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -3993,14 +4961,23 @@ Rules:
 - Do not turn a maybe into a commitment. If someone said they would try, write that they would try.
 - Under one screen.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4049,14 +5026,23 @@ Rules:
 - Do not sandwich it in praise. Say the praise if it is true, separately.
 - Give me the opening sentence, because that is the one I will fumble.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4102,14 +5088,23 @@ Do three things:
 3. Tell me what in my draft was a legitimate point that the calm version should keep, because I do not want to lose the substance along with the tone.
 Do not tell me to calm down or wait a day. I know. Give me the message.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4160,14 +5155,23 @@ Rules:
 - Do not offer a discount or extra work to restart the conversation.
 Then write the version I send a week after that, if this one also gets nothing.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4216,14 +5220,23 @@ Do this:
 5. Give me my walk-away figure and the polite decline.
 Do not tell me to value myself. Give me a figure and the reasoning behind it.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4273,14 +5286,23 @@ Rules:
 - No passive aggression and no listing everything else I have already absorbed for free.
 - If I have let several go already, give me one line that resets the pattern without relitigating them.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4323,14 +5345,23 @@ Turn it into something I could be held to.
 5. Draft the scope paragraph I would put in the proposal, with [brackets] wherever an answer is still needed.
 Do not fill any gap with a sensible default. That is how the argument starts later.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4381,14 +5412,23 @@ Rules:
 - At stage 2 and 3, name what happens next as a fact, not a threat.
 - Never suggest a discount for prompt payment on an invoice that is already late.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4435,14 +5475,23 @@ Rules:
 - Do not pad it to look busy. If a quiet week was a quiet week, say so and why.
 - No "circling back", no "touching base".
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4487,14 +5536,23 @@ Rules for you:
 - When I say "stop", come out of character and tell me: where I discounted without being asked, where I over-explained, and the one line that would have ended the objection cleanly.
 Start when I say go.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4542,415 +5600,23 @@ Rules:
 - Leave the door open only if I actually want them back.
 - Under 100 words.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## What does it say about my business
-URL: https://michaels-corner.netlify.app/prompts/what-does-ai-say
-
-Skip to content
-Skip to content
 Michael’s
 Corner .
-Home
-Start here
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
+The Starter Kit
+Look around
+Start here
 Apps I built
 Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
-Get the kit →
-&#8592; Back to all prompts
-What does it say about my business
-Use this first. Run it in two or three different assistants, because they will not agree.
-What to fill in
-[ business name ]
-[ town or city ]
-[ the thing you actually do ]
-The tip
-Run it in ChatGPT, Claude and Gemini and compare. Where they disagree is usually where your own information is thin or contradicts itself.
-Works in
-ChatGPT / Claude / Gemini
-This pack
-For owners
-The prompt
-copy target
-Answer these as if I were a customer who has never heard of this business, and answer from what you know rather than from anything I tell you.
-1. What do you know about [business name] in [town or city]?
-2. What do they sell, and who for?
-3. What are their opening hours and how do people contact them?
-4. What do people say about them?
-5. Would you recommend them for [the thing you actually do]? If not, who would you recommend instead, and why?
-For each answer, tell me how confident you are and where the impression comes from. If you do not know, say you do not know rather than filling it in.
-Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## Find the facts that are out of date
-URL: https://michaels-corner.netlify.app/prompts/find-the-wrong-facts
-
-Skip to content
-Skip to content
-Michael’s
-Corner .
-Home
-Start here
-Prompt library
-Tools
-Apps I built
-Videos
-Who I am
-Get the kit →
-&#8592; Back to all prompts
-Find the facts that are out of date
-Use this after the first prompt, on anything it got wrong.
-What to fill in
-[ paste its answer ]
-[ paste the correct details: services, hours, prices, locations, staff, anything it got wrong ]
-The tip
-Most wrong answers trace back to something you control and forgot about. An old page, a directory listing from years ago, a footer nobody has read since.
-Works in
-ChatGPT / Claude / Gemini
-This pack
-For owners
-The prompt
-copy target
-Here is what an AI assistant said about my business:
-[paste its answer]
-Here is what is actually true:
-[paste the correct details: services, hours, prices, locations, staff, anything it got wrong]
-Do this:
-1. List every point where its answer differs from the truth.
-2. For each one, suggest where the wrong version most likely came from. An old listing, a directory, a stale page on my own site, a review, a news mention.
-3. Rank them by how much damage the wrong version does to someone deciding whether to contact me.
-4. Tell me which ones I can fix myself and which depend on someone else updating something.
-Do not guess a source you have no basis for. Say "unknown source" instead.
-Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## Who gets recommended instead of me
-URL: https://michaels-corner.netlify.app/prompts/who-gets-recommended
-
-Skip to content
-Skip to content
-Michael’s
-Corner .
-Home
-Start here
-Prompt library
-Tools
-Apps I built
-Videos
-Who I am
-Get the kit →
-&#8592; Back to all prompts
-Who gets recommended instead of me
-Use this when the assistant names competitors and you want to know what they have that you do not.
-What to fill in
-[ for example, "who is the best [your trade ]
-[ your town ]
-[ specific need ]
-[ my business name ]
-The tip
-Point 3 is the actionable one. It is usually a plain answerable fact you have never written down anywhere.
-Works in
-ChatGPT / Claude / Gemini
-This pack
-For owners
-The prompt
-copy target
-Question a customer would ask: [for example, "who is the best [your trade] in [your town] for [specific need]"]
-Answer it as you would for a real customer. Then:
-1. Name who you would recommend and why, in order.
-2. For each one, say what specific information made you confident enough to name them.
-3. Say what you would need to know about [my business name] to include it in that list.
-4. Tell me which of those gaps are about information that exists but is hard to find, and which are about information that does not exist anywhere.
-Be honest if the answer is that you have too little to go on for any of them.
-Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## The twenty questions my customers actually ask
-URL: https://michaels-corner.netlify.app/prompts/questions-customers-type
-
-Skip to content
-Skip to content
-Michael’s
-Corner .
-Home
-Start here
-Prompt library
-Tools
-Apps I built
-Videos
-Who I am
-Get the kit →
-&#8592; Back to all prompts
-The twenty questions my customers actually ask
-Use this to find out what you should have a clear answer to on your site.
-What to fill in
-[ what you do, who for, where ]
-[ list what you can remember, however few ]
-The tip
-The questions you have never answered are the list. Answer them plainly on your own site and you have done most of the work.
-Works in
-ChatGPT / Claude / Gemini
-This pack
-For owners
-The prompt
-copy target
-My business: [what you do, who for, where]
-What people usually ask me before they buy: [list what you can remember, however few]
-Write the twenty questions a real customer would type into an assistant before choosing someone like me.
-Rules:
-- Real phrasing, the way a person types when they are in a hurry and not an expert.
-- Include the awkward ones about price, timing, and what happens when something goes wrong.
-- Include the ones where they do not yet know the right word for what they need.
-- Mark which of these my own answers would settle, based on what I told you, and which I have never answered anywhere.
-Do not write questions that are really adverts for me.
-Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## Write the who this is not for section
-URL: https://michaels-corner.netlify.app/prompts/who-this-is-not-for
-
-Skip to content
-Skip to content
-Michael’s
-Corner .
-Home
-Start here
-Prompt library
-Tools
-Apps I built
-Videos
-Who I am
-Get the kit →
-&#8592; Back to all prompts
-Write the who this is not for section
-Use this when you are trying to be right for everyone and ending up specific to nobody.
-What to fill in
-[ describe it ]
-[ be specific ]
-[ the enquiries you turn down or regret taking ]
-[ the adjacent things people assume you do ]
-The tip
-The second list is what makes a recommendation possible. Being clearly wrong for some people is what makes you obviously right for others.
-Works in
-ChatGPT / Claude / Gemini
-This pack
-For owners
-The prompt
-copy target
-What I do: [describe it]
-Who it is genuinely right for: [be specific]
-Who keeps contacting me that I am wrong for: [the enquiries you turn down or regret taking]
-What I do not do: [the adjacent things people assume you do]
-Write two short sections:
-1. "This is for you if" with three or four concrete situations.
-2. "This is not for you if" with three or four, stated plainly and without insult.
-Rules:
-- Situations, not adjectives. Not "businesses that value quality", but the actual circumstance they would recognise.
-- The second section has to genuinely rule people out. If it does not lose me anyone, it is not doing anything.
-- No apology for what I do not do.
-Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## Turn my services into plain answerable facts
-URL: https://michaels-corner.netlify.app/prompts/plain-answerable-sentences
-
-Skip to content
-Skip to content
-Michael’s
-Corner .
-Home
-Start here
-Prompt library
-Tools
-Apps I built
-Videos
-Who I am
-Get the kit →
-&#8592; Back to all prompts
-Turn my services into plain answerable facts
-Use this on service pages that describe what you do without ever quite saying it.
-What to fill in
-[ paste it ]
-The tip
-Step 2 is uncomfortable and useful. Most service pages are 80% filler and the owner cannot see it because they wrote it.
-Works in
-ChatGPT / Claude / Gemini
-This pack
-For owners
-The prompt
-copy target
-Here is my current services page:
-[paste it]
-The problem: this is written to sound good, not to answer a question.
-1. Pull out every actual fact in it. What is done, for whom, where, how long it takes, what it costs.
-2. Show me what is left once the facts are removed. That is the filler.
-3. Rewrite it as plain statements a person or an assistant could quote as an answer.
-4. List the facts a customer would want that are simply not on the page.
-Rules for the rewrite: no adjectives about quality, no "we pride ourselves", one fact per sentence.
-Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## An FAQ from questions people really asked
-URL: https://michaels-corner.netlify.app/prompts/faq-from-real-questions
-
-Skip to content
-Skip to content
-Michael’s
-Corner .
-Home
-Start here
-Prompt library
-Tools
-Apps I built
-Videos
-Who I am
-Get the kit →
-&#8592; Back to all prompts
-An FAQ from questions people really asked
-Use this when you have a pile of enquiry emails and no FAQ.
-What to fill in
-[ paste enquiry emails, messages, or just the questions you remember being asked ]
-[ bracket ]
-The tip
-Never translate the question into your own jargon. People search using the words they already have.
-Works in
-ChatGPT / Claude / Gemini
-This pack
-For owners
-The prompt
-copy target
-Here are real questions people have sent me:
-[paste enquiry emails, messages, or just the questions you remember being asked]
-Turn them into an FAQ.
-Rules:
-- Keep the customer's phrasing in the question. Do not translate it into industry language.
-- Group the ones that are really the same question, and say which you merged.
-- Answer only from what I give you. Where you need a fact I have not supplied, leave a [bracket].
-- Answer the price question with a real structure, even if it is a range or "it depends on X and Y". Do not write "contact us for a quote" as an answer.
-- Short answers. Two or three sentences each.
-Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
-
----
-
-## Does my page answer before it sells
-URL: https://michaels-corner.netlify.app/prompts/does-my-page-answer
-
-Skip to content
-Skip to content
-Michael’s
-Corner .
-Home
-Start here
-Prompt library
-Tools
-Apps I built
-Videos
-Who I am
-Get the kit →
-&#8592; Back to all prompts
-Does my page answer before it sells
-Use this on any page you expect a stranger to land on.
-What to fill in
-[ paste the text ]
-[ what they typed or wanted to know ]
-The tip
-Answer first, sell second. A page that makes someone scroll to find out whether you do the thing usually loses them before they get there.
-Works in
-ChatGPT / Claude / Gemini
-This pack
-For owners
-The prompt
-copy target
-Here is the page:
-[paste the text]
-The question a visitor arrived with: [what they typed or wanted to know]
-1. Does the page answer that question? Quote where, or say it does not.
-2. How far down does the answer sit? Count the sentences before it.
-3. What does the page do instead in that space?
-4. Rewrite the opening so the answer comes first and the selling follows.
-Do not touch anything below the opening. I only want to know what happens in the first ten seconds.
-Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
-Prompt library
-Tools
-Apps I built
-Start here
-The Starter Kit
-Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -4995,14 +5661,23 @@ Rules:
 - If a transaction is ambiguous, ask rather than filing it somewhere.
 - Do not tell me what to cut yet, and do not comment on my choices. Just show me the shape.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5046,14 +5721,23 @@ Do this:
 5. Flag anything with a deadline, a penalty or a rate that is about to change, since those may outrank both orders.
 Show the arithmetic. If I have left out a rate you need, ask instead of assuming one.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5098,14 +5782,23 @@ Do this:
 5. Say what you would want to know that I have not told you.
 Do not reassure me. If the plan is fragile, say where.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5151,14 +5844,23 @@ Do this:
 5. Say which you would pick given what I told you, and what would flip it.
 Only use figures I have given you. Where a term is unclear in what I pasted, say so instead of assuming the usual.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5202,14 +5904,23 @@ Tell me what I have left out.
 4. What happens to the cost if my circumstances change in the obvious ways.
 For each, say whether it is certain, likely or possible. Do not invent figures for my country or my situation. Where a number depends on where I am or who I am, ask me.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5253,14 +5964,23 @@ Do this:
 5. List the questions I should ask before signing.
 Work only from the text for points 1 to 3. Quote the wording each point rests on. If something is genuinely ambiguous, say so rather than picking a reading.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5307,14 +6027,23 @@ Build me a plan to get to one month of essential costs.
 5. Tell me the one change that would most shorten the timeline, and be honest if it is not realistic for me.
 No motivational language. If the timeline is long, say the number.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5360,14 +6089,23 @@ First, help me prepare:
 Then play them. Be realistic, including uncomfortable, and stay in character until I say stop.
 When I say stop, tell me where I got defensive, where I over-explained, and what I left out that they needed to hear.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5412,14 +6150,23 @@ Rules for your questions:
 - Do not give advice while we are still going.
 At the end: tell me what you think is really in the way, quote the answers that led you there, and name the smallest change that would test it.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5466,14 +6213,23 @@ Rules:
 - Tell me which option is the most nutritionally useful of the three and why, in one line.
 - No recipes that need a technique I did not say I could do.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5518,14 +6274,23 @@ Do this:
 5. Tell me what to look at in four weeks to decide whether to make it bigger.
 Do not motivate me. Give me the smallest thing and where it goes.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5569,14 +6334,23 @@ Do this:
 5. Tell me what a person would need to know about me before saying whether it applies.
 Be explicit about the limits of your own knowledge, including where your information may be out of date. If this is something that needs a doctor rather than a chatbot, say that plainly and stop.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5620,14 +6394,23 @@ Do this:
 4. Tell me what would have to be different for the next attempt to survive the same week.
 Do not tell me to be kind to myself and do not tell me to try harder. Diagnose it.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5674,14 +6457,23 @@ Do this:
 5. Tell me what you would expect to go wrong first.
 If my target is unrealistic for the time I have, say so and give me the realistic one instead.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5724,14 +6516,23 @@ Rules:
 - If I missed things, ask what was happening rather than why I did not push through.
 At the end: tell me what the week actually shows, what to change for next week, and whether the plan needs adjusting to my life rather than the other way round.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.
 
 ---
 
@@ -5776,11 +6577,20 @@ Do this:
 5. Tell me the cheapest test I could run this week to find out about the riskiest assumption before I commit.
 Be blunt. I would rather hear it now.
 Copy prompt
-Michael’s Corner
-Everything on this site was built by the person who uses it.
+Michael’s
+Corner .
+AI is my superpower. Not my replacement.
+Take something
 Prompt library
 Tools
-Apps I built
-Start here
 The Starter Kit
+Look around
+Start here
+Apps I built
+Videos
+Say hello
+mihael.florian@gmail.com
 Who I am
+@michaelflorian_ai
+Michael Florian.
+Say hello any time.

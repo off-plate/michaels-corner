@@ -119,6 +119,339 @@
   from = "/tools/*"
   to = "/tools/:splat.html"
   status = 200
+# The library was rebuilt on 2026-09-09 and these pages no longer exist. They were
+# indexed, so they point at the library rather than dying in the 404 handler.
+[[redirects]]
+  from = "/packs/writing"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/packs/building"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/packs/founders"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/packs/freelancers"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/packs/office"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/packs/creators"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/packs/students"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/sort-my-day"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/fix-my-prompt"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/stress-test-answer"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/hard-message"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/honest-summary"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/ai-in-my-week"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/sound-like-me"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/notes-to-draft"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/remove-ai-flavor"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/fix-my-english"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/honest-editor"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/idea-to-spec"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/smallest-version"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/builder-brief"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/fix-error-plain"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/loop-breaker"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/explain-code"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/pick-tools"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/test-before-launch"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/review-triage"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/unhappy-customer"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/sell-sheet"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/price-increase"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/weekly-numbers"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/stop-doing"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/competitor-read"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/negotiation-prep"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/brief-translator"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/revision-decoder"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/proposal-builder"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/scope-guard"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/invoice-chase"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/client-update"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/say-no"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/explain-my-work"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/thread-summary"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/notes-to-email"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/meeting-prep"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/minutes-actions"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/formula-help"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/status-report"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/process-doc"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/holiday-handover"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/video-to-posts"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/thirty-second-script"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/honest-hooks"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/transcript-to-article"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/caption-voice"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/idea-mining"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/content-week"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/stats-truth"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/twenty-minute-topic"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/quiz-me"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/explain-back"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/reading-notes"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/essay-outline"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/flashcards"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/exam-plan"
+  to = "/library"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/prompts/stuck-on-problem"
+  to = "/library"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/packs/*"
   to = "/packs/:splat.html"

@@ -836,6 +836,160 @@ At the end, tell me what you think the real constraint is, what evidence in my a
     ]
   },
   {
+    id: "found",
+    desc: "What AI assistants say about your business when a customer asks, and how to fix what is wrong.",
+    chip: "For owners",
+    name: "Getting found by AI",
+    blurb: [
+      "People now ask an assistant for a recommendation the way they used to search. This pack checks what it says about you and finds where the wrong answer comes from. A word of warning: being mentioned is not the same as being hired, and anyone selling you a mention count is selling a vanity number."
+    ],
+    updated: UPDATED,
+    prompts: [
+      {
+        id: "what-does-ai-say",
+        title: "What does it say about my business",
+        when: "Use this first. Run it in two or three different assistants, because they will not agree.",
+        prompt: `Answer these as if I were a customer who has never heard of this business, and answer from what you know rather than from anything I tell you.
+
+1. What do you know about [business name] in [town or city]?
+2. What do they sell, and who for?
+3. What are their opening hours and how do people contact them?
+4. What do people say about them?
+5. Would you recommend them for [the thing you actually do]? If not, who would you recommend instead, and why?
+
+For each answer, tell me how confident you are and where the impression comes from. If you do not know, say you do not know rather than filling it in.`,
+        tip: "Run it in ChatGPT, Claude and Gemini and compare. Where they disagree is usually where your own information is thin or contradicts itself."
+      },
+      {
+        id: "find-the-wrong-facts",
+        title: "Find the facts that are out of date",
+        when: "Use this after the first prompt, on anything it got wrong.",
+        prompt: `Here is what an AI assistant said about my business:
+
+[paste its answer]
+
+Here is what is actually true:
+
+[paste the correct details: services, hours, prices, locations, staff, anything it got wrong]
+
+Do this:
+1. List every point where its answer differs from the truth.
+2. For each one, suggest where the wrong version most likely came from. An old listing, a directory, a stale page on my own site, a review, a news mention.
+3. Rank them by how much damage the wrong version does to someone deciding whether to contact me.
+4. Tell me which ones I can fix myself and which depend on someone else updating something.
+
+Do not guess a source you have no basis for. Say "unknown source" instead.`,
+        tip: "Most wrong answers trace back to something you control and forgot about. An old page, a directory listing from years ago, a footer nobody has read since."
+      },
+      {
+        id: "who-gets-recommended",
+        title: "Who gets recommended instead of me",
+        when: "Use this when the assistant names competitors and you want to know what they have that you do not.",
+        prompt: `Question a customer would ask: [for example, "who is the best [your trade] in [your town] for [specific need]"]
+
+Answer it as you would for a real customer. Then:
+1. Name who you would recommend and why, in order.
+2. For each one, say what specific information made you confident enough to name them.
+3. Say what you would need to know about [my business name] to include it in that list.
+4. Tell me which of those gaps are about information that exists but is hard to find, and which are about information that does not exist anywhere.
+
+Be honest if the answer is that you have too little to go on for any of them.`,
+        tip: "Point 3 is the actionable one. It is usually a plain answerable fact you have never written down anywhere."
+      },
+      {
+        id: "questions-customers-type",
+        title: "The twenty questions my customers actually ask",
+        when: "Use this to find out what you should have a clear answer to on your site.",
+        prompt: `My business: [what you do, who for, where]
+What people usually ask me before they buy: [list what you can remember, however few]
+
+Write the twenty questions a real customer would type into an assistant before choosing someone like me.
+
+Rules:
+- Real phrasing, the way a person types when they are in a hurry and not an expert.
+- Include the awkward ones about price, timing, and what happens when something goes wrong.
+- Include the ones where they do not yet know the right word for what they need.
+- Mark which of these my own answers would settle, based on what I told you, and which I have never answered anywhere.
+
+Do not write questions that are really adverts for me.`,
+        tip: "The questions you have never answered are the list. Answer them plainly on your own site and you have done most of the work."
+      },
+      {
+        id: "who-this-is-not-for",
+        title: "Write the who this is not for section",
+        when: "Use this when you are trying to be right for everyone and ending up specific to nobody.",
+        prompt: `What I do: [describe it]
+Who it is genuinely right for: [be specific]
+Who keeps contacting me that I am wrong for: [the enquiries you turn down or regret taking]
+What I do not do: [the adjacent things people assume you do]
+
+Write two short sections:
+1. "This is for you if" with three or four concrete situations.
+2. "This is not for you if" with three or four, stated plainly and without insult.
+
+Rules:
+- Situations, not adjectives. Not "businesses that value quality", but the actual circumstance they would recognise.
+- The second section has to genuinely rule people out. If it does not lose me anyone, it is not doing anything.
+- No apology for what I do not do.`,
+        tip: "The second list is what makes a recommendation possible. Being clearly wrong for some people is what makes you obviously right for others."
+      },
+      {
+        id: "plain-answerable-sentences",
+        title: "Turn my services into plain answerable facts",
+        when: "Use this on service pages that describe what you do without ever quite saying it.",
+        prompt: `Here is my current services page:
+
+[paste it]
+
+The problem: this is written to sound good, not to answer a question.
+
+1. Pull out every actual fact in it. What is done, for whom, where, how long it takes, what it costs.
+2. Show me what is left once the facts are removed. That is the filler.
+3. Rewrite it as plain statements a person or an assistant could quote as an answer.
+4. List the facts a customer would want that are simply not on the page.
+
+Rules for the rewrite: no adjectives about quality, no "we pride ourselves", one fact per sentence.`,
+        tip: "Step 2 is uncomfortable and useful. Most service pages are 80% filler and the owner cannot see it because they wrote it."
+      },
+      {
+        id: "faq-from-real-questions",
+        title: "An FAQ from questions people really asked",
+        when: "Use this when you have a pile of enquiry emails and no FAQ.",
+        prompt: `Here are real questions people have sent me:
+
+[paste enquiry emails, messages, or just the questions you remember being asked]
+
+Turn them into an FAQ.
+
+Rules:
+- Keep the customer's phrasing in the question. Do not translate it into industry language.
+- Group the ones that are really the same question, and say which you merged.
+- Answer only from what I give you. Where you need a fact I have not supplied, leave a [bracket].
+- Answer the price question with a real structure, even if it is a range or "it depends on X and Y". Do not write "contact us for a quote" as an answer.
+- Short answers. Two or three sentences each.`,
+        tip: "Never translate the question into your own jargon. People search using the words they already have."
+      },
+      {
+        id: "does-my-page-answer",
+        title: "Does my page answer before it sells",
+        when: "Use this on any page you expect a stranger to land on.",
+        prompt: `Here is the page:
+
+[paste the text]
+
+The question a visitor arrived with: [what they typed or wanted to know]
+
+1. Does the page answer that question? Quote where, or say it does not.
+2. How far down does the answer sit? Count the sentences before it.
+3. What does the page do instead in that space?
+4. Rewrite the opening so the answer comes first and the selling follows.
+
+Do not touch anything below the opening. I only want to know what happens in the first ten seconds.`,
+        tip: "Answer first, sell second. A page that makes someone scroll to find out whether you do the thing usually loses them before they get there."
+      }
+    ]
+  },
+  {
     id: "work",
     desc: "The messages you rewrite five times before sending: the no, the chase, the bad news, the disagreement.",
     chip: "For office work",
@@ -1186,160 +1340,6 @@ Rules:
 - Leave the door open only if I actually want them back.
 - Under 100 words.`,
         tip: "The two questions at the start are worth answering properly. Sometimes the honest answer is that you are tired, not that the job is wrong."
-      }
-    ]
-  },
-  {
-    id: "found",
-    desc: "What AI assistants say about your business when a customer asks, and how to fix what is wrong.",
-    chip: "For owners",
-    name: "Getting found by AI",
-    blurb: [
-      "People now ask an assistant for a recommendation the way they used to search. This pack checks what it says about you and finds where the wrong answer comes from. A word of warning: being mentioned is not the same as being hired, and anyone selling you a mention count is selling a vanity number."
-    ],
-    updated: UPDATED,
-    prompts: [
-      {
-        id: "what-does-ai-say",
-        title: "What does it say about my business",
-        when: "Use this first. Run it in two or three different assistants, because they will not agree.",
-        prompt: `Answer these as if I were a customer who has never heard of this business, and answer from what you know rather than from anything I tell you.
-
-1. What do you know about [business name] in [town or city]?
-2. What do they sell, and who for?
-3. What are their opening hours and how do people contact them?
-4. What do people say about them?
-5. Would you recommend them for [the thing you actually do]? If not, who would you recommend instead, and why?
-
-For each answer, tell me how confident you are and where the impression comes from. If you do not know, say you do not know rather than filling it in.`,
-        tip: "Run it in ChatGPT, Claude and Gemini and compare. Where they disagree is usually where your own information is thin or contradicts itself."
-      },
-      {
-        id: "find-the-wrong-facts",
-        title: "Find the facts that are out of date",
-        when: "Use this after the first prompt, on anything it got wrong.",
-        prompt: `Here is what an AI assistant said about my business:
-
-[paste its answer]
-
-Here is what is actually true:
-
-[paste the correct details: services, hours, prices, locations, staff, anything it got wrong]
-
-Do this:
-1. List every point where its answer differs from the truth.
-2. For each one, suggest where the wrong version most likely came from. An old listing, a directory, a stale page on my own site, a review, a news mention.
-3. Rank them by how much damage the wrong version does to someone deciding whether to contact me.
-4. Tell me which ones I can fix myself and which depend on someone else updating something.
-
-Do not guess a source you have no basis for. Say "unknown source" instead.`,
-        tip: "Most wrong answers trace back to something you control and forgot about. An old page, a directory listing from years ago, a footer nobody has read since."
-      },
-      {
-        id: "who-gets-recommended",
-        title: "Who gets recommended instead of me",
-        when: "Use this when the assistant names competitors and you want to know what they have that you do not.",
-        prompt: `Question a customer would ask: [for example, "who is the best [your trade] in [your town] for [specific need]"]
-
-Answer it as you would for a real customer. Then:
-1. Name who you would recommend and why, in order.
-2. For each one, say what specific information made you confident enough to name them.
-3. Say what you would need to know about [my business name] to include it in that list.
-4. Tell me which of those gaps are about information that exists but is hard to find, and which are about information that does not exist anywhere.
-
-Be honest if the answer is that you have too little to go on for any of them.`,
-        tip: "Point 3 is the actionable one. It is usually a plain answerable fact you have never written down anywhere."
-      },
-      {
-        id: "questions-customers-type",
-        title: "The twenty questions my customers actually ask",
-        when: "Use this to find out what you should have a clear answer to on your site.",
-        prompt: `My business: [what you do, who for, where]
-What people usually ask me before they buy: [list what you can remember, however few]
-
-Write the twenty questions a real customer would type into an assistant before choosing someone like me.
-
-Rules:
-- Real phrasing, the way a person types when they are in a hurry and not an expert.
-- Include the awkward ones about price, timing, and what happens when something goes wrong.
-- Include the ones where they do not yet know the right word for what they need.
-- Mark which of these my own answers would settle, based on what I told you, and which I have never answered anywhere.
-
-Do not write questions that are really adverts for me.`,
-        tip: "The questions you have never answered are the list. Answer them plainly on your own site and you have done most of the work."
-      },
-      {
-        id: "who-this-is-not-for",
-        title: "Write the who this is not for section",
-        when: "Use this when you are trying to be right for everyone and ending up specific to nobody.",
-        prompt: `What I do: [describe it]
-Who it is genuinely right for: [be specific]
-Who keeps contacting me that I am wrong for: [the enquiries you turn down or regret taking]
-What I do not do: [the adjacent things people assume you do]
-
-Write two short sections:
-1. "This is for you if" with three or four concrete situations.
-2. "This is not for you if" with three or four, stated plainly and without insult.
-
-Rules:
-- Situations, not adjectives. Not "businesses that value quality", but the actual circumstance they would recognise.
-- The second section has to genuinely rule people out. If it does not lose me anyone, it is not doing anything.
-- No apology for what I do not do.`,
-        tip: "The second list is what makes a recommendation possible. Being clearly wrong for some people is what makes you obviously right for others."
-      },
-      {
-        id: "plain-answerable-sentences",
-        title: "Turn my services into plain answerable facts",
-        when: "Use this on service pages that describe what you do without ever quite saying it.",
-        prompt: `Here is my current services page:
-
-[paste it]
-
-The problem: this is written to sound good, not to answer a question.
-
-1. Pull out every actual fact in it. What is done, for whom, where, how long it takes, what it costs.
-2. Show me what is left once the facts are removed. That is the filler.
-3. Rewrite it as plain statements a person or an assistant could quote as an answer.
-4. List the facts a customer would want that are simply not on the page.
-
-Rules for the rewrite: no adjectives about quality, no "we pride ourselves", one fact per sentence.`,
-        tip: "Step 2 is uncomfortable and useful. Most service pages are 80% filler and the owner cannot see it because they wrote it."
-      },
-      {
-        id: "faq-from-real-questions",
-        title: "An FAQ from questions people really asked",
-        when: "Use this when you have a pile of enquiry emails and no FAQ.",
-        prompt: `Here are real questions people have sent me:
-
-[paste enquiry emails, messages, or just the questions you remember being asked]
-
-Turn them into an FAQ.
-
-Rules:
-- Keep the customer's phrasing in the question. Do not translate it into industry language.
-- Group the ones that are really the same question, and say which you merged.
-- Answer only from what I give you. Where you need a fact I have not supplied, leave a [bracket].
-- Answer the price question with a real structure, even if it is a range or "it depends on X and Y". Do not write "contact us for a quote" as an answer.
-- Short answers. Two or three sentences each.`,
-        tip: "Never translate the question into your own jargon. People search using the words they already have."
-      },
-      {
-        id: "does-my-page-answer",
-        title: "Does my page answer before it sells",
-        when: "Use this on any page you expect a stranger to land on.",
-        prompt: `Here is the page:
-
-[paste the text]
-
-The question a visitor arrived with: [what they typed or wanted to know]
-
-1. Does the page answer that question? Quote where, or say it does not.
-2. How far down does the answer sit? Count the sentences before it.
-3. What does the page do instead in that space?
-4. Rewrite the opening so the answer comes first and the selling follows.
-
-Do not touch anything below the opening. I only want to know what happens in the first ten seconds.`,
-        tip: "Answer first, sell second. A page that makes someone scroll to find out whether you do the thing usually loses them before they get there."
       }
     ]
   },

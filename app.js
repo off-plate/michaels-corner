@@ -65,9 +65,9 @@ const PACKS = [
   {id:'study', chip:'For students', n:'Study smarter', d:'For students at any level. Make it test you rather than summarise for you.'},
   {id:'human', chip:'For writing', n:'Sounding like a human', d:'Stop it sounding like AI, and stop your own writing getting flattened into the same voice.'},
   {id:'business', chip:'For owners', n:'Running a small business', d:'For people running a small business, from the follow-up you keep not sending to the price you keep not raising.'},
+  {id:'found', chip:'For owners', n:'Getting found by AI', d:'What AI assistants say about your business when a customer asks, and how to fix what is wrong.'},
   {id:'work', chip:'For office work', n:'Awkward work messages', d:'The messages you rewrite five times before sending: the no, the chase, the bad news, the disagreement.'},
   {id:'freelance', chip:'For solo operators', n:'Freelance client handling', d:'For solo operators. Quoting, scope, silence and the money conversation you dread.'},
-  {id:'found', chip:'For owners', n:'Getting found by AI', d:'What AI assistants say about your business when a customer asks, and how to fix what is wrong.'},
   {id:'money', chip:'Personal', n:'Money decisions', d:'Personal money decisions, with every prompt built to make it ask for your numbers instead of inventing them.'},
   {id:'health', chip:'Personal', n:'Health and habits', d:'Habits, food and follow-through, with prompts that make it ask what is really stopping you.'}
 ];
@@ -454,7 +454,7 @@ PAGES.library = () => `
     <svg aria-hidden="true" width="19" height="19" viewBox="0 0 19 19" fill="none" style="flex:none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6 17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     <input type="search" id="libq" placeholder="Search the packs" autocomplete="off" aria-label="Search the prompt packs">
   </div>
-  <p class="mono rv" style="margin:22px 0 14px" id="libcount">10 packs, sorted by who they are for</p>
+  <p class="mono rv" style="margin:22px 0 14px" id="libcount">Ten packs, sorted by who they are for</p>
   <div class="autogrid" id="packgrid"></div>
 </section>
 
@@ -833,7 +833,7 @@ function wire(page){
     const draw = () => {
       const s = q.value.trim().toLowerCase();
       const hits = PACKS.filter(p => !s || (p.n + ' ' + p.chip + ' ' + p.d).toLowerCase().includes(s));
-      count.textContent = s ? (hits.length + (hits.length === 1 ? ' pack matches' : ' packs match')) : PACKS.length + ' packs, sorted by who they are for';
+      count.textContent = s ? (hits.length + (hits.length === 1 ? ' pack matches' : ' packs match')) : 'Ten packs, sorted by who they are for';
       grid.innerHTML = hits.length ? hits.map((p,i)=>`
         <a class="pack lcard" href="/packs/${p.id}"${i%3===1?' style="background:var(--sun)"':''}>
           <div class="top"><span class="tag">${esc(p.chip)}</span><span class="mono">8 prompts</span></div>
