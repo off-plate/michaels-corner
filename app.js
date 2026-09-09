@@ -18,7 +18,7 @@ const NAV = [
 
 const PAGE_META = {
   home:    {t:"Michael's Corner",
-            d:"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, five finished apps. Everything is free and nothing sits behind a signup."},
+            d:"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, five finished apps, all free, no affiliate links anywhere."},
   start:   {t:"Your first hour with AI",
             d:"A seven-point checklist and a five-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week."},
   library: {t:"Steal these prompts",
@@ -26,11 +26,11 @@ const PAGE_META = {
   tools:   {t:"Most useful AI tools",
             d:"Seven free AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
   bill:    {t:"Apps I built",
-            d:"Five apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished and all in daily use by the person who built them."},
+            d:"Five apps built with AI: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished and all in daily use by the person who built them."},
   channel: {t:"Watch and learn",
             d:"Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now, first episodes soon."},
   about:   {t:"Who I am",
-            d:"Michael Florian has a normal day job and builds things with AI in the evenings, more than twenty finished projects so far. What he got good at, and what he still cannot do."},
+            d:"Michael Florian has a normal day job and builds things with AI on the side, more than twenty finished projects so far. What he got good at, and what he still cannot do."},
   kit:     {t:"Michael's AI Starter Kit",
             d:"A free starter kit for anyone beginning with AI: ten reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. The whole list is on the page before any email is asked for."}
 };
@@ -190,7 +190,7 @@ PAGES.home = () => `
 <section class="wrap hero">
   <h1 class="dsp h1 hero-head rv">AI should be your superpower<i class="dot" style="font-style:normal">.</i></h1>
   <div class="hero-body rv">
-    <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools most evenings and write down what actually works, free for you to take.</p>
+    <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools daily and write down what works, free for you to take.</p>
     <div class="hero-cta">
       <a class="btn btn-ink" href="/library" data-go="library">Browse the library <span class="arw">&#8594;</span></a>
       <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
@@ -198,14 +198,14 @@ PAGES.home = () => `
     <dl class="herostats">
       <div class="hs-coral"><dt>64</dt><dd>free prompts, in eight packs</dd></div>
       <div class="hs-sun"><dt>7</dt><dd>tools that run in your browser</dd></div>
-      <div class="hs-peri"><dt>20+</dt><dd>projects built in the evenings</dd></div>
-      <div class="hs-sage"><dt>0</dt><dd>signup forms anywhere on this site</dd></div>
+      <div class="hs-peri"><dt>20+</dt><dd>real projects, one day job</dd></div>
+      <div class="hs-sage"><dt>0</dt><dd>affiliate links anywhere on this site</dd></div>
     </dl>
   </div>
   <div class="hero-art rv">
     <img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder">
-    <span class="hero-badge" style="top:4%;left:-10px">Free, all of it</span>
-    <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">No signup</span>
+    <span class="hero-badge" style="top:4%;left:-10px">No affiliate links</span>
+    <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">Built by one person</span>
   </div>
 </section>
 
@@ -214,7 +214,7 @@ PAGES.home = () => `
 
 <section class="sec">
   <div class="wrap">
-  ${shead('Apps I built','The apps I have built with AI in the evenings, and the same ones I use myself every day.',
+  ${shead('Apps I built','I still use every one of these myself every day.',
     '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
   </div>
   <div class="scroll" data-scroller>
@@ -246,8 +246,8 @@ PAGES.home = () => `
       <p class="lede" style="margin-top:20px">A first draft comes together in minutes and that part feels like magic. Then the real work starts: the checking, the fixing and the small calls only you can make. Most of the time goes there, and none of it gets automated. The shortcuts on this site are for the fast part.</p>
       <div class="splitrow">
         <div><span class="bignum">Minutes</span><span class="numlab">to a first draft that looks finished</span></div>
-        <div><span class="bignum" style="color:var(--sun)">The evening</span><span class="numlab">to make it actually true</span></div>
-        <div><span class="bignum">0</span><span class="numlab">of the evening part gets automated</span></div>
+        <div><span class="bignum" style="color:var(--sun)">Hours</span><span class="numlab">to make it actually true</span></div>
+        <div><span class="bignum">0</span><span class="numlab">of that part gets automated</span></div>
       </div>
     </div>
     <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
@@ -293,7 +293,7 @@ PAGES.home = () => `
 </section>
 
 <section class="wrap sec">
-  ${shead('Watch how it actually goes','Short videos of real builds, the dead ends included. I am filming now and the cards get their links as episodes go up.',
+  ${shead('How it actually goes','Short videos of real builds, the dead ends included. I am filming now and the cards get their links as episodes go up.',
     '<a class="btn btn-ghost" href="/channel" data-go="channel">The channel <span class="arw">&#8594;</span></a>')}
   <div class="grid4">
     ${VIDS.slice(0,4).map((v,i)=>`
@@ -388,7 +388,7 @@ PAGES.library = () => `
 
 <section class="band sec">
   <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">Take what helps<i class="dot" style="font-style:normal">.</i></h2>
+    <h2 class="dsp h2" style="color:var(--cream)">Make it yours<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">Copy anything, change the words and make it yours. If one of them saves you an hour this week, the page has done its job.</p>
     <a class="btn btn-onink" href="/kit" data-go="kit">Get the free kit <span class="arw">&#8594;</span></a>
   </div>
@@ -449,7 +449,7 @@ PAGES.bill = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1">Apps<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">The apps I have built with AI in the evenings, and the same ones I use myself every day.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Eight things I built because I needed them, and still open every day.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
@@ -471,7 +471,7 @@ PAGES.bill = () => `
 
 <section class="band sec">
   <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">Built in the evenings<i class="dot" style="font-style:normal">.</i></h2>
+    <h2 class="dsp h2" style="color:var(--cream)">Built by one person<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">None of these needed a team. If you want to see how one gets made, the videos show the whole thing, dead ends included.</p>
     <a class="btn btn-onink" href="/channel" data-go="channel">Watch the videos <span class="arw">&#8594;</span></a>
   </div>
@@ -520,7 +520,7 @@ PAGES.channel = () => `
 PAGES.about = () => `
 <section class="wrap phero abouthero">
   <h1 class="dsp h1 rv" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I build anyway<i class="dot" style="font-style:normal">.</i></h1>
-  <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. The evenings around a normal day job add up to more than twenty finished projects so far.</p>
+  <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. A normal day job, and more than twenty finished projects on the side.</p>
   <div class="abouthero-art rv"><img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder"></div>
 </section>
 
@@ -545,15 +545,15 @@ PAGES.about = () => `
     </div>
 
     <div class="prose rv">
-      <p class="leadin">I am not a developer. I have a normal day job, and in the evenings I build things with AI anyway.</p>
+      <p class="leadin">I am not a developer. I have a normal day job, and I build things with AI anyway.</p>
       <p>The list so far includes a finance app that tracks my debts and my budget, a training site with a 3D wireframe figure I could never have coded myself, a road-trip planner with maps and expense splitting that four of us used on a real holiday in Italy, two Chrome extensions, a small tool that turns one sentence into a Spotify playlist, and this website.</p>
       <p>None of that made me an engineer. What I got good at is different: describing what I want clearly, pushing back when the answer is wrong, and doing the hands-on work a tool will not do for you. Most of what I put here comes straight out of that, the prompts I lean on and the small tools I built.</p>
       <p class="pull">I take what has worked for me and write it down, <span style="color:var(--coral)">free for you to take</span>.</p>
-      <p>Two years in, I still have the same day job. The evenings just produce more than they used to. Take whatever helps, and let me know how it goes.</p>
+      <p>Two years in, I still have the same day job. I just get more done in the time I have. Take whatever is useful, and let me know how it goes.</p>
     </div>
 
     <aside class="numrail">
-      <div class="rv"><span class="bignum" style="color:var(--ink)">20+</span><span class="numlab" style="color:var(--mute)">projects built, evenings only</span></div>
+      <div class="rv"><span class="bignum" style="color:var(--ink)">20+</span><span class="numlab" style="color:var(--mute)">projects built, one day job</span></div>
       <div class="rv"><span class="bignum" style="color:var(--coral)">2 yrs</span><span class="numlab" style="color:var(--mute)">of doing this every week</span></div>
       <div class="rv"><span class="bignum" style="color:var(--ink)">0</span><span class="numlab" style="color:var(--mute)">lines of code I could write before</span></div>
       <div class="rv"><span class="bignum" style="color:var(--ink)">1</span><span class="numlab" style="color:var(--mute)">day job, still</span></div>
@@ -722,7 +722,7 @@ function wire(page){
   document.querySelectorAll('[data-scroller]').forEach(wireScroller);
 
   if(page === 'home'){
-    const words = ['Free prompts','No signup','Built in the evenings','Take what helps'];
+    const words = ['Free prompts','No affiliate links','Built by one person','Dead ends included'];
     const one = words.map(w=>`<span>${w} <i class="dot" style="font-style:normal">&#9679;</i></span>`).join('');
     const mq = document.getElementById('mq');
     // one half of the track must be at least as wide as the viewport, or the
