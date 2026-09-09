@@ -87,6 +87,23 @@ function splice(html, mainHTML, meta) {
   return out;
 }
 
+/* Replace the one JSON-LD block whose @type matches what app.js built, leaving every other
+   block on the page untouched. */
+function spliceJsonLd(html, obj) {
+  const type = obj["@type"];
+  const re = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  let m;
+  while ((m = re.exec(html))) {
+    let parsed;
+    try { parsed = JSON.parse(m[1]); } catch { continue; }
+    if (parsed["@type"] !== type) continue;
+    return html.slice(0, m.index)
+      + `<script type="application/ld+json">${JSON.stringify(obj)}</script>`
+      + html.slice(m.index + m[0].length);
+  }
+  throw new Error(`no JSON-LD block of @type ${type} to replace`);
+}
+
 const browser = await chromium.launch();
 let changed = 0;
 
@@ -103,10 +120,12 @@ for (const route of routes) {
   }, null, { timeout: 10000 });
   await page.waitForTimeout(SETTLE_MS);
 
-  const { mainHTML, meta } = await page.evaluate(() => {
+  const { mainHTML, meta, jsonld } = await page.evaluate((r) => {
     const attr = (sel, a) => { const e = document.querySelector(sel); return e ? e.getAttribute(a) : ""; };
+    const build = window.__PAGE_JSONLD && window.__PAGE_JSONLD[r];
     return {
       mainHTML: document.getElementById("main").innerHTML,
+      jsonld: build ? build() : null,
       meta: {
         title: document.title,
         ogTitle: attr('meta[property="og:title"]', "content"),
@@ -115,10 +134,11 @@ for (const route of routes) {
         ogUrl: attr('meta[property="og:url"]', "content"),
       },
     };
-  });
+  }, route);
 
   const before = readFileSync(file, "utf8");
-  const after = splice(before, mainHTML, meta);
+  let after = splice(before, mainHTML, meta);
+  if (jsonld) after = spliceJsonLd(after, jsonld);
   if (after !== before) { writeFileSync(file, after); changed++; }
   console.log(`${after !== before ? "written" : "  same "}  ${ROUTE_FILE[route]}  (${mainHTML.length} bytes of <main>)`);
 

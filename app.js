@@ -20,7 +20,7 @@ const PAGE_META = {
   home:    {t:"Michael's Corner",
             d:"AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, eight apps."},
   start:   {t:"Your first hour with AI",
-            d:"A seven-point checklist and a five-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week."},
+            d:"A twenty-point checklist and a six-step guide for your first hour with ChatGPT, Claude or Gemini, built from what beginners say they got wrong."},
   library: {t:"Steal these prompts",
             d:"Sixty-four prompts in eight packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students."},
   tools:   {t:"Most useful AI tools",
@@ -116,22 +116,73 @@ const APPS = [
 ];
 
 const STEPS = [
-  ['Pick one tool','ChatGPT, Claude, or Gemini, and the free version is fine. Do not spend your first hour comparing tools. For beginner tasks they are all good enough. Pick one and stay with it for a week.'],
-  ['Bring a real task','Skip test questions like "write me a poem." Bring something real from today: an email you owe someone, a long document you need to understand, a plan you keep postponing. You learn what AI is for by using it on your actual work.'],
-  ['Give it the whole picture','Write to it the way you would brief a colleague. Say who you are, what you need, and what the result should look like. A few full sentences of context beat five keywords.'],
-  ['Push back on the draft','The first answer is a draft, and treating it as final is the most common beginner mistake. Tell it what is wrong and ask again, as many times as you need. Check every fact and number before you use it. AI presents its guesses with full confidence.'],
-  ['Keep what worked','When a prompt gives you a good result, save it in your notes. Next time you paste it and change a few words instead of starting over. Most of the library on this site came out of that habit.']
+  ['Pick one tool','ChatGPT, Claude, or Gemini, and the free version is fine. Do not spend your first hour comparing them. For everything on this page they are close enough. Pick one and stay with it for a week, because the skill you are building transfers and the tool comparison does not.'],
+  ['Bring something off your own desk','Not "write me a poem." Something you already owe someone this week. If nothing comes to mind, take one off the list above. The people who quit are almost always the ones who tested it on a party trick and judged it on that.'],
+  ['Hand over the material','This is the whole game. It is strong on what you give it and weak on what it has to remember, so paste the email, the document, the notes, the numbers. Then say who you are, what you want out of it, and what you already tried.'],
+  ['Make it ask you first','Before you ask for the work, ask what it needs from you to do the work well. Ten seconds of that beats twenty minutes spent polishing an answer built on a guess. For anything long, have it plan first and write second.'],
+  ['Check it, then push back','It writes a wrong answer as confidently as a right one, so every number, date, price and name gets checked before you use it. Then argue with it. The first draft is a draft, and it is built to agree with you.'],
+  ['Stop retyping yourself','If you explain your job at the start of every chat, put that somewhere permanent instead: custom instructions, or a project. One chat per topic, and when a long one starts drifting, begin a fresh one with a summary.']
 ];
 
-const CHECKS = [
-  'Pick one tool (ChatGPT, Claude, or Gemini) and stay with it for a week',
-  'Start on the free version, it is enough to learn on',
-  'Bring one real task from today, not a test question',
-  'Give it full context, like briefing a colleague',
-  'Treat the first answer as a draft and push back',
-  'Check every fact and number before you use it',
-  'Save the prompts that work. You will reuse them'
+/* The starter menu. "Pick a real task" is the most common piece of beginner advice and it
+   fails on its own, which is the sharpest objection in the research: someone who does not
+   know what AI does cannot pick a task for it, "kinda like someone asking how to drive a car
+   and the response is go somewhere you want to go". So the page names the tasks. */
+const FIRSTJOBS = [
+  ['The message you keep not sending','A reply you owe, a price rise, a no. Paste the thread you are replying to.'],
+  ['The document you have to read anyway','A contract, a report, a policy. Ask what it says and what to watch out for.'],
+  ['Notes that never became anything','Meeting scrawl, voice-note dumps, half a plan. Ask for the shape hiding in them.'],
+  ['A decision you keep circling','Lay out the options, ask what you have not considered, then argue with the answer.'],
+  ['Something you nodded along to','A word or an idea you pretended to understand. Ask for it in plain language.'],
+  ['A form or an application','A grant, a claim, a listing. Give it the rules and your facts, and make it find the gaps.']
 ];
+
+/* Grouped so the page can be worked through in order. Ids are stable slugs, never indexes,
+   because ticks are saved by id and reordering the list must not silently move someone's ticks. */
+const CHECKS = [
+  ['Before you type anything', [
+    ['real-job',    'Start with a job already on your desk, not a test question'],
+    ['bad-at',      'Know what it is bad at first: live prices, exact arithmetic, slide decks'],
+    ['retest',      'Tried it years ago and wrote it off? That verdict is out of date'],
+    ['twice',       'For one week, note anything you do more than twice. That is your real list']
+  ]],
+  ['How to ask', [
+    ['paste',       'Paste the actual material. It is strong on what you bring, weak on what it recalls'],
+    ['who',         'Say who you are, what you want out of it, and what you already tried'],
+    ['ask-first',   'Ask what it needs from you before you ask it for the work'],
+    ['plan',        'For anything long, make it plan first and write second'],
+    ['voice',       'Do not describe your tone. Paste two paragraphs you wrote and say match this'],
+    ['banned',      'Tell it which words and habits you do not want back']
+  ]],
+  ['Before you trust a word of it', [
+    ['check',       'Check every number, date, price and name before you use it'],
+    ['maths',       'Do the arithmetic yourself. It gets sums wrong in a confident voice'],
+    ['source',      'For research, give it the source and say to answer only from that'],
+    ['unsure',      'Ask what it is unsure about. That question gets a straighter answer'],
+    ['pushback',    'Push back on the first answer. It is built to agree with you'],
+    ['edit',        'Never send its writing out untouched. People recognise it now']
+  ]],
+  ['Stop it forgetting you', [
+    ['standing',    'Put your standing context in custom instructions or a project'],
+    ['fresh',       'One chat per topic. When a long one starts drifting, start a fresh one'],
+    ['picker',      'Find the model picker. The default is not always the right one'],
+    ['pay',         'Stay on the free version until you hit a wall you can name']
+  ]]
+];
+const CHECK_COUNT = CHECKS.reduce((n,g)=>n+g[1].length, 0);
+
+/* start.html carries a HowTo block that restates STEPS and counts the checklist. It was
+   hand-written, so it still claimed "a seven-point checklist" after the list changed.
+   prerender.mjs regenerates it from here instead, which is the only way the two stay equal. */
+window.__PAGE_JSONLD = {
+  start: () => ({
+    "@context": "https://schema.org", "@type": "HowTo",
+    name: "Your first hour with AI",
+    description: `A ${CHECK_COUNT}-point checklist and a ${STEPS.length}-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week.`,
+    totalTime: "PT1H",
+    step: STEPS.map(([name, text], i) => ({ "@type": "HowToStep", position: i + 1, name, text }))
+  })
+};
 
 const KIT = [
   ['The 10 prompts I actually reuse','Copied from my own library, paste-ready, with a note on when each one helps.'],
@@ -320,8 +371,8 @@ PAGES.start = () => `
 <section class="wrap phero">
   <div class="phero-grid">
     <div class="rv">
-      <h1 class="dsp h1" style="font-size:clamp(40px,6vw,80px)">Your first hour with AI<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Tick the checklist off as you go and the full guide is underneath. It is the exact first hour I would walk a friend through: one real task, no theory.</p>
+      <h1 class="dsp h1" style="font-size:clamp(40px,6vw,116px)">Your first hour with AI<i class="dot" style="font-style:normal">.</i></h1>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Everything below came from people describing what they got wrong first. Tick it off as you go. Your ticks are saved on this device, so you can close the tab and come back.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
   </div>
@@ -331,11 +382,29 @@ PAGES.start = () => `
   <div class="clbox rv">
     <div class="clhead">
       <h2 class="dsp" style="font-size:clamp(24px,2.6vw,34px)">The checklist</h2>
-      <span class="clprog" id="clprog" role="status" aria-live="polite">0 of 7 done</span>
+      <span class="clprog" id="clprog" role="status" aria-live="polite">0 of ${CHECK_COUNT} done</span>
     </div>
-    <ul class="cl" id="cl">
-      ${CHECKS.map((c,i)=>`<li><label><input type="checkbox" data-cl="${i}"><span class="t">${esc(c)}</span></label></li>`).join('')}
-    </ul>
+    <div class="clgroups" id="cl">
+      ${CHECKS.map(([group, items])=>`
+        <section class="clgroup">
+          <h3 class="clgname">${esc(group)}</h3>
+          <ul class="cl">
+            ${items.map(([id,label])=>`<li><label><input type="checkbox" data-cl="${id}"><span class="t">${esc(label)}</span></label></li>`).join('')}
+          </ul>
+        </section>`).join('')}
+    </div>
+    <p class="clfoot"><span id="clprog2">0 of ${CHECK_COUNT} done</span></p>
+  </div>
+</section>
+
+<section class="wrap sec">
+  ${shead('Not sure what to bring','The advice to start with a real task is useless if you do not yet know what it is for. So here are six you almost certainly have lying around.')}
+  <div class="jobs">
+    ${FIRSTJOBS.map(([t,d])=>`
+      <article class="job rv">
+        <h3 class="h4">${esc(t)}</h3>
+        <p class="small" style="color:var(--soft);margin-top:7px">${esc(d)}</p>
+      </article>`).join('')}
   </div>
 </section>
 
@@ -346,7 +415,7 @@ PAGES.start = () => `
       <article class="step rv">
         <div class="n">${String(i+1).padStart(2,'0')}</div>
         <h3 class="h3">${esc(s[0])}</h3>
-        <p class="small" style="color:var(--soft);font-size:14.5px">${esc(s[1])}</p>
+        <p class="small">${esc(s[1])}</p>
       </article>`).join('')}
   </div>
 </section>
@@ -720,12 +789,32 @@ function wire(page){
   if(page === 'start'){
     const boxes = [...document.querySelectorAll('[data-cl]')];
     const prog = document.getElementById('clprog');
+    /* A checklist that spans a real first hour is worthless if a reload wipes it, and every
+       route change here re-renders main from scratch. Saved by slug, not by index, so adding
+       or reordering an item never silently moves someone's ticks onto a different line.
+       Storage throws in a private window and in the thumbnailer, so every call is guarded. */
+    const KEY = 'mc-start-checklist-v1';
+    const read = () => { try { return new Set(JSON.parse(localStorage.getItem(KEY)) || []); }
+                         catch { return new Set(); } };
+    const write = (set) => { try { localStorage.setItem(KEY, JSON.stringify([...set])); } catch {} };
+
+    const done = read();
+    boxes.forEach(b => { if(done.has(b.dataset.cl)) b.checked = true; });
+
     const upd = () => {
       const n = boxes.filter(b=>b.checked).length;
-      prog.textContent = n + ' of ' + boxes.length + ' done';
-      prog.style.color = n === boxes.length ? 'var(--coral)' : '';
+      const txt = n + ' of ' + boxes.length + ' done';
+      const col = n === boxes.length ? 'var(--coral)' : '';
+      [prog, document.getElementById('clprog2')].forEach(e => {
+        if(!e) return; e.textContent = txt; e.style.color = col;
+      });
     };
-    boxes.forEach(b => b.addEventListener('change', upd));
+    boxes.forEach(b => b.addEventListener('change', () => {
+      const set = read();
+      b.checked ? set.add(b.dataset.cl) : set.delete(b.dataset.cl);
+      write(set);
+      upd();
+    }));
     upd();
   }
 
