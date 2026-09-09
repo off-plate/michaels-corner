@@ -258,17 +258,6 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:clamp(24px,4vw,72px);row-gap:clamp(20px,2.6vw,40px);
   align-items:end;padding-block:clamp(32px,4vw,64px) clamp(30px,4vw,56px)}
 .hero-head{grid-column:1/-1}
-/* The hero headline types, holds, deletes and moves to the next line, in an
-   endless loop. Height changes between phrases, but one character at a
-   time as it types or deletes, so it reads as the sentence growing rather
-   than a layout jump. The dot stays the brand's coral full stop -- it
-   fades in only once a phrase finishes typing, and fades out the moment
-   deletion
-   starts, rather than being typed/deleted as a character itself. */
-.hh-dot{transition:opacity .12s}
-.hh-caret{display:inline-block;width:3px;height:0.72em;background:var(--ink);margin-left:3px;vertical-align:-0.06em;animation:hhblink 1s steps(1) infinite}
-@keyframes hhblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.hh-caret{display:none}.hh-dot{transition:none}}
 .hero-body{padding-bottom:clamp(6px,1vw,18px);align-self:stretch;display:flex;flex-direction:column}
 .hero-body .lede{max-width:56ch}
 .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,14px);
