@@ -40,7 +40,10 @@ function fillTokens(text) {
 
 /* ---------- shared chrome (verbatim from SPEC, prefix = "" for root, "../" for subfolders) ---------- */
 const SITE = "https://michaels-corner.netlify.app/";
-const TODAY = new Date().toISOString().slice(0, 10);
+/* The build stamp. Deliberately a constant, not new Date(): a no-op rebuild must produce a
+   zero-line diff, which is the only cheap proof that the generator still matches what is
+   committed. Bump this by hand when the library content actually changes. */
+const TODAY = "2026-09-07";
 
 /* Structured data. A pack is a list of prompts, a prompt page is a HowTo with
    one step, and both name the same author, so an answer engine can tie every
@@ -95,14 +98,14 @@ function header(prefix) {
       <a class="head-word no-fx" href="/"><img src="${prefix}assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michaels<br>Corner<span style="color:#E45B52">.</span></span></a>
       <nav class="head-nav" aria-label="Main">
         <a href="/" data-nav="home">Home</a>
-        <a href="/start" data-nav="start">First time? Start here</a>
-        <a href="/library" data-nav="library">Prompts that can help you</a>
-        <a href="/tools" data-nav="tools">Most useful tools</a>
+        <a href="/start" data-nav="start">Start here</a>
+        <a href="/library" data-nav="library">Prompt library</a>
+        <a href="/tools" data-nav="tools">Tools</a>
         <a href="/bill" data-nav="bill">Apps I built</a>
-        <a href="/channel" data-nav="channel">More free tutorials</a>
+        <a href="/channel" data-nav="channel">Videos</a>
         <a href="/about" data-nav="about">Who I am</a>
       </nav>
-      <a class="head-cta no-fx" href="/kit" data-nav="kit">Free kit <span class="oa">&#8594;</span></a>
+      <a class="head-cta no-fx" href="/kit" data-nav="kit">Get the kit <span class="oa">&#8594;</span></a>
     </div>
   </div>
 </header>`;
@@ -114,15 +117,15 @@ function footer(prefix) {
   <div class="wrap foot-grid">
     <div>
       <p class="foot-word">Michael&#8217;s Corner</p>
-      <p class="foot-line">AI did not take my job. It made me faster.</p>
+      <p class="foot-line">Everything on this site was built by the person who uses it.</p>
     </div>
     <div class="foot-col">
-      <a href="/library">Prompts that can help you</a>
-      <a href="/tools">Most useful tools</a>
+      <a href="/library">Prompt library</a>
+      <a href="/tools">Tools</a>
       <a href="/bill">Apps I built</a>
     </div>
     <div class="foot-col">
-      <a href="/start">First time? Start here</a>
+      <a href="/start">Start here</a>
       <a href="/kit">The Starter Kit</a>
       <a href="/about">Who I am</a>
     </div>
@@ -181,7 +184,7 @@ function buildLibrary() {
       <a class="pack-card" href="/packs/${esc(p.id)}">
         <div class="pc-top"><span class="pc-tag">${esc(p.chip)}</span><span class="pc-n">${p.prompts.length} prompts</span></div>
         <h2>${esc(p.name)}</h2>
-        <p>${esc(p.blurb[0])} ${esc(p.blurb[1])}</p>
+        <p>${esc(p.blurb.join(" "))}</p>
         <span class="pc-open">Open pack <span class="oa">&#8594;</span></span>
       </a>`).join("");
 
@@ -352,7 +355,7 @@ function buildPack(pack, i) {
         <h1 class="h-page">${esc(pack.name)}</h1>
       </div>
       <div>
-        <p class="hero-intro">${esc(pack.blurb[0])} ${esc(pack.blurb[1])} ${pack.prompts.length} prompts, all free to copy.</p>
+        <p class="hero-intro">${esc(pack.blurb.join(" "))}</p>
       </div>
     </div>
   </div>
@@ -370,7 +373,7 @@ function buildPack(pack, i) {
 </div>
 `;
 
-  const html = head(pack.name, pack.blurb[0], prefix, `packs/${pack.id}`, [
+  const html = head(pack.name, pack.desc, prefix, `packs/${pack.id}`, [
     { "@context": "https://schema.org", "@type": "ItemList", name: pack.name,
       description: pack.blurb.join(" "), numberOfItems: pack.prompts.length,
       itemListElement: pack.prompts.map((q, n) => ({
@@ -378,7 +381,7 @@ function buildPack(pack, i) {
         url: `${SITE}prompts/${q.id}` })) },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Michael's Corner", item: SITE },
-      { "@type": "ListItem", position: 2, name: "Prompts that can help you", item: SITE + "library" },
+      { "@type": "ListItem", position: 2, name: "Prompt library", item: SITE + "library" },
       { "@type": "ListItem", position: 3, name: pack.name, item: `${SITE}packs/${pack.id}` }] }])
     + css + "\n</head>\n<body>\n<a class=\"skip-link\" href=\"#main\">Skip to content</a>\n"
     + header(prefix) + "\n" + body + "\n" + footer(prefix) + "\n</body>\n</html>\n";
@@ -522,7 +525,7 @@ function buildPrompt(pack, packIndex, pr, promptIndex) {
                text: pr.when }] },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Michael's Corner", item: SITE },
-      { "@type": "ListItem", position: 2, name: "Prompts that can help you", item: SITE + "library" },
+      { "@type": "ListItem", position: 2, name: "Prompt library", item: SITE + "library" },
       { "@type": "ListItem", position: 3, name: pack.name, item: `${SITE}packs/${pack.id}` },
       { "@type": "ListItem", position: 4, name: pr.title, item: `${SITE}prompts/${pr.id}` }] }])
     + css + "\n</head>\n<body>\n<a class=\"skip-link\" href=\"#main\">Skip to content</a>\n"
@@ -569,7 +572,7 @@ function run() {
   PACKS.forEach((p, i) => p.prompts.forEach((pr, j) => buildPrompt(p, i, pr, j)));
   const n = buildIndex();
 
-  console.log(`library.html written`);
+  /* library.html is NOT written here: it is an app.js route, pre-rendered by prerender.mjs. */
   console.log(`packs/  written: ${PACKS.length}`);
   console.log(`prompts/ written: ${total}`);
   console.log(`data/prompts-index.js written: ${n} entries`);

@@ -8,11 +8,11 @@ export const UPDATED = "07/2026";
 export const PACKS = [
   {
     id: "beginners",
+    desc: "Start here. Simple prompts that work on your first day with ChatGPT or Claude.",
     chip: "Beginners",
     name: "Best prompts for beginners",
     blurb: [
-      "Start here. Simple prompts that work on your first day with ChatGPT or Claude.",
-      "Copy one, fill in the brackets, paste it in, and see for yourself what these tools can do."
+      "Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets and paste it in."
     ],
     updated: UPDATED,
     prompts: [
@@ -222,11 +222,11 @@ End with a table: task, what AI does, what stays mine, minutes saved per week.`,
   },
   {
     id: "writing",
+    desc: "Draft faster and still sound like yourself. These keep your voice and cut the filler.",
     chip: "Writing",
     name: "Best prompts for writing",
     blurb: [
-      "Draft faster and still sound like yourself. These keep your voice and cut the filler.",
-      "They also stop your text from reading like a machine wrote it. Readers can tell."
+      "Draft faster and still sound like yourself. These keep your voice, cut the filler and stop your text from reading like something a machine wrote."
     ],
     updated: UPDATED,
     prompts: [
@@ -443,11 +443,11 @@ Return each version under a clear heading with one line stating the reader and t
   },
   {
     id: "building",
+    desc: "Go from a rough idea to working software, even if you do not code.",
     chip: "Building",
     name: "Building software with AI",
     blurb: [
-      "Go from a rough idea to working software, even if you do not code.",
-      "Plan small. Brief the AI properly. Get unstuck when it breaks, and it will break."
+      "Go from a rough idea to working software even if you do not code. Plan small, brief the AI properly, and get unstuck when it breaks. It will break."
     ],
     updated: UPDATED,
     prompts: [
@@ -663,11 +663,11 @@ End with the checklist in copyable form, and a one line rule for when I am allow
   },
   {
     id: "founders",
+    desc: "For people running a small business. Customers, reviews, numbers, suppliers.",
     chip: "Founders",
     name: "Founders and small business owners",
     blurb: [
-      "For people running a small business. Customers, reviews, numbers, suppliers.",
-      "Plus the messages you keep putting off, drafted so you can send them today."
+      "For people running a small business: customers, reviews, numbers and suppliers, plus the messages you keep putting off, drafted so you can actually send them."
     ],
     updated: UPDATED,
     prompts: [
@@ -893,11 +893,11 @@ End with a one screen cheat sheet: opening line, three responses, walk away line
   },
   {
     id: "freelancers",
+    desc: "Your business is you. Briefs, proposals, feedback rounds, unpaid invoices.",
     chip: "Freelancers",
     name: "Freelancers and solo operators",
     blurb: [
-      "Your business is you. Briefs, proposals, feedback rounds, unpaid invoices.",
-      "These push the admin down so more of your week goes to the actual work."
+      "Your business is you. Briefs, proposals, feedback rounds and unpaid invoices. These push the admin down so the week has more room for the work you actually got into this for."
     ],
     updated: UPDATED,
     prompts: [
@@ -1129,11 +1129,11 @@ Return the walkthrough ready to paste under a preview or into an email.`,
   },
   {
     id: "office",
+    desc: "Inbox, meetings, reports, spreadsheets. Small routines for the everyday grind.",
     chip: "Office work",
     name: "Office and operations work",
     blurb: [
-      "Inbox, meetings, reports, spreadsheets. Small routines for the everyday grind.",
-      "Nothing fancy, just the stuff that quietly gives you back an hour most days."
+      "Inbox, meetings, reports and spreadsheets. Small routines for the everyday work, the kind that quietly gives you back an hour most days."
     ],
     updated: UPDATED,
     prompts: [
@@ -1348,11 +1348,11 @@ Return: flagged risks first, then the handover, then the out of office message.`
   },
   {
     id: "creators",
+    desc: "Make more from what you already record. Repurpose, script, and publish faster.",
     chip: "Creators",
     name: "Content creators",
     blurb: [
-      "Make more from what you already record. Repurpose, script, and publish faster.",
-      "Your feed does not start to sound generated. That is the fastest way to lose people."
+      "Make more from what you already record: repurpose it, script it and publish faster, without your feed starting to sound generated."
     ],
     updated: UPDATED,
     prompts: [
@@ -1565,11 +1565,11 @@ End with five lines: what worked, what did not, what we cannot know yet, the exp
   },
   {
     id: "students",
+    desc: "Learn faster and remember more. These make AI quiz you and question you.",
     chip: "Students",
     name: "Students and learning",
     blurb: [
-      "Learn faster and remember more. These make AI quiz you and question you.",
-      "The thinking stays yours. That is the part that passes exams."
+      "Learn faster and remember more. These make AI quiz you and question you, and the thinking stays yours."
     ],
     updated: UPDATED,
     prompts: [
