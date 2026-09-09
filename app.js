@@ -102,17 +102,17 @@ const VIDS = [
 const VCATS = ['Building with AI','For beginners','Prompting','Behind the build'];
 
 const APPS = [
-  {n:'Tuck', img:'tuck', plat:'Chrome extension', d:'Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.',
+  {n:'Tuck', img:'tuck', plat:'Chrome extension', d:'Every extension you have installed, in one popup, each with its own switch. Search them, or file them into folders you name. Turn the whole lot off in one click, and lock the ones you cannot work without so they survive it.',
    cta:{label:"Add to Chrome", href:'https://chromewebstore.google.com/detail/tuck/njpclpglfhldbhlngnmkenjphjpjaijb'}},
-  {n:'Recall', img:'recall', plat:'macOS app', d:'Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.'},
-  {n:'Refill', img:'refill', plat:'macOS menu bar', d:'Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.'},
-  {n:'Frost', img:'frost', plat:'Chrome extension', d:"Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history."},
-  {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'},
-  {n:'TITIS', img:'titis', plat:'macOS app', appsPageOnly:true, d:'Select any text on your Mac and hear it read aloud. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.'},
-  {n:'OWCO', img:'owco', plat:'Web app', appsPageOnly:true, d:'Points at your website and finds what it still claims that is no longer true: a stale number, an executive who left, an award given to someone else. Each finding comes back ranked with the fix and the source.',
+  {n:'Recall', img:'recall', plat:'macOS app', d:'Save a workspace once. The apps, the files, the Chrome profile, and the slot on screen where each window belongs. Open it tomorrow and the whole desk comes back the way you left it, down to which half of the screen each window was using.'},
+  {n:'Refill', img:'refill', plat:'macOS menu bar', d:'How much Claude you have left, live in the menu bar. Both windows, the five-hour and the seven-day, each with its own reset clock. You see the limit coming. The check itself costs no quota.'},
+  {n:'Frost', img:'frost', plat:'Chrome extension', d:"Puts tabs you have not touched in a while to sleep, using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every sleeping tab keeps its address, its title and its full back history, so waking one is just the page loading again."},
+  {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in and it transcribes every word. Then it lists the dead pauses, the filler words and the takes you said twice, each one quoted back to you. Tick what to lose and it renders the MP4. No account, no watermark, no length limit.'},
+  {n:'TITIS', img:'titis', plat:'macOS app', appsPageOnly:true, d:'One hotkey reads whatever text you have highlighted, in any app on your Mac. It works out whether the selection is English or Czech, then switches to the best voice you have installed for that language. The speech is made on your machine, so nothing is sent anywhere.'},
+  {n:'OWCO', img:'owco', plat:'Web app', appsPageOnly:true, d:'Give it your website and it reads back through your own pages, looking for what you still claim that is no longer true. A number that moved. A promise the homepage makes that page four contradicts. Each finding comes back with the exact words, why it is wrong now, and the page it was checked against.',
    cta:{label:'Try the scan', href:'https://owco.netlify.app'}},
-  {n:'Nexus', img:'nexus', plat:'Off-Plate tool', appsPageOnly:true, d:'Reads a prospect\'s Google profile, site, socials and the company register, then hands back one sentence: what is measurably broken, who can approve fixing it, and how to reach them. Built for Off-Plate, not for this site.',
-   cta:{label:'See the demo', href:'https://claude.ai/code/artifact/ed6fb81f-4f4b-49c5-85e7-96490e19fbc9'}}
+  {n:'Nexus', img:'nexus', plat:'Off-Plate tool', appsPageOnly:true, d:'Point it at a business and it works through the public record: the Google profile, the website, the socials, the Czech business registers, and whether AI assistants name the place at all when a customer asks. It returns one card. The clearest measurable problem, who can approve fixing it, and a lawful way to reach them.',
+   cta:{label:'Open Nexus', href:'https://nexus-offplate.netlify.app/'}}
 ];
 
 const STEPS = [
@@ -142,11 +142,6 @@ const KIT = [
   ['The fix-it lines','The short follow-up sentences I use when an answer is almost right.']
 ];
 
-const BENCH = [
-  ['CUT/01','Automation ROI calculator.','The should-you-automate scorecard already answers the same question. Payback framing lives in its fine print. Built later only if demand shows up.'],
-  ['CUT/02','Meeting-prep prompt builder.','Rarer than hard emails for a solo operator. The difficult-email builder covers the same translation pain with more reach.'],
-  ['CUT/03','Model picker quiz.','Model names change monthly. A stale pick kills trust faster than no tool. The cost calculator teaches the same judgment without naming a model.']
-];
 
 /* ---------- helpers ---------- */
 const esc = s => String(s).replace(/&(?![a-z#])/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -267,11 +262,11 @@ PAGES.home = () => `
         {bg:'var(--cream)', fg:'var(--ink)',   sub:'var(--mute)',           arw:'var(--coral)'}
       ][i];
       return `
-      <a class="card lcard" href="${LIVE}tools/${t.id}" target="_blank" rel="noopener" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">
+      <a class="card lcard" href="/tools/${t.id}" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">
         <span class="mono" style="color:${sk.sub}">${esc(t.desig)}</span>
         <h3 class="h3">${esc(t.n)}</h3>
         <p class="small" style="color:${sk.sub}">${esc(t.desc)}</p>
-        <span class="open">Open the tool <span class="arw" style="color:${sk.arw}">&#8599;</span></span>
+        <span class="open">Open the tool <span class="arw" style="color:${sk.arw}">&#8594;</span></span>
       </a>`;}).join('')}
   </div>
 </section>
@@ -281,11 +276,11 @@ PAGES.home = () => `
     '<a class="btn btn-ghost" href="/library" data-go="library">The whole library <span class="arw">&#8594;</span></a>')}
   <div class="autogrid">
     ${PACKS.slice(0,4).map((p,i)=>`
-      <a class="pack lcard rv" href="${LIVE}packs/${p.id}" target="_blank" rel="noopener" style="${i===1?'background:var(--sun)':''}">
+      <a class="pack lcard rv" href="/packs/${p.id}" style="${i===1?'background:var(--sun)':''}">
         <div class="top"><span class="tag">${esc(p.chip)}</span><span class="mono">8 prompts</span></div>
         <h3 class="h3">${esc(p.n)}</h3>
         <p class="small" style="color:var(--soft)">${esc(p.d)}</p>
-        <span class="open">Open pack <span class="arw">&#8599;</span></span>
+        <span class="open">Open pack <span class="arw">&#8594;</span></span>
       </a>`).join('')}
   </div>
 </section>
@@ -408,29 +403,19 @@ PAGES.tools = () => `
     <div class="chips" id="tchips"></div>
     <div class="search" style="max-width:300px;padding:9px 18px"><input type="search" id="tq" placeholder="Search tools" aria-label="Search tools"></div>
   </div>
-  <div class="toolsplit">
-    <div>
-      <div id="trows" style="display:flex;flex-direction:column;gap:26px"></div>
-      <p class="lede" id="tempty" hidden style="padding:20px 0">No tools match that. Try another word or clear the filter.</p>
-    </div>
-    <aside class="benchcol">
-      <div class="card rv" style="gap:10px">
-        <h2 class="h3">Tools I decided not to build</h2>
-        <p class="small">Three got planned and then cut, and the reason for each is written down so the same idea does not come back next month.</p>
-        <ul class="bench">
-          ${BENCH.map(b=>`<li><span class="bn">${b[0]}</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">${esc(b[1])}</b> ${esc(b[2])}</span></li>`).join('')}
-        </ul>
-      </div>
-      <div class="card card-ink rv" style="gap:10px">
-        <h2 class="h3" style="color:var(--cream)">What has to be true before I build one</h2>
-        <ul class="ticks">
-          <li>It answers a question you would otherwise guess at.</li>
-          <li>It runs entirely in your browser, with no key and no account.</li>
-          <li>The math is visible. You can argue with it.</li>
-          <li>It does not go stale the week a model is renamed.</li>
-        </ul>
-      </div>
-    </aside>
+  <div id="trows" style="display:flex;flex-direction:column;gap:26px"></div>
+  <p class="lede" id="tempty" hidden style="padding:20px 0">No tools match that. Try another word or clear the filter.</p>
+</section>
+
+<section class="wrap sec-tight postlist">
+  <div class="card card-ink rv bartext" style="gap:10px">
+    <h2 class="h3" style="color:var(--cream)">What has to be true before I build one</h2>
+    <ul class="ticks">
+      <li>It answers a question you would otherwise guess at.</li>
+      <li>It runs entirely in your browser, with no key and no account.</li>
+      <li>The math is visible. You can argue with it.</li>
+      <li>It does not go stale the week a model is renamed.</li>
+    </ul>
   </div>
 </section>
 
@@ -751,11 +736,11 @@ function wire(page){
       const hits = PACKS.filter(p => !s || (p.n + ' ' + p.chip + ' ' + p.d).toLowerCase().includes(s));
       count.textContent = s ? (hits.length + (hits.length === 1 ? ' pack matches' : ' packs match')) : '8 packs, sorted by who they are for';
       grid.innerHTML = hits.length ? hits.map((p,i)=>`
-        <a class="pack lcard" href="${LIVE}packs/${p.id}" target="_blank" rel="noopener"${i%3===1?' style="background:var(--sun)"':''}>
+        <a class="pack lcard" href="/packs/${p.id}"${i%3===1?' style="background:var(--sun)"':''}>
           <div class="top"><span class="tag">${esc(p.chip)}</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">${esc(p.n)}</h2>
           <p class="small" style="color:var(--soft)">${esc(p.d)}</p>
-          <span class="open">Open pack <span class="arw">&#8599;</span></span>
+          <span class="open">Open pack <span class="arw">&#8594;</span></span>
         </a>`).join('')
         : '<p class="lede">No pack matches that. Try a shorter or different word.</p>';
     };
@@ -782,10 +767,10 @@ function wire(page){
           <h2 class="h4" style="color:var(--mute);margin-bottom:12px">${esc(c)}</h2>
           <div style="display:flex;flex-direction:column;gap:10px">
             ${byCat[c].map(t=>`
-              <a class="trow" href="${LIVE}tools/${t.id}" target="_blank" rel="noopener">
+              <a class="trow" href="/tools/${t.id}">
                 <span class="desig">${esc(t.desig)}</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">${esc(t.n)}</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">${esc(t.desc)}</span><span class="hint">${esc(t.hint)}</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">&#8599;</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">&#8594;</span></span>
               </a>`).join('')}
           </div>
         </div>`).join('');

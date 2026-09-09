@@ -46,7 +46,7 @@
 <style>
 :root{
   --ground:#E9EEE7; --cream:#F5F2E8; --card:#F2F0E6; --ink:#1A1A1A;
-  --soft:#4A544B; --mute:#6B7468; --line:#D8DFD4;
+  --soft:#4A544B; --mute:#656E62; --line:#D8DFD4;
   --sun:#EFC75E; --coral:#E45B52; --sage:#A8B5A0; --peri:#7B7DE8;
   --sans:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -134,7 +134,7 @@ nav.main a[aria-current="page"]{background:var(--ink);color:var(--cream);font-we
 /* The nav labels are whole sentences, so no fixed breakpoint can be right.
    fitNav() measures the row and adds .compact only when it genuinely stops fitting. */
 header .wrap{position:relative}
-header.compact .burger{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:800;cursor:pointer}
+header.compact .burger{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:11px 16px;font-size:13px;font-weight:800;cursor:pointer}
 header.compact nav.main{display:none;position:absolute;left:var(--pad);right:var(--pad);top:calc(100% + 2px);flex-direction:column;align-items:stretch;gap:2px;
   background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:10px;z-index:70;box-shadow:0 18px 40px rgba(26,26,26,.14)}
 header.compact nav.main.open{display:flex}
@@ -147,6 +147,10 @@ header.measuring .burger{display:none}
 main{min-height:60vh}
 .sec{padding-block:clamp(48px,6vw,88px)}
 .sec-tight{padding-block:clamp(28px,3.5vw,48px)}
+/* The "what has to be true" band is dark, and so is the CTA section right after it.
+   Sit it close to the list it belongs to and leave real air before the next black block,
+   otherwise the two read as one slab with a hairline seam down the middle. */
+section.postlist{padding-block:clamp(12px,1.4vw,24px) clamp(72px,9vw,170px)}
 .band{background:var(--ink);color:var(--cream)}
 .band .lede,.feat .lede,.card-ink .lede{color:rgba(245,242,232,.74)}
 .feat .small,.feat .mono{color:rgba(245,242,232,.62)}
@@ -369,16 +373,10 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .trow:hover{transform:scale(1.01);background:var(--sun)}
 .trow .desig{font-family:var(--mono);font-size:12.5px;color:var(--mute)}
 .trow .hint{font-family:var(--mono);font-size:12.5px;color:var(--mute);margin-top:5px}
-.toolsplit{display:grid;grid-template-columns:1fr;gap:clamp(28px,3vw,48px);align-items:start}
-@media (min-width:1500px){ .toolsplit{grid-template-columns:minmax(0,1.5fr) minmax(340px,0.5fr)} }
-.benchcol{display:flex;flex-direction:column;gap:16px}
-@media (min-width:1500px){ .benchcol{position:sticky;top:130px} }
+.bartext .ticks{max-width:80ch}
 .ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
 .ticks li{position:relative;padding-left:24px;font-size:13.5px;line-height:1.5;color:rgba(245,242,232,.72)}
 .ticks li::before{content:'';position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:2px;background:var(--sun)}
-.bench{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.bench li{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
-.bench .bn{font-family:var(--mono);font-size:12.5px;color:var(--coral)}
 
 /* ---------- apps ---------- */
 .app{background:var(--card);border-radius:22px;padding:clamp(22px,2.4vw,30px);display:grid;grid-template-columns:88px 1fr;gap:clamp(16px,2vw,24px);align-items:start}
@@ -519,8 +517,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   .brand span{font-size:18px}
   .brand img{height:34px}
   .htop{height:68px;gap:10px}
-  .burger{padding:9px 13px}
-  .htop .btn{padding:10px 15px!important;font-size:13.5px}
+  .htop .btn{padding:11px 16px!important;font-size:13.5px}   /* 44px min tap target */
   .h1{font-size:clamp(38px,11vw,52px)}
   .h2{font-size:clamp(27px,8vw,36px)}
   .herostats{grid-template-columns:1fr 1fr;gap:12px}
@@ -569,27 +566,25 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
     <div class="chips" id="tchips"><button class="chip" data-c="all" aria-pressed="true">All tools</button><button class="chip" data-c="Money &amp; size" aria-pressed="false">Money &amp; size</button><button class="chip" data-c="The decision" aria-pressed="false">The decision</button><button class="chip" data-c="The words" aria-pressed="false">The words</button></div>
     <div class="search" style="max-width:300px;padding:9px 18px"><input type="search" id="tq" placeholder="Search tools" aria-label="Search tools"></div>
   </div>
-  <div class="toolsplit">
-    <div>
-      <div id="trows" style="display:flex;flex-direction:column;gap:26px">
+  <div id="trows" style="display:flex;flex-direction:column;gap:26px">
         <div>
           <h2 class="h4" style="color:var(--mute);margin-bottom:12px">Money &amp; size</h2>
           <div style="display:flex;flex-direction:column;gap:10px">
             
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/ai-cost-calculator" target="_blank" rel="noopener">
+              <a class="trow" href="/tools/ai-cost-calculator">
                 <span class="desig">TOOL/01</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">AI cost calculator</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">What a month of AI actually costs, on rates you can edit.</span><span class="hint">editable rate table</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">→</span></span>
               </a>
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/fits-in-context" target="_blank" rel="noopener">
+              <a class="trow" href="/tools/fits-in-context">
                 <span class="desig">TOOL/02</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">Fits-in-context checker</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Whether your document fits a model's window or needs splitting.</span><span class="hint">five window sizes</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">→</span></span>
               </a>
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/subscription-vs-api" target="_blank" rel="noopener">
+              <a class="trow" href="/tools/subscription-vs-api">
                 <span class="desig">TOOL/03</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">Subscription vs API</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Your usage, both prices, one answer: which way is cheaper and where the lines cross.</span><span class="hint">shares your edited rates</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">→</span></span>
               </a>
           </div>
         </div>
@@ -597,10 +592,10 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
           <h2 class="h4" style="color:var(--mute);margin-bottom:12px">The decision</h2>
           <div style="display:flex;flex-direction:column;gap:10px">
             
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/should-you-automate" target="_blank" rel="noopener">
+              <a class="trow" href="/tools/should-you-automate">
                 <span class="desig">TOOL/04</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">Should you automate it?</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Six honest questions, one stamped verdict: automate now, assist only, or leave it human. Weights are published.</span><span class="hint">a scorecard with hard overrides</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">→</span></span>
               </a>
           </div>
         </div>
@@ -608,43 +603,35 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
           <h2 class="h4" style="color:var(--mute);margin-bottom:12px">The words</h2>
           <div style="display:flex;flex-direction:column;gap:10px">
             
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/ai-slop-detector" target="_blank" rel="noopener">
+              <a class="trow" href="/tools/ai-slop-detector">
                 <span class="desig">TOOL/05</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">AI-slop detector</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Paste text. A public rule list counts the AI tells and stamps a slop score, every flagged line shown.</span><span class="hint">English and Czech rules</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">→</span></span>
               </a>
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/prompt-tightener" target="_blank" rel="noopener">
+              <a class="trow" href="/tools/prompt-tightener">
                 <span class="desig">TOOL/06</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">Prompt tightener</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Strips the filler it can prove is filler, flags the vague asks it cannot fix, shows the word drop. Deletion only.</span><span class="hint">never rewrites your meaning</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">→</span></span>
               </a>
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/difficult-email-prompt-assembler" target="_blank" rel="noopener">
+              <a class="trow" href="/tools/difficult-email-prompt-assembler">
                 <span class="desig">TOOL/07</span>
                 <span style="max-width:78ch"><span class="h4" style="display:block">Difficult-email prompt builder</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Six questions about the email you dread. The output is a copy-ready prompt with your facts and hard lines baked in.</span><span class="hint">builds the prompt, your AI runs it</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">→</span></span>
               </a>
           </div>
         </div></div>
-      <p class="lede" id="tempty" hidden="" style="padding:20px 0">No tools match that. Try another word or clear the filter.</p>
-    </div>
-    <aside class="benchcol">
-      <div class="card rv" style="gap:10px">
-        <h2 class="h3">Tools I decided not to build</h2>
-        <p class="small">Three got planned and then cut, and the reason for each is written down so the same idea does not come back next month.</p>
-        <ul class="bench">
-          <li><span class="bn">CUT/01</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Automation ROI calculator.</b> The should-you-automate scorecard already answers the same question. Payback framing lives in its fine print. Built later only if demand shows up.</span></li><li><span class="bn">CUT/02</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Meeting-prep prompt builder.</b> Rarer than hard emails for a solo operator. The difficult-email builder covers the same translation pain with more reach.</span></li><li><span class="bn">CUT/03</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Model picker quiz.</b> Model names change monthly. A stale pick kills trust faster than no tool. The cost calculator teaches the same judgment without naming a model.</span></li>
-        </ul>
-      </div>
-      <div class="card card-ink rv" style="gap:10px">
-        <h2 class="h3" style="color:var(--cream)">What has to be true before I build one</h2>
-        <ul class="ticks">
-          <li>It answers a question you would otherwise guess at.</li>
-          <li>It runs entirely in your browser, with no key and no account.</li>
-          <li>The math is visible. You can argue with it.</li>
-          <li>It does not go stale the week a model is renamed.</li>
-        </ul>
-      </div>
-    </aside>
+  <p class="lede" id="tempty" hidden="" style="padding:20px 0">No tools match that. Try another word or clear the filter.</p>
+</section>
+
+<section class="wrap sec-tight postlist">
+  <div class="card card-ink rv bartext" style="gap:10px">
+    <h2 class="h3" style="color:var(--cream)">What has to be true before I build one</h2>
+    <ul class="ticks">
+      <li>It answers a question you would otherwise guess at.</li>
+      <li>It runs entirely in your browser, with no key and no account.</li>
+      <li>The math is visible. You can argue with it.</li>
+      <li>It does not go stale the week a model is renamed.</li>
+    </ul>
   </div>
 </section>
 

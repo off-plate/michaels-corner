@@ -46,7 +46,7 @@
 <style>
 :root{
   --ground:#E9EEE7; --cream:#F5F2E8; --card:#F2F0E6; --ink:#1A1A1A;
-  --soft:#4A544B; --mute:#6B7468; --line:#D8DFD4;
+  --soft:#4A544B; --mute:#656E62; --line:#D8DFD4;
   --sun:#EFC75E; --coral:#E45B52; --sage:#A8B5A0; --peri:#7B7DE8;
   --sans:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -134,7 +134,7 @@ nav.main a[aria-current="page"]{background:var(--ink);color:var(--cream);font-we
 /* The nav labels are whole sentences, so no fixed breakpoint can be right.
    fitNav() measures the row and adds .compact only when it genuinely stops fitting. */
 header .wrap{position:relative}
-header.compact .burger{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:800;cursor:pointer}
+header.compact .burger{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:11px 16px;font-size:13px;font-weight:800;cursor:pointer}
 header.compact nav.main{display:none;position:absolute;left:var(--pad);right:var(--pad);top:calc(100% + 2px);flex-direction:column;align-items:stretch;gap:2px;
   background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:10px;z-index:70;box-shadow:0 18px 40px rgba(26,26,26,.14)}
 header.compact nav.main.open{display:flex}
@@ -519,8 +519,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   .brand span{font-size:18px}
   .brand img{height:34px}
   .htop{height:68px;gap:10px}
-  .burger{padding:9px 13px}
-  .htop .btn{padding:10px 15px!important;font-size:13.5px}
+  .htop .btn{padding:11px 16px!important;font-size:13.5px}   /* 44px min tap target */
   .h1{font-size:clamp(38px,11vw,52px)}
   .h2{font-size:clamp(27px,8vw,36px)}
   .herostats{grid-template-columns:1fr 1fr;gap:12px}
@@ -571,53 +570,53 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
   <p class="mono rv in" style="margin:22px 0 14px" id="libcount">8 packs, sorted by who they are for</p>
   <div class="autogrid" id="packgrid">
-        <a class="pack lcard" href="https://michaels-corner.netlify.app/packs/beginners" target="_blank" rel="noopener">
+        <a class="pack lcard" href="/packs/beginners">
           <div class="top"><span class="tag">Beginners</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">Best prompts for beginners</h2>
           <p class="small" style="color:var(--soft)">Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets and paste it in.</p>
-          <span class="open">Open pack <span class="arw">↗</span></span>
+          <span class="open">Open pack <span class="arw">→</span></span>
         </a>
-        <a class="pack lcard" href="https://michaels-corner.netlify.app/packs/writing" target="_blank" rel="noopener" style="background:var(--sun)">
+        <a class="pack lcard" href="/packs/writing" style="background:var(--sun)">
           <div class="top"><span class="tag">Writing</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">Best prompts for writing</h2>
           <p class="small" style="color:var(--soft)">Draft faster and still sound like yourself. These keep your voice, cut the filler and stop your text from reading like something a machine wrote.</p>
-          <span class="open">Open pack <span class="arw">↗</span></span>
+          <span class="open">Open pack <span class="arw">→</span></span>
         </a>
-        <a class="pack lcard" href="https://michaels-corner.netlify.app/packs/building" target="_blank" rel="noopener">
+        <a class="pack lcard" href="/packs/building">
           <div class="top"><span class="tag">Building</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">Building software with AI</h2>
           <p class="small" style="color:var(--soft)">Go from a rough idea to working software even if you do not code. Plan small, brief the AI properly, and get unstuck when it breaks. It will break.</p>
-          <span class="open">Open pack <span class="arw">↗</span></span>
+          <span class="open">Open pack <span class="arw">→</span></span>
         </a>
-        <a class="pack lcard" href="https://michaels-corner.netlify.app/packs/founders" target="_blank" rel="noopener">
+        <a class="pack lcard" href="/packs/founders">
           <div class="top"><span class="tag">Founders</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">Founders and small business owners</h2>
           <p class="small" style="color:var(--soft)">For people running a small business: customers, reviews, numbers and suppliers, plus the messages you keep putting off, drafted so you can actually send them.</p>
-          <span class="open">Open pack <span class="arw">↗</span></span>
+          <span class="open">Open pack <span class="arw">→</span></span>
         </a>
-        <a class="pack lcard" href="https://michaels-corner.netlify.app/packs/freelancers" target="_blank" rel="noopener" style="background:var(--sun)">
+        <a class="pack lcard" href="/packs/freelancers" style="background:var(--sun)">
           <div class="top"><span class="tag">Freelancers</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">Freelancers and solo operators</h2>
           <p class="small" style="color:var(--soft)">Your business is you. Briefs, proposals, feedback rounds and unpaid invoices. These push the admin down so the week has more room for the work you actually got into this for.</p>
-          <span class="open">Open pack <span class="arw">↗</span></span>
+          <span class="open">Open pack <span class="arw">→</span></span>
         </a>
-        <a class="pack lcard" href="https://michaels-corner.netlify.app/packs/office" target="_blank" rel="noopener">
+        <a class="pack lcard" href="/packs/office">
           <div class="top"><span class="tag">Office work</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">Office and operations work</h2>
           <p class="small" style="color:var(--soft)">Inbox, meetings, reports and spreadsheets. Small routines for the everyday work, the kind that quietly gives you back an hour most days.</p>
-          <span class="open">Open pack <span class="arw">↗</span></span>
+          <span class="open">Open pack <span class="arw">→</span></span>
         </a>
-        <a class="pack lcard" href="https://michaels-corner.netlify.app/packs/creators" target="_blank" rel="noopener">
+        <a class="pack lcard" href="/packs/creators">
           <div class="top"><span class="tag">Creators</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">Content creators</h2>
           <p class="small" style="color:var(--soft)">Make more from what you already record: repurpose it, script it and publish faster, without your feed starting to sound generated.</p>
-          <span class="open">Open pack <span class="arw">↗</span></span>
+          <span class="open">Open pack <span class="arw">→</span></span>
         </a>
-        <a class="pack lcard" href="https://michaels-corner.netlify.app/packs/students" target="_blank" rel="noopener" style="background:var(--sun)">
+        <a class="pack lcard" href="/packs/students" style="background:var(--sun)">
           <div class="top"><span class="tag">Students</span><span class="mono">8 prompts</span></div>
           <h2 class="h3">Students and learning</h2>
           <p class="small" style="color:var(--soft)">Learn faster and remember more. These make AI quiz you and question you, and the thinking stays yours.</p>
-          <span class="open">Open pack <span class="arw">↗</span></span>
+          <span class="open">Open pack <span class="arw">→</span></span>
         </a></div>
 </section>
 

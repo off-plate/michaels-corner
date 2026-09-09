@@ -45,7 +45,7 @@
 <style>
 :root{
   --ground:#E9EEE7; --cream:#F5F2E8; --card:#F2F0E6; --ink:#1A1A1A;
-  --soft:#4A544B; --mute:#6B7468; --line:#D8DFD4;
+  --soft:#4A544B; --mute:#656E62; --line:#D8DFD4;
   --sun:#EFC75E; --coral:#E45B52; --sage:#A8B5A0; --peri:#7B7DE8;
   --sans:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -133,7 +133,7 @@ nav.main a[aria-current="page"]{background:var(--ink);color:var(--cream);font-we
 /* The nav labels are whole sentences, so no fixed breakpoint can be right.
    fitNav() measures the row and adds .compact only when it genuinely stops fitting. */
 header .wrap{position:relative}
-header.compact .burger{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:800;cursor:pointer}
+header.compact .burger{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:11px 16px;font-size:13px;font-weight:800;cursor:pointer}
 header.compact nav.main{display:none;position:absolute;left:var(--pad);right:var(--pad);top:calc(100% + 2px);flex-direction:column;align-items:stretch;gap:2px;
   background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:10px;z-index:70;box-shadow:0 18px 40px rgba(26,26,26,.14)}
 header.compact nav.main.open{display:flex}
@@ -518,8 +518,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   .brand span{font-size:18px}
   .brand img{height:34px}
   .htop{height:68px;gap:10px}
-  .burger{padding:9px 13px}
-  .htop .btn{padding:10px 15px!important;font-size:13.5px}
+  .htop .btn{padding:11px 16px!important;font-size:13.5px}   /* 44px min tap target */
   .h1{font-size:clamp(38px,11vw,52px)}
   .h2{font-size:clamp(27px,8vw,36px)}
   .herostats{grid-template-columns:1fr 1fr;gap:12px}
@@ -589,50 +588,50 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
       <a class="card lcard" href="https://chromewebstore.google.com/detail/tuck/njpclpglfhldbhlngnmkenjphjpjaijb" target="_blank" rel="noopener" style="text-decoration:none;background:var(--coral);color:var(--cream)">
         <img src="assets/inline/tuck.webp" width="56" height="56" style="border-radius:14px" alt="Tuck app icon">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Tuck</h3><span class="mono" style="color:rgba(245,242,232,.84)">Chrome extension</span></div>
-        <p class="small" style="color:rgba(245,242,232,.84)">Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.</p>
+        <p class="small" style="color:rgba(245,242,232,.84)">Every extension you have installed, in one popup, each with its own switch. Search them, or file them into folders you name. Turn the whole lot off in one click, and lock the ones you cannot work without so they survive it.</p>
         <span class="open">Add to Chrome <span class="arw" style="color:var(--sun)">↗</span></span>
       </a>
       <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--sun);color:var(--ink)">
         <img src="assets/inline/recall.webp" width="56" height="56" style="border-radius:14px" alt="Recall app icon">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Recall</h3><span class="mono" style="color:#4A421F">macOS app</span></div>
-        <p class="small" style="color:#4A421F">Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.</p>
+        <p class="small" style="color:#4A421F">Save a workspace once. The apps, the files, the Chrome profile, and the slot on screen where each window belongs. Open it tomorrow and the whole desk comes back the way you left it, down to which half of the screen each window was using.</p>
         <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
       </a>
       <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--peri);color:var(--cream)">
         <img src="assets/inline/refill.webp" width="56" height="56" style="border-radius:14px" alt="Refill app icon">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Refill</h3><span class="mono" style="color:rgba(245,242,232,.84)">macOS menu bar</span></div>
-        <p class="small" style="color:rgba(245,242,232,.84)">Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.</p>
+        <p class="small" style="color:rgba(245,242,232,.84)">How much Claude you have left, live in the menu bar. Both windows, the five-hour and the seven-day, each with its own reset clock. You see the limit coming. The check itself costs no quota.</p>
         <span class="open">See it on the Apps page <span class="arw" style="color:var(--sun)">→</span></span>
       </a>
       <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--sage);color:var(--ink)">
         <img src="assets/inline/frost.webp" width="56" height="56" style="border-radius:14px" alt="Frost app icon">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Frost</h3><span class="mono" style="color:#2E362C">Chrome extension</span></div>
-        <p class="small" style="color:#2E362C">Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history.</p>
+        <p class="small" style="color:#2E362C">Puts tabs you have not touched in a while to sleep, using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every sleeping tab keeps its address, its title and its full back history, so waking one is just the page loading again.</p>
         <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
       </a>
       <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--cream);color:var(--ink)">
         <img src="assets/inline/cutter.webp" width="56" height="56" style="border-radius:14px" alt="Cropper app icon">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Cropper</h3><span class="mono" style="color:var(--mute)">macOS app</span></div>
-        <p class="small" style="color:var(--mute)">A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.</p>
+        <p class="small" style="color:var(--mute)">A video editor that runs on your own Mac. Drop a video in and it transcribes every word. Then it lists the dead pauses, the filler words and the takes you said twice, each one quoted back to you. Tick what to lose and it renders the MP4. No account, no watermark, no length limit.</p>
         <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
       </a>
       <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--coral);color:var(--cream)">
         <img src="assets/inline/titis.webp" width="56" height="56" style="border-radius:14px" alt="TITIS app icon">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">TITIS</h3><span class="mono" style="color:rgba(245,242,232,.84)">macOS app</span></div>
-        <p class="small" style="color:rgba(245,242,232,.84)">Select any text on your Mac and hear it read aloud. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.</p>
+        <p class="small" style="color:rgba(245,242,232,.84)">One hotkey reads whatever text you have highlighted, in any app on your Mac. It works out whether the selection is English or Czech, then switches to the best voice you have installed for that language. The speech is made on your machine, so nothing is sent anywhere.</p>
         <span class="open">See it on the Apps page <span class="arw" style="color:var(--sun)">→</span></span>
       </a>
       <a class="card lcard" href="https://owco.netlify.app" target="_blank" rel="noopener" style="text-decoration:none;background:var(--sun);color:var(--ink)">
         <img src="assets/inline/owco.webp" width="56" height="56" style="border-radius:14px" alt="OWCO app icon">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">OWCO</h3><span class="mono" style="color:#4A421F">Web app</span></div>
-        <p class="small" style="color:#4A421F">Points at your website and finds what it still claims that is no longer true: a stale number, an executive who left, an award given to someone else. Each finding comes back ranked with the fix and the source.</p>
+        <p class="small" style="color:#4A421F">Give it your website and it reads back through your own pages, looking for what you still claim that is no longer true. A number that moved. A promise the homepage makes that page four contradicts. Each finding comes back with the exact words, why it is wrong now, and the page it was checked against.</p>
         <span class="open">Try the scan <span class="arw" style="color:var(--coral)">↗</span></span>
       </a>
-      <a class="card lcard" href="https://claude.ai/code/artifact/ed6fb81f-4f4b-49c5-85e7-96490e19fbc9" target="_blank" rel="noopener" style="text-decoration:none;background:var(--peri);color:var(--cream)">
+      <a class="card lcard" href="https://nexus-offplate.netlify.app/" target="_blank" rel="noopener" style="text-decoration:none;background:var(--peri);color:var(--cream)">
         <img src="assets/inline/nexus.webp" width="56" height="56" style="border-radius:14px" alt="Nexus app icon">
         <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Nexus</h3><span class="mono" style="color:rgba(245,242,232,.84)">Off-Plate tool</span></div>
-        <p class="small" style="color:rgba(245,242,232,.84)">Reads a prospect's Google profile, site, socials and the company register, then hands back one sentence: what is measurably broken, who can approve fixing it, and how to reach them. Built for Off-Plate, not for this site.</p>
-        <span class="open">See the demo <span class="arw" style="color:var(--sun)">↗</span></span>
+        <p class="small" style="color:rgba(245,242,232,.84)">Point it at a business and it works through the public record: the Google profile, the website, the socials, the Czech business registers, and whether AI assistants name the place at all when a customer asks. It returns one card. The clearest measurable problem, who can approve fixing it, and a lawful way to reach them.</p>
+        <span class="open">Open Nexus <span class="arw" style="color:var(--sun)">↗</span></span>
       </a>
   </div><button class="edgearrow left is-hidden" aria-label="Scroll left"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M11 18l-6-6 6-6"></path></svg></button><button class="edgearrow right" aria-label="Scroll right"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div>
 </section>
@@ -662,35 +661,35 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
   <div class="scrollwrap"><div class="scroll" data-scroller="">
     
-      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/ai-cost-calculator" target="_blank" rel="noopener" style="text-decoration:none;background:var(--coral);color:var(--cream)">
+      <a class="card lcard" href="/tools/ai-cost-calculator" style="text-decoration:none;background:var(--coral);color:var(--cream)">
         <span class="mono" style="color:rgba(245,242,232,.84)">TOOL/01</span>
         <h3 class="h3">AI cost calculator</h3>
         <p class="small" style="color:rgba(245,242,232,.84)">What a month of AI actually costs, on rates you can edit.</p>
-        <span class="open">Open the tool <span class="arw" style="color:var(--sun)">↗</span></span>
+        <span class="open">Open the tool <span class="arw" style="color:var(--sun)">→</span></span>
       </a>
-      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/fits-in-context" target="_blank" rel="noopener" style="text-decoration:none;background:var(--sun);color:var(--ink)">
+      <a class="card lcard" href="/tools/fits-in-context" style="text-decoration:none;background:var(--sun);color:var(--ink)">
         <span class="mono" style="color:#4A421F">TOOL/02</span>
         <h3 class="h3">Fits-in-context checker</h3>
         <p class="small" style="color:#4A421F">Whether your document fits a model's window or needs splitting.</p>
-        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">↗</span></span>
+        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">→</span></span>
       </a>
-      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/subscription-vs-api" target="_blank" rel="noopener" style="text-decoration:none;background:var(--peri);color:var(--cream)">
+      <a class="card lcard" href="/tools/subscription-vs-api" style="text-decoration:none;background:var(--peri);color:var(--cream)">
         <span class="mono" style="color:rgba(245,242,232,.84)">TOOL/03</span>
         <h3 class="h3">Subscription vs API</h3>
         <p class="small" style="color:rgba(245,242,232,.84)">Your usage, both prices, one answer: which way is cheaper and where the lines cross.</p>
-        <span class="open">Open the tool <span class="arw" style="color:var(--sun)">↗</span></span>
+        <span class="open">Open the tool <span class="arw" style="color:var(--sun)">→</span></span>
       </a>
-      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/should-you-automate" target="_blank" rel="noopener" style="text-decoration:none;background:var(--sage);color:var(--ink)">
+      <a class="card lcard" href="/tools/should-you-automate" style="text-decoration:none;background:var(--sage);color:var(--ink)">
         <span class="mono" style="color:#2E362C">TOOL/04</span>
         <h3 class="h3">Should you automate it?</h3>
         <p class="small" style="color:#2E362C">Six honest questions, one stamped verdict: automate now, assist only, or leave it human. Weights are published.</p>
-        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">↗</span></span>
+        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">→</span></span>
       </a>
-      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/ai-slop-detector" target="_blank" rel="noopener" style="text-decoration:none;background:var(--cream);color:var(--ink)">
+      <a class="card lcard" href="/tools/ai-slop-detector" style="text-decoration:none;background:var(--cream);color:var(--ink)">
         <span class="mono" style="color:var(--mute)">TOOL/05</span>
         <h3 class="h3">AI-slop detector</h3>
         <p class="small" style="color:var(--mute)">Paste text. A public rule list counts the AI tells and stamps a slop score, every flagged line shown.</p>
-        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">↗</span></span>
+        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">→</span></span>
       </a>
   </div><button class="edgearrow left is-hidden" aria-label="Scroll left"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M11 18l-6-6 6-6"></path></svg></button><button class="edgearrow right" aria-label="Scroll right"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div>
 </section>
@@ -703,29 +702,29 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
   <div class="autogrid">
     
-      <a class="pack lcard rv" href="https://michaels-corner.netlify.app/packs/beginners" target="_blank" rel="noopener" style="">
+      <a class="pack lcard rv" href="/packs/beginners" style="">
         <div class="top"><span class="tag">Beginners</span><span class="mono">8 prompts</span></div>
         <h3 class="h3">Best prompts for beginners</h3>
         <p class="small" style="color:var(--soft)">Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets and paste it in.</p>
-        <span class="open">Open pack <span class="arw">↗</span></span>
+        <span class="open">Open pack <span class="arw">→</span></span>
       </a>
-      <a class="pack lcard rv" href="https://michaels-corner.netlify.app/packs/writing" target="_blank" rel="noopener" style="background:var(--sun)">
+      <a class="pack lcard rv" href="/packs/writing" style="background:var(--sun)">
         <div class="top"><span class="tag">Writing</span><span class="mono">8 prompts</span></div>
         <h3 class="h3">Best prompts for writing</h3>
         <p class="small" style="color:var(--soft)">Draft faster and still sound like yourself. These keep your voice, cut the filler and stop your text from reading like something a machine wrote.</p>
-        <span class="open">Open pack <span class="arw">↗</span></span>
+        <span class="open">Open pack <span class="arw">→</span></span>
       </a>
-      <a class="pack lcard rv" href="https://michaels-corner.netlify.app/packs/building" target="_blank" rel="noopener" style="">
+      <a class="pack lcard rv" href="/packs/building" style="">
         <div class="top"><span class="tag">Building</span><span class="mono">8 prompts</span></div>
         <h3 class="h3">Building software with AI</h3>
         <p class="small" style="color:var(--soft)">Go from a rough idea to working software even if you do not code. Plan small, brief the AI properly, and get unstuck when it breaks. It will break.</p>
-        <span class="open">Open pack <span class="arw">↗</span></span>
+        <span class="open">Open pack <span class="arw">→</span></span>
       </a>
-      <a class="pack lcard rv" href="https://michaels-corner.netlify.app/packs/founders" target="_blank" rel="noopener" style="">
+      <a class="pack lcard rv" href="/packs/founders" style="">
         <div class="top"><span class="tag">Founders</span><span class="mono">8 prompts</span></div>
         <h3 class="h3">Founders and small business owners</h3>
         <p class="small" style="color:var(--soft)">For people running a small business: customers, reviews, numbers and suppliers, plus the messages you keep putting off, drafted so you can actually send them.</p>
-        <span class="open">Open pack <span class="arw">↗</span></span>
+        <span class="open">Open pack <span class="arw">→</span></span>
       </a>
   </div>
 </section>

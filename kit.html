@@ -46,7 +46,7 @@
 <style>
 :root{
   --ground:#E9EEE7; --cream:#F5F2E8; --card:#F2F0E6; --ink:#1A1A1A;
-  --soft:#4A544B; --mute:#6B7468; --line:#D8DFD4;
+  --soft:#4A544B; --mute:#656E62; --line:#D8DFD4;
   --sun:#EFC75E; --coral:#E45B52; --sage:#A8B5A0; --peri:#7B7DE8;
   --sans:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -134,7 +134,7 @@ nav.main a[aria-current="page"]{background:var(--ink);color:var(--cream);font-we
 /* The nav labels are whole sentences, so no fixed breakpoint can be right.
    fitNav() measures the row and adds .compact only when it genuinely stops fitting. */
 header .wrap{position:relative}
-header.compact .burger{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:800;cursor:pointer}
+header.compact .burger{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:11px 16px;font-size:13px;font-weight:800;cursor:pointer}
 header.compact nav.main{display:none;position:absolute;left:var(--pad);right:var(--pad);top:calc(100% + 2px);flex-direction:column;align-items:stretch;gap:2px;
   background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:10px;z-index:70;box-shadow:0 18px 40px rgba(26,26,26,.14)}
 header.compact nav.main.open{display:flex}
@@ -519,8 +519,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   .brand span{font-size:18px}
   .brand img{height:34px}
   .htop{height:68px;gap:10px}
-  .burger{padding:9px 13px}
-  .htop .btn{padding:10px 15px!important;font-size:13.5px}
+  .htop .btn{padding:11px 16px!important;font-size:13.5px}   /* 44px min tap target */
   .h1{font-size:clamp(38px,11vw,52px)}
   .h2{font-size:clamp(27px,8vw,36px)}
   .herostats{grid-template-columns:1fr 1fr;gap:12px}
