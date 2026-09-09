@@ -18,7 +18,7 @@
 <meta name="twitter:description" content="Seven free AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/","description":"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, five finished apps. Everything is free and nothing sits behind a signup.","inLanguage":"en","author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"publisher":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/","description":"Not a developer. Builds things with AI in the evenings and gives away the prompts, tools and apps.","email":"mailto:mihael.florian@gmail.com","knowsAbout":["Artificial intelligence","Prompt engineering","ChatGPT","Claude","Google Gemini","AI automation","Browser extensions"],"mainEntityOfPage":"https://michaels-corner.netlify.app/about"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Most useful AI tools","description":"Seven free AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder.","url":"https://michaels-corner.netlify.app/tools","inLanguage":"en","dateModified":"2026-09-08","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Michael's Corner","item":"https://michaels-corner.netlify.app/"},{"@type":"ListItem","position":2,"name":"Most useful AI tools","item":"https://michaels-corner.netlify.app/tools"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Most useful AI tools","description":"Seven free AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder.","url":"https://michaels-corner.netlify.app/tools","inLanguage":"en","dateModified":"2026-09-09","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Michael's Corner","item":"https://michaels-corner.netlify.app/"},{"@type":"ListItem","position":2,"name":"Most useful AI tools","item":"https://michaels-corner.netlify.app/tools"}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Free AI tools that run in your browser","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebApplication","name":"AI cost calculator","description":"What a month of AI actually costs, on rates you can edit.","url":"https://michaels-corner.netlify.app/tools/ai-cost-calculator","applicationCategory":"UtilitiesApplication","browserRequirements":"Runs entirely in the browser. No account.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"WebApplication","name":"Fits-in-context checker","description":"Whether your document fits a model's window or needs splitting.","url":"https://michaels-corner.netlify.app/tools/fits-in-context","applicationCategory":"UtilitiesApplication","browserRequirements":"Runs entirely in the browser. No account.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"WebApplication","name":"Subscription vs API","description":"Which way is cheaper for your usage, and where the lines cross.","url":"https://michaels-corner.netlify.app/tools/subscription-vs-api","applicationCategory":"UtilitiesApplication","browserRequirements":"Runs entirely in the browser. No account.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"WebApplication","name":"Should you automate it?","description":"Six questions, one verdict: automate now, assist only, or leave it human.","url":"https://michaels-corner.netlify.app/tools/should-you-automate","applicationCategory":"UtilitiesApplication","browserRequirements":"Runs entirely in the browser. No account.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"WebApplication","name":"AI-slop detector","description":"Counts the AI tells in any text and stamps a slop score.","url":"https://michaels-corner.netlify.app/tools/ai-slop-detector","applicationCategory":"UtilitiesApplication","browserRequirements":"Runs entirely in the browser. No account.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"WebApplication","name":"Prompt tightener","description":"Strips the filler it can prove is filler and flags the vague asks.","url":"https://michaels-corner.netlify.app/tools/prompt-tightener","applicationCategory":"UtilitiesApplication","browserRequirements":"Runs entirely in the browser. No account.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":7,"item":{"@type":"WebApplication","name":"Difficult-email prompt builder","description":"Six questions about the email you dread, then a copy-ready prompt.","url":"https://michaels-corner.netlify.app/tools/difficult-email-prompt-assembler","applicationCategory":"UtilitiesApplication","browserRequirements":"Runs entirely in the browser. No account.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E9EEE7">
@@ -113,7 +113,12 @@ button{font:inherit;color:inherit}
 .btn:hover .arw{transform:translateX(3px)}
 
 /* ---------- header ---------- */
-header{position:sticky;top:0;z-index:60;background:rgba(233,238,231,.93);backdrop-filter:blur(12px);border-bottom:2px solid var(--ink)}
+header{position:sticky;top:0;z-index:60;background:rgba(233,238,231,.93);backdrop-filter:blur(12px)}
+/* The header's own box stops at the content edge, --rail short of the true
+   viewport edge, so a plain border-bottom reads as cut off instead of
+   reaching the corner. This line is drawn wide enough to close that
+   corner against the rail; on mobile --rail is 0 and it's a normal border. */
+header::after{content:'';position:absolute;left:0;right:calc(var(--rail) * -1);bottom:0;height:2px;background:var(--ink)}
 .htop{display:flex;align-items:center;gap:clamp(18px,3vw,52px);height:76px}
 .brand{text-decoration:none;display:flex;align-items:center;gap:12px;text-decoration:none;background:none;border:0;padding:0;cursor:pointer;flex:none}
 .brand img{height:42px;width:auto}
@@ -527,135 +532,40 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
+<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
+<div id="load" aria-hidden="true">
+  <div class="ldwrap">
+    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
+    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+  </div>
+  <span class="ldtag">Practical AI, no hype</span>
+  <span class="ldbar"><i></i></span>
+</div>
 
-
-
-
-<header class="" id="hdr">
+<header class="compact" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home">Home</a><a href="/start" data-go="start">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools" aria-current="page">Free tools</a><a href="/bill" data-go="bill">Apps I built</a><a href="/channel" data-go="channel">Videos</a><a href="/about" data-go="about">Who I am</a></nav>
+      <nav class="main" id="nav" aria-label="Main"></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main">
-<section class="wrap phero">
-  <div class="phero-grid">
-    <div class="rv in">
-      <h1 class="dsp h1">Tools<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that run in your browser. Open any one and the number is real, computed on the spot, and nothing you type leaves the page.</p>
-    </div>
-    <div class="phero-art rv in"><img src="assets/inline/machine.webp" width="411" height="440" alt="A workshop machine with a screen"></div>
-  </div>
-</section>
-
-<section class="wrap sec-tight">
-  <div class="rv in" style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:24px">
-    <div class="chips" id="tchips"><button class="chip" data-c="all" aria-pressed="true">All tools</button><button class="chip" data-c="Money &amp; size" aria-pressed="false">Money &amp; size</button><button class="chip" data-c="The decision" aria-pressed="false">The decision</button><button class="chip" data-c="The words" aria-pressed="false">The words</button></div>
-    <div class="search" style="max-width:300px;padding:9px 18px"><input type="search" id="tq" placeholder="Search tools" aria-label="Search tools"></div>
-  </div>
-  <div class="toolsplit">
-    <div>
-      <div id="trows" style="display:flex;flex-direction:column;gap:26px">
-        <div>
-          <h2 class="h4" style="color:var(--mute);margin-bottom:12px">Money &amp; size</h2>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/ai-cost-calculator" target="_blank" rel="noopener">
-                <span class="desig">TOOL/01</span>
-                <span style="max-width:78ch"><span class="h4" style="display:block">AI cost calculator</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">What a month of AI actually costs, on rates you can edit.</span><span class="hint">editable rate table</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
-              </a>
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/fits-in-context" target="_blank" rel="noopener">
-                <span class="desig">TOOL/02</span>
-                <span style="max-width:78ch"><span class="h4" style="display:block">Fits-in-context checker</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Whether your document fits a model's window or needs splitting.</span><span class="hint">five window sizes</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
-              </a>
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/subscription-vs-api" target="_blank" rel="noopener">
-                <span class="desig">TOOL/03</span>
-                <span style="max-width:78ch"><span class="h4" style="display:block">Subscription vs API</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Your usage, both prices, one answer: which way is cheaper and where the lines cross.</span><span class="hint">shares your edited rates</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
-              </a>
-          </div>
-        </div>
-        <div>
-          <h2 class="h4" style="color:var(--mute);margin-bottom:12px">The decision</h2>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/should-you-automate" target="_blank" rel="noopener">
-                <span class="desig">TOOL/04</span>
-                <span style="max-width:78ch"><span class="h4" style="display:block">Should you automate it?</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Six honest questions, one stamped verdict: automate now, assist only, or leave it human. Weights are published.</span><span class="hint">a scorecard with hard overrides</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
-              </a>
-          </div>
-        </div>
-        <div>
-          <h2 class="h4" style="color:var(--mute);margin-bottom:12px">The words</h2>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/ai-slop-detector" target="_blank" rel="noopener">
-                <span class="desig">TOOL/05</span>
-                <span style="max-width:78ch"><span class="h4" style="display:block">AI-slop detector</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Paste text. A public rule list counts the AI tells and stamps a slop score, every flagged line shown.</span><span class="hint">English and Czech rules</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
-              </a>
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/prompt-tightener" target="_blank" rel="noopener">
-                <span class="desig">TOOL/06</span>
-                <span style="max-width:78ch"><span class="h4" style="display:block">Prompt tightener</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Strips the filler it can prove is filler, flags the vague asks it cannot fix, shows the word drop. Deletion only.</span><span class="hint">never rewrites your meaning</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
-              </a>
-              <a class="trow" href="https://michaels-corner.netlify.app/tools/difficult-email-prompt-assembler" target="_blank" rel="noopener">
-                <span class="desig">TOOL/07</span>
-                <span style="max-width:78ch"><span class="h4" style="display:block">Difficult-email prompt builder</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Six questions about the email you dread. The output is a copy-ready prompt with your facts and hard lines baked in.</span><span class="hint">builds the prompt, your AI runs it</span></span>
-                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
-              </a>
-          </div>
-        </div></div>
-      <p class="lede" id="tempty" hidden="" style="padding:20px 0">No tools match that. Try another word or clear the filter.</p>
-    </div>
-    <aside class="benchcol">
-      <div class="card rv" style="gap:10px">
-        <h2 class="h3">Tools I decided not to build</h2>
-        <p class="small">Three got planned and then cut, and the reason for each is written down so the same idea does not come back next month.</p>
-        <ul class="bench">
-          <li><span class="bn">CUT/01</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Automation ROI calculator.</b> The should-you-automate scorecard already answers the same question. Payback framing lives in its fine print. Built later only if demand shows up.</span></li><li><span class="bn">CUT/02</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Meeting-prep prompt builder.</b> Rarer than hard emails for a solo operator. The difficult-email builder covers the same translation pain with more reach.</span></li><li><span class="bn">CUT/03</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Model picker quiz.</b> Model names change monthly. A stale pick kills trust faster than no tool. The cost calculator teaches the same judgment without naming a model.</span></li>
-        </ul>
-      </div>
-      <div class="card card-ink rv" style="gap:10px">
-        <h2 class="h3" style="color:var(--cream)">What has to be true before I build one</h2>
-        <ul class="ticks">
-          <li>It answers a question you would otherwise guess at.</li>
-          <li>It runs entirely in your browser, with no key and no account.</li>
-          <li>The math is visible. You can argue with it.</li>
-          <li>It does not go stale the week a model is renamed.</li>
-        </ul>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="band sec">
-  <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">Nothing you type leaves this page<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">Every tool runs in your browser and there is no server behind it, so there is nowhere for your data to go. Close the tab and it is gone.</p>
-    <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">→</span></a>
-  </div>
-</section></main>
+<main id="main"></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -684,10 +594,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer="" src="app.js"></script>
-
-
-
+<script defer src="app.js"></script>
 
 
 </body>

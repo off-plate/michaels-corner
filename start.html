@@ -18,7 +18,7 @@
 <meta name="twitter:description" content="A seven-point checklist and a five-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/","description":"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, five finished apps. Everything is free and nothing sits behind a signup.","inLanguage":"en","author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"publisher":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/","description":"Not a developer. Builds things with AI in the evenings and gives away the prompts, tools and apps.","email":"mailto:mihael.florian@gmail.com","knowsAbout":["Artificial intelligence","Prompt engineering","ChatGPT","Claude","Google Gemini","AI automation","Browser extensions"],"mainEntityOfPage":"https://michaels-corner.netlify.app/about"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Your first hour with AI","description":"A seven-point checklist and a five-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week.","url":"https://michaels-corner.netlify.app/start","inLanguage":"en","dateModified":"2026-09-08","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Michael's Corner","item":"https://michaels-corner.netlify.app/"},{"@type":"ListItem","position":2,"name":"Your first hour with AI","item":"https://michaels-corner.netlify.app/start"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Your first hour with AI","description":"A seven-point checklist and a five-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week.","url":"https://michaels-corner.netlify.app/start","inLanguage":"en","dateModified":"2026-09-09","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Michael's Corner","item":"https://michaels-corner.netlify.app/"},{"@type":"ListItem","position":2,"name":"Your first hour with AI","item":"https://michaels-corner.netlify.app/start"}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Your first hour with AI","description":"A seven-point checklist and a five-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week.","totalTime":"PT1H","step":[{"@type":"HowToStep","position":1,"name":"Pick one tool","text":"ChatGPT, Claude or Gemini, and the free version is fine. Stay with it for a week."},{"@type":"HowToStep","position":2,"name":"Bring a real task","text":"Something real from today: an email you owe, a long document, a plan you keep postponing."},{"@type":"HowToStep","position":3,"name":"Give it the whole picture","text":"Brief it like a colleague. Three full sentences of context beat five keywords."},{"@type":"HowToStep","position":4,"name":"Push back on the draft","text":"The first answer is a draft. Say what is wrong and ask again. Check every fact and number."},{"@type":"HowToStep","position":5,"name":"Keep what worked","text":"Save the prompt that gave a good result and reuse it."}]}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E9EEE7">
@@ -113,7 +113,12 @@ button{font:inherit;color:inherit}
 .btn:hover .arw{transform:translateX(3px)}
 
 /* ---------- header ---------- */
-header{position:sticky;top:0;z-index:60;background:rgba(233,238,231,.93);backdrop-filter:blur(12px);border-bottom:2px solid var(--ink)}
+header{position:sticky;top:0;z-index:60;background:rgba(233,238,231,.93);backdrop-filter:blur(12px)}
+/* The header's own box stops at the content edge, --rail short of the true
+   viewport edge, so a plain border-bottom reads as cut off instead of
+   reaching the corner. This line is drawn wide enough to close that
+   corner against the rail; on mobile --rail is 0 and it's a normal border. */
+header::after{content:'';position:absolute;left:0;right:calc(var(--rail) * -1);bottom:0;height:2px;background:var(--ink)}
 .htop{display:flex;align-items:center;gap:clamp(18px,3vw,52px);height:76px}
 .brand{text-decoration:none;display:flex;align-items:center;gap:12px;text-decoration:none;background:none;border:0;padding:0;cursor:pointer;flex:none}
 .brand img{height:42px;width:auto}
@@ -527,99 +532,40 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
+<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
+<div id="load" aria-hidden="true">
+  <div class="ldwrap">
+    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
+    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+  </div>
+  <span class="ldtag">Practical AI, no hype</span>
+  <span class="ldbar"><i></i></span>
+</div>
 
-
-
-
-<header class="" id="hdr">
+<header class="compact" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home">Home</a><a href="/start" data-go="start" aria-current="page">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools">Free tools</a><a href="/bill" data-go="bill">Apps I built</a><a href="/channel" data-go="channel">Videos</a><a href="/about" data-go="about">Who I am</a></nav>
+      <nav class="main" id="nav" aria-label="Main"></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main">
-<section class="wrap phero">
-  <div class="phero-grid">
-    <div class="rv in">
-      <h1 class="dsp h1" style="font-size:clamp(40px,6vw,80px)">Your first hour with AI<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Tick the checklist off as you go and the full guide is underneath. It is the exact first hour I would walk a friend through: one real task, no theory.</p>
-    </div>
-    <div class="phero-art rv in"><img src="assets/inline/lamp.webp" width="422" height="440" alt="A desk lamp lighting the work"></div>
-  </div>
-</section>
-
-<section class="wrap sec-tight">
-  <div class="clbox rv in">
-    <div class="clhead">
-      <h2 class="dsp" style="font-size:clamp(24px,2.6vw,34px)">The checklist</h2>
-      <span class="clprog" id="clprog" role="status" aria-live="polite">0 of 7 done</span>
-    </div>
-    <ul class="cl" id="cl">
-      <li><label><input type="checkbox" data-cl="0"><span class="t">Pick one tool (ChatGPT, Claude, or Gemini) and stay with it for a week</span></label></li><li><label><input type="checkbox" data-cl="1"><span class="t">Start on the free version, it is enough to learn on</span></label></li><li><label><input type="checkbox" data-cl="2"><span class="t">Bring one real task from today, not a test question</span></label></li><li><label><input type="checkbox" data-cl="3"><span class="t">Give it full context, like briefing a colleague</span></label></li><li><label><input type="checkbox" data-cl="4"><span class="t">Treat the first answer as a draft and push back</span></label></li><li><label><input type="checkbox" data-cl="5"><span class="t">Check every fact and number before you use it</span></label></li><li><label><input type="checkbox" data-cl="6"><span class="t">Save the prompts that work. You will reuse them</span></label></li>
-    </ul>
-  </div>
-</section>
-
-<section class="wrap sec">
-  
-  <div class="shead rv">
-    <div><h2 class="dsp h2">Your first hour, step by step<i class="dot" style="font-style:normal">.</i></h2></div>
-    
-  </div>
-  <div class="steps">
-    
-      <article class="step rv">
-        <div class="n">01</div>
-        <h3 class="h3">Pick one tool</h3>
-        <p class="small" style="color:var(--soft);font-size:14.5px">ChatGPT, Claude, or Gemini, and the free version is fine. Do not spend your first hour comparing tools. For beginner tasks they are all good enough. Pick one and stay with it for a week.</p>
-      </article>
-      <article class="step rv">
-        <div class="n">02</div>
-        <h3 class="h3">Bring a real task</h3>
-        <p class="small" style="color:var(--soft);font-size:14.5px">Skip test questions like "write me a poem." Bring something real from today: an email you owe someone, a long document you need to understand, a plan you keep postponing. You learn what AI is for by using it on your actual work.</p>
-      </article>
-      <article class="step rv">
-        <div class="n">03</div>
-        <h3 class="h3">Give it the whole picture</h3>
-        <p class="small" style="color:var(--soft);font-size:14.5px">Write to it the way you would brief a colleague. Say who you are, what you need, and what the result should look like. A few full sentences of context beat five keywords.</p>
-      </article>
-      <article class="step rv">
-        <div class="n">04</div>
-        <h3 class="h3">Push back on the draft</h3>
-        <p class="small" style="color:var(--soft);font-size:14.5px">The first answer is a draft, and treating it as final is the most common beginner mistake. Tell it what is wrong and ask again, as many times as you need. Check every fact and number before you use it. AI presents its guesses with full confidence.</p>
-      </article>
-      <article class="step rv">
-        <div class="n">05</div>
-        <h3 class="h3">Keep what worked</h3>
-        <p class="small" style="color:var(--soft);font-size:14.5px">When a prompt gives you a good result, save it in your notes. Next time you paste it and change a few words instead of starting over. Most of the library on this site came out of that habit.</p>
-      </article>
-  </div>
-</section>
-
-<section class="band sec">
-  <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">That is the hour<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">When you want prompts already written this way, the library is next door. Sixty-four of them, in eight packs, free.</p>
-    <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">→</span></a>
-  </div>
-</section></main>
+<main id="main"></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -648,10 +594,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer="" src="app.js"></script>
-
-
-
+<script defer src="app.js"></script>
 
 
 </body>

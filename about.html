@@ -18,7 +18,7 @@
 <meta name="twitter:description" content="Michael Florian has a normal day job and builds things with AI in the evenings, more than twenty finished projects so far. What he got good at, and what he still cannot do.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/","description":"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, five finished apps. Everything is free and nothing sits behind a signup.","inLanguage":"en","author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"publisher":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/","description":"Not a developer. Builds things with AI in the evenings and gives away the prompts, tools and apps.","email":"mailto:mihael.florian@gmail.com","knowsAbout":["Artificial intelligence","Prompt engineering","ChatGPT","Claude","Google Gemini","AI automation","Browser extensions"],"mainEntityOfPage":"https://michaels-corner.netlify.app/about"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Who I am","description":"Michael Florian has a normal day job and builds things with AI in the evenings, more than twenty finished projects so far. What he got good at, and what he still cannot do.","url":"https://michaels-corner.netlify.app/about","inLanguage":"en","dateModified":"2026-09-08","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Michael's Corner","item":"https://michaels-corner.netlify.app/"},{"@type":"ListItem","position":2,"name":"Who I am","item":"https://michaels-corner.netlify.app/about"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Who I am","description":"Michael Florian has a normal day job and builds things with AI in the evenings, more than twenty finished projects so far. What he got good at, and what he still cannot do.","url":"https://michaels-corner.netlify.app/about","inLanguage":"en","dateModified":"2026-09-09","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Michael's Corner","item":"https://michaels-corner.netlify.app/"},{"@type":"ListItem","position":2,"name":"Who I am","item":"https://michaels-corner.netlify.app/about"}]}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E9EEE7">
 <meta name="color-scheme" content="light">
@@ -112,7 +112,12 @@ button{font:inherit;color:inherit}
 .btn:hover .arw{transform:translateX(3px)}
 
 /* ---------- header ---------- */
-header{position:sticky;top:0;z-index:60;background:rgba(233,238,231,.93);backdrop-filter:blur(12px);border-bottom:2px solid var(--ink)}
+header{position:sticky;top:0;z-index:60;background:rgba(233,238,231,.93);backdrop-filter:blur(12px)}
+/* The header's own box stops at the content edge, --rail short of the true
+   viewport edge, so a plain border-bottom reads as cut off instead of
+   reaching the corner. This line is drawn wide enough to close that
+   corner against the rail; on mobile --rail is 0 and it's a normal border. */
+header::after{content:'';position:absolute;left:0;right:calc(var(--rail) * -1);bottom:0;height:2px;background:var(--ink)}
 .htop{display:flex;align-items:center;gap:clamp(18px,3vw,52px);height:76px}
 .brand{text-decoration:none;display:flex;align-items:center;gap:12px;text-decoration:none;background:none;border:0;padding:0;cursor:pointer;flex:none}
 .brand img{height:42px;width:auto}
@@ -526,76 +531,40 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
+<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
+<div id="load" aria-hidden="true">
+  <div class="ldwrap">
+    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
+    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+  </div>
+  <span class="ldtag">Practical AI, no hype</span>
+  <span class="ldbar"><i></i></span>
+</div>
 
-
-
-
-<header class="" id="hdr">
+<header class="compact" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home">Home</a><a href="/start" data-go="start">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools">Free tools</a><a href="/bill" data-go="bill">Apps I built</a><a href="/channel" data-go="channel">Videos</a><a href="/about" data-go="about" aria-current="page">Who I am</a></nav>
+      <nav class="main" id="nav" aria-label="Main"></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main">
-<section class="wrap phero abouthero">
-  <h1 class="dsp h1 rv in" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I build anyway<i class="dot" style="font-style:normal">.</i></h1>
-  <p class="lede rv in" style="max-width:56ch;align-self:end">I am Michael. The evenings around a normal day job add up to more than twenty finished projects so far.</p>
-  <div class="abouthero-art rv in"><img src="assets/inline/hero.webp" width="620" height="720" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder"></div>
-</section>
-
-<section class="wrap sec-tight">
-  <div class="profile">
-    <div class="rail">
-      <div class="sidenote rv in">
-        <h3 class="h4" style="margin-bottom:12px">What I got good at</h3>
-        <div class="r2"><span>Describing what I want</span><span class="mono">daily</span></div>
-        <div class="r2"><span>Pushing back on a wrong answer</span><span class="mono">daily</span></div>
-        <div class="r2"><span>Doing the part it will not do</span><span class="mono">daily</span></div>
-        <div class="r2"><span>Writing code</span><span class="mono">no</span></div>
-      </div>
-      <div class="sidenote rv">
-        <h3 class="h4" style="margin-bottom:12px">Where to find me</h3>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <a href="mailto:mihael.florian@gmail.com" style="font-size:14px">mihael.florian@gmail.com</a>
-          <a href="/channel" data-go="channel" style="font-size:14px">Watch</a>
-          <a href="/bill" data-go="bill" style="font-size:14px">Apps</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prose rv in">
-      <p class="leadin">I am not a developer. I have a normal day job, and in the evenings I build things with AI anyway.</p>
-      <p>The list so far includes a finance app that tracks my debts and my budget, a training site with a 3D wireframe figure I could never have coded myself, a road-trip planner with maps and expense splitting that four of us used on a real holiday in Italy, two Chrome extensions, a small tool that turns one sentence into a Spotify playlist, and this website.</p>
-      <p>None of that made me an engineer. What I got good at is different: describing what I want clearly, pushing back when the answer is wrong, and doing the hands-on work a tool will not do for you. Most of what I put here comes straight out of that, the prompts I lean on and the small tools I built.</p>
-      <p class="pull">I take what has worked for me and write it down, <span style="color:var(--coral)">free for you to take</span>.</p>
-      <p>Two years in, I still have the same day job. The evenings just produce more than they used to. Take whatever helps, and let me know how it goes.</p>
-    </div>
-
-    <aside class="numrail">
-      <div class="rv"><span class="bignum" style="color:var(--ink)">20+</span><span class="numlab" style="color:var(--mute)">projects built, evenings only</span></div>
-      <div class="rv"><span class="bignum" style="color:var(--coral)">2 yrs</span><span class="numlab" style="color:var(--mute)">of doing this every week</span></div>
-      <div class="rv"><span class="bignum" style="color:var(--ink)">0</span><span class="numlab" style="color:var(--mute)">lines of code I could write before</span></div>
-      <div class="rv"><span class="bignum" style="color:var(--ink)">1</span><span class="numlab" style="color:var(--mute)">day job, still</span></div>
-    </aside>
-  </div>
-</section></main>
+<main id="main"></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -624,10 +593,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer="" src="app.js"></script>
-
-
-
+<script defer src="app.js"></script>
 
 
 </body>
