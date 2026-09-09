@@ -7,7 +7,7 @@
      data/prompts-index.js         window.MC2DATA.promptIndex for client search
    Shared chrome is copied verbatim from SPEC.md. No em dashes. Relative paths only. */
 
-import { PACKS, TOP10, UPDATED } from "./data/prompts.mjs";
+import { PACKS, UPDATED } from "./data/prompts.mjs";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -43,7 +43,7 @@ const SITE = "https://michaels-corner.netlify.app/";
 /* The build stamp. Deliberately a constant, not new Date(): a no-op rebuild must produce a
    zero-line diff, which is the only cheap proof that the generator still matches what is
    committed. Bump this by hand when the library content actually changes. */
-const TODAY = "2026-09-07";
+const TODAY = "2026-09-09";
 
 /* Structured data. A pack is a list of prompts, a prompt page is a HowTo with
    one step, and both name the same author, so an answer engine can tie every
@@ -95,7 +95,7 @@ function header(prefix) {
 <header class="site-head">
   <div class="wrap">
     <div class="head-top">
-      <a class="head-word no-fx" href="/"><img src="${prefix}assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michaels<br>Corner<span style="color:#E45B52">.</span></span></a>
+      <a class="head-word no-fx" href="/"><img src="${prefix}assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michael&#8217;s<br>Corner<span style="color:#E45B52">.</span></span></a>
       <nav class="head-nav" aria-label="Main">
         <a href="/" data-nav="home">Home</a>
         <a href="/start" data-nav="start">Start here</a>
@@ -344,7 +344,7 @@ function buildPack(pack, i) {
 
   const packsNav = PACKS.map((p2, k) => k === i
     ? `<span class="pn-here">${esc(p2.name)}</span>`
-    : `<a href="/prompts/${esc(p2.id)}">${esc(p2.name)}</a>`).join("");
+    : `<a href="/packs/${esc(p2.id)}">${esc(p2.name)}</a>`).join("");
 
   const body = `
 <section class="page-hero">
@@ -560,6 +560,32 @@ window.MC2DATA.promptIndex = ${JSON.stringify(index, null, 0)};
 }
 
 /* ============================================================
+   sitemap.xml
+   It was hand-maintained, so it still listed 64 prompt pages that no longer exist after the
+   library was rebuilt. The deep pages are generated here, so the sitemap is generated here too.
+   ============================================================ */
+function buildSitemap() {
+  const TOOL_IDS = ["ai-cost-calculator", "fits-in-context", "subscription-vs-api",
+    "should-you-automate", "ai-slop-detector", "prompt-tightener",
+    "difficult-email-prompt-assembler"];
+  const rows = [
+    ["", "1.0"],
+    ["start", "0.9"], ["library", "0.9"], ["tools", "0.9"], ["bill", "0.9"],
+    ["channel", "0.8"], ["about", "0.8"], ["kit", "0.8"],
+    ...TOOL_IDS.map(id => [`tools/${id}`, "0.8"]),
+    ...PACKS.map(p => [`packs/${p.id}`, "0.7"]),
+    ...PACKS.flatMap(p => p.prompts.map(pr => [`prompts/${pr.id}`, "0.6"])),
+  ];
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
+    + rows.map(([path, priority]) =>
+        `  <url>\n    <loc>${SITE}${path}</loc>\n    <lastmod>${TODAY}</lastmod>\n`
+        + `    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`).join("\n")
+    + `\n</urlset>\n`;
+  writeFileSync(join(ROOT, "sitemap.xml"), xml);
+  return rows.length;
+}
+
+/* ============================================================
    RUN
    ============================================================ */
 function run() {
@@ -575,7 +601,9 @@ function run() {
   /* library.html is NOT written here: it is an app.js route, pre-rendered by prerender.mjs. */
   console.log(`packs/  written: ${PACKS.length}`);
   console.log(`prompts/ written: ${total}`);
+  const urls = buildSitemap();
   console.log(`data/prompts-index.js written: ${n} entries`);
+  console.log(`sitemap.xml written: ${urls} urls`);
 }
 
 run();

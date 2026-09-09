@@ -2,523 +2,631 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://michaels-corner.netlify.app/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/start</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/library</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/tools</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/bill</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/channel</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/about</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/kit</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/tools/ai-cost-calculator</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/tools/ai-slop-detector</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/tools/difficult-email-prompt-assembler</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/tools/fits-in-context</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/tools/prompt-tightener</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/tools/should-you-automate</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/tools/subscription-vs-api</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/tools/should-you-automate</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/tools/ai-slop-detector</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/tools/prompt-tightener</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/tools/difficult-email-prompt-assembler</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/packs/beginners</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/packs/building</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/packs/jobs</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/packs/creators</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/packs/study</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/packs/founders</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/packs/human</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/packs/freelancers</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/packs/business</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/packs/office</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/packs/work</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/packs/students</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/packs/freelance</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/packs/writing</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/packs/found</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/ai-in-my-week</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/packs/money</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/packs/health</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/interview-me-first</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/brief-translator</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/fix-my-question</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/builder-brief</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/only-this-source</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/caption-voice</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/client-update</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/competitor-read</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/content-week</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/cut-in-half</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/essay-outline</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/exam-plan</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/explain-back</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/explain-code</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/what-did-you-assume</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/prompts/explain-like-new</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/explain-my-work</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/say-it-back</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/fix-error-plain</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/smallest-first-step</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/fix-my-english</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/where-ai-fits</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/fix-my-prompt</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/tailor-my-cv</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/flashcards</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/decode-the-posting</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/formula-help</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/honest-gap-check</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/hard-message</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/duties-to-results</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/holiday-handover</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/not-a-cover-letter</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/honest-editor</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/tired-recruiter</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/honest-hooks</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/interview-rehearsal</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/honest-summary</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/silence-and-salary</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/idea-mining</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/quiz-me-from-notes</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/idea-to-spec</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/test-until-i-fail</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/interview-me-first</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/why-was-i-wrong</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/invoice-chase</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/explain-it-back</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/loop-breaker</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/decode-hard-reading</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/meeting-prep</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/flashcards-from-material</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/minutes-actions</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/am-i-ready</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/negotiation-prep</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/week-before-plan</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/notes-to-draft</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/match-my-voice</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/notes-to-email</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/strip-the-tells</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/cut-in-half</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/would-this-get-flagged</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/grammar-only</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/prompts/one-text-three-readers</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/pick-tools</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/price-increase</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/process-doc</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/proposal-builder</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/quiz-me</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/reading-notes</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/remove-ai-flavor</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/review-triage</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/revision-decoder</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/say-no</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/scope-guard</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/sell-sheet</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/smallest-version</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/sort-my-day</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/sound-like-me</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/stats-truth</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/status-report</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/stop-doing</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/stress-test-answer</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/stuck-on-problem</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/test-before-launch</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/thirty-second-script</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://michaels-corner.netlify.app/prompts/thread-summary</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/un-corporate</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://michaels-corner.netlify.app/prompts/titles-worth-keeping</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/transcript-to-article</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/skeptical-customer</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/twenty-minute-topic</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/month-of-posts</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/unhappy-customer</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/second-opinion</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/video-to-posts</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/quote-follow-up</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://michaels-corner.netlify.app/prompts/weekly-numbers</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://michaels-corner.netlify.app/prompts/price-this</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/notes-to-summary</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/leave-behind</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/what-am-i-not-seeing</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/make-it-neutral</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/say-no-keep-them</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/third-follow-up</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/deliver-bad-news</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/disagree-upward</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/meeting-to-actions</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/difficult-feedback</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/angry-draft</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/client-gone-quiet</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/quote-this-job</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/out-of-scope</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/brief-to-spec</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/chase-the-invoice</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/unasked-update</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/rehearse-the-price</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/decline-bad-fit</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/what-does-ai-say</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/find-the-wrong-facts</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/who-gets-recommended</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/questions-customers-type</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/who-this-is-not-for</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/plain-answerable-sentences</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/faq-from-real-questions</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/does-my-page-answer</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/where-money-goes</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/which-debt-first</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/check-my-plan</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/compare-two-options</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/what-am-i-missing</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/explain-this-document</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/build-the-buffer</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/rehearse-money-talk</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/ten-questions-constraint</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/meals-from-fridge</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/smallest-habit</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/sanity-check-advice</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/why-did-i-stop</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/goal-with-a-number</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/hold-me-to-it</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://michaels-corner.netlify.app/prompts/what-would-need-true</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

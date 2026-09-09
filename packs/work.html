@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Awkward work messages / Michael's Corner</title>
+<meta name="description" content="The messages you rewrite five times before sending: the no, the chase, the bad news, the disagreement.">
+<link rel="canonical" href="https://michaels-corner.netlify.app/packs/work">
+<meta name="author" content="Michael Florian">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#E9EEE7">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Michael's Corner">
+<meta property="og:title" content="Awkward work messages / Michael's Corner">
+<meta property="og:description" content="The messages you rewrite five times before sending: the no, the chase, the bad news, the disagreement.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/brand/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Awkward work messages","description":"The messages you rewrite five times before sending: the no, the chase, the bad news, the disagreement.","url":"https://michaels-corner.netlify.app/packs/work","inLanguage":"en","dateModified":"2026-09-09","isPartOf":{"@type":"WebSite","name":"Michael's Corner","url":"https://michaels-corner.netlify.app/"},"author":{"@type":"Person","name":"Michael Florian","url":"https://michaels-corner.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Awkward work messages","description":"The messages you rewrite five times and still do not send. Saying no, chasing for the third time, disagreeing with your manager, delivering news nobody wants. Each of these keeps your facts and fixes only the wording.","numberOfItems":8,"itemListElement":[{"@type":"ListItem","position":1,"name":"Make this professionally neutral","url":"https://michaels-corner.netlify.app/prompts/make-it-neutral"},{"@type":"ListItem","position":2,"name":"Say no without burning it","url":"https://michaels-corner.netlify.app/prompts/say-no-keep-them"},{"@type":"ListItem","position":3,"name":"Chase without nagging","url":"https://michaels-corner.netlify.app/prompts/third-follow-up"},{"@type":"ListItem","position":4,"name":"Deliver the bad news","url":"https://michaels-corner.netlify.app/prompts/deliver-bad-news"},{"@type":"ListItem","position":5,"name":"Push back on my manager, in writing","url":"https://michaels-corner.netlify.app/prompts/disagree-upward"},{"@type":"ListItem","position":6,"name":"Forty minutes of meeting into five lines","url":"https://michaels-corner.netlify.app/prompts/meeting-to-actions"},{"@type":"ListItem","position":7,"name":"Write feedback that is specific, not personal","url":"https://michaels-corner.netlify.app/prompts/difficult-feedback"},{"@type":"ListItem","position":8,"name":"The version I can actually send","url":"https://michaels-corner.netlify.app/prompts/angry-draft"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Michael's Corner","item":"https://michaels-corner.netlify.app/"},{"@type":"ListItem","position":2,"name":"Prompt library","item":"https://michaels-corner.netlify.app/library"},{"@type":"ListItem","position":3,"name":"Awkward work messages","item":"https://michaels-corner.netlify.app/packs/work"}]}</script>
+<style>
+/* ---- Pack page: the opened dossier. Folder-tab header + ruled ledger, with an all-packs rail. ---- */
+.dossier{ padding-block:clamp(28px,4vw,44px) 0; }
+.d-back{ margin-bottom:clamp(20px,2.4vw,28px); }
+/* all-packs cross-nav: a full-width row under the ledger */
+.pack-nav{ margin-top:clamp(36px,4.5vw,60px); border-top:1px solid var(--ink); padding-top:22px; display:flex; flex-wrap:wrap; gap:12px 22px; align-items:baseline; }
+.pack-nav .pn-label{ width:100%; font-family:'Space Mono',ui-monospace,monospace; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:6px; }
+.pack-nav a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; transition:color 150ms ease, border-color 150ms ease; }
+.pack-nav a:hover{ color:var(--brick); border-color:var(--brick); }
+.pack-nav .pn-here{ color:var(--orange); font-weight:600; border-bottom:1px solid var(--orange); padding-bottom:2px; }
+.folder{ border:1px solid var(--ink); border-radius:2px; }
+.folder-tab{
+  display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--cream);
+  font-family:'Space Mono',ui-monospace,monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+  padding:8px 16px; border-radius:2px 2px 0 0; margin:0; position:relative; top:1px;
+}
+.folder-body{ padding:clamp(22px,3vw,34px); }
+.folder-body .h-page{ margin:0 0 6px; }
+.folder-meta{ font-family:'Space Mono',ui-monospace,monospace; font-size:12px; color:var(--grey); margin:0 0 18px; }
+.folder-intro{ font-size:16.5px; line-height:1.6; color:var(--ink-soft); max-width:64ch; margin:0 0 20px; }
+.cover-note{ font-family:'Space Mono',ui-monospace,monospace; font-size:12.5px; letter-spacing:0.02em; color:var(--grey); margin:12px 0 8px; }
+.cover-note .on{ color:var(--ink); }
+.cover-note .rest{ color:var(--grey-2); }
+
+/* the ledger of prompts */
+.ledger-list{ border-top:1px solid var(--ink); }
+.lrow{
+  display:grid; grid-template-columns:auto 1fr auto; gap:4px 20px; align-items:baseline;
+  border-bottom:1px solid var(--line); padding:clamp(16px,2vw,22px) clamp(4px,1vw,10px);
+  text-decoration:none; color:var(--ink); transition:background 150ms ease;
+}
+.lrow:hover{ background:var(--sage); }
+.lrow:focus-visible{ background:var(--sage); outline:2px solid var(--orange); outline-offset:-2px; }
+.lrow .fno{ font-weight:900; font-stretch:66%; font-size:clamp(22px,2.4vw,30px); color:var(--ink); line-height:1; letter-spacing:-0.02em; }
+.lrow .lt{ }
+.lrow .lt h3{ font-weight:900; font-stretch:80%; text-transform:uppercase; font-size:clamp(18px,1.8vw,21px); line-height:1.15; letter-spacing:-0.01em; margin:0 0 4px; }
+.lrow .lt p{ margin:0; font-size:14.5px; line-height:1.5; color:var(--grey); }
+.lrow .open{ font-family:'Space Mono',monospace; font-size:20px; color:var(--ink); align-self:center; transition:color 150ms ease, transform 180ms var(--ease); }
+.lrow:hover .open, .lrow:focus-visible .open{ color:var(--brick); transform:translateX(3px); }
+@media (max-width:560px){ .lrow{ grid-template-columns:auto 1fr; } .lrow .open{ display:none; } }
+@media (prefers-reduced-motion: reduce){ .lrow:hover .open, .lrow:focus-visible .open{ transform:none; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <div class="head-top">
+      <a class="head-word no-fx" href="/"><img src="../assets/brand/mark.png" alt="" class="head-mark" width="42" height="62" aria-hidden="true"><span class="hw">Michael&#8217;s<br>Corner<span style="color:#E45B52">.</span></span></a>
+      <nav class="head-nav" aria-label="Main">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/start" data-nav="start">Start here</a>
+        <a href="/library" data-nav="library">Prompt library</a>
+        <a href="/tools" data-nav="tools">Tools</a>
+        <a href="/bill" data-nav="bill">Apps I built</a>
+        <a href="/channel" data-nav="channel">Videos</a>
+        <a href="/about" data-nav="about">Who I am</a>
+      </nav>
+      <a class="head-cta no-fx" href="/kit" data-nav="kit">Get the kit <span class="oa">&#8594;</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <a class="backlink hero-back" href="/library"><span aria-hidden="true">&#8592;</span> Back to all prompts</a>
+    <div class="hero-grid">
+      <div>
+        <h1 class="h-page">Awkward work messages</h1>
+      </div>
+      <div>
+        <p class="hero-intro">The messages you rewrite five times and still do not send. Saying no, chasing for the third time, disagreeing with your manager, delivering news nobody wants. Each of these keeps your facts and fixes only the wording.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap section">
+  <div class="ledger-list">
+    
+    <a class="lrow" href="/prompts/make-it-neutral">
+      <span class="fno">01</span>
+      <span class="lt">
+        <h3>Make this professionally neutral</h3>
+        <p>Use this when what you wrote is accurate but says out loud what you actually think of someone.</p>
+      </span>
+      <span class="open" aria-hidden="true">&#8594;</span>
+    </a>
+    <a class="lrow" href="/prompts/say-no-keep-them">
+      <span class="fno">02</span>
+      <span class="lt">
+        <h3>Say no without burning it</h3>
+        <p>Use this on the request you should decline and have been avoiding for three days.</p>
+      </span>
+      <span class="open" aria-hidden="true">&#8594;</span>
+    </a>
+    <a class="lrow" href="/prompts/third-follow-up">
+      <span class="fno">03</span>
+      <span class="lt">
+        <h3>Chase without nagging</h3>
+        <p>Use this on the third follow-up, when polite is starting to feel like a lie.</p>
+      </span>
+      <span class="open" aria-hidden="true">&#8594;</span>
+    </a>
+    <a class="lrow" href="/prompts/deliver-bad-news">
+      <span class="fno">04</span>
+      <span class="lt">
+        <h3>Deliver the bad news</h3>
+        <p>Use this on the message you keep starting and deleting.</p>
+      </span>
+      <span class="open" aria-hidden="true">&#8594;</span>
+    </a>
+    <a class="lrow" href="/prompts/disagree-upward">
+      <span class="fno">05</span>
+      <span class="lt">
+        <h3>Push back on my manager, in writing</h3>
+        <p>Use this when you think a decision is wrong and it needs to be on record.</p>
+      </span>
+      <span class="open" aria-hidden="true">&#8594;</span>
+    </a>
+    <a class="lrow" href="/prompts/meeting-to-actions">
+      <span class="fno">06</span>
+      <span class="lt">
+        <h3>Forty minutes of meeting into five lines</h3>
+        <p>Use this straight after the call, while you still remember who meant what.</p>
+      </span>
+      <span class="open" aria-hidden="true">&#8594;</span>
+    </a>
+    <a class="lrow" href="/prompts/difficult-feedback">
+      <span class="fno">07</span>
+      <span class="lt">
+        <h3>Write feedback that is specific, not personal</h3>
+        <p>Use this before a review conversation you are dreading.</p>
+      </span>
+      <span class="open" aria-hidden="true">&#8594;</span>
+    </a>
+    <a class="lrow" href="/prompts/angry-draft">
+      <span class="fno">08</span>
+      <span class="lt">
+        <h3>The version I can actually send</h3>
+        <p>Use this when you have written the honest reply and know you must not send it.</p>
+      </span>
+      <span class="open" aria-hidden="true">&#8594;</span>
+    </a>
+  </div>
+
+  <nav class="pack-nav" aria-label="All packs">
+    <span class="pn-label">More packs</span>
+    <a href="/packs/beginners">Best prompts for beginners</a><a href="/packs/jobs">Job hunting</a><a href="/packs/study">Study smarter</a><a href="/packs/human">Sounding like a human</a><a href="/packs/business">Running a small business</a><span class="pn-here">Awkward work messages</span><a href="/packs/freelance">Freelance client handling</a><a href="/packs/found">Getting found by AI</a><a href="/packs/money">Money decisions</a><a href="/packs/health">Health and habits</a>
+  </nav>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-word">Michael&#8217;s Corner</p>
+      <p class="foot-line">Everything on this site was built by the person who uses it.</p>
+    </div>
+    <div class="foot-col">
+      <a href="/library">Prompt library</a>
+      <a href="/tools">Tools</a>
+      <a href="/bill">Apps I built</a>
+    </div>
+    <div class="foot-col">
+      <a href="/start">Start here</a>
+      <a href="/kit">The Starter Kit</a>
+      <a href="/about">Who I am</a>
+    </div>
+  </div>
+</footer>
+<script src="../data/prompts-index.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

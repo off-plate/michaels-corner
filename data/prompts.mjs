@@ -1,1785 +1,1676 @@
-/* Michael's Corner v2, the prompt library data.
-   Source: planning/CONTENT-LIBRARY.md. Every prompt string is verbatim, the exact copy target.
-   Consumed by build.mjs (generates library.html, packs/, prompts/, prompts-index.js).
-   Keep the [bracket] fill slots and the honest-limit lines intact. They are the brand. */
+/* Michael's Corner, the prompt library data.
+   Consumed by build.mjs, which generates packs/, prompts/ and data/prompts-index.js.
+   app.js holds a second, shorter copy of the pack list for the /library page. Change both.
 
-export const UPDATED = "07/2026";
+   Rebuilt from scratch 2026-09-09 against what people on Reddit said they actually use AI
+   for, and what they said made prompt lists worthless. The house rules that came out of it:
+
+   1. No persona openings. "You are an expert analyst" is the most copied prompt habit
+      there is, and there is peer-reviewed work saying it makes answers worse rather than
+      better (Michigan / DeepMind, 162 persona variants tested). Say the task, not the costume.
+   2. Never let the model invent the facts. Every prompt either supplies them through a
+      [bracket] slot or makes the model ask for them before it answers.
+   3. Name the thing instead of describing it with an adjective. "Make it professional"
+      means nothing. Bad output is usually human ambiguity, not a badly engineered prompt.
+   4. Say what to do when it does not know. An answer with a gap marked beats a complete
+      answer that is quietly wrong.
+   5. Michael's voice: plain B2 English, no em dashes, no hype, short sentences.
+
+   Keep the [bracket] slots and the honest-limit lines. They are why these work. */
+
+export const UPDATED = "09/2026";
 
 export const PACKS = [
   {
     id: "beginners",
-    desc: "Start here. Simple prompts that work on your first day with ChatGPT or Claude.",
-    chip: "Beginners",
+    desc: "The prompts to learn first, for anyone who has heard of AI but never really used it.",
+    chip: "Start here",
     name: "Best prompts for beginners",
     blurb: [
-      "Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets and paste it in."
+      "The prompts to learn first, for anyone who has heard of AI but never really used it. None of them need any setup. Copy one, fill in the brackets, paste it in."
     ],
     updated: UPDATED,
     prompts: [
       {
-        id: "sort-my-day",
-        title: "Sort my day in five minutes",
-        when: "Use this when your inbox and task list feel like one big pile and you do not know where to start.",
-        prompt: `You are my calm, practical chief of staff. Your job is to turn a messy pile of tasks into a plan I can act on in the next hour.
+        id: "interview-me-first",
+        title: "Make it ask before it answers",
+        when: "Use this first, on anything that matters. It is the habit that separates people who get useful answers from people who get generic ones.",
+        prompt: `I want help with this: [describe what you want, roughly, in a sentence or two].
 
-Here is everything on my plate right now:
-[paste your inbox subjects, messages, and to-do items here]
+Do not answer yet. First tell me what you would need to know to do this well, then ask me the three to five questions that would actually change your answer. Ask them one at a time and wait for my reply before the next one.
 
-Do this:
-1. Sort every item into three groups: Do today, Do this week, and Drop or delegate.
-2. Put the Do today group in the order I should actually do it, with a one line reason for each item.
-3. Point out anything that feels urgent but is not actually important.
-4. If two items depend on each other, say which comes first.
-5. If an item is too vague to place, put it in a Questions list instead of guessing what I meant.
+While you are interviewing me:
+- Ask about things that would change what you produce. Skip background that would not.
+- If an answer of mine is vague, push once for something concrete before moving on.
+- Do not start solving it while we are still talking.
 
-Rules:
-- Keep the whole answer on one screen.
-- Use plain words. No motivational talk, no filler.
-- Do not invent tasks I did not give you.
+When you have enough, say "Ready" and give me your answer. If something is still missing, name it and say what you assumed instead of quietly guessing.`,
+        tip: "Ten seconds of this beats twenty minutes spent fixing an answer built on a guess. If you take one prompt from this whole site, take this one."
+      },
+      {
+        id: "fix-my-question",
+        title: "Rewrite my question before you answer it",
+        when: "Use this when you can feel that your question is vague but you are not sure how to sharpen it.",
+        prompt: `Here is the question I was about to send you:
 
-End with one sentence: the single thing that matters most today, and why.`,
-        tip: "Run it every morning for a week before you judge it. The value shows up on the chaotic days, not the calm ones."
+[paste your question exactly as you first wrote it]
+
+Before answering, do this:
+1. Tell me what is ambiguous in it. Point at the specific words that could mean more than one thing.
+2. Tell me what context you are missing that I probably have.
+3. Rewrite it as the question I should have asked, and show me the rewrite.
+
+Then wait. Do not answer the rewritten question until I say go, because I may want to correct your version first.`,
+        tip: "Most bad answers are bad questions. Run this a few times and you will start writing the sharper version yourself."
+      },
+      {
+        id: "only-this-source",
+        title: "Answer only from what I gave you",
+        when: "Use this whenever the answer has to be right: a contract, a policy, a report, anything you would be embarrassed to get wrong.",
+        prompt: `Here is the source material:
+
+[paste the document, email, article or notes]
+
+My question is: [what you want to know]
+
+Rules for your answer:
+- Use only what is in the text above. Do not add anything you know from elsewhere.
+- Quote the exact words you based each part of your answer on.
+- If the text does not settle my question, say "not in the source" and say what would settle it.
+- Do not smooth over a gap by guessing what the document probably means.`,
+        tip: "This is the difference between a summary you can act on and one you have to check line by line. The quoting requirement is what makes it work."
+      },
+      {
+        id: "what-did-you-assume",
+        title: "Show me what you assumed",
+        when: "Use this on the answer you just got, before you act on any of it.",
+        prompt: `Look back at the answer you just gave me.
+
+1. List everything you assumed that I did not actually tell you.
+2. For each one, say what your answer would change to if the assumption were wrong.
+3. Mark anything in your answer you are not confident about, and say why.
+4. Tell me the one thing I could check that would most change whether your answer holds.
+
+Do not defend the answer. I want the weak points, not a summary of it.`,
+        tip: "It sounds equally certain whether or not it is right. Asking what it assumed gets a straighter answer than asking if it is sure."
       },
       {
         id: "explain-like-new",
         title: "Explain it like I am new",
-        when: "Use this when someone uses a word or idea you do not understand and you would rather not pretend you do.",
-        prompt: `I am completely new to [topic or term]. Explain it to me without jargon.
+        when: "Use this when someone used a word or an idea you did not follow and you would rather not pretend you did.",
+        prompt: `I am new to [topic or term]. Explain it without jargon.
 
-Here is where I met it, so you know the context:
-[paste the sentence, email, or article where it came up, or write "no context, just curious"]
+Here is where I met it, so you know which meaning I need:
+[paste the sentence, email or article where it came up, or write "no context, just curious"]
 
 Do this:
 1. Say what it is in two or three plain sentences.
-2. Explain why people use it or care about it, with one everyday example I would recognise.
+2. Say why people care about it, with one everyday example I would recognise.
 3. Tell me the one thing beginners most often get wrong about it.
-4. If the meaning changes depending on context, give me the meaning that fits the text I pasted.
+4. If the word means different things in different fields, give me the meaning that fits what I pasted.
 
 Rules:
-- Short sentences. Everyday words.
-- If you must use a technical word, put its plain meaning in brackets right after it.
-- Do not assume I know anything about the field.
-- If my context is not enough to be sure what the term means here, say so and ask me one question.
-
-End with one small thing I could try or look at today to see the idea in action.`,
-        tip: `If any part is still foggy, follow up with "explain that part again to a ten year old". It works more often than it should.`
+- Short sentences, everyday words.
+- If you must use a technical word, put its plain meaning in brackets straight after it.
+- If my context is not enough to be sure which meaning I need, ask me one question instead of picking.`,
+        tip: "If a part is still foggy, reply \"explain that bit again to a ten year old\". It works more often than it should."
       },
       {
-        id: "interview-me-first",
-        title: "Make AI ask questions first",
-        when: "Use this when your request is fuzzy and you know a vague prompt would get a vague answer.",
-        prompt: `I want help with this: [describe your goal in one or two lines, even roughly].
+        id: "say-it-back",
+        title: "Say my request back to me",
+        when: "Use this before a long job, when you want to catch a misunderstanding while it is still cheap.",
+        prompt: `Here is what I am asking you to do:
 
-Before you give me any answer, act like an experienced consultant taking a brief. Ask me the three to five questions you most need answered to do this well. Ask one short question at a time and wait for my reply before the next one.
+[paste or describe the task]
 
-Rules for the interview:
-1. Ask about things that would actually change your answer, not background trivia.
-2. If my reply is vague, push once for something more concrete before moving on.
-3. Do not start solving the problem while the interview is running.
+Before you do any of it, say back to me:
+1. What you think I am asking for, in your own words.
+2. What the finished thing will look like: how long, what format, who it is for.
+3. Anything in my request you found unclear.
 
-When you have what you need, write "Ready" and then give me your best answer based on everything I told you.
-
-Format for the final answer:
-- Start with the recommendation in two or three sentences.
-- Then the reasoning, kept short.
-- Then the first concrete step I should take.
-
-Keep the language plain and do not pad it.`,
-        tip: "The questions it asks are half the value. They show you what you had not decided yet."
+Then stop and wait for me to correct you. If I have contradicted myself anywhere, point at it rather than picking whichever version you prefer.`,
+        tip: "Catching a wrong assumption here costs one message. Catching it after two thousand words costs the two thousand words."
       },
       {
-        id: "fix-my-prompt",
-        title: "Rewrite my prompt properly",
-        when: "Use this when a prompt keeps giving you weak answers and you cannot tell what is wrong with it.",
-        prompt: `You are a prompt editor. I will give you a prompt I wrote that is not getting the results I want. Improve it, and teach me something in the process.
+        id: "smallest-first-step",
+        title: "Break down the thing I keep avoiding",
+        when: "Use this on the task that has been moving down your list all week.",
+        prompt: `I have been putting this off: [name the task, honestly].
 
-My prompt:
-[paste your prompt here]
-
-What I actually wanted from it:
-[describe the result you were hoping for]
-
-What I got instead:
-[describe or paste the disappointing answer]
+Here is what I know about it: [any detail, deadline, or reason it is stuck. If you do not know why it is stuck, say so.]
 
 Do this:
-1. Diagnose in two or three sentences why the prompt underdelivers. Be direct.
-2. Rewrite the prompt. Give it a clear role, the context it was missing, concrete instructions, and a defined output format.
-3. Mark in the rewrite which parts I should adapt each time I use it, using [brackets].
-4. List two or three habits from my original prompt that I should drop in future.
+1. Ask me two questions to work out what is actually blocking it. Waiting on someone, missing information, unclear goal, or just dread.
+2. Then give me the smallest first step, something I could finish in ten minutes today.
+3. Then the next three steps after that, in order.
+4. Tell me which step is the one I am really avoiding, and why you think so.
 
-Rules:
-- Keep the rewritten prompt as short as it can be while still working.
-- Do not add requirements I never asked for.
-- Plain words only.
-
-End with the rewritten prompt in a code block so I can copy it in one click.`,
-        tip: "Keep the rewrites. After five of them you will see the same fixes repeating, and that is you learning to prompt."
+Keep it to one screen. No pep talk.`,
+        tip: "The ten minute step is the point. If the first thing on the list still feels heavy, tell it to go smaller."
       },
       {
-        id: "stress-test-answer",
-        title: "Stress test an AI answer",
-        when: "Use this when an AI answer looks confident, and you are about to act on it.",
-        prompt: `You are a careful reviewer. I will paste an answer I got from an AI, and your job is to stress test it before I rely on it.
+        id: "where-ai-fits",
+        title: "Work out what to hand over",
+        when: "Use this in your first week, once you have a rough sense of what it can do.",
+        prompt: `Here is what my week actually looks like:
 
-The answer:
-[paste the AI answer here]
+[list the things you do repeatedly, however roughly. Include the boring ones.]
 
-What I plan to do based on it:
-[one line, for example "send this to a client" or "follow these tax steps"]
+For each item, tell me honestly which of these it is:
+- Worth handing over now, and what you would need from me to do it well.
+- Worth handing over only with my material pasted in each time.
+- Not worth it, because checking your work would take longer than doing it myself.
+- A bad fit, because it needs live information, exact arithmetic, or a judgement only I can make.
 
-Do this:
-1. List the claims in the answer that are checkable facts. For each one, say how confident you are and how I could verify it quickly.
-2. Point out anything that is vague, generic, or written to sound right rather than be right.
-3. Say what is missing: the questions the answer skipped over.
-4. If any claim depends on current information like prices, laws, or software versions, flag it. Your training data may be out of date.
-
-Rules:
-- Do not soften the review to be polite.
-- If the whole answer is actually fine, say so plainly and stop.
-
-End with a verdict on one line: safe to use, use with edits, or verify first. Then list the two most important things to double check.`,
-        tip: "Confident but vague is the classic failure mode. If an answer feels smooth but empty, this prompt usually finds why."
-      },
-      {
-        id: "hard-message",
-        title: "Draft the message I keep avoiding",
-        when: "Use this when you owe someone a difficult message and keep pushing it to tomorrow.",
-        prompt: `You are helping me write a message I have been avoiding. Keep me honest and keep it kind.
-
-The situation:
-[explain who the message is for, what happened, and why it is uncomfortable]
-
-What the message must achieve:
-[one line, for example "apologise for the delay and give a new date"]
-
-Tone: [formal or casual]. The relationship: [client, boss, friend, family].
-
-Do this:
-1. Draft the message. Get to the point in the first sentence. No long wind up.
-2. If I am at fault, own it plainly in one sentence. No drama, no over apologising.
-3. State the concrete next step or new commitment.
-4. Keep it under 120 words.
-
-Rules:
-- Do not invent excuses, reasons, or events I did not give you.
-- No corporate phrases and no fake warmth.
-- Write it so I could send it exactly as it is.
-
-After the draft, add two lines: what reaction I should realistically expect, and the one thing I should not add if the reply comes back cold.`,
-        tip: "Send it the same hour you draft it. The rewrite loop is just avoidance with better formatting."
-      },
-      {
-        id: "honest-summary",
-        title: "Summarise without losing the point",
-        when: "Use this when you have a long document, article, or contract section and only need what matters.",
-        prompt: `You are a careful reader summarising a document for a busy person. Accuracy beats elegance.
-
-The document:
-[paste the text, or the part of it you need]
-
-Why I am reading it:
-[one line, for example "deciding whether to sign" or "need to reply by Friday"]
-
-Do this:
-1. Summarise the whole thing in five bullets or fewer, in plain words.
-2. Pull out everything that involves money, dates, deadlines, or obligations, quoted word for word, in a separate list.
-3. Flag anything unusual, one sided, or easy to miss.
-4. Tell me what the document does not say that I would probably expect it to.
-
-Rules:
-- Quote exactly where the wording matters. Never paraphrase numbers or dates.
-- Do not smooth over confusing parts. If a section is unclear, say it is unclear.
-- No commentary on how interesting the document is.
-
-End with one line: what you would do next in my position, phrased as a suggestion. If the stakes are high, remind me to read the flagged parts myself.`,
-        tip: "For contracts and anything legal, use the summary to decide which parts to read properly. Never use it as a replacement for reading them."
-      },
-      {
-        id: "ai-in-my-week",
-        title: "Where AI fits in my week",
-        when: "Use this when you keep hearing AI could save you time but cannot see where in your own week.",
-        prompt: `You are a practical AI consultant with no products to sell me. I will describe my normal week, and you will find the tasks where AI genuinely helps, and the ones where it does not.
-
-My normal week:
-[describe your job and list the tasks that fill your week, roughly how long each takes, and which ones you dislike]
-
-Do this:
-1. Pick the three tasks where AI would save me the most time this month. For each, say what the AI does, what stays my job, and a realistic time saving.
-2. Name the tasks on my list where AI is a bad fit, with a one line reason each.
-3. For the best candidate, write the exact prompt I should try first.
-4. Rank the three by effort to get started, easiest first.
-
-Rules:
-- Be conservative with the numbers. A believable hour beats an impressive ten.
-- Plain words, no sales tone.
-- If my description is too thin to judge a task, ask me about it instead of guessing.
-
-End with a table: task, what AI does, what stays mine, minutes saved per week.`,
-        tip: "If an estimate sounds too good, halve it. It will still be worth doing, and now it will also be true."
+Be blunt in the last two categories. I would rather find out now than after a wasted fortnight.`,
+        tip: "Run it again after a month. The answer changes as you get better at asking, and the last two categories are the useful ones."
       }
     ]
   },
   {
-    id: "writing",
-    desc: "Draft faster and still sound like yourself. These keep your voice and cut the filler.",
-    chip: "Writing",
-    name: "Best prompts for writing",
+    id: "jobs",
+    desc: "For anyone applying for work, from tailoring the CV to the reply when the number is too low.",
+    chip: "For applicants",
+    name: "Job hunting",
     blurb: [
-      "Draft faster and still sound like yourself. These keep your voice, cut the filler and stop your text from reading like something a machine wrote."
+      "Tailoring a CV to one specific posting is the job people reach for AI to do most often. It is also where it most often writes in things you never did. Every prompt here is built to stop that."
     ],
     updated: UPDATED,
     prompts: [
       {
-        id: "sound-like-me",
-        title: "Rewrite this in my voice",
-        when: "Use this when you have a rough draft and want it to read the way you actually talk.",
-        prompt: `Rewrite the text below so it sounds like me, based on the voice sample I give you.
+        id: "tailor-my-cv",
+        title: "Tailor my CV to this one posting",
+        when: "Use this per application. It is the twenty minutes of rewriting you do for every job, done in two.",
+        prompt: `Here is the job posting:
+[paste the whole posting, including the boring requirements section]
 
-A sample of my real writing, so you can hear my voice:
-[paste a few paragraphs you wrote yourself, an email or a post, anything natural]
+Here is my CV:
+[paste your CV as it stands]
 
-Text to rewrite:
-[paste your rough draft here]
+Rewrite my CV bullets so they answer this specific posting.
 
-Do this:
-1. Match my sentence length, rhythm, and level of formality from the sample.
-2. Keep my meaning and my main points exactly. Do not add new claims, examples, or numbers.
-3. Where my draft is confusing, make it clearer, not fancier.
-4. Keep it roughly the same length or shorter.
+Hard rules, and these matter more than the rewrite:
+- Use only things already in my CV. Do not add a skill, a tool, a number or a responsibility I did not list.
+- If the posting asks for something I do not have, do not paper over it. Put it in a separate list called "gaps they will notice".
+- Keep my job titles, employers and dates exactly as I wrote them.
+- Where you reword a bullet, keep the fact and change only the framing.
+
+Then show me what you changed and why, line by line, so I can check each one.`,
+        tip: "Read every rewritten line before you send it. The quickest way to lose an interview is being asked about a skill the AI gave you."
+      },
+      {
+        id: "decode-the-posting",
+        title: "What is this posting actually asking for",
+        when: "Use this before you decide whether to apply at all.",
+        prompt: `Here is a job posting:
+[paste the posting]
+
+Tell me:
+1. The five things they will really screen on, in order. Separate the genuine requirements from the wish list.
+2. What the posting suggests about why the role is open. Growth, someone left, a problem they need fixed.
+3. Which phrases are standard boilerplate and which look specific to this team.
+4. What the posting does not say that I would want to know.
+
+If the posting is too vague to read this way, say so instead of inventing a reading.`,
+        tip: "The wish list versus requirement split is the useful part. Most people rule themselves out on the wish list."
+      },
+      {
+        id: "honest-gap-check",
+        title: "Where am I genuinely under-qualified",
+        when: "Use this when you are torn about applying and want a straight answer rather than encouragement.",
+        prompt: `Job posting:
+[paste it]
+
+My background:
+[paste your CV, or describe your experience honestly]
+
+Be blunt with me:
+1. Where am I genuinely short of what they asked for? Separate "can be learned on the job" from "they will not shortlist me without it".
+2. Where am I stronger than the posting expects?
+3. If I apply, what is the one objection a recruiter will have, and what is the honest answer to it? Not a spin, an honest one.
+4. Given all that, is this a reasonable application or a long shot? Say which.
+
+Do not be encouraging. I want the read.`,
+        tip: "Ask for blunt and you get blunt. Left alone it will tell you that you are a strong candidate for almost anything."
+      },
+      {
+        id: "duties-to-results",
+        title: "Turn my duties into results",
+        when: "Use this when your CV reads like a job description and you know it.",
+        prompt: `Here are the things I did in this role:
+[paste your current bullets, however dull]
+
+Turn each one into a result rather than a duty. But:
+- You do not know my numbers, so do not invent any. Where a bullet would be stronger with a figure, ask me for it instead of writing one in.
+- Ask me up to six questions in total, the ones most likely to turn a duty into something measurable.
+- After I answer, rewrite the bullets using only what I gave you.
+- If I do not have a number for something, write the bullet without one rather than reaching for a word like "significantly".`,
+        tip: "The questions are the value here. Most people have the numbers somewhere and have never thought to put them on the page."
+      },
+      {
+        id: "not-a-cover-letter",
+        title: "A note instead of a cover letter",
+        when: "Use this when a cover letter is expected but you know the usual template reads as filler.",
+        prompt: `Job posting: [paste it]
+My relevant background: [paste or summarise]
+Why this one actually interests me: [one honest line. If the honest answer is that you need a job, write that and I will work with what is true.]
+
+Write a short note, under 200 words.
 
 Rules:
-- Common words over clever ones.
-- No buzzwords, no hype, and never use em dashes. Use commas and full stops.
-- If my draft and my voice sample clash somewhere, follow the sample.
+- Do not open with "I am writing to express my interest". Open with something specific about them or about the work.
+- One concrete thing I have done that maps to their problem, taken from my background only.
+- No adjectives about me. No passionate, driven, results-oriented.
+- Plain sentences. It should read like I typed it.
+- End with a simple next step, not a flourish.`,
+        tip: "Cover letters became easy to generate, so they became easy to spot. Short and specific now beats polished."
+      },
+      {
+        id: "tired-recruiter",
+        title: "Read this as a tired recruiter",
+        when: "Use this on your finished application, before you send it.",
+        prompt: `Here is my CV and cover note:
+[paste both]
+Here is the posting: [paste it]
 
-Give me the rewrite only, no notes before or after it. If you were unsure what I meant in a sentence, keep my version and mark it with [check] so I can fix it myself.`,
-        tip: "Save your voice sample somewhere handy. Pasting it every time is the whole trick, and it takes ten seconds."
+Read it as a recruiter with 200 of these to get through today, skimming rather than reading.
+
+1. Where exactly do you stop reading, and why?
+2. What do you learn in the first six seconds?
+3. What is the one line that makes you keep going, if any?
+4. What would put it in the no pile before you finish it?
+
+Be harsh. I would rather hear it from you.`,
+        tip: "\"Where do you stop reading\" gets you more than any general request for feedback."
+      },
+      {
+        id: "interview-rehearsal",
+        title: "Rehearse the interview for this job",
+        when: "Use this the evening before, out loud if you can.",
+        prompt: `Job posting: [paste it]
+My background: [paste it]
+
+Interview me. Ask the eight questions this posting most likely leads to, one at a time, and wait for my answer before the next.
+
+After each answer:
+- Say what was strong in it.
+- Say what a sceptical interviewer would follow up on.
+- If I waffled, say so, and tell me what the tighter version would be.
+
+Include at least one question about the weakest part of my background. Do not go easy on me because I am practising.`,
+        tip: "Answer out loud, not in your head. The gap between what you think you would say and what comes out is the whole point."
+      },
+      {
+        id: "silence-and-salary",
+        title: "Reply to silence, and to a low offer",
+        when: "Use this when you are staring at the message box, rewriting the first line for the fifth time.",
+        prompt: `Situation: [pick one and fill it in]
+- They have not replied in [number] days since [what happened last].
+- They offered [amount or terms], which is below what I need, and what I need is [your number and the reason].
+
+Here is the last message in the thread:
+[paste it]
+
+Write my reply.
+
+Rules:
+- Short, under 120 words.
+- Do not apologise for following up.
+- For a follow-up: give them an easy way to answer, including an honest "not moving forward" option.
+- For a salary reply: state my number once, give the reason in one line, then stop. Do not undercut it in the next sentence.
+- Do not use "just", "quickly", or "I was wondering if".`,
+        tip: "Send the follow-up. Plenty of people assume silence means no and find out later it meant the hiring manager was on leave."
+      }
+    ]
+  },
+  {
+    id: "study",
+    desc: "For students at any level. Make it test you rather than summarise for you.",
+    chip: "For students",
+    name: "Study smarter",
+    blurb: [
+      "For students at any level. The pattern that keeps coming up from people who actually learn this way is the same: make it test you instead of summarising for you, then make it explain what you got wrong."
+    ],
+    updated: UPDATED,
+    prompts: [
+      {
+        id: "quiz-me-from-notes",
+        title: "Quiz me from my own notes",
+        when: "Use this instead of rereading. Rereading feels like studying and is mostly not.",
+        prompt: `Here are my notes:
+
+[paste your lecture notes, chapter summary, or slides]
+
+Ask me questions on this material. One at a time, waiting for my answer.
+
+Rules:
+- Questions come only from what I pasted. Do not test me on things that are not in there.
+- Mix recall questions with ones that make me apply the idea to a new case.
+- After each answer, tell me if I was right, and if I was partly right say exactly which part was wrong.
+- Do not give me the answer before I have tried.
+- Every fifth question, ask one that connects back to something earlier.
+
+Start with question one.`,
+        tip: "Answer before you look. The struggle to remember is the thing that makes it stick, and skipping it is why rereading does not work."
+      },
+      {
+        id: "test-until-i-fail",
+        title: "Test me until I get one wrong",
+        when: "Use this when you think you know a topic and want to find out whether you do.",
+        prompt: `Topic: [name the topic]
+My material: [paste your notes, or say "use standard coverage of this topic"]
+
+Ask me progressively harder questions on this, one at a time, until I get one wrong.
+
+When I get one wrong:
+1. Stop the escalation.
+2. Tell me what the gap actually is. Not just the right answer, the misunderstanding behind my wrong one.
+3. Explain that specific gap.
+4. Ask me two more questions on that same gap to check it has closed.
+5. Then carry on getting harder.
+
+If I am getting everything right, get harder faster.`,
+        tip: "The point is finding the edge of what you know. Getting everything right means the questions were too easy, so say so."
+      },
+      {
+        id: "why-was-i-wrong",
+        title: "Why did I get this wrong",
+        when: "Use this on a returned test or practice paper, on the questions you lost marks on.",
+        prompt: `Here is the question: [paste it]
+Here is my answer: [paste exactly what you wrote, mistakes included]
+Here is the correct answer, if I have it: [paste it, or write "not given"]
+
+Do not just tell me the right answer. Tell me:
+1. What I appear to have misunderstood, based on what I actually wrote.
+2. Whether this is a knowledge gap, a misread question, or a careless slip. Say which, and how you can tell.
+3. What the general version of this mistake is, so I can spot it next time.
+4. Two practice questions that would catch this same mistake again.
+
+If my answer is closer to right than it looks, say that too.`,
+        tip: "Wrong answers are more useful than right ones. The diagnosis of the mistake is the part that stops it happening again."
+      },
+      {
+        id: "explain-it-back",
+        title: "Let me explain it and find my holes",
+        when: "Use this when you can follow the material while reading but cannot reproduce it afterwards.",
+        prompt: `I am going to explain [topic] to you in my own words. I will probably get parts wrong.
+
+After I finish:
+1. Tell me which parts are correct.
+2. Tell me which parts are wrong, and what the correct version is.
+3. Tell me what I left out that matters.
+4. Point at anything I said that was vague, where I might be hiding a gap behind a phrase I do not really understand.
+
+Then ask me one question about the weakest part.
+
+Here is my explanation:
+[write it out, badly if necessary, without looking at your notes]`,
+        tip: "Writing it without looking is the whole exercise. If you cannot start, that is your answer about how well you know it."
+      },
+      {
+        id: "decode-hard-reading",
+        title: "Decode a paragraph I cannot get through",
+        when: "Use this on dense academic reading, when you have read the same three lines four times.",
+        prompt: `Here is a passage I am stuck on:
+
+[paste the one paragraph you are stuck on]
+
+Do this:
+1. Say what it means in plain language, one short paragraph.
+2. List every term in it that carries a technical meaning, with a plain definition of each.
+3. Show me the structure of the argument: what it claims, what it uses as support.
+4. Tell me what I would need to already know for this to make sense, and whether the passage assumes it.
+
+Work only from this passage. If it depends on something earlier in the text I have not given you, say so.`,
+        tip: "Paste one paragraph. It works far better on a small piece, and you will actually read the answer."
+      },
+      {
+        id: "flashcards-from-material",
+        title: "Turn this into flashcards",
+        when: "Use this when card-making is eating the time you meant to spend studying.",
+        prompt: `Here is my material:
+
+[paste notes, a chapter, or a set of slides]
+
+Turn it into flashcards.
+
+Rules:
+- One fact or idea per card. If a card needs the word "and", split it.
+- Front is a question, not a topic heading.
+- Back is as short as it can be and still be correct.
+- Only from what I pasted. Do not add cards from your own knowledge of the subject.
+- Skip anything that is only a heading or an example with no fact in it.
+- Mark any card where the material was too vague for you to be sure, rather than guessing.
+
+Give them as a plain list I can paste into a card app: question, then answer, one per line.`,
+        tip: "Check the cards before you drill them. A wrong card drilled twenty times is worse than no card."
+      },
+      {
+        id: "am-i-ready",
+        title: "Am I actually ready for this exam",
+        when: "Use this a week out, when you want a real answer instead of a feeling.",
+        prompt: `Exam: [what it covers, the format, and the date]
+Syllabus or topic list: [paste it]
+
+Do not tell me I am ready or not yet. First find out.
+
+1. Ask me to rate my confidence on each topic, one line each.
+2. Then pick the three topics I rated highest and test me on them, because that is where overconfidence hides.
+3. Then test me on the three I rated lowest.
+4. Then tell me where I actually stand versus where I think I stand, topic by topic.
+5. Give me a plan for the days I have left, weighted to the real gaps rather than my ratings.
+
+Be honest, including if the honest answer is that a week is not enough for a topic.`,
+        tip: "Testing the topics you feel best about is the useful bit. That is where the surprises are."
+      },
+      {
+        id: "week-before-plan",
+        title: "Plan the week before the exam",
+        when: "Use this when you know what is coming and have no idea how to fit it in.",
+        prompt: `Exam date: [date]
+Topics still to cover: [list them]
+Time I actually have: [be honest. Hours per day, and which days are already gone.]
+How I study best: [what has worked before, or "no idea"]
+
+Build me a plan.
+
+Rules:
+- Fit the time I actually said, not an ideal week. If it does not fit, say what will not get covered rather than squeezing everything in.
+- Put active recall and practice questions in, not just reading.
+- Leave the day before the exam for review only.
+- Tell me which topic to drop if I fall behind, and why that one.
+- No motivational filler. Just the plan.`,
+        tip: "The \"what to drop\" line is the one worth reading. You will fall behind, and deciding now beats panicking later."
+      }
+    ]
+  },
+  {
+    id: "human",
+    desc: "Stop it sounding like AI, and stop your own writing getting flattened into the same voice.",
+    chip: "For writing",
+    name: "Sounding like a human",
+    blurb: [
+      "People spot AI writing now, and they think less of you for sending it. These strip the tells, keep your own voice, and cut the padding that gets added when you ask for something to be made better."
+    ],
+    updated: UPDATED,
+    prompts: [
+      {
+        id: "match-my-voice",
+        title: "Write in my voice, from samples",
+        when: "Use this instead of asking for a friendly tone. Adjectives make it guess, examples do not.",
+        prompt: `Here are three things I wrote myself:
+
+[paste sample one]
+
+[paste sample two]
+
+[paste sample three]
+
+Study how I write. Look at sentence length and how much it varies, the words I reach for, how formal I am, whether I use contractions, how I open and close, and what I never do.
+
+Before writing anything, tell me what you noticed about my voice in five bullets, so I can correct you if you have read me wrong.
+
+Then write this in my voice: [what you want written]
+
+Do not smooth me out. If I write short blunt sentences, keep them short and blunt.`,
+        tip: "Use real samples, including a scrappy one. Three of your best polished pieces teach it to write like your best polished pieces, which is not how you actually sound."
+      },
+      {
+        id: "strip-the-tells",
+        title: "Strip the AI tells out of this",
+        when: "Use this on anything generated that you are about to put your name on.",
+        prompt: `Here is the text:
+
+[paste it]
+
+Remove the things that make it read as machine written:
+- Em dashes. Use commas, full stops or a rewrite.
+- The three-item list where all three items are the same shape.
+- Openers like "In today's fast-paced world" and "It's important to note that".
+- "Not just X, but Y" and every other manufactured contrast.
+- Words like leverage, robust, seamless, delve, landscape, foster, underscore, testament.
+- Sentences that all run to the same length.
+- A closing line that restates the whole thing.
+
+Keep every fact and every point. Change only how it sounds.
+
+Then list what you removed, so I can see the pattern and stop writing it myself.`,
+        tip: "The list at the end is the part that trains you. After a few runs you will start hearing the tells before you write them."
       },
       {
         id: "cut-in-half",
-        title: "Cut this until it is sharp",
-        when: "Use this when your text is too long and you can no longer see what to remove.",
-        prompt: `You are a strict editor. Cut the text below by about half without losing the meaning or my voice.
+        title: "Cut this in half",
+        when: "Use this on anything that felt long while you were writing it.",
+        prompt: `Here is my text:
 
-Text:
-[paste your text here]
+[paste it]
 
-Remove:
-1. Filler words, warm up sentences, and throat clearing before the point.
-2. Hedging like "I think maybe" or "sort of".
-3. Repeated points, even when the wording differs.
-4. Anything a reader could skip without missing information.
-
-Keep:
-1. The main argument and its order.
-2. Every concrete example, number, and name.
-3. My tone. Editing is not a personality transplant.
+Cut it to half the words.
 
 Rules:
-- Do not compress by making sentences abstract. Prefer deleting whole weak sentences over blurring strong ones.
-- Do not add anything new.
+- Keep every fact, name, number and commitment.
+- Cut throat-clearing, restatement, and hedges like "I think that maybe we could possibly".
+- If two sentences make one point, keep the better one.
+- Do not replace a long simple word with a short complicated one.
+- Do not turn it into notes. It should still read as prose.
 
-Return only the shorter version. Under it, on one line, tell me roughly what percent shorter it is and which single cut you hesitated over, so I can restore it if you guessed wrong.`,
-        tip: "If the half length version still works, run it again. The second pass hurts more and helps more."
+Show me the cut version, then tell me the three things you removed that you were least sure about, in case I wanted them.`,
+        tip: "Ask for half even when you want a third off. Aiming at half and landing at 40% is better than aiming at 10% and cutting nothing."
       },
       {
-        id: "notes-to-draft",
-        title: "Messy notes into a first draft",
-        when: "Use this when you have scattered notes and the blank page is the only thing between you and a draft.",
-        prompt: `You are my drafting partner. Turn my messy notes into a structured first draft I can then edit myself.
+        id: "would-this-get-flagged",
+        title: "Would this get read as AI, and why",
+        when: "Use this when something you wrote yourself has started to feel machine written to you.",
+        prompt: `Here is the text:
 
-What this will be:
-[for example "a blog post", "an internal memo", "a talk outline"]
+[paste it]
 
-Who will read it:
-[one line about the audience]
+Tell me whether a reader would suspect this was AI written, and be specific.
 
-My notes, in no particular order:
-[paste everything: fragments, bullets, half sentences]
+1. Quote the exact lines that would trigger the suspicion, and say what about each one does it.
+2. Separate the ones that are genuinely AI habits from the ones that are just plain writing.
+3. Say what is missing that a person would usually put in.
+4. Give me a score out of ten for how machine written it reads, and explain the score.
 
-Do this:
-1. Propose an order: a short outline built only from what is in my notes.
-2. Write the draft following that outline, in plain, direct language.
-3. Where my notes are thin, do not fill the gap with generic text. Insert [more here: question] telling me what is missing.
-4. Keep every specific detail, number, and phrase from my notes that has character.
-
-Rules:
-- No introduction that restates the title. Start where it gets interesting.
-- No conclusion that begins with "In conclusion".
-- Do not invent facts, quotes, or examples.
-
-End with the outline first, then the draft, then a three line list of the gaps I need to fill.`,
-        tip: "The [more here] gaps are the real output. They tell you what you actually think before you polish anything."
+Do not rewrite it. I want to know what to fix, not have it fixed.`,
+        tip: "Worth running on your own unassisted writing too. A lot of ordinary business English reads as AI now, which is its own problem."
       },
       {
-        id: "remove-ai-flavor",
-        title: "Strip the AI flavor out",
-        when: "Use this when a draft smells like AI and you need it to read human again.",
-        prompt: `You are an editor who removes the telltale signs of AI writing from a text while keeping its content.
+        id: "grammar-only",
+        title: "Fix my grammar and nothing else",
+        when: "Use this when you want the errors gone but the writing left alone.",
+        prompt: `Here is my text:
 
-Text:
-[paste the text here]
+[paste it]
 
-Hunt down and fix:
-1. Buzzwords and inflated verbs: leverage, empower, elevate, unlock, delve, streamline.
-2. The contrast formula "it is not X, it is Y" and "not only X but also Y". Say the point once, plainly.
-3. Em dashes. Replace them with commas, full stops, or nothing.
-4. Perfectly balanced paragraphs where every one has three sentences. Vary the rhythm.
-5. Empty openers like "In today's world" and closers that just summarise what I read.
-6. Lists of three where the third item is padding.
-7. Adjectives doing no work: seamless, robust, comprehensive, cutting edge.
+Fix only:
+- Spelling
+- Grammar
+- Punctuation
+- Sentences that are genuinely unclear about who did what
 
-Rules:
-- Keep the facts, structure, and intent. This is a cleaning pass, not a rewrite.
-- Plain words. Shorter is better.
-- If a sentence exists only to sound impressive, delete it entirely.
+Do not:
+- Change my word choices for better ones
+- Reorder my sentences
+- Make it more formal or less formal
+- Add anything
+- Remove repetition if I did it on purpose
 
-Return the cleaned text, then a short table counting how many of each problem you fixed.`,
-        tip: "Run your final drafts through this even when you wrote them yourself. We all picked up some of these habits from reading AI text."
-      },
-      {
-        id: "fix-my-english",
-        title: "Make my English sound natural",
-        when: "Use this when English is not your first language and you want your text checked without changing who you are.",
-        prompt: `You are an English editor working with a non-native speaker. My English is decent but not native, and I want my text corrected, not rewritten into someone else's style.
+If a sentence is wrong but I might have meant it, leave it and flag it at the bottom rather than fixing it.
 
-My text:
-[paste your text here]
-
-Where it will be used: [email to a client, LinkedIn post, application, anything]
-
-Do this:
-1. Fix grammar, articles, prepositions, and word order.
-2. Replace only the words a native speaker would genuinely not use in this context. Keep my simpler vocabulary everywhere else.
-3. Keep my sentence structure where it works. Do not make sentences longer or more formal.
-4. Keep all my facts, names, and numbers untouched.
-
-Rules:
-- Do not upgrade my language to impress. Clear beats fancy.
-- No idioms I did not use myself.
-- Spelling: [British or American, pick one].
-
-Return the corrected text first. Under it, list the five most useful corrections with a one line explanation each, so I stop repeating those mistakes. Skip explanations for one time typos.`,
-        tip: "The five explanations are the part that compounds. After a month you will need this prompt visibly less."
-      },
-      {
-        id: "honest-editor",
-        title: "Critique my draft, do not rewrite",
-        when: "Use this when you want to stay the writer and just need a sharp second pair of eyes.",
-        prompt: `You are an honest editor. Read my draft and critique it. Do not rewrite it. The writing stays mine.
-
-The draft:
-[paste your draft here]
-
-Who it is for and what it should achieve:
-[one or two lines]
-
-Give me:
-1. The strongest part, named specifically, and why it works.
-2. The weakest part, named specifically, and why it fails. Quote the exact sentences.
-3. Where you stopped believing me or lost interest, if anywhere.
-4. What the draft promises at the start but never delivers.
-5. Three questions a sharp reader would ask that the draft leaves unanswered.
-
-Rules:
-- Be direct. Politeness that hides problems is useless to me.
-- Critique the draft in front of you, not the draft you would have written.
-- No rewritten sentences, no suggested phrasings. Point at problems, I will solve them.
-
-End with one line: publish as is, needs small fixes, or needs a rethink. Then name the single change with the biggest payoff.`,
-        tip: "Asking for critique instead of a rewrite is slower and better. You keep your voice and you learn where it wobbles."
-      },
-      {
-        id: "titles-worth-keeping",
-        title: "Ten titles, three worth keeping",
-        when: "Use this when the piece is done and the title is the last thing standing.",
-        prompt: `You are a title editor for a writer who hates clickbait. I need title options for the piece below.
-
-The piece, or an honest summary of it:
-[paste the text or a solid summary]
-
-Where the title will appear: [blog, YouTube, newsletter subject line, report cover]
-
-Do this:
-1. Write ten titles. Vary the angle: some plain and descriptive, some curious, some leading with the strongest specific detail from the piece.
-2. Every title must be honest. Promise nothing the piece does not deliver.
-3. No formulas: no "X things nobody tells you", no "the ultimate guide", no question marks doing fake suspense.
-4. Keep each under 60 characters where possible.
-
-Then judge your own work:
-5. Pick your best three and give one line each on why they earn the click and still keep the promise.
-6. Name the one you would choose, and for which audience.
-
-End with the ten as a plain numbered list, then the three finalists with reasons.`,
-        tip: "Pick the title that is still accurate on a bad day. The honest one keeps working after the click."
+Show me the corrected text, then list the changes you made.`,
+        tip: "This is the one to use on writing in a language you are still learning. It corrects you without quietly replacing your voice with its own."
       },
       {
         id: "one-text-three-readers",
-        title: "Rewrite for a different reader",
-        when: "Use this when one text has to land with a second audience and a copy paste will not do it.",
-        prompt: `You are helping me adapt one text for different readers without creating three different truths.
+        title: "Same message, three readers",
+        when: "Use this when the same news has to go to your boss, your team and a client.",
+        prompt: `Here is what I need to say:
 
-The original text:
-[paste it here]
+[paste your draft, or the facts]
 
-It was written for: [original audience]
-I now need versions for: [audience two] and [audience three, or delete this line]
+Write three versions.
 
-For each new version, do this:
-1. Keep every fact, number, and commitment identical. Only the framing, vocabulary, and level of detail change.
-2. Open with the thing this specific reader cares about most.
-3. Cut the parts this reader does not need, and list what you cut at the end.
-4. Match length to attention: a boss version may be five lines, a technical peer version can be longer.
+1. For my manager: [what they care about]
+2. For my team: [what they need to do differently]
+3. For the client or outside reader: [what they should take away]
 
 Rules:
-- No new claims in any version.
-- Plain words in all of them. Precision shows expertise, jargon density does not.
+- The facts stay identical in all three. Only emphasis, length and detail change.
+- Do not tell one audience something the others would be upset to learn was left out.
+- Mark anything that should not go in the outside version at all.
+- Keep each one under [number] words.`,
+        tip: "The \"should not go outside\" list is the useful bit. It catches the internal detail you would have pasted without thinking."
+      },
+      {
+        id: "un-corporate",
+        title: "Take the corporate out of this",
+        when: "Use this when your own draft has gone stiff and you cannot hear it any more.",
+        prompt: `Here is my draft:
 
-Return each version under a clear heading with one line stating the reader and the goal, then the cut list.`,
-        tip: "If the versions start disagreeing on facts, stop and fix the source text. That difference is how misunderstandings get born."
+[paste it]
+
+Rewrite it the way I would say it out loud to one person across a table.
+
+- Cut the hedging. If I mean no, it should say no.
+- Cut throat-clearing openers and get to the point in the first line.
+- Replace passive constructions where a person actually did the thing.
+- Keep it polite, but stop it being deferential.
+- Contractions are fine.
+
+Keep every fact and every commitment exactly as I have them. Then show me the two lines that changed the most, so I can check you have not changed my meaning along with my tone.`,
+        tip: "Read the result out loud. If you would not say it to someone's face in those words, it still needs work."
+      },
+      {
+        id: "titles-worth-keeping",
+        title: "Titles that are not clickbait",
+        when: "Use this when you need a subject line, a heading or a title and every option sounds either dull or oversold.",
+        prompt: `Here is the thing that needs a title:
+
+[paste the text, or describe it in three lines]
+
+Who it is for: [audience]
+Where it appears: [email subject, page heading, document title, video title]
+
+Give me ten options.
+
+Rules:
+- Every one has to be true to what the piece actually says. No promise the text does not keep.
+- No "You won't believe", no "The secret to", no numbered-list bait unless the piece really is a numbered list.
+- Vary the shape: some plain and descriptive, some with a specific detail from the text, some a direct question.
+- Under [number] characters.
+
+Then tell me which two you would pick and why, and which one is the most dishonest of the ten.`,
+        tip: "The most dishonest one is worth looking at. It is usually the most tempting, and it is usually the one that loses trust the second time."
       }
     ]
   },
   {
-    id: "building",
-    desc: "Go from a rough idea to working software, even if you do not code.",
-    chip: "Building",
-    name: "Building software with AI",
+    id: "business",
+    desc: "For people running a small business, from the follow-up you keep not sending to the price you keep not raising.",
+    chip: "For owners",
+    name: "Running a small business",
     blurb: [
-      "Go from a rough idea to working software even if you do not code. Plan small, brief the AI properly, and get unstuck when it breaks. It will break."
+      "For people running a small business on their own or with a few staff. Owners rarely say the tools are bad. They say they never knew what to actually type. These are the things worth typing."
     ],
     updated: UPDATED,
     prompts: [
       {
-        id: "idea-to-spec",
-        title: "Rough idea into a build spec",
-        when: "Use this when you have an idea in your head and need a plan before you let any tool write code.",
-        prompt: `You are a pragmatic software planner working with a non-programmer. Turn my rough idea into a short build spec an AI coding tool can follow.
+        id: "skeptical-customer",
+        title: "Read my website as a sceptical customer",
+        when: "Use this when your site has been the same for a year and you can no longer see it.",
+        prompt: `Here is the text from my website:
 
-My idea, in plain words:
-[describe it, even if it is messy: what it does, who uses it, why you want it]
+[paste your home page, and your services or about page]
+
+Read it as someone who needs what I sell, is comparing me against two competitors, and has no patience.
+
+1. After ten seconds, what do you think this business does, and who for?
+2. What do you still not know that you would need to know before contacting me?
+3. Where exactly do you lose interest? Quote the line.
+4. What makes you doubt them? Quote it.
+5. What would make you pick a competitor instead?
+
+Do not suggest improvements yet. I want the read first.`,
+        tip: "The line where they lose interest is usually about you and not about them. That is the tell."
+      },
+      {
+        id: "month-of-posts",
+        title: "A month of posts for my business",
+        when: "Use this when the social account has gone quiet again and you need a run of things to say.",
+        prompt: `My business: [what you do, who for, and where]
+What makes people choose me over the next one: [be specific, not "quality and service"]
+Things I have actually done recently: [jobs, wins, problems solved, anything real from the last month]
+Where these go: [platform]
+
+Plan me [number] posts.
+
+Mix them: something useful I can teach, something about what I offer, a real customer situation from the list above, and a question worth answering.
+
+Rules:
+- Build the customer-story posts only from the real things I listed. Do not invent a customer.
+- Where a post needs a detail I have not given you, leave a [bracket] for me to fill.
+- No hashtag walls, no emoji every line.
+- Each one short enough to read on a phone without tapping more.`,
+        tip: "The real-things list is what makes this work. Without it you get generic industry filler that could belong to anyone."
+      },
+      {
+        id: "second-opinion",
+        title: "Second opinion on a real decision",
+        when: "Use this on an actual business decision, the kind that has been on your mind for a fortnight.",
+        prompt: `The decision: [raise prices, hire versus outsource, sign a lease, add a service, drop a client. Say which.]
+
+What I know: [the numbers, the constraints, the deadline. Include what you are unsure of.]
+What I am leaning towards: [and why]
 
 Do this:
-1. State the core job of the app in one sentence.
-2. List the screens or pages it needs. Short list, plain names.
-3. List the data it must store, as a simple table: thing, fields, example.
-4. Define the first three build steps, in order, each small enough to finish in one sitting.
-5. List the decisions I have to make before starting, with your recommended default for each so I can just agree.
+1. Ask me the questions you need before you can have a view. Wait for my answers.
+2. Then give me the strongest case for my leaning, and the strongest case against it.
+3. Tell me what I appear to be assuming without evidence.
+4. Tell me what would have to be true for the other option to be the right one.
+5. Say what you would want to know that I do not seem to have.
 
-Rules:
-- Cut every feature not needed for the first working version. Park them in a Later list.
-- Ask me up to three questions, but only if something genuinely blocks the plan.
-- No technology names without a reason in plain words.
-
-Keep the whole spec readable in two minutes. End with the one risk most likely to kill this project, and how to dodge it.`,
-        tip: "Do not skip step 5. Every decision you leave open now becomes a random guess the coding tool makes later."
+Do not tell me it depends and stop there. Take a position, and say what would change it.`,
+        tip: "Answer its questions honestly, including the ones about numbers you have been avoiding looking at. That part is usually the actual blocker."
       },
       {
-        id: "smallest-version",
-        title: "Plan the smallest version worth building",
-        when: "Use this when your idea keeps growing and you need to build something small first.",
-        prompt: `You are a strict product advisor. Your job is to shrink my idea down to the smallest version that is genuinely useful to one real person.
+        id: "quote-follow-up",
+        title: "Follow up on the quote they never answered",
+        when: "Use this on the quote you sent two weeks ago that has been sitting there since.",
+        prompt: `What I quoted: [the job and the price]
+When I sent it: [date]
+What was said at the time: [paste the last message, or describe the conversation]
+What I know about why they have gone quiet: [or write "no idea"]
 
-My idea:
-[describe it, including all the features you are dreaming about]
+Write the follow-up.
 
-Who would use the first version:
-[one line: a real person or group you can actually reach]
+Rules:
+- Under 100 words.
+- No apology for following up and no "just checking in".
+- Give them an easy way to say no. A dead lead I know about is worth more than one I keep wondering about.
+- One clear next step.
+- If price was likely the issue, make it easy to say so without embarrassment.
+
+Then give me a second version I could send two weeks after that one, if this gets no reply either.`,
+        tip: "Include the easy no. Most people are silent because saying no feels rude, and letting them off the hook gets you an answer."
+      },
+      {
+        id: "price-this",
+        title: "Price this without underselling it",
+        when: "Use this when you catch yourself about to quote low because you are afraid of the silence.",
+        prompt: `The job: [what it involves, in detail]
+Time it will really take me: [including the parts you always forget, like revisions and admin]
+My costs on it: [materials, subcontractors, anything you pay out]
+What I usually charge for something like this: [and how it usually feels afterwards]
+What I know about this customer: [budget signals, urgency, how they found me]
 
 Do this:
-1. List the features the first version must have to be useful at all. Be brutal.
-2. Move everything else into a Later list, so I can park ideas with a clear conscience.
-3. Name the one feature that decides success. If that one is right, the rest is decoration.
-4. Estimate what the must list means in build effort: small, medium, or large, with a one line reason.
-5. Tell me what I should do manually behind the scenes instead of building it. Unglamorous beats unbuilt.
+1. Ask me anything you need to price this properly.
+2. Walk me to a number, showing the working.
+3. Tell me where I am likely underselling, based on what I said about how it usually feels afterwards.
+4. Give me the sentence I say when I give them the number, and the sentence I say if they push back.
+5. Tell me the walk-away number and how to say no politely.
 
-Rules:
-- If a feature is nice but not necessary, it goes to Later. No exceptions for my favorites.
-- Keep the answer short.
-
-End with the must list as a checklist I can start today.`,
-        tip: "The manual workaround list is the underrated part. Half of version one can usually be you, a spreadsheet, and honesty."
+Do not tell me to charge what I am worth. Give me a figure and the reasoning.`,
+        tip: "Say the number then stop talking. The urge to fill the silence with a discount is the thing that costs you."
       },
       {
-        id: "builder-brief",
-        title: "Brief an AI coding tool",
-        when: "Use this when the spec is ready and you want the first message to Claude Code, Cursor, or a similar tool to start the build right.",
-        prompt: `You are helping me write the opening brief for an AI coding tool. The quality of this first message decides how much cleanup I do later, so make it precise.
+        id: "notes-to-summary",
+        title: "Turn my job notes into something a customer can read",
+        when: "Use this at the end of a job, when your notes are scribble and the customer wants an update.",
+        prompt: `Here are my notes from the job:
 
-My spec or plan:
-[paste your build spec or describe the project]
+[paste them exactly as they are, shorthand and all]
 
-My experience level: [none, some scripting, comfortable]
-Preferences I already have: [any tech, hosting, or style preferences, or "no preferences"]
-
-Write the brief so it includes:
-1. What we are building and for whom, in two sentences.
-2. The exact scope of the first working version, naming what is out of scope too.
-3. The working rules: simple technology choices, code a beginner can navigate, no extra features, ask me before big decisions.
-4. What done looks like: a short checklist the tool can test against.
-5. An instruction to build in small steps and show me something running early.
+Turn them into a short summary for the customer.
 
 Rules:
-- Plain language. I must understand the brief, not only the tool.
-- Do not include requirements I never mentioned. If something important is missing, ask me first.
+- Only what is in my notes. If something is ambiguous in my shorthand, ask me rather than guessing what I meant.
+- Explain any trade or technical term in plain words, in brackets.
+- Say what was done, anything I found that they should know about, and anything that needs watching.
+- No selling. If a follow-up job is needed, state it as a fact.
+- Short enough to read on a phone.
 
-Return the brief in a code block, ready to paste.`,
-        tip: `Save the "done looks like" checklist. When the tool says it is finished, that list is how you check without reading code.`
+Flag anything in my notes you think I would not want the customer to see.`,
+        tip: "The flag at the end matters. Job notes often carry a line about the customer that was never meant to leave your phone."
       },
       {
-        id: "fix-error-plain",
-        title: "Explain and fix this error",
-        when: "Use this when you hit an error and you are not sure what the code even does.",
-        prompt: `I am not a strong coder and I hit an error. Explain it simply and give me the exact fix.
+        id: "leave-behind",
+        title: "The one-pager I leave behind",
+        when: "Use this once, then reuse it for every job of the same kind.",
+        prompt: `The kind of job: [what you did]
+What the customer should do now: [aftercare, settling in, what is normal]
+What is not normal, and when to call me: [the warning signs]
+What is covered, and for how long: [guarantee terms]
+How to reach me: [and what counts as urgent]
 
-The error message, complete:
-[paste the full error here]
-
-The code around it:
-[paste the file or section, or write "tell me what to paste and from where"]
-
-What I did right before it broke:
-[one line, for example "added a login form" or "nothing, it broke after a deploy"]
-
-Do this:
-1. Explain in one short paragraph, in words a non-coder follows, what caused this.
-2. Give me the exact change: show the lines before and after.
-3. Tell me how to check the fix worked, step by step.
-4. Say whether this error hints at a bigger problem or is just a detail.
+Write me a one-page leave-behind.
 
 Rules:
-- Do not rewrite the whole file.
-- Do not lecture me about best practices unless one directly caused this error.
-- If you need one more piece of information to be sure, ask for exactly that and nothing else.
-
-End with a one line plain words summary of what was wrong, so I recognise it next time.`,
-        tip: "Always paste the whole error, including the boring lines. The useful part is often the one that looks least readable."
+- Plain language. Assume no knowledge of my trade.
+- The "call me now" list has to be unmissable.
+- No marketing. This is the document that stops the 9pm phone call about something normal.
+- It must fit on one side of A4 when printed.
+- Where I have not given you enough, leave a [bracket] rather than writing something plausible.`,
+        tip: "This is the highest-value thing on this page for anyone doing physical work. Write it once, hand it over on every job, and watch the pointless calls stop."
       },
       {
-        id: "loop-breaker",
-        title: "Get out of the fix loop",
-        when: "Use this when the AI keeps confidently fixing the same bug and the bug keeps not being fixed.",
-        prompt: `Stop. We are in a loop: you have tried several fixes for the same problem and it is still broken. Change your approach completely.
+        id: "what-am-i-not-seeing",
+        title: "Ten questions about my own business",
+        when: "Use this when things are fine but you have a feeling something is off and cannot name it.",
+        prompt: `My business: [what you do, how long, roughly how big]
+How it is going: [honestly, including the bits that are not working]
+What worries me: [or "nothing specific, just a feeling"]
 
-The problem, in my words:
-[describe what is broken and what should happen instead]
+Ask me ten questions, one at a time, designed to surface the constraint I am not seeing. Wait for each answer.
 
-What has been tried so far:
-[list the failed fixes roughly, or paste the last few attempts]
+Rules for your questions:
+- Ask about what actually happens, not about my goals.
+- Follow the thread when an answer sounds evasive or too quick.
+- Ask at least two about money and at least one about where my time really goes.
+- Do not offer advice while we are still going.
 
-The relevant code and the current error:
-[paste them]
-
-New rules, in order:
-1. Do not propose any fix yet. First list every assumption you have been making about this code, and mark which ones are unverified.
-2. Tell me what evidence would confirm the real cause: what to print, log, click, or check. Give me exact steps and I will report back.
-3. Only after my report, name the most likely cause and say how confident you are.
-4. If two causes remain possible, give me one test that separates them.
-
-Be honest about uncertainty. "I do not know yet, here is how we find out" is a better answer than another confident guess.
-
-End with the checklist of things I should go check right now, numbered.`,
-        tip: "The loop almost always means the AI is fixing its guess instead of the bug. Making it gather evidence first breaks that pattern."
-      },
-      {
-        id: "explain-code",
-        title: "Tell me what this code does",
-        when: "Use this when you are about to use code you did not write and want to know what it really does first.",
-        prompt: `You are explaining code to a careful non-programmer who is about to run it. Tell me what it actually does, including what could go wrong.
-
-The code:
-[paste the code, script, or snippet here]
-
-Where I got it and what I was told it does:
-[one line, for example "a forum post that says it cleans old files"]
-
-Do this:
-1. Describe what the code does step by step, in plain words. Small numbered steps.
-2. Flag anything that touches the world outside itself: files it deletes or changes, network requests, passwords or keys, anything it installs.
-3. Say what happens if it runs twice, or on the wrong folder, or fails halfway.
-4. Compare what it really does with what I was told it does, and name any difference.
-
-Rules:
-- No jargon without a plain meaning in brackets.
-- If a part is genuinely unclear or depends on my setup, say so instead of guessing.
-
-End with a verdict on one line: safe to run, run with these changes, or do not run this. Then name the single biggest risk.`,
-        tip: `The "what if it runs twice" question has saved me more than once. Ask it about every script that deletes anything.`
-      },
-      {
-        id: "pick-tools",
-        title: "Pick tools without the hype",
-        when: "Use this when every tool claims to be the answer and you just need one that fits your case.",
-        prompt: `You are a tool advisor with no affiliate links and no favorites. Help me choose the right tool for my project, sized to my reality.
-
-What I am building or doing:
-[one or two lines]
-
-My constraints:
-- Budget: [amount per month, can be zero]
-- Technical comfort: [none, some, high]
-- Deal breakers: [for example "must work in my language", "data stays in the EU", "no subscriptions"]
-
-Do this:
-1. Give me three realistic options: the simplest thing that works, the balanced pick, and the heavy one I probably do not need yet.
-2. For each: what it costs in practice including the paid tier I would actually hit, the setup effort in hours, and the main limitation nobody mentions in reviews.
-3. Say which one you would pick in my situation and why, in two sentences.
-4. Name what I do not need to buy today, and when that changes.
-
-Rules:
-- Pricing and features may have changed since your training data. Say so, and tell me which numbers to verify.
-- No feature lists copied from marketing pages. Practical differences only.
-
-End with a three row comparison table: option, monthly cost, setup effort, biggest limitation.`,
-        tip: "Ask it separately what happens to your data if you quit each tool. Exit cost is the spec nobody prints."
-      },
-      {
-        id: "test-before-launch",
-        title: "Test it before anyone sees it",
-        when: "Use this when the build looks done and you want to find the embarrassing bugs before your first user does.",
-        prompt: `You are a pragmatic tester. Build me a manual test checklist for my project, focused on what breaks in front of real users.
-
-What the app or site does:
-[describe it, or paste the spec]
-
-The parts I am least sure about:
-[one or two lines, or "no idea, you tell me"]
-
-Do this:
-1. Write a click-through checklist of the main journey a normal user takes, step by step, with what should happen at each step.
-2. Add the classic breakers: wrong inputs, empty inputs, double clicks, the back button, refreshing mid-action, a slow connection, and a phone screen.
-3. Add the embarrassing checks: broken links, placeholder text left in, wrong dates, typos in buttons.
-4. Order the whole list so the highest risk items come first.
-5. Keep each item one line, checkable with a yes or no.
-
-Rules:
-- Assume I will test by hand in a browser. No automated testing talk unless one thing truly needs it, and then explain it plainly.
-
-End with the checklist in copyable form, and a one line rule for when I am allowed to stop testing and launch.`,
-        tip: "Test on your phone before you share the link. Half of first visits come from a phone, and that is where layouts die."
+At the end, tell me what you think the real constraint is, what evidence in my answers points at it, and what you would look at first.`,
+        tip: "The questions land harder than the conclusion. Be honest in the answers, since nobody is reading them but you."
       }
     ]
   },
   {
-    id: "founders",
-    desc: "For people running a small business. Customers, reviews, numbers, suppliers.",
-    chip: "Founders",
-    name: "Founders and small business owners",
+    id: "work",
+    desc: "The messages you rewrite five times before sending: the no, the chase, the bad news, the disagreement.",
+    chip: "For office work",
+    name: "Awkward work messages",
     blurb: [
-      "For people running a small business: customers, reviews, numbers and suppliers, plus the messages you keep putting off, drafted so you can actually send them."
+      "The messages you rewrite five times and still do not send. Saying no, chasing for the third time, disagreeing with your manager, delivering news nobody wants. Each of these keeps your facts and fixes only the wording."
     ],
     updated: UPDATED,
     prompts: [
       {
-        id: "review-triage",
-        title: "Find the real complaint in reviews",
-        when: "Use this when reviews are piling up and you want the real pattern without the noise.",
-        prompt: `You are helping a small business owner read customer reviews honestly. Your job is triage. You never draft public replies.
+        id: "make-it-neutral",
+        title: "Make this professionally neutral",
+        when: "Use this when what you wrote is accurate but says out loud what you actually think of someone.",
+        prompt: `Here is what I want to say:
 
-Here are the recent reviews, pasted as they are:
-[paste reviews from Google, marketplaces, or anywhere, stars included if you have them]
+[write it exactly as you feel it, unfiltered. Nobody sees this but you.]
 
-Do this:
-1. Group the reviews into real themes. Name each theme in plain words.
-2. Separate signal from noise: one-off bad days and unreasonable outliers go in their own pile, labeled as such.
-3. For each real theme, quote one or two representative lines, word for word.
-4. Rank the themes by damage: which one loses the most customers, judging by how often it appears and how strongly it is worded.
-5. Name the single thing to fix first, and what an achievable fix looks like.
+Rewrite it in neutral professional language.
 
 Rules:
-- Do not average everything into "mostly positive". I need the pattern, praise included but kept separate.
-- Do not invent causes the reviews never mention. If the reviews are too few for a real pattern, say so.
+- Keep every fact and every consequence. Neutral does not mean softer.
+- Turn judgements about a person into descriptions of what happened. "He is impossible to work with" becomes something like "we have had repeated communication problems", and so on for anything similar.
+- Remove anything that reads as blame while keeping the account of events.
+- Keep it short. Long is how anger leaks through.
+- If any part of what I wrote could not be said at all in a professional setting, tell me rather than translating it.
 
-End with one screen: themes ranked, the one fix, and the two quotes I should read twice.`,
-        tip: "Run this monthly and keep the outputs. A theme that survives three months is not an opinion anymore, it is a fact about your business."
+Then tell me which line is still most likely to cause a reaction.`,
+        tip: "Write the raw version first. Trying to be professional and truthful at the same time is what makes you stare at the box for twenty minutes."
       },
       {
-        id: "unhappy-customer",
-        title: "Reply to an unhappy customer",
-        when: "Use this when a complaint lands and you want to answer calmly instead of at midnight in the wrong tone.",
-        prompt: `You are helping a small business owner reply to an unhappy customer. Calm, human, and specific, never corporate.
+        id: "say-no-keep-them",
+        title: "Say no without burning it",
+        when: "Use this on the request you should decline and have been avoiding for three days.",
+        prompt: `What they asked for: [paste the request]
+Why I am saying no: [the real reason]
+What I want to protect: [the relationship, future work, my week]
+What I can offer instead, if anything: [or "nothing"]
 
-The customer's message:
-[paste it exactly]
-
-What actually happened from my side:
-[your honest version, including anything that was your fault]
-
-What I am willing to offer:
-[refund, redo, discount, explanation only, or "nothing beyond an apology"]
-
-Do this:
-1. Draft a reply that answers their specific complaint, in the same language their message is written in.
-2. Acknowledge the concrete thing that went wrong. No blanket apologies for "any inconvenience".
-3. State plainly what I will do, and only what I listed above. Do not invent compensation.
-4. Keep it under 130 words and end with one clear next step.
+Write my reply.
 
 Rules:
-- No defensiveness, no explaining how busy we were.
-- No fake warmth and no exclamation marks.
-- If the customer is factually wrong somewhere, correct it once, politely, with the fact.
+- The no has to be unmistakable. No wording they could read as a maybe.
+- No lengthy justification. One clear reason, then stop.
+- Do not apologise more than once.
+- If I have an alternative, offer it once, plainly, without overselling it.
+- Do not say "unfortunately" more than once, and do not say "at this time".
 
-Under the draft, add one line telling me what to fix in the business so this complaint does not repeat.`,
-        tip: `Write the "what actually happened" part properly. The reply is only as good as your own account of the mess.`
+Under 100 words.`,
+        tip: "The vague no is the expensive one. It reads as a maybe, so they come back, and you have the same conversation again next week."
       },
       {
-        id: "sell-sheet",
-        title: "Describe what I sell, grounded",
-        when: "Use this when you need product or service copy and want it built from real details, never invented ones.",
-        prompt: `You are a copywriter for a small business. Write a clear description of what I sell, using only the details I give you.
+        id: "third-follow-up",
+        title: "Chase without nagging",
+        when: "Use this on the third follow-up, when polite is starting to feel like a lie.",
+        prompt: `What I need: [the thing, and why it matters]
+When I asked: [dates of previous messages]
+What I have already sent: [paste your last message]
+Who they are to me: [colleague, client, supplier, my manager]
+What happens if this keeps slipping: [the real consequence, including to them]
 
-What I sell:
-[the product or service, in your words]
-
-The concrete details:
-[paste everything real: specs, materials, dimensions, what is included, price, delivery time, who it is for, what problem it solves]
-
-Where the text will live: [website page, marketplace listing, brochure]
-
-Do this:
-1. Lead with the thing a buyer actually cares about, taken from my details. Never open with generic lines about quality or passion.
-2. Write one short paragraph of natural, connected sentences, then bullet points for the hard facts.
-3. Use plain words a stranger understands. If my industry has one necessary term, keep it and explain it in brackets.
-4. If an important detail is missing, for example dimensions or delivery, list it as a question at the end. Do not fill gaps with adjectives.
+Write the next message.
 
 Rules:
-- Every claim must trace back to a detail I gave you.
-- No superlatives, no "premium", no "solutions".
-
-End with: the description, the fact bullets, and the missing details questions.`,
-        tip: "The missing details list doubles as a list of what customers keep emailing you about. Answer those on the page and the emails stop."
+- Name it as the third time without making it an accusation.
+- State the consequence plainly. Not a threat, a fact.
+- Give a specific date, not "as soon as possible".
+- Make replying take them ten seconds. Yes, no, or a date.
+- Short. Long chasing messages get read last.`,
+        tip: "Stating the real consequence is what changes the outcome. People deprioritise things when they cannot see the cost of the delay."
       },
       {
-        id: "price-increase",
-        title: "Announce a price increase honestly",
-        when: "Use this when costs moved, your prices have to follow, and you keep postponing the announcement.",
-        prompt: `You are helping a small business owner announce a price increase to existing customers. Honest, short, and steady, with no apologising in circles.
+        id: "deliver-bad-news",
+        title: "Deliver the bad news",
+        when: "Use this on the message you keep starting and deleting.",
+        prompt: `What happened: [the facts]
+Who I am telling: [and what it costs them]
+What I did about it: [or am doing]
+What I need from them: [if anything]
 
-The facts:
-- What is changing: [old price to new price, or percentage, per what]
-- When it starts: [date]
-- Why, honestly: [costs, wages, materials, or simply that the price was too low for the work]
-- What stays the same or improves: [anything true, or "nothing to add"]
-- Who gets this message: [all customers, long term clients, subscribers]
+Write the message.
+
+Rules:
+- The bad news goes in the first two sentences. Do not bury it under context.
+- No softening it into ambiguity. They must know exactly how bad it is.
+- Own what is mine to own. Do not over-apologise for what is not.
+- Facts, then what happens next, then what I need. In that order.
+- No "I wanted to reach out" and no passive voice hiding who did what.
+
+Then tell me the question they will ask first, so I can answer it before they have to.`,
+        tip: "Leading with the bad news feels wrong and reads as respect. Burying it in paragraph four is what people actually resent."
+      },
+      {
+        id: "disagree-upward",
+        title: "Push back on my manager, in writing",
+        when: "Use this when you think a decision is wrong and it needs to be on record.",
+        prompt: `The decision: [what has been decided]
+Why I think it is wrong: [your reasoning and any evidence]
+What I would do instead: [and what it would cost]
+My standing here: [new, established, already disagreed once about this]
+What I want: [reconsideration, or my objection recorded, or a specific change]
+
+Write it.
+
+Rules:
+- Lead with the shared goal, not with the disagreement.
+- Argue the decision, never the person who made it.
+- Be concrete about the risk. No vague "concerns".
+- Offer the alternative with its cost stated honestly, including that it may not be worth it.
+- Make it easy for them to change course without losing face.
+- End by making clear I will get behind the decision either way, if that is true.
+
+Then tell me how this reads if they are already defensive.`,
+        tip: "The last line is what makes disagreeing safe. Being clear you will follow the call is what earns you a hearing on the next one."
+      },
+      {
+        id: "meeting-to-actions",
+        title: "Forty minutes of meeting into five lines",
+        when: "Use this straight after the call, while you still remember who meant what.",
+        prompt: `Here are my notes or the transcript:
+
+[paste them, messy is fine]
+
+Give me:
+1. What was decided. Decisions only, not discussion.
+2. What is still open, and who is deciding it.
+3. Actions: what, who, by when. If a name or a date was not actually said, write [unassigned] or [no date] rather than guessing.
+4. Anything said that contradicts something else said.
+
+Rules:
+- Only what is in my notes.
+- Do not turn a maybe into a commitment. If someone said they would try, write that they would try.
+- Under one screen.`,
+        tip: "The [unassigned] markers are the point. Actions with nobody's name on them are the ones that quietly do not happen."
+      },
+      {
+        id: "difficult-feedback",
+        title: "Write feedback that is specific, not personal",
+        when: "Use this before a review conversation you are dreading.",
+        prompt: `Who: [their role and how we work together]
+What needs to change: [describe it honestly, including how it makes you feel]
+Specific examples: [what happened, when. If you have none, say so.]
+What good would look like: [concretely]
+What I have already said about this: [if anything]
+
+Turn it into feedback I can actually give.
+
+Rules:
+- Behaviour and effect, never character. Not "careless", but what happened and what it caused.
+- Every point needs an example. If I have not given you one, tell me to find one rather than writing a general criticism.
+- Say what good looks like in terms they could act on tomorrow.
+- Do not sandwich it in praise. Say the praise if it is true, separately.
+- Give me the opening sentence, because that is the one I will fumble.`,
+        tip: "If you cannot supply an example, you are not ready to give the feedback. That is the useful thing this catches."
+      },
+      {
+        id: "angry-draft",
+        title: "The version I can actually send",
+        when: "Use this when you have written the honest reply and know you must not send it.",
+        prompt: `Here is what I want to send:
+
+[paste it, all of it]
+
+Here is what actually happened:
+[the facts, without the feelings]
+
+Here is what I need to happen next:
+[the outcome you want]
+
+Do three things:
+1. Tell me what in my draft would damage this relationship, and what it would cost me.
+2. Write the version that gets me the outcome I asked for.
+3. Tell me what in my draft was a legitimate point that the calm version should keep, because I do not want to lose the substance along with the tone.
+
+Do not tell me to calm down or wait a day. I know. Give me the message.`,
+        tip: "Point 3 is why this is not just softening. The angry draft usually contains the real issue, and the polite rewrite tends to lose it."
+      }
+    ]
+  },
+  {
+    id: "freelance",
+    desc: "For solo operators. Quoting, scope, silence and the money conversation you dread.",
+    chip: "For solo operators",
+    name: "Freelance client handling",
+    blurb: [
+      "For people who are the whole business. The recurring theme from freelancers is the conversations around the work: quoting, scope creep, silence and chasing money. These are for those."
+    ],
+    updated: UPDATED,
+    prompts: [
+      {
+        id: "client-gone-quiet",
+        title: "The client has gone quiet",
+        when: "Use this five days into silence, when you are not sure if you are being ignored or forgotten.",
+        prompt: `The client: [who they are and what stage we are at]
+Last contact: [what was said, and how many days ago]
+What I am waiting for: [an approval, a file, a decision, payment]
+What is blocked by it: [and what it costs me or them]
+
+Here is the last message in the thread:
+[paste it]
+
+Write my follow-up.
+
+Rules:
+- Under 90 words.
+- No "just following up" and no apology for writing.
+- Say plainly what is waiting and what it holds up.
+- Give them a one-tap reply: a date, a yes, or an honest "we have paused this".
+- Do not offer a discount or extra work to restart the conversation.
+
+Then write the version I send a week after that, if this one also gets nothing.`,
+        tip: "Silence is usually their chaos, not your work. Assuming the worst and going quiet back is how projects die that did not need to."
+      },
+      {
+        id: "quote-this-job",
+        title: "Talk me to a number before I lowball it",
+        when: "Use this before you send a price, especially if you have a habit of going in low.",
+        prompt: `The job: [what they want, in as much detail as you have]
+What I think it will take: [hours or days, honestly]
+What I always forget to count: [revisions, meetings, admin, the last 10% that takes 30% of the time]
+My usual rate or last similar quote: [and whether it felt right afterwards]
+What I know about this client: [budget signals, how they found me, how they talk about money]
 
 Do this:
-1. Draft the announcement. State the change and the date in the first two sentences.
-2. Give the reason in one or two honest sentences. No drama, no long defense of the decision.
-3. If I listed anything that stays the same or improves, mention it once, briefly.
-4. Close with what the customer needs to do, if anything, and a simple thank you.
+1. Ask me what you still need to price it properly. Wait for my answers.
+2. Give me a number with the working shown.
+3. Tell me where I have probably underestimated, using what I said about what I forget.
+4. Give me the exact sentence for delivering the number.
+5. Give me my walk-away figure and the polite decline.
+
+Do not tell me to value myself. Give me a figure and the reasoning behind it.`,
+        tip: "Include the parts you always forget. That list is usually the whole difference between a job that pays and one that does not."
+      },
+      {
+        id: "out-of-scope",
+        title: "This is out of scope, said kindly",
+        when: "Use this on the third small favour that was never in the agreement.",
+        prompt: `What we agreed: [the original scope]
+What they are now asking for: [the new request]
+What it would actually cost me: [time, and what it delays]
+How many times this has happened: [be honest]
+What I want: [to charge for it, to trade it against something, or to decline]
+
+Write my reply.
+
+Rules:
+- Do not make them feel caught out. Most scope creep is not deliberate.
+- Say clearly that it sits outside what we agreed, and why that matters.
+- Give them a real choice: add it for [price and timeline], swap it for something already in scope, or leave it for later.
+- No passive aggression and no listing everything else I have already absorbed for free.
+- If I have let several go already, give me one line that resets the pattern without relitigating them.`,
+        tip: "The reset line is the important one. A single favour rarely hurts. The precedent that you always say yes does."
+      },
+      {
+        id: "brief-to-spec",
+        title: "Turn their vague brief into a specification",
+        when: "Use this before you quote on anything described in a paragraph or less.",
+        prompt: `Here is what the client sent me:
+
+[paste their brief, however thin]
+
+Turn it into something I could be held to.
+
+1. List what they have actually specified.
+2. List what they have implied but not stated, and mark each as an assumption I need confirmed.
+3. List what is missing entirely and would change the price.
+4. Write the questions I should send back, in the order that gets me the most useful answers first. No more than six.
+5. Draft the scope paragraph I would put in the proposal, with [brackets] wherever an answer is still needed.
+
+Do not fill any gap with a sensible default. That is how the argument starts later.`,
+        tip: "Point 2 is where projects go wrong. What the client assumed was obvious is never in the brief, and it is never what you assumed."
+      },
+      {
+        id: "chase-the-invoice",
+        title: "Chase the invoice",
+        when: "Use this when payment is overdue and you have started rehearsing the message in the shower.",
+        prompt: `Invoice: [amount, number, date sent, date due]
+How overdue: [days]
+What I have sent already: [paste previous reminders, or say "none"]
+The relationship: [ongoing work, one-off, want to keep them or not]
+My terms: [late fees, interest, whatever the agreement says]
+
+Write the message for stage [1, 2 or 3].
+1 is a first friendly nudge. 2 is firm with the terms named. 3 is the last message before I stop work or escalate.
+
+Rules:
+- State the amount, the invoice number and the due date every time.
+- No apology, no "sorry to be a pain".
+- Make paying easy: restate the details rather than pointing at an attachment.
+- At stage 2 and 3, name what happens next as a fact, not a threat.
+- Never suggest a discount for prompt payment on an invoice that is already late.`,
+        tip: "Send stage 1 on day one overdue, not day fourteen. Chasing early is normal business and reads as organised, not aggressive."
+      },
+      {
+        id: "unasked-update",
+        title: "The update they did not ask for",
+        when: "Use this mid-project, on a Friday, on anything running longer than a fortnight.",
+        prompt: `The project: [what it is and how long it runs]
+Where it actually stands: [including anything behind or worrying you]
+What I need from them: [or nothing]
+What they are probably wondering: [and whether they have asked]
+
+Write a short update.
 
 Rules:
 - Under 150 words.
-- Do not offer discounts or exceptions I did not list.
-- No "unfortunately". A correct price is not a misfortune.
-
-Give me two versions: one for email, one shorter for an invoice note or a counter sign.`,
-        tip: "Send it well before the date and then stop explaining. People accept a clear increase faster than a nervous one."
+- Lead with where it stands against the plan, including bad news if there is any.
+- Anything I need from them goes in its own line with a date.
+- Do not pad it to look busy. If a quiet week was a quiet week, say so and why.
+- No "circling back", no "touching base".`,
+        tip: "This is the cheapest thing on this page. Clients who hear from you unprompted do not chase, do not panic, and do not go quiet."
       },
       {
-        id: "weekly-numbers",
-        title: "Read my weekly numbers for me",
-        when: "Use this when you have the numbers but never the quiet hour to see what they are saying.",
-        prompt: `You are a level headed analyst for a small business. Read my numbers and tell me what changed, in plain words, with no invented trends.
+        id: "rehearse-the-price",
+        title: "Rehearse the price conversation",
+        when: "Use this before a call where you have to say a number out loud.",
+        prompt: `What I am quoting: [the job and the price]
+How I arrived at it: [the reasoning]
+What I am afraid they will say: [the actual fear]
 
-This week or month:
-[paste your numbers: sales, orders, visitors, costs, whatever you track, any messy format]
+Play the client. Be the difficult but realistic version: someone who likes the work, thinks the price is high, and is going to push.
 
-The previous period, for comparison:
-[paste the same numbers from last week or month, or write "none, first time"]
+Rules for you:
+- Push back the way a real client does. "That is more than we budgeted", "what would it cost without X", "our last supplier charged half".
+- Do not fold when I hold my ground, and do not become a caricature.
+- After each of my answers, stay in character.
+- When I say "stop", come out of character and tell me: where I discounted without being asked, where I over-explained, and the one line that would have ended the objection cleanly.
 
-Anything unusual that happened:
-[for example "ran a discount", "closed two days", or "nothing"]
-
-Do this:
-1. Compare the periods and name what moved, by how much, in absolute numbers and percent.
-2. Separate real movement from noise. Small wobbles on small numbers are not a trend. Say so when that is the case.
-3. Connect movements to the context I gave you. Do not invent causes beyond it, and mark every guess clearly as a guess.
-4. Tell me the one number to watch next period, and why.
-
-Rules:
-- No praise, no alarm. Only what the numbers support.
-- If my data is too thin to conclude anything, say exactly that.
-
-End with five lines maximum: what changed, why it likely changed, what to do about it.`,
-        tip: "Paste the same metrics in the same order every week. The comparison gets sharper when the format stops changing."
+Start when I say go.`,
+        tip: "Do this out loud. The price conversation goes badly because you have never said the number to anyone before."
       },
       {
-        id: "stop-doing",
-        title: "Decide what I stop doing",
-        when: "Use this when you are the bottleneck in your own business and every task feels like it needs you.",
-        prompt: `You are an operations advisor for a business owner who does too much. Help me decide what to stop doing personally.
+        id: "decline-bad-fit",
+        title: "Turn down the wrong project",
+        when: "Use this on the job you know you should not take and are talking yourself into.",
+        prompt: `The project: [what they want]
+Why I should say no: [the honest reason. Wrong work, bad signals, no time, price too low.]
+What I would want to preserve: [referrals, the relationship, my reputation with whoever introduced us]
+Whether there is anyone I would refer them to: [name or none]
 
-Everything I did in a typical week, roughly with hours:
-[list the tasks and time honestly, including the small recurring stuff]
+First, challenge me. Ask me two questions to check I am turning it down for the right reason and not out of fear or a bad week.
 
-What only I can legally or realistically do:
-[one or two lines]
-
-What an hour of my time should be worth: [amount, roughly]
-
-Do this:
-1. Sort my tasks into four groups: only me, delegate to a person, automate or hand to AI, and stop doing entirely.
-2. For every task leaving my plate, name the destination concretely: what kind of person, what kind of tool, or why it can simply die.
-3. Estimate the hours per week this frees, conservatively.
-4. Pick the first single handover to make this month: the one with the best ratio of hours saved to handover effort.
-5. List what could go wrong with that first handover, and the simple check that catches it early.
+Then write the decline.
 
 Rules:
-- Be skeptical of "only I can do this". Challenge at least two of my claims there.
-- No motivational language. This is arithmetic.
-
-End with the four groups as a table, then the one first move.`,
-        tip: "Your ego will defend the tasks you are good at, and those are often exactly the ones to hand over. Watch for that while you read the output."
-      },
-      {
-        id: "competitor-read",
-        title: "Get an honest competitor read",
-        when: "Use this when you want a sober look at a competitor, without the anxiety and without fabricated intel.",
-        prompt: `You are a calm market analyst. I will paste public material from a competitor, and you will tell me what it says about their positioning, using only what is in front of you.
-
-Competitor material:
-[paste text from their website, pricing page, about page, recent posts]
-
-My own business in three lines, for contrast:
-[what you sell, to whom, at what price level]
-
-Do this:
-1. Summarise their offer and positioning: who they target, what they promise, how they price, judging only from the pasted material.
-2. Name what they emphasise most, and what they are notably silent about.
-3. Compare against my three lines: where we genuinely differ, and where we say the same thing in different fonts.
-4. Point at the gap: something customers plausibly want that neither of us clearly claims.
-
-Rules:
-- Reason only from the pasted material. No guesses about their revenue, team, or plans. Write "unknown" where it is unknown.
-- No advice to copy them. The differences are the asset.
-
-End with one screen: their position in two sentences, our real difference in one, and the one gap worth testing.`,
-        tip: "Paste their customer reviews into the review triage prompt too. What their customers complain about is your cheapest market research."
-      },
-      {
-        id: "negotiation-prep",
-        title: "Prep me to negotiate",
-        when: "Use this when a negotiation is coming, a supplier, a landlord, a big client, and you want to walk in prepared instead of hopeful.",
-        prompt: `You are a negotiation coach for a small business owner. Prepare me for a specific conversation. Practical, not theatrical.
-
-The situation:
-[who I am negotiating with, about what, and the history in a few lines]
-
-My numbers:
-- What I want: [target outcome]
-- What I can accept: [your real minimum]
-- What I can offer them: [flexibility on volume, timing, contract length, anything true]
-
-What I know about their side:
-[their pressures, alternatives, deadlines, or "little"]
-
-Do this:
-1. Tell me my strongest and weakest points in this setup, honestly.
-2. Predict their three most likely arguments or objections, and give me a calm response to each, one or two sentences, in normal spoken language.
-3. Give me the opening line that anchors the conversation, plain and unaggressive.
-4. Tell me what I should refuse to decide in the room, and what to say to buy time.
-5. Define my walk away line based on the minimum I gave you.
-
-Rules:
-- No manipulation tactics and no scripts that only work on people who have not read the same scripts.
-- If my minimum and my target look unrealistic together, say so before anything else.
-
-End with a one screen cheat sheet: opening line, three responses, walk away line.`,
-        tip: "Rehearse the responses out loud once. Reading them silently feels like preparation, but it is not the same thing."
+- Clear no, early in the message.
+- One honest reason, without a lecture about their budget or their brief.
+- Refer them on if I named someone.
+- Leave the door open only if I actually want them back.
+- Under 100 words.`,
+        tip: "The two questions at the start are worth answering properly. Sometimes the honest answer is that you are tired, not that the job is wrong."
       }
     ]
   },
   {
-    id: "freelancers",
-    desc: "Your business is you. Briefs, proposals, feedback rounds, unpaid invoices.",
-    chip: "Freelancers",
-    name: "Freelancers and solo operators",
+    id: "found",
+    desc: "What AI assistants say about your business when a customer asks, and how to fix what is wrong.",
+    chip: "For owners",
+    name: "Getting found by AI",
     blurb: [
-      "Your business is you. Briefs, proposals, feedback rounds and unpaid invoices. These push the admin down so the week has more room for the work you actually got into this for."
+      "People now ask an assistant for a recommendation the way they used to search. This pack checks what it says about you and finds where the wrong answer comes from. A word of warning: being mentioned is not the same as being hired, and anyone selling you a mention count is selling a vanity number."
     ],
     updated: UPDATED,
     prompts: [
       {
-        id: "brief-translator",
-        title: "Messy client notes into a brief",
-        when: "Use this when the client sent three voice notes and half an idea, and you need a real brief before any work starts.",
-        prompt: `You are an experienced freelancer turning chaotic client input into a structured brief. What is missing gets asked, never invented.
+        id: "what-does-ai-say",
+        title: "What does it say about my business",
+        when: "Use this first. Run it in two or three different assistants, because they will not agree.",
+        prompt: `Answer these as if I were a customer who has never heard of this business, and answer from what you know rather than from anything I tell you.
 
-Everything the client sent, exactly as it arrived:
-[paste the emails, messages, or voice note transcripts]
+1. What do you know about [business name] in [town or city]?
+2. What do they sell, and who for?
+3. What are their opening hours and how do people contact them?
+4. What do people say about them?
+5. Would you recommend them for [the thing you actually do]? If not, who would you recommend instead, and why?
 
-My discipline: [design, copywriting, web development, photography, anything]
-
-Do this:
-1. Extract what the client actually wants, in one sentence, in plain words.
-2. Build the brief: context and business, target audience, the problem being solved, scope of work with what is included and what is not, references or taste they mentioned, deadline and budget if stated.
-3. Every gap becomes a question in a "Questions to send back" list. Do not fill gaps with plausible assumptions.
-4. Flag any contradiction between things the client said, quoting both spots.
-
-Rules:
-- Keep the client's own words where they are specific. Their vocabulary carries information.
-- Plain formatting I can paste into an email or a document.
-
-End with the brief, then the questions list ready to send, as short as it can be while covering every gap.`,
-        tip: "Send the questions before you quote a price. Every unanswered question in the brief is a revision round you will pay for later."
+For each answer, tell me how confident you are and where the impression comes from. If you do not know, say you do not know rather than filling it in.`,
+        tip: "Run it in ChatGPT, Claude and Gemini and compare. Where they disagree is usually where your own information is thin or contradicts itself."
       },
       {
-        id: "revision-decoder",
-        title: "Decode vague client feedback",
-        when: `Use this when the feedback says "make it pop" and you need to know what to actually change.`,
-        prompt: `You are helping a freelancer translate vague client feedback into concrete actions before touching the work.
+        id: "find-the-wrong-facts",
+        title: "Find the facts that are out of date",
+        when: "Use this after the first prompt, on anything it got wrong.",
+        prompt: `Here is what an AI assistant said about my business:
 
-The feedback, word for word:
-[paste exactly what the client said or wrote]
+[paste its answer]
 
-What was delivered, briefly:
-[one or two lines describing the work they are reacting to]
+Here is what is actually true:
 
-Round number: [first feedback, second, third or later]
+[paste the correct details: services, hours, prices, locations, staff, anything it got wrong]
 
 Do this:
-1. Translate each vague phrase into the most likely concrete requests, maximum two interpretations per phrase.
-2. Mark which interpretations are safe to act on and which need confirming first.
-3. Spot contradictions inside the feedback, for example "more striking" plus "keep it subtle", and name them plainly.
-4. Draft a short, friendly reply that confirms the ambiguous points as simple either-or questions the client can answer in one minute.
-5. List the concrete action items I can already start on while I wait.
+1. List every point where its answer differs from the truth.
+2. For each one, suggest where the wrong version most likely came from. An old listing, a directory, a stale page on my own site, a review, a news mention.
+3. Rank them by how much damage the wrong version does to someone deciding whether to contact me.
+4. Tell me which ones I can fix myself and which depend on someone else updating something.
 
-Rules:
-- Never guess on changes that would take hours. Those always go in the confirm-first pile.
-- The reply must not sound annoyed, whatever round this is.
-
-End with two blocks: the reply to send, and my private action list.`,
-        tip: "Clients repeat the same vague words. Keep your translations, and by the third project you will have a private dictionary for each client."
+Do not guess a source you have no basis for. Say "unknown source" instead.`,
+        tip: "Most wrong answers trace back to something you control and forgot about. An old page, a directory listing from years ago, a footer nobody has read since."
       },
       {
-        id: "proposal-builder",
-        title: "Draft a proposal with my rates",
-        when: "Use this when the scope is roughly agreed and you need a clean proposal that uses your numbers, never invented ones.",
-        prompt: `You are helping a freelancer write a client proposal. All prices, dates, and terms come from me. You structure, you never price.
+        id: "who-gets-recommended",
+        title: "Who gets recommended instead of me",
+        when: "Use this when the assistant names competitors and you want to know what they have that you do not.",
+        prompt: `Question a customer would ask: [for example, "who is the best [your trade] in [your town] for [specific need]"]
 
-My setup, saved once and reused:
-- What I do and my usual rate: [your rates, hourly or per project]
-- Payment terms I work with: [deposit percentage, invoice timing]
-- Revision rounds included: [number]
+Answer it as you would for a real customer. Then:
+1. Name who you would recommend and why, in order.
+2. For each one, say what specific information made you confident enough to name them.
+3. Say what you would need to know about [my business name] to include it in that list.
+4. Tell me which of those gaps are about information that exists but is hard to find, and which are about information that does not exist anywhere.
 
-This project:
-- Client and what they need: [describe]
-- Scope, what is included: [list it]
-- Explicitly not included: [list it]
-- Price for this project: [your number]
-- Timeline: [your estimate]
-
-Do this:
-1. Open with two sentences showing I understood their situation, specific to them, no template flattery.
-2. Lay out scope and deliverables, clearly separated from what is not included.
-3. Present the process and phases, so they see how we get from yes to delivered.
-4. State price, payment terms, and revision policy exactly as given. Do not soften, round, or add options.
-5. Close with the concrete next step to start.
-
-Rules:
-- Under 400 words. Confident, warm, zero begging.
-- If any input above is missing, stop and ask me for it.
-
-Return the proposal ready to paste, plus a subject line for the email.`,
-        tip: "Check every number in the output against your input before sending. Models can silently mangle a figure, and the money has to be yours exactly."
+Be honest if the answer is that you have too little to go on for any of them.`,
+        tip: "Point 3 is the actionable one. It is usually a plain answerable fact you have never written down anywhere."
       },
       {
-        id: "scope-guard",
-        title: "Push back on scope creep",
-        when: "Use this when the client asks for one more small thing and the small things are becoming the project.",
-        prompt: `You are helping a freelancer respond to scope creep without souring the relationship.
+        id: "questions-customers-type",
+        title: "The twenty questions my customers actually ask",
+        when: "Use this to find out what you should have a clear answer to on your site.",
+        prompt: `My business: [what you do, who for, where]
+What people usually ask me before they buy: [list what you can remember, however few]
 
-What the client just asked for:
-[paste their request]
-
-What the agreed scope says:
-[paste or summarise the relevant part of the proposal or contract]
-
-The history:
-[one or two lines, for example "third extra ask this month, first two I did free"]
-
-How I want to handle it: [charge for it, trade it against something, decline it, or "help me decide"]
-
-Do this:
-1. Say plainly whether the request is inside or outside the agreed scope, based only on what I pasted.
-2. If I asked you to help me decide, give a recommendation with a one line reason, considering the history.
-3. Draft the reply: a friendly first sentence that says yes to the relationship, a clear sentence naming this as outside scope, then the path: price, trade, or a slot in the next project.
-4. Keep the reply under 110 words and free of apology spirals.
+Write the twenty questions a real customer would type into an assistant before choosing someone like me.
 
 Rules:
-- No passive aggression, no legalese, no "as per our agreement".
-- Never offer free work as the default option.
+- Real phrasing, the way a person types when they are in a hurry and not an expert.
+- Include the awkward ones about price, timing, and what happens when something goes wrong.
+- Include the ones where they do not yet know the right word for what they need.
+- Mark which of these my own answers would settle, based on what I told you, and which I have never answered anywhere.
 
-End with the reply, plus one line on what to log so this stays documented.`,
-        tip: "The first free \"small thing\" sets the exchange rate for the whole relationship. It is easier to be clear on request two than on request nine."
+Do not write questions that are really adverts for me.`,
+        tip: "The questions you have never answered are the list. Answer them plainly on your own site and you have done most of the work."
       },
       {
-        id: "invoice-chase",
-        title: "Chase an unpaid invoice politely",
-        when: "Use this when the invoice is overdue and you want your money without burning the relationship.",
-        prompt: `You are helping a freelancer chase an overdue invoice. Firm, polite, and impossible to misread.
+        id: "who-this-is-not-for",
+        title: "Write the who this is not for section",
+        when: "Use this when you are trying to be right for everyone and ending up specific to nobody.",
+        prompt: `What I do: [describe it]
+Who it is genuinely right for: [be specific]
+Who keeps contacting me that I am wrong for: [the enquiries you turn down or regret taking]
+What I do not do: [the adjacent things people assume you do]
 
-The facts:
-- Invoice number and amount: [fill in]
-- Due date and days overdue: [fill in]
-- The client and our relationship: [one line, for example "good client, usually pays on time"]
-- Reminders already sent: [none, one, several, with dates]
-- My escalation options if this continues: [late fee in the contract, pausing work, a legal step, or "none defined"]
-
-Do this:
-1. Match the tone to the stage: a first reminder assumes good faith, a second is firmer with a specific date, a third names the consequence I listed.
-2. Draft the message for my stage: short, factual, amount and due date in the first two sentences, one clear ask with a date.
-3. Offer the easy out once: if payment is already on its way, they can ignore this.
-4. Never threaten anything I did not list as a real option.
+Write two short sections:
+1. "This is for you if" with three or four concrete situations.
+2. "This is not for you if" with three or four, stated plainly and without insult.
 
 Rules:
-- Under 100 words. No apologising for asking to be paid.
-- No emotional language, whatever the history. Facts collect money, feelings collect replies.
-
-Give me the message, a subject line, and one line on when to send the next one if silence continues.`,
-        tip: "Send reminders on a fixed rhythm, not when frustration peaks. A calendar is calmer than you are."
+- Situations, not adjectives. Not "businesses that value quality", but the actual circumstance they would recognise.
+- The second section has to genuinely rule people out. If it does not lose me anyone, it is not doing anything.
+- No apology for what I do not do.`,
+        tip: "The second list is what makes a recommendation possible. Being clearly wrong for some people is what makes you obviously right for others."
       },
       {
-        id: "client-update",
-        title: "Send updates before they ask",
-        when: "Use this when a project runs long and you want the client calm because they always know where things stand.",
-        prompt: `You are helping a freelancer write a short project update that prevents the "any news?" email.
+        id: "plain-answerable-sentences",
+        title: "Turn my services into plain answerable facts",
+        when: "Use this on service pages that describe what you do without ever quite saying it.",
+        prompt: `Here is my current services page:
 
-The project and client: [one line]
+[paste it]
 
-Since the last update:
-- Done: [list what got finished, plainly]
-- In progress: [what is moving now]
-- Blocked or waiting: [anything stuck, and on whom, including if it waits on the client]
-- Next: [what happens before the next update]
-- Timeline: [still on track, or the new honest date]
+The problem: this is written to sound good, not to answer a question.
 
-Do this:
-1. Write the update in under 120 words, leading with overall status in one sentence: on track, slightly behind, or blocked.
-2. Keep the sections short: done, next, waiting on you, timeline. Skip empty ones.
-3. If something waits on the client, make the ask specific with a date, and say plainly what the delay does to the timeline.
-4. If the date moved, state the new date once, with a one sentence reason. No cushioning paragraph.
+1. Pull out every actual fact in it. What is done, for whom, where, how long it takes, what it costs.
+2. Show me what is left once the facts are removed. That is the filler.
+3. Rewrite it as plain statements a person or an assistant could quote as an answer.
+4. List the facts a customer would want that are simply not on the page.
 
-Rules:
-- No filler about hoping they are well.
-- Never hide a slip inside good news. Status first, always honest.
-
-End with the message ready to send, plus a subject line that carries the status itself.`,
-        tip: "Send it the same day each week. Predictability, not length, is what makes clients stop worrying."
+Rules for the rewrite: no adjectives about quality, no "we pride ourselves", one fact per sentence.`,
+        tip: "Step 2 is uncomfortable and useful. Most service pages are 80% filler and the owner cannot see it because they wrote it."
       },
       {
-        id: "say-no",
-        title: "Decline work without closing doors",
-        when: "Use this when a project is wrong for you but the relationship is worth keeping.",
-        prompt: `You are helping a freelancer decline a project gracefully.
+        id: "faq-from-real-questions",
+        title: "An FAQ from questions people really asked",
+        when: "Use this when you have a pile of enquiry emails and no FAQ.",
+        prompt: `Here are real questions people have sent me:
 
-The request I am declining:
-[paste or describe what they asked for]
+[paste enquiry emails, messages, or just the questions you remember being asked]
 
-The honest reason:
-[fully booked, wrong fit, budget too low, red flags, or a mix]
-
-What I can honestly offer instead:
-[a later start date, a smaller scope, a referral to someone specific, or nothing]
-
-Do this:
-1. Draft the decline: thank them specifically for what they asked, one clear sentence saying no, and the reason in a single honest line without oversharing.
-2. If I listed an alternative, present it as a genuine option, not a consolation prize.
-3. If the real reason is price, say that the budget and my pricing do not meet, without apologising for my rates and without lecturing them about value.
-4. Keep the door visibly open only if I actually want it open. Ask me if that is unclear.
+Turn them into an FAQ.
 
 Rules:
-- Under 100 words. Warm, definite, zero maybes that create follow-up negotiations.
-- No fake busyness excuses I did not give you.
-
-End with the message, plus a one line note on whether this decline deserves a referral, based on what I told you.`,
-        tip: "A clean fast no gets you more respect and more future work than a slow maybe. The maybe only feels kinder."
+- Keep the customer's phrasing in the question. Do not translate it into industry language.
+- Group the ones that are really the same question, and say which you merged.
+- Answer only from what I give you. Where you need a fact I have not supplied, leave a [bracket].
+- Answer the price question with a real structure, even if it is a range or "it depends on X and Y". Do not write "contact us for a quote" as an answer.
+- Short answers. Two or three sentences each.`,
+        tip: "Never translate the question into your own jargon. People search using the words they already have."
       },
       {
-        id: "explain-my-work",
-        title: "Explain my work to the client",
-        when: "Use this when the work is good but the client needs the reasoning in words to feel safe saying yes.",
-        prompt: `You are helping a freelancer explain finished work to a client. Clients buy the reasoning as much as the result, so put my decisions into plain words.
+        id: "does-my-page-answer",
+        title: "Does my page answer before it sells",
+        when: "Use this on any page you expect a stranger to land on.",
+        prompt: `Here is the page:
 
-What I delivered:
-[describe the work: a design, a text, a website, a plan]
+[paste the text]
 
-My actual reasons, rough notes are fine:
-[why you made the key choices: this layout because, this tone because, this order because]
+The question a visitor arrived with: [what they typed or wanted to know]
 
-What the brief asked for:
-[the goals from the brief, short]
+1. Does the page answer that question? Quote where, or say it does not.
+2. How far down does the answer sit? Count the sentences before it.
+3. What does the page do instead in that space?
+4. Rewrite the opening so the answer comes first and the selling follows.
 
-Do this:
-1. Write a short walkthrough, three or four paragraphs, connecting each main decision to a goal from the brief.
-2. Use only the reasons I gave you. If a choice has no reason listed, ask me rather than inventing a rationale I would have to defend live.
-3. Plain, confident language a non-expert follows. No craft jargon.
-4. Close with one line inviting focused feedback: what to look at first, and what kind of notes help most.
-
-Rules:
-- No overselling. The work carries the weight, the text just turns the lights on.
-- Keep it under 250 words.
-
-Return the walkthrough ready to paste under a preview or into an email.`,
-        tip: "If a decision has no reason you can say out loud, look at that part of the work again. Sometimes the explanation gap is a design gap."
+Do not touch anything below the opening. I only want to know what happens in the first ten seconds.`,
+        tip: "Answer first, sell second. A page that makes someone scroll to find out whether you do the thing usually loses them before they get there."
       }
     ]
   },
   {
-    id: "office",
-    desc: "Inbox, meetings, reports, spreadsheets. Small routines for the everyday grind.",
-    chip: "Office work",
-    name: "Office and operations work",
+    id: "money",
+    desc: "Personal money decisions, with every prompt built to make it ask for your numbers instead of inventing them.",
+    chip: "Personal",
+    name: "Money decisions",
     blurb: [
-      "Inbox, meetings, reports and spreadsheets. Small routines for the everyday work, the kind that quietly gives you back an hour most days."
+      "Personal money, where a confident wrong answer costs you something real. Every prompt here forces it to work from your numbers and to show the arithmetic, because getting sums wrong in a certain voice is the thing it does most reliably."
     ],
     updated: UPDATED,
     prompts: [
       {
-        id: "thread-summary",
-        title: "Summarise this thread for me",
-        when: "Use this when a long thread needs a decision and rereading forty messages is not a plan.",
-        prompt: `You are summarising a long work thread for someone who has to act on it and skimmed half of it.
+        id: "where-money-goes",
+        title: "Where is my money actually going",
+        when: "Use this when the month ends and you genuinely do not know where it went.",
+        prompt: `Here is a month of my spending:
 
-The thread, pasted as is:
-[paste the whole email thread or chat, names included]
-
-My role in it: [one line, for example "I own the decision" or "I just got added"]
+[paste your transactions, or a rough list. Bank exports work fine.]
 
 Do this:
-1. Summarise what actually matters in three to five bullets, newest state first.
-2. List decisions already made, each with who made it.
-3. List open questions, each with the name of the person expected to answer.
-4. Name the single next action for me, based on my role, and who is waiting on it.
-5. Flag any deadline or date mentioned anywhere in the thread.
+1. Group it into categories that reflect how I actually live, not standard budget headings.
+2. Show what each category came to and what share of the total it was.
+3. Point out anything that surprised you about the shape of it.
+4. Separate what is fixed and hard to change from what is genuinely discretionary.
+5. Flag anything that looks like a subscription I may have forgotten.
 
 Rules:
-- Ignore pleasantries, repeated arguments, and dead ends that got resolved later.
-- Attribute carefully. If it is unclear who said or decided something, mark it unclear rather than guessing a name.
-- Keep everything on one screen.
-
-End with one line I could paste as my reply to move the thread forward.`,
-        tip: "The who-is-waiting-on-whom list is what people miss when skimming. Half of stuck threads are two people each waiting for the other."
+- Add up only what I gave you. Show your arithmetic for each category total so I can check it.
+- If a transaction is ambiguous, ask rather than filing it somewhere.
+- Do not tell me what to cut yet, and do not comment on my choices. Just show me the shape.`,
+        tip: "Check the totals yourself. Adding up a list is exactly the kind of thing it does confidently and sometimes wrongly, so the visible arithmetic is not optional."
       },
       {
-        id: "notes-to-email",
-        title: "Turn notes into a clear email",
-        when: "Use this when you have rough notes and need a clean, friendly message out of the door.",
-        prompt: `Turn my rough notes into a short, clear work email.
+        id: "which-debt-first",
+        title: "Which debt do I pay first",
+        when: "Use this when you have several and are paying a bit off each with no plan.",
+        prompt: `Here is every debt I have:
 
-My notes:
-[paste your fragments, bullet points, half sentences]
+[for each one: what it is, the balance, the interest rate, the minimum payment, and any fees or deadlines]
 
-Who it goes to and our relationship: [colleague, my boss, external partner, customer]
-What the email must achieve: [one line: inform, get approval, get an answer by a date]
+What I can put towards debt each month, beyond the minimums: [amount]
 
 Do this:
-1. Write a subject line that states the topic and, if there is one, the deadline.
-2. Open with the point in the first sentence. No warm up paragraph.
-3. Keep the body under 120 words with one clear ask or next step. If I need multiple answers, number the questions.
-4. Match the tone to the relationship I stated, warm but direct in all cases.
+1. Order them for paying off by cost, highest interest first, and show the total interest that path costs.
+2. Order them smallest balance first, and show what that path costs.
+3. Show the difference between the two in money and in months.
+4. Say which you would pick and why, and be explicit that the second path costs more but is easier to stick to.
+5. Flag anything with a deadline, a penalty or a rate that is about to change, since those may outrank both orders.
 
-Rules:
-- No filler phrases, no "hope this finds you well", no em dashes.
-- Do not add promises, dates, or commitments that are not in my notes.
-- If a critical detail is missing from my notes, put [fill in: what] in the draft instead of inventing it.
-
-Return the subject plus the body, then one line telling me anything I should double check before sending.`,
-        tip: "Numbered questions get numbered answers. Prose questions get one vague paragraph back, and then a second email."
+Show the arithmetic. If I have left out a rate you need, ask instead of assuming one.`,
+        tip: "Both orders are valid. Cheapest on paper is worthless if you abandon it in month three, so pick the one you will actually finish."
       },
       {
-        id: "meeting-prep",
-        title: "Prep me for this meeting",
-        when: "Use this when a meeting is close and you want to walk in with a position instead of improvising one.",
-        prompt: `You are prepping me for a work meeting in under two minutes of reading.
-
-The meeting: [topic, and what kind: decision, update, negotiation, first meeting]
-Who will be there: [names or roles, and anything about what they care about]
-What I want out of it: [your goal in one line]
-Background worth knowing: [paste any agenda, thread, or notes, or "none"]
+        id: "check-my-plan",
+        title: "Second opinion on my plan",
+        when: "Use this when you have decided something and want it stress-tested before you act.",
+        prompt: `Here is my plan: [describe it, with the numbers]
+Here is my situation: [income, obligations, what a bad month looks like]
+Here is what I am assuming: [list what you are taking for granted]
 
 Do this:
-1. Give me the three points I should make, sharpest first, each in one sentence I could say out loud.
-2. Give me two questions worth asking: ones that surface information I actually need, based on my goal.
-3. Predict the most likely pushback and give me a calm two sentence response.
-4. Tell me what not to bring up, if the background suggests a topic that derails.
-5. Name the concrete thing to secure before the meeting ends: a decision, an owner, a date.
+1. List every assumption you can see in my plan, including the ones I did not name.
+2. For each, say what happens to the plan if it turns out wrong.
+3. Tell me which single assumption breaking would hurt most.
+4. Tell me what I have not accounted for. Irregular costs, annual bills, the things that only show up once a year.
+5. Say what you would want to know that I have not told you.
 
-Rules:
-- Plain spoken language, no corporate theatre.
-- If my goal is fuzzy, ask me one question before doing anything else.
-
-Format: one screen, headed sections, nothing I need to memorise.`,
-        tip: "Read it right before the meeting, not an hour early. This is a warm up, and warm ups expire."
+Do not reassure me. If the plan is fragile, say where.`,
+        tip: "Point 4 catches most people. Annual and irregular costs are what turn a plan that works on paper into one that fails in March."
       },
       {
-        id: "minutes-actions",
-        title: "Transcript into minutes and actions",
-        when: "Use this when the meeting is over and someone has to say what was decided, and that someone is you.",
-        prompt: `You are turning a raw meeting record into minutes people will actually read.
-
-The raw material:
-[paste the transcript or your rough notes]
-
-The attendees and their roles, if I know them: [names, or "in the transcript"]
+        id: "compare-two-options",
+        title: "Compare these two options properly",
+        when: "Use this on any either-or with numbers: two insurance plans, two loans, buy against rent, two contracts.",
+        prompt: `Option A: [all the terms, costs and conditions]
+Option B: [same]
+My situation: [what you would actually use, how long you would keep it, what would make you switch]
 
 Do this:
-1. List the decisions made, one line each, with who made or owns each one.
-2. List the action items as a table: action, owner, deadline. If an owner or deadline was never said, write "not assigned" so it is visible. Do not invent one.
-3. Summarise the two or three main discussion points in a sentence each, only where the reasoning matters later.
-4. List anything explicitly parked or postponed, so it does not silently die.
-5. Flag ambiguities: places where the transcript suggests people left with different understandings.
+1. Put them side by side on the things that matter to my situation, not on every feature.
+2. Work out the real cost of each over [time period], showing the arithmetic.
+3. Say at what point one becomes better than the other, and what would have to change.
+4. Name what is not in the comparison because neither document says.
+5. Say which you would pick given what I told you, and what would flip it.
 
-Rules:
-- Attach names to statements only where it matters for the action. This is a record, not a blame protocol.
-- The whole output fits on one screen.
-
-End with a two line summary I can paste into chat for people who will not open the document.`,
-        tip: `Send the minutes within an hour, while memories are soft. "Not assigned" next to an action gets fixed fast when everyone still remembers the meeting.`
+Only use figures I have given you. Where a term is unclear in what I pasted, say so instead of assuming the usual.`,
+        tip: "Point 3 is the answer you actually want. Most of these decisions turn on one number, and it is usually how long you keep the thing."
       },
       {
-        id: "formula-help",
-        title: "Get the formula I need",
-        when: "Use this when you know what the spreadsheet should do and just cannot make it do it.",
-        prompt: `You are a spreadsheet helper for a regular office user, not a programmer. Give me the formula and make me understand it.
+        id: "what-am-i-missing",
+        title: "What have I forgotten to count",
+        when: "Use this before committing to anything with an ongoing cost.",
+        prompt: `What I am about to commit to: [the thing]
+The cost I have budgeted: [what you think it costs]
+How I worked that out: [what you included]
 
-My tool: [Excel or Google Sheets, and the language version if not English]
+Tell me what I have left out.
 
-My data layout:
-[describe the columns, for example "A has dates, B has names, C has amounts", or paste a few sample rows]
+1. Costs that appear later: setup, insurance, maintenance, renewal, the thing that always needs replacing.
+2. Costs that appear annually rather than monthly, which people forget when they budget in months.
+3. What it stops me doing, in money terms.
+4. What happens to the cost if my circumstances change in the obvious ways.
 
-What I want to happen, in plain words:
-[for example "sum column C for each name in B, but only for this month"]
-
-Do this:
-1. Give me the exact formula for my layout, ready to paste, and say which cell to put it in.
-2. Explain how it works in two or three plain sentences, part by part.
-3. Tell me the two most likely reasons it shows an error or a wrong number with my kind of data, and the quick fix for each.
-4. Show me how to test it: a tiny example with my columns where I can verify the result by head math.
-
-Rules:
-- Prefer the simple readable formula over the clever one liner.
-- If my description of the layout is ambiguous, ask before answering.
-
-End with the formula in a code block, alone, for clean copying.`,
-        tip: "Test on five rows where you can check the answer yourself before trusting it on five thousand."
+For each, say whether it is certain, likely or possible. Do not invent figures for my country or my situation. Where a number depends on where I am or who I am, ask me.`,
+        tip: "The annual costs are the trap. Anything budgeted monthly quietly ignores the bills that arrive once a year, and those are the ones that break the month."
       },
       {
-        id: "status-report",
-        title: "Write my status report",
-        when: "Use this when the report is due and your week is a blur of done things nobody wrote down.",
-        prompt: `You are writing my work status report from my raw notes. Factual, readable, and free of self marketing.
+        id: "explain-this-document",
+        title: "Explain this document in plain words",
+        when: "Use this on an insurance policy, a contract, a statement, anything you signed without fully reading.",
+        prompt: `Here is the document:
 
-Reporting period: [week, sprint, month]
-Who reads it: [my manager, the team, a client]
+[paste it, or the relevant sections]
 
-What happened, in no order:
-[dump everything: finished tasks, meetings, problems, half done things, waiting-on items]
+What I want to know: [your specific question, or "what am I agreeing to"]
 
 Do this:
-1. Sort my dump into: completed, in progress, blocked or waiting with who or what it waits on, and planned next.
-2. Lead the report with the two or three items that matter most to this reader, one line each.
-3. Keep each item factual and specific: what moved, and its state now. No adjectives about how challenging it was.
-4. If something slipped, say it plainly with the new expected date. Give the reason only if I included one.
-5. Keep the whole report under 200 words.
+1. Explain what it actually says, in plain language, section by section.
+2. Pull out every obligation on me: what I must do, by when, or lose something.
+3. Pull out every situation where they do not have to pay or perform.
+4. Flag anything unusual compared to what documents of this kind normally say, and mark that comparison clearly as your general knowledge rather than something in the text.
+5. List the questions I should ask before signing.
 
-Rules:
-- Do not inflate. Do not add achievements, effort, or progress percentages I did not state.
-- Plain sentences a skimming reader still gets.
-
-Return the report with small headings, plus a one line summary at the top.`,
-        tip: "Keep a running done list during the week, one line per item. Friday's report then writes itself from real material instead of memory."
+Work only from the text for points 1 to 3. Quote the wording each point rests on. If something is genuinely ambiguous, say so rather than picking a reading.`,
+        tip: "The exclusions in point 3 are the whole document. Everything else is what you assumed you were buying anyway."
       },
       {
-        id: "process-doc",
-        title: "Document how I do it",
-        when: "Use this when you are the only one who knows how something is done, and that keeps making it your job.",
-        prompt: `You are helping me document a process I normally carry in my head, so a colleague can do it without me.
+        id: "build-the-buffer",
+        title: "Build a buffer from nothing",
+        when: "Use this when every unexpected bill becomes a small crisis.",
+        prompt: `My situation: [income, when it arrives, how regular it is]
+What I have set aside now: [including if it is nothing]
+What a bad month costs me: [the unexpected bills you actually get]
+What I could put aside without it failing in week two: [be pessimistic]
 
-The process: [name it, for example "monthly invoicing" or "publishing a product update"]
-Who will follow this document: [new colleague, my team, my cover when I am away]
+Build me a plan to get to one month of essential costs.
 
-How I do it, dumped from memory:
-[write it as it comes: steps, tools, logins involved, weird exceptions, things that go wrong]
+1. Ask me what you need to work out what my essential costs actually are. Wait for my answers.
+2. Show me the target figure and how you got there.
+3. Show how long it takes at the amount I said, with the arithmetic.
+4. Tell me what to do when something goes wrong mid-plan, since it will.
+5. Tell me the one change that would most shorten the timeline, and be honest if it is not realistic for me.
 
-Do this:
-1. Rewrite my dump as numbered steps in strict order, one action per step, each starting with a verb.
-2. Note at each step which tool or place it happens in.
-3. Pull the exceptions and warnings out of my text into a "watch out" note attached to the exact step where they bite.
-4. List what the person needs before starting: access, files, permissions.
-5. Ask me the questions that reveal what I forgot to mention. The steps I do automatically are exactly the ones missing from my dump.
-
-Rules:
-- Write for a smart person with zero context. Spell out what "the usual folder" actually is.
-- No step may contain two actions.
-
-End with the how-to, the checklist of prerequisites, then your questions for me.`,
-        tip: "Have someone follow the document while you watch in silence. Where they stall, the document has a hole, not the person."
+No motivational language. If the timeline is long, say the number.`,
+        tip: "Be pessimistic about what you can set aside. A plan built on your best month fails in your average one."
       },
       {
-        id: "holiday-handover",
-        title: "Write my holiday handover",
-        when: "Use this when you leave in two days and everything you own lives in your head.",
-        prompt: `You are writing my out of office handover so nothing burns while I am away and nobody calls me at the beach.
+        id: "rehearse-money-talk",
+        title: "Rehearse the money conversation",
+        when: "Use this before talking to a partner, a bank, or someone you owe.",
+        prompt: `Who I am talking to: [and what our relationship is]
+What I need to say: [the honest version, including anything I have been hiding or delaying]
+What I want out of it: [the outcome]
+What I am afraid of: [the real fear]
 
-I am away: [dates]
-Covering for me: [name or names, and what they already know about my work]
+First, help me prepare:
+1. What are the facts I need at hand before I start?
+2. What is the first sentence? That is the one I will fumble.
+3. What will they most likely say, and what is my honest answer to each?
 
-My running topics, dumped quickly:
-[list everything live: projects and their state, who is involved, what happens on which date while you are gone, where the files live]
+Then play them. Be realistic, including uncomfortable, and stay in character until I say stop.
 
-Do this:
-1. Sort my topics into: needs action during my absence, needs watching, and waits for my return. Say which is which.
-2. For each action item: what to do, when, with whom, and where the material lives.
-3. Write an "if this happens, do that" list for the two or three most likely surprises, based on my dump.
-4. Name what my cover should not decide without me, so the boundary is explicit.
-5. Draft my out of office message: dates, who covers what, three lines.
-
-Rules:
-- If my dump contains a date landing during my absence with no plan attached, flag it loudly at the top.
-- One screen. A handover nobody reads protects nobody.
-
-Return: flagged risks first, then the handover, then the out of office message.`,
-        tip: "Write it two days before you leave, not the last afternoon. The gaps it exposes usually need one more conversation to close."
+When I say stop, tell me where I got defensive, where I over-explained, and what I left out that they needed to hear.`,
+        tip: "Lead with the number. Every version of this conversation that starts with context and works up to the figure goes worse than the one that starts with the figure."
       }
     ]
   },
   {
-    id: "creators",
-    desc: "Make more from what you already record. Repurpose, script, and publish faster.",
-    chip: "Creators",
-    name: "Content creators",
+    id: "health",
+    desc: "Habits, food and follow-through, with prompts that make it ask what is really stopping you.",
+    chip: "Personal",
+    name: "Health and habits",
     blurb: [
-      "Make more from what you already record: repurpose it, script it and publish faster, without your feed starting to sound generated."
+      "Habits, food and follow-through. These do not replace a doctor and they will not know your body, so the prompts are built to make it question you rather than prescribe at you. Anything with a symptom in it belongs in front of a professional."
     ],
     updated: UPDATED,
     prompts: [
       {
-        id: "video-to-posts",
-        title: "One video into a week",
-        when: "Use this when you recorded one good video and want a week of posts out of it.",
-        prompt: `You are repurposing my video into standalone posts, keeping my voice from the transcript itself.
+        id: "ten-questions-constraint",
+        title: "Ten questions to find what is really stopping me",
+        when: "Use this when you know what you should be doing and are somehow not doing it.",
+        prompt: `What I am trying to do: [the goal]
+How long I have been trying: [honestly]
+What I have already tried: [and how each one ended]
 
-The transcript:
-[paste the full transcript here]
+Ask me ten questions, one at a time, to find the constraint I cannot see. Wait for each answer before the next.
 
-Where the posts go: [LinkedIn, Instagram captions, X, a newsletter]
+Rules for your questions:
+- Ask about what actually happened, not about what I intend.
+- If an answer sounds rehearsed or too quick, follow it rather than moving on.
+- At least three should be about my circumstances rather than my motivation. Time, money, other people, sleep.
+- Do not give advice while we are still going.
 
-Do this:
-1. Pull out the five strongest distinct ideas from the transcript. Distinct means a person could disagree with each one separately.
-2. Write one post per idea, under 80 words, in my voice: reuse my actual phrasings from the transcript where they are good.
-3. Make the first line of each post work alone, since feeds cut the rest. No questions as bait, no "unpopular opinion".
-4. One idea per post. If two ideas need each other, they are one post or none.
-5. No hashtags, no emojis, no em dashes.
-
-Rules:
-- Do not add claims, numbers, or stories that are not in the transcript.
-- If the transcript only carries three strong ideas, give me three and say so. Do not pad to five.
-
-Number the posts. Under each, add one line naming the idea it carries, so I can schedule them across the week myself.`,
-        tip: "The transcript line you almost cut for rambling is often the most human post of the five. Watch for it."
+At the end: tell me what you think is really in the way, quote the answers that led you there, and name the smallest change that would test it.`,
+        tip: "The questions about circumstances are the ones that land. Most stuck habits are a logistics problem wearing a motivation costume."
       },
       {
-        id: "thirty-second-script",
-        title: "Script a thirty second video",
-        when: "Use this when you know the point you want to make and need it shaped for a short video.",
-        prompt: `You are scripting a short vertical video, thirty seconds, one idea, in my voice.
+        id: "meals-from-fridge",
+        title: "Meals from what is actually in the fridge",
+        when: "Use this at 6pm when you are about to order in for the third time this week.",
+        prompt: `Here is what I have in:
 
-The one point I want to make:
-[state it plainly, for example "most people overpay for AI tools they use twice"]
+[list what is in the fridge, the freezer and the cupboard. Be exhaustive and unglamorous.]
 
-Why I believe it, my material:
-[your reasons, an example, a number you actually have]
+Time I have: [minutes]
+Equipment: [what you actually own and will wash up]
+Things I will not eat: [and any allergies or restrictions, which are not negotiable]
 
-My tone: [paste two or three lines you have said or written that sound like you]
-
-Do this:
-1. Hook, first line: state the point or the tension directly. No "wait for it", no "nobody talks about this".
-2. Body, three or four short spoken sentences building the point, using only my material.
-3. Payoff, last line: the practical takeaway a viewer can use today.
-4. Write for the mouth, not the page: sentences I can say in one breath, natural rhythm, contractions welcome.
-5. Add a timing estimate per section and one line describing what to show on screen at each step.
+Give me three options I can make from this list.
 
 Rules:
-- No invented statistics or examples. If my material is too thin for thirty seconds, tell me what is missing instead of filling it.
-- No call to action begging for follows.
-
-Return the script in three labeled blocks: hook, body, payoff.`,
-        tip: "Read it out loud once before recording. Any sentence you stumble on twice gets rewritten by your mouth, and your mouth is always right."
+- Only ingredients I listed, plus salt, pepper, oil and water. If something needs one thing I do not have, say so and put it separately.
+- Real timings, including prep, and say which parts overlap.
+- Tell me which option is the most nutritionally useful of the three and why, in one line.
+- No recipes that need a technique I did not say I could do.`,
+        tip: "List the boring items too, and the things nearly out of date. That is where the useful suggestions come from."
       },
       {
-        id: "honest-hooks",
-        title: "Write hooks without clickbait",
-        when: "Use this when you need a strong first line that the rest of the content can actually keep.",
-        prompt: `You are writing opening hooks for a creator who refuses clickbait. The rule: the content must fully deliver whatever the hook promises.
-
-The content, or an honest summary of it:
-[paste the script, post, or a real summary]
-
-The format: [short video, LinkedIn post, YouTube title, newsletter subject]
+        id: "smallest-habit",
+        title: "The smallest version of this habit",
+        when: "Use this when you have started the same habit four times and quit it four times.",
+        prompt: `The habit I want: [what you want to do, and how often]
+How I have tried before: [what you attempted, and where each attempt died]
+My actual week: [when you are free, when you are wrecked, what is fixed]
 
 Do this:
-1. Write eight hooks in different modes: the direct claim, the specific number or detail pulled from the content, the honest question I actually answer, the mistake I made myself, and the before and after stated plainly.
-2. For each hook, add one line: what it promises, and where in the content that promise is kept.
-3. Kill your own weak ones: mark any hook that overpromises even slightly, and say why.
-4. Pick your top two for my format.
+1. Ask me two questions about the failures, aimed at what happened rather than at willpower.
+2. Then give me the smallest version that is still worth doing. Small enough that a bad day does not break it.
+3. Tell me exactly when in my week it goes, based on what I told you.
+4. Tell me what to do on the day I miss it, because I will.
+5. Tell me what to look at in four weeks to decide whether to make it bigger.
 
-Rules:
-- No curiosity gaps the content cannot close. No "you will not believe", no fake urgency.
-- Specific beats dramatic. A real number from the content beats an adjective every time.
-- Hooks must sound like speech, not ad copy.
-
-Return: the eight hooks numbered, the kill list with reasons, then the top two with a one line case each.`,
-        tip: "The test is simple: would someone who finishes the content feel the first line was fair? If not, the algorithm win costs you the trust everything else runs on."
+Do not motivate me. Give me the smallest thing and where it goes.`,
+        tip: "Make it embarrassingly small. Whatever you think is the minimum, halve it, because the one that survives a bad week is the only one that counts."
       },
       {
-        id: "transcript-to-article",
-        title: "Clean my transcript into an article",
-        when: "Use this when the video exists and the written version should too, without sounding like a robot transcribed it.",
-        prompt: `You are turning my spoken transcript into a readable written piece, keeping my voice but respecting that writing is not speech.
+        id: "sanity-check-advice",
+        title: "Sanity check something I read online",
+        when: "Use this on any confident health claim you saw on a video or a forum.",
+        prompt: `Here is the claim:
 
-The transcript:
-[paste it as it comes, timestamps and filler included]
+[paste it, or describe it as it was told to you]
 
-Where it will be published: [blog, newsletter, LinkedIn article]
+Where I saw it: [platform, and whether the person was selling something]
 
 Do this:
-1. Remove the speech artifacts: filler words, false starts, repeated phrases, verbal tics.
-2. Keep my phrasings, examples, and side comments that carry personality. The goal is my voice edited, never a generic article about the same topic.
-3. Restructure where spoken order fails on the page: group wandering points, but keep my argument and my claims exactly.
-4. Add subheadings every few paragraphs, written in my own words.
-5. Where I referenced something visual, "as you can see here", flag it with [visual: describe or cut] for me to resolve.
+1. Say what part of this is broadly accepted, what is contested, and what is simply wrong.
+2. For each, say how confident you are and why.
+3. Tell me what the claim leaves out that changes the picture.
+4. Tell me who this could be actively bad for.
+5. Tell me what a person would need to know about me before saying whether it applies.
 
-Rules:
-- Do not add an introduction or conclusion I did not speak. Trim to where the substance starts.
-- Do not upgrade my vocabulary. If I said "cheap", it stays "cheap".
-
-Return the article, then a short list of the [visual] flags and any claim that may need a source link.`,
-        tip: "Publish the article a few days after the video and link both ways. Two formats from one thinking session, and each audience finds its own door."
+Be explicit about the limits of your own knowledge, including where your information may be out of date. If this is something that needs a doctor rather than a chatbot, say that plainly and stop.`,
+        tip: "Point 4 is the one to read. Advice that is fine for most people can be genuinely bad for a few, and those few are never mentioned in the video."
       },
       {
-        id: "caption-voice",
-        title: "Captions in my voice",
-        when: "Use this when the clip is ready and the caption is the only thing between you and posting.",
-        prompt: `You are writing captions for my posts, in my voice, without hashtag confetti.
-
-What the post or clip shows:
-[describe it, or paste the script or the key quote from it]
-
-My voice sample:
-[paste two or three captions or messages you actually wrote]
-
-Platform: [Instagram, LinkedIn, TikTok, X]
+        id: "why-did-i-stop",
+        title: "Why did I stop, without the lecture",
+        when: "Use this after a streak breaks, instead of starting again from scratch on Monday.",
+        prompt: `What I was doing: [the habit and how long it ran]
+When it stopped: [and what was happening in my life that week]
+What I told myself at the time: [the reason you gave yourself]
 
 Do this:
-1. Write three caption options: one short, a single line that lands; one medium, two to four sentences adding the context the clip cannot carry; and one that opens a genuine question I would actually want answers to.
-2. Match my voice sample: my sentence length, my level of casualness, my kind of humor if any shows.
-3. Make the first words carry, since the fold cuts early on every platform.
-4. Hashtags: maximum three, only if they genuinely help discovery on this platform, placed at the end. None is a fine answer.
+1. Ask me three questions about the week it stopped. Facts, not feelings.
+2. Then tell me what most likely broke it, distinguishing between the trigger and the underlying cause.
+3. Tell me whether the habit was badly designed for my life, rather than assuming I failed it.
+4. Tell me what would have to be different for the next attempt to survive the same week.
 
-Rules:
-- No emoji unless my voice sample uses them, and then match my actual frequency.
-- No "double tap if", no "tag someone who", no engagement scripts of any kind.
-
-Return the three options numbered, with a one line note on when each type works best.`,
-        tip: "Keep a note file of your five best performing captions. That becomes the voice sample, and the options get noticeably closer to you."
+Do not tell me to be kind to myself and do not tell me to try harder. Diagnose it.`,
+        tip: "Usually the habit was wrong for the week. A fixed daily slot fails the first week your schedule moves, and that is a design fault."
       },
       {
-        id: "idea-mining",
-        title: "Mine real questions for ideas",
-        when: "Use this when the content calendar is empty and you want ideas grounded in what your audience already asks.",
-        prompt: `You are mining content ideas from real audience material, so I make content people asked for instead of content I assume they want.
-
-The raw material:
-[paste real comments, DMs, emails, client questions, search queries, community posts, anything your audience actually wrote]
-
-What I make and for whom: [one line, for example "practical AI videos for non-technical business owners"]
+        id: "goal-with-a-number",
+        title: "Turn a vague goal into a weekly plan",
+        when: "Use this when your goal is a feeling rather than something you could measure.",
+        prompt: `My goal: [say it however vague. "Get fitter", "eat better", "sleep properly" are all fine.]
+Why it matters to me: [the real reason]
+Where I am now: [honestly, with any numbers you have]
+What I have available: [time per week, equipment, money, and who else this has to fit around]
 
 Do this:
-1. Extract every distinct question or pain hiding in the material, including the ones phrased as complaints or jokes.
-2. Group them into themes and rank the themes by how often they appear in what I pasted, with the count shown.
-3. For the top three themes, propose one concrete content idea each: a working title, the specific question it answers, and the one thing the viewer walks away able to do.
-4. Mark which ideas I am uniquely placed to answer, and which ones would have me repeating everyone else, judging from what I told you I do.
+1. Ask me what you need to turn this into something measurable. Wait for my answers.
+2. Turn it into a specific target with a number and a date, and say why that target rather than a more ambitious one.
+3. Give me the weekly plan that fits the time I actually have, not an ideal week.
+4. Tell me the leading indicator to watch, the thing that moves before the goal does.
+5. Tell me what you would expect to go wrong first.
 
-Rules:
-- Every idea must trace to a quote from the material. Include the quote.
-- If the material is too thin for real patterns, say so, and tell me what to collect for two weeks.
-
-End with a table: theme, count, idea title, source quote.`,
-        tip: "The complaint phrased as a joke is often the strongest idea in the pile. People joke about what actually frustrates them."
+If my target is unrealistic for the time I have, say so and give me the realistic one instead.`,
+        tip: "Watch the leading indicator. Weight, fitness and sleep quality lag weeks behind the behaviour, and that gap is where people quit."
       },
       {
-        id: "content-week",
-        title: "Plan a week from one idea",
-        when: "Use this when one strong idea should become a week of connected content instead of one lonely post.",
-        prompt: `You are planning one week of content from a single core idea, one angle per day, without repeating the same post five ways.
+        id: "hold-me-to-it",
+        title: "Check in on me honestly",
+        when: "Use this weekly, in the same chat, once a plan is running.",
+        prompt: `Here is what I said I would do this week:
 
-The core idea:
-[state it, for example "most AI advice online is written by people who do not actually use it"]
+[paste your plan]
 
-My formats and platforms: [what you actually publish, for example "one video plus daily LinkedIn posts"]
-My material: [experiences, examples, numbers you have that relate to the idea]
+Ask me what actually happened, one question at a time.
+
+Rules:
+- Ask about what I did, not how I feel about what I did.
+- If I am vague, ask again more specifically. "Most days" is not an answer.
+- Do not congratulate me for a plan I did not follow.
+- Do not scold me either. I want a straight record, not a mood.
+- If I missed things, ask what was happening rather than why I did not push through.
+
+At the end: tell me what the week actually shows, what to change for next week, and whether the plan needs adjusting to my life rather than the other way round.`,
+        tip: "Run it in the same conversation each week so it can see the pattern. One week is noise, four weeks is information."
+      },
+      {
+        id: "what-would-need-true",
+        title: "What would need to be true for this to work",
+        when: "Use this before starting something big, while quitting is still cheap.",
+        prompt: `What I am about to start: [the plan]
+What I am assuming will happen: [including the things you have not said out loud]
+How long I expect it to take: [and where that estimate comes from]
 
 Do this:
-1. Break the core idea into five distinct angles: the claim itself, a concrete story or example from my material, the common mistake, the how-to, and the honest limits of the idea.
-2. For each day: the angle, the format that fits it best from my list, a first line, and a two or three sentence outline using only my material.
-3. Order the week deliberately: claim first, proof early, how-to once trust is built.
-4. Mark where the same asset can be reused across platforms with minor edits, to keep production sane for one person.
+1. List everything that would have to be true for this to work. Include the ones I have not mentioned.
+2. Mark each as within my control, partly in my control, or not in my control at all.
+3. Tell me which one is most likely to fail.
+4. Tell me what the plan looks like if that one does fail, and whether it is still worth doing.
+5. Tell me the cheapest test I could run this week to find out about the riskiest assumption before I commit.
 
-Rules:
-- Five angles, not five rewrites. Each day must survive alone for someone who sees nothing else.
-- Gaps in my material become questions to me, never invented stories.
-
-Return a Monday to Friday table: angle, format, first line, outline.`,
-        tip: "Batch the production in one sitting even though publishing is spread out. The week plan is really a two hour work session in disguise."
-      },
-      {
-        id: "stats-truth",
-        title: "Read my stats honestly",
-        when: "Use this when the analytics are open and you want the truth about what worked, without vanity comfort.",
-        prompt: `You are reading a creator's numbers like an honest analyst: what worked, what did not, and what the numbers cannot actually tell us.
-
-My numbers for the period:
-[paste your stats, per post or video if you have them: views, watch time, likes, comments, saves, follows, clicks, whatever your platform shows]
-
-What I published in that period:
-[list the pieces with a one line description each, matched to the stats if possible]
-
-My actual goal: [reach, leads, email signups, sales, or "not sure"]
-
-Do this:
-1. Separate the metrics that serve my goal from the ones that just feel good, and say which is which for my case.
-2. Name the best and worst performer against my goal, with the numbers, and what each had in common with other winners or losers in the data.
-3. Say clearly what this sample cannot prove: small numbers, single posts, platform quirks. Mark every guess as a guess.
-4. Give me one experiment for next period that tests the strongest pattern, with the number that will tell us if it worked.
-
-Rules:
-- No congratulations and no doom. Numbers, patterns, limits, one action.
-
-End with five lines: what worked, what did not, what we cannot know yet, the experiment, and the metric to watch.`,
-        tip: "Ten posts is a mood, not a dataset. Collect a month of numbers before you change strategy based on them."
-      }
-    ]
-  },
-  {
-    id: "students",
-    desc: "Learn faster and remember more. These make AI quiz you and question you.",
-    chip: "Students",
-    name: "Students and learning",
-    blurb: [
-      "Learn faster and remember more. These make AI quiz you and question you, and the thinking stays yours."
-    ],
-    updated: UPDATED,
-    prompts: [
-      {
-        id: "twenty-minute-topic",
-        title: "Learn a topic in twenty minutes",
-        when: "Use this when you need to get genuinely useful on a new topic today, not expert by next year.",
-        prompt: `You are teaching me a new topic in about twenty minutes of focused reading. I know nothing about it yet.
-
-The topic: [name it]
-Why I need it: [one line, for example "exam section", "job interview", "my project touches it"]
-
-Do this:
-1. Explain what it is and why anyone cares, in plain words, five sentences maximum.
-2. Teach the core ideas as short sections, each with a heading, each building on the last. Everyday language, and every unavoidable technical term gets its plain meaning in brackets.
-3. Give one concrete example per core idea, the kind I would recognise from normal life where possible.
-4. Name the three mistakes beginners make with this topic.
-5. Tell me honestly what I still will not understand after this session, and what to learn next if I need to go deeper.
-
-Rules:
-- Skip the history unless a piece of it explains the concept.
-- Depth over coverage: the three most important ideas taught properly beat ten ideas mentioned.
-
-End with a five question self test, with the answers listed separately after all the questions.`,
-        tip: "Take the self test tomorrow morning, not right after reading. What survives the night is what you actually learned."
-      },
-      {
-        id: "quiz-me",
-        title: "Teach me with a quiz",
-        when: "Use this when reading feels like learning but nothing sticks, and answering questions is what actually works.",
-        prompt: `You are my quiz tutor. Teach me [topic] by asking, never by lecturing.
-
-My level: [beginner, took one course, revising for an exam]
-My material, if the quiz should follow it:
-[paste lecture notes or a chapter summary, or write "use your general knowledge"]
-
-Run it like this:
-1. Ask one question at a time and wait for my answer.
-2. After each answer: tell me right, close, or wrong, then explain in two sentences maximum, then ask the next question.
-3. Start easy and raise the difficulty while I keep answering well.
-4. When I get one wrong, explain it simply and circle back with a similar question a few turns later, without announcing it.
-5. Mix question types: definitions, applications, spot the error, and explain why.
-
-Rules:
-- Never answer for me or drop hints before I commit to an answer.
-- If I say "I do not know", teach that piece briefly, then quiz it again later.
-- Base the questions on my pasted material when I provided it.
-
-After fifteen questions, stop and give me a scorecard: what I know solidly, what is shaky, and the three things to revise first.`,
-        tip: "Type your answer fully before sending, or say it out loud. The struggle to produce it is the part that makes it stick."
-      },
-      {
-        id: "explain-back",
-        title: "Check I actually understand",
-        when: "Use this when you can follow the textbook but are not sure you could explain it without it.",
-        prompt: `You are testing my understanding using the explain it back method. I explain, you probe.
-
-The topic I claim to understand: [name it]
-My explanation, as if to a smart friend from a different field:
-[write your explanation from memory, book closed, imperfect is the point]
-
-Do this:
-1. Grade my explanation honestly: what I got right, what I got wrong, what I skipped.
-2. Quote the exact sentences where I went vague or hid behind a term I did not unpack. The vague spots are usually where my understanding ends.
-3. Ask me two follow up questions targeting my weakest spot, the kind an examiner would ask.
-4. After my answers, give a corrected version of my explanation, keeping my wording where it was accurate and fixing only where I failed.
-
-Rules:
-- Do not be kind at the cost of being true. A soft grade now is a hard exam later.
-- If my explanation is actually solid, say so, and raise the difficulty with one edge case instead.
-
-End with a score out of ten and the one gap to close before moving on.`,
-        tip: "If you cannot explain it with the book closed, you have recognition, not understanding. This prompt tells you which one you have."
-      },
-      {
-        id: "reading-notes",
-        title: "Turn a reading into study notes",
-        when: "Use this when the reading is long, the time is short, and the notes need to be yours to study from.",
-        prompt: `You are turning course reading into study notes I will revise from, grounded in the text I give you.
-
-The reading:
-[paste the chapter, paper, or article, in parts if it is long]
-
-The course and what the teacher emphasises: [one line, or "unknown"]
-
-Do this:
-1. Extract the main claims and concepts as short notes, each tagged with where it sits in the text so I can find the full passage.
-2. Keep definitions exact: quote the text's own wording for anything I might need to reproduce, marked as quotes.
-3. Turn the text's examples into one line memory hooks tied to their concept.
-4. Build a likely exam questions list: five questions this text sets up, judging from what it stresses and repeats.
-5. Flag what the text assumes I already know, so I can patch gaps before they cost me.
-
-Rules:
-- Only what is in the text. No outside additions unless I ask. If a passage is ambiguous, note the ambiguity instead of resolving it silently.
-- Notes format: compact, headed sections, scannable in five minutes.
-
-End with the notes, the five questions, and the assumed knowledge list.`,
-        tip: "Rewrite the five questions in your own words and try them in three days. Notes you never test are just a prettier version of the reading."
-      },
-      {
-        id: "essay-outline",
-        title: "Outline my essay, not write it",
-        when: "Use this when the essay is due, the ideas are foggy, and you need structure while keeping the writing yours.",
-        prompt: `You are my essay planning partner. You help me structure and sharpen my argument. You do not write the essay, because submitting your words as mine is a problem I do not want.
-
-The assignment, exactly as given:
-[paste the prompt or question]
-
-My material so far:
-[your thesis attempt, your points, sources or quotes you plan to use, even messy]
-
-Do this:
-1. Stress test my thesis: is it arguable, specific, and answering the actual assignment? If it is weak, show me two sharper versions built from my own material.
-2. Arrange my points into an outline with a logical spine: each section's job in one line, and which of my sources or quotes belongs where.
-3. Name the strongest counterargument to my thesis and where in the outline to face it.
-4. List what is missing: claims I make with no support yet, so I know what to find before writing.
-
-Rules:
-- Use only my material and the assignment. Do not add arguments, sources, or quotes of your own.
-- Everything stays in outline form. No flowing paragraphs I could paste.
-
-End with the outline, the counterargument, and the missing support list.`,
-        tip: "The counterargument section is where grades hide. Facing the best objection honestly reads as thinking, and teachers can tell."
-      },
-      {
-        id: "flashcards",
-        title: "Make flashcards from my notes",
-        when: "Use this when the exam rewards recall and your notes need to become cards you can drill.",
-        prompt: `You are turning my study notes into flashcards built for recall, ready for Anki or any card app.
-
-My notes:
-[paste your notes, messy is fine]
-
-The exam format, if I know it: [multiple choice, written answers, oral, problem solving]
-
-Do this:
-1. Write cards as question on the front, answer on the back. One fact or idea per card, never two.
-2. Phrase the fronts as real questions or fill in the blank lines, not as headings. "What limits X?" beats "X, limits of".
-3. Keep answers short enough to check in two seconds: a term, a number, one sentence.
-4. For each concept, add one application card: a tiny scenario asking which concept applies. Exams test use, and recognition alone will not carry me.
-5. Skip what does not belong on cards: long derivations, essay themes, anything needing a full page. List those separately as "study differently".
-
-Rules:
-- My notes are the only source. Ambiguities in my notes become cards marked [verify], not confident answers.
-
-Output format: front and back separated by a semicolon, one card per line, so I can import it. Then the "study differently" list.`,
-        tip: `Cut any card you answer with "oh yeah, that one" instead of the actual answer. Familiarity is the enemy dressed as progress.`
-      },
-      {
-        id: "exam-plan",
-        title: "Plan my revision backwards",
-        when: "Use this when the exam date is fixed and the honest question is what to do with the days that remain.",
-        prompt: `You are building my revision plan backwards from exam day. Realistic beats heroic: a plan I follow at 80 percent beats a perfect one I abandon by Wednesday.
-
-The exam: [subject, format, date]
-Days left and real available hours per day: [be honest, after work, sport, life]
-The material: [list the topics or paste the syllabus]
-My current state per topic: [solid, shaky, untouched, best guess is fine]
-
-Do this:
-1. Rank the topics by expected exam weight combined with my weakness. Shaky and heavy tops the list, solid and light goes last.
-2. Build the day by day plan: which topic, which method (recall practice, problems, rereading only where unavoidable), and how long.
-3. Schedule spaced returns: every topic reappears for short recall at least twice before the exam.
-4. Reserve the last day for light review and rest, and say why cramming that day costs more than it pays.
-5. Include one contingency: what to cut first if I lose a day, so losing a day does not collapse the plan.
-
-Rules:
-- Do not schedule more hours than I declared. If the material does not fit, say what to sacrifice instead of inflating the days.
-
-End with the plan as a table: day, topic, method, minutes.`,
-        tip: "Recall practice feels worse and works better than rereading. If revision feels smooth and pleasant, you are probably just recognising things."
-      },
-      {
-        id: "stuck-on-problem",
-        title: "Walk me through, do not solve",
-        when: "Use this when you are stuck on a problem and want to be taught through it, since a pasted solution teaches you nothing.",
-        prompt: `You are my tutor for a problem I am stuck on. Guide me to solve it myself. Do not give me the solution, even if I ask when frustrated.
-
-The problem, exactly as given:
-[paste the problem or question]
-
-Where I am stuck:
-[show your work so far and say where it stops making sense, or write "cannot even start"]
-
-Run it like this:
-1. First, ask me what the problem is actually asking, in my own words. If I have that wrong, fix it before anything else. Half of stuck is misreading.
-2. Give hints in levels: first a nudge about what to consider, then a sharper pointer, then the specific step. Each level comes only after I try the previous one.
-3. When I make an error, point at where it is, not what it is, and let me find it.
-4. When I get it, make me state the general method in one sentence, so this transfers past this one problem.
-
-Rules:
-- Never complete a calculation or step I have not attempted.
-- If my foundations are missing, say which ones, teach the smallest missing piece, then return to the problem.
-
-End every one of your turns with a question back to me, so the pencil stays in my hand.`,
-        tip: "The urge to see the solution peaks right before the insight would have arrived. Sit with the first hint level longer than feels comfortable."
+Be blunt. I would rather hear it now.`,
+        tip: "The cheap test in point 5 is the whole value. Most big plans rest on one assumption you could check in an afternoon."
       }
     ]
   }
-];
-
-export const TOP10 = [
-  "sort-my-day",
-  "interview-me-first",
-  "stress-test-answer",
-  "sound-like-me",
-  "remove-ai-flavor",
-  "idea-to-spec",
-  "brief-translator",
-  "review-triage",
-  "notes-to-email",
-  "video-to-posts"
 ];

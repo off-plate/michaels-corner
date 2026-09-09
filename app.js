@@ -18,11 +18,11 @@ const NAV = [
 
 const PAGE_META = {
   home:    {t:"Michael's Corner",
-            d:"AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, eight apps."},
+            d:"AI prompts, browser tools and apps from Michael Florian, who is not a developer. Eighty prompts in ten packs, seven tools that run entirely in your browser, eight apps."},
   start:   {t:"Your first hour with AI",
             d:"A twenty-point checklist and a six-step guide for your first hour with ChatGPT, Claude or Gemini, built from what beginners say they got wrong."},
   library: {t:"Steal these prompts",
-            d:"Sixty-four prompts in eight packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students."},
+            d:"Eighty prompts in ten packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, job hunting, studying, sounding human, small business, office, freelance, getting found by AI, money and health."},
   tools:   {t:"Most useful AI tools",
             d:"Seven AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
   bill:    {t:"Apps I built",
@@ -60,14 +60,16 @@ const TOOLS = [
 const TCATS = ['Money & size','The decision','The words'];
 
 const PACKS = [
-  {id:'beginners', chip:'Beginners', n:'Best prompts for beginners', d:'Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets and paste it in.'},
-  {id:'writing', chip:'Writing', n:'Best prompts for writing', d:'Draft faster and still sound like yourself. These keep your voice, cut the filler and stop your text from reading like something a machine wrote.'},
-  {id:'building', chip:'Building', n:'Building software with AI', d:'Go from a rough idea to working software even if you do not code. Plan small, brief the AI properly, and get unstuck when it breaks. It will break.'},
-  {id:'founders', chip:'Founders', n:'Founders and small business owners', d:'For people running a small business: customers, reviews, numbers and suppliers, plus the messages you keep putting off, drafted so you can actually send them.'},
-  {id:'freelancers', chip:'Freelancers', n:'Freelancers and solo operators', d:'Your business is you. Briefs, proposals, feedback rounds and unpaid invoices. These push the admin down so the week has more room for the work you actually got into this for.'},
-  {id:'office', chip:'Office work', n:'Office and operations work', d:'Inbox, meetings, reports and spreadsheets. Small routines for the everyday work, the kind that quietly gives you back an hour most days.'},
-  {id:'creators', chip:'Creators', n:'Content creators', d:'Make more from what you already record: repurpose it, script it and publish faster, without your feed starting to sound generated.'},
-  {id:'students', chip:'Students', n:'Students and learning', d:'Learn faster and remember more. These make AI quiz you and question you, and the thinking stays yours.'}
+  {id:'beginners', chip:'Start here', n:'Best prompts for beginners', d:'The prompts to learn first, for anyone who has heard of AI but never really used it.'},
+  {id:'jobs', chip:'For applicants', n:'Job hunting', d:'For anyone applying for work, from tailoring the CV to the reply when the number is too low.'},
+  {id:'study', chip:'For students', n:'Study smarter', d:'For students at any level. Make it test you rather than summarise for you.'},
+  {id:'human', chip:'For writing', n:'Sounding like a human', d:'Stop it sounding like AI, and stop your own writing getting flattened into the same voice.'},
+  {id:'business', chip:'For owners', n:'Running a small business', d:'For people running a small business, from the follow-up you keep not sending to the price you keep not raising.'},
+  {id:'work', chip:'For office work', n:'Awkward work messages', d:'The messages you rewrite five times before sending: the no, the chase, the bad news, the disagreement.'},
+  {id:'freelance', chip:'For solo operators', n:'Freelance client handling', d:'For solo operators. Quoting, scope, silence and the money conversation you dread.'},
+  {id:'found', chip:'For owners', n:'Getting found by AI', d:'What AI assistants say about your business when a customer asks, and how to fix what is wrong.'},
+  {id:'money', chip:'Personal', n:'Money decisions', d:'Personal money decisions, with every prompt built to make it ask for your numbers instead of inventing them.'},
+  {id:'health', chip:'Personal', n:'Health and habits', d:'Habits, food and follow-through, with prompts that make it ask what is really stopping you.'}
 ];
 
 const VIDS = [
@@ -175,6 +177,14 @@ const CHECK_COUNT = CHECKS.reduce((n,g)=>n+g[1].length, 0);
    hand-written, so it still claimed "a seven-point checklist" after the list changed.
    prerender.mjs regenerates it from here instead, which is the only way the two stay equal. */
 window.__PAGE_JSONLD = {
+  library: () => ({
+    "@context": "https://schema.org", "@type": "ItemList",
+    name: "Prompt packs for ChatGPT, Claude and Gemini",
+    numberOfItems: PACKS.length,
+    itemListElement: PACKS.map((p, i) => ({
+      "@type": "ListItem", position: i + 1, name: p.n, url: SITE + "packs/" + p.id
+    }))
+  }),
   start: () => ({
     "@context": "https://schema.org", "@type": "HowTo",
     name: "Your first hour with AI",
@@ -242,7 +252,7 @@ PAGES.home = () => `
       <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
     </div>
     <dl class="herostats">
-      <div class="hs-coral"><dt>64</dt><dd>prompts, in eight packs</dd></div>
+      <div class="hs-coral"><dt>80</dt><dd>prompts, in ten packs</dd></div>
       <div class="hs-sun"><dt>7</dt><dd>tools that run in your browser</dd></div>
       <div class="hs-peri"><dt>20+</dt><dd>real projects, one day job</dd></div>
       <div class="hs-sage"><dt>8</dt><dd>apps, built with AI</dd></div>
@@ -423,7 +433,7 @@ PAGES.start = () => `
 <section class="band sec">
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">That is the hour<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">When you want prompts already written this way, the library is next door. Sixty-four of them, in eight packs.</p>
+    <p class="lede">When you want prompts already written this way, the library is next door. Eighty of them, in ten packs.</p>
     <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
@@ -433,7 +443,7 @@ PAGES.library = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Steal these prompts<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Sixty-four prompts in eight packs. Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Eighty prompts in ten packs. Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.sign}" width="${DIM.sign.w}" height="${DIM.sign.h}" alt="A hanging shop sign reading Michael's Corner"></div>
   </div>
@@ -442,9 +452,9 @@ PAGES.library = () => `
 <section class="wrap sec-tight">
   <div class="search rv">
     <svg aria-hidden="true" width="19" height="19" viewBox="0 0 19 19" fill="none" style="flex:none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6 17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    <input type="search" id="libq" placeholder="Search the eight packs" autocomplete="off" aria-label="Search the prompt packs">
+    <input type="search" id="libq" placeholder="Search the packs" autocomplete="off" aria-label="Search the prompt packs">
   </div>
-  <p class="mono rv" style="margin:22px 0 14px" id="libcount">8 packs, sorted by who they are for</p>
+  <p class="mono rv" style="margin:22px 0 14px" id="libcount">10 packs, sorted by who they are for</p>
   <div class="autogrid" id="packgrid"></div>
 </section>
 
@@ -774,7 +784,7 @@ function wire(page){
   document.querySelectorAll('[data-scroller]').forEach(wireScroller);
 
   if(page === 'home'){
-    const words = ['64 prompts','7 tools','8 apps','One starter kit'];
+    const words = ['80 prompts','7 tools','8 apps','One starter kit'];
     const one = words.map(w=>`<span>${w} <i class="dot" style="font-style:normal">&#9679;</i></span>`).join('');
     const mq = document.getElementById('mq');
     // one half of the track must be at least as wide as the viewport, or the
@@ -823,7 +833,7 @@ function wire(page){
     const draw = () => {
       const s = q.value.trim().toLowerCase();
       const hits = PACKS.filter(p => !s || (p.n + ' ' + p.chip + ' ' + p.d).toLowerCase().includes(s));
-      count.textContent = s ? (hits.length + (hits.length === 1 ? ' pack matches' : ' packs match')) : '8 packs, sorted by who they are for';
+      count.textContent = s ? (hits.length + (hits.length === 1 ? ' pack matches' : ' packs match')) : PACKS.length + ' packs, sorted by who they are for';
       grid.innerHTML = hits.length ? hits.map((p,i)=>`
         <a class="pack lcard" href="/packs/${p.id}"${i%3===1?' style="background:var(--sun)"':''}>
           <div class="top"><span class="tag">${esc(p.chip)}</span><span class="mono">8 prompts</span></div>

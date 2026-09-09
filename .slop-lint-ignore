@@ -19,3 +19,5 @@ planning/DIRECTION.md: slop-copy,most-popular-badge,trusted-by,not-just-but
 planning/PERSONA-solo.md: trusted-by,slop-copy
 planning/CONTENT-LIBRARY.md: slop-copy
 planning/TOOLS.md: slop-copy
+data/prompts.mjs: slop-copy,not-just-but
+prompts/strip-the-tells.html: slop-copy,not-just-but

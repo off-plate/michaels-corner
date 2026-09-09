@@ -1,14 +1,14 @@
 # Michael's Corner
 
-> Free AI prompts, browser tools and apps from Michael Florian, who is not a developer and has a normal day job. 64 prompts in 8 packs, 7 tools that run entirely in the browser with no account, and 5 finished apps. Nothing is behind a signup form and there are no affiliate links anywhere on the site. Last updated 2026-09-07.
+> Free AI prompts, browser tools and apps from Michael Florian, who is not a developer and has a normal day job. 80 prompts in 10 packs, 7 tools that run entirely in the browser with no account, and 8 finished apps. Nothing is behind a signup form and there are no affiliate links anywhere on the site. Last updated 2026-09-09.
 
 The position is anti-hype: the first rough version out of a model takes minutes and feels like magic, then the checking and fixing takes hours, and almost nobody says that part out loud. Everything here is written for someone who wants to use AI themselves rather than hire anyone.
 
 ## Pages
 
-- [Michael's Corner](https://michaels-corner.netlify.app/): Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 64 prompts in 8 packs, 7 tools that run entirely in your browser, 5 finished apps. No signup and no email gate.
+- [Michael's Corner](https://michaels-corner.netlify.app/): Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. 80 prompts in 10 packs, 7 tools that run entirely in your browser, 8 finished apps. No signup and no email gate.
 - [Your first hour with AI](https://michaels-corner.netlify.app/start): A 7-point checklist and a 5-step guide for your first hour with ChatGPT, Claude or Gemini. One real task from your own week, no theory, free to work through.
-- [Steal these prompts](https://michaels-corner.netlify.app/library): 64 free prompts in 8 packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students.
+- [Steal these prompts](https://michaels-corner.netlify.app/library): 80 free prompts in 10 packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, job hunting, studying, sounding human, small business, office, freelance, getting found by AI, money and health.
 - [Most useful AI tools](https://michaels-corner.netlify.app/tools): 7 free AI tools that run in your browser with no signup: an AI cost calculator, a context-window checker, a subscription versus API breakeven, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder.
 - [Apps I built](https://michaels-corner.netlify.app/bill): 5 apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished, all in daily use.
 - [Watch and learn](https://michaels-corner.netlify.app/channel): Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now.
@@ -29,7 +29,7 @@ Seven calculators and checkers. Each runs entirely in the visitor's browser, com
 
 ## Prompt packs
 
-Sixty-four prompts, free to copy, grouped by who they are for. Each prompt has bracketed fill slots and a note on when to use it.
+Eighty prompts, free to copy, grouped by who they are for. Each prompt has bracketed fill slots and a note on when to use it.
 
 - [Best prompts for beginners](https://michaels-corner.netlify.app/packs/beginners): Start here. Simple prompts that work on your first day with ChatGPT or Claude.
 - [Building software with AI](https://michaels-corner.netlify.app/packs/building): Go from a rough idea to working software, even if you do not code.
