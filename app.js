@@ -10,7 +10,7 @@ const NAV = [
   ['home','Home'],
   ['start','Start here'],
   ['library','Prompt library'],
-  ['tools','Free tools'],
+  ['tools','Tools'],
   ['bill','Apps I built'],
   ['channel','Videos'],
   ['about','Who I am']
@@ -18,21 +18,21 @@ const NAV = [
 
 const PAGE_META = {
   home:    {t:"Michael's Corner",
-            d:"Free AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, five finished apps, all free, no affiliate links anywhere."},
+            d:"AI prompts, browser tools and apps from Michael Florian, who is not a developer. Sixty-four prompts in eight packs, seven tools that run entirely in your browser, eight apps."},
   start:   {t:"Your first hour with AI",
             d:"A seven-point checklist and a five-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week."},
   library: {t:"Steal these prompts",
-            d:"Sixty-four free prompts in eight packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students."},
+            d:"Sixty-four prompts in eight packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, writing, building software, founders, freelancers, office work, creators and students."},
   tools:   {t:"Most useful AI tools",
-            d:"Seven free AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
+            d:"Seven AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
   bill:    {t:"Apps I built",
-            d:"Five apps built with AI: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished and all in daily use by the person who built them."},
+            d:"Eight apps built with AI: Chrome extensions, macOS apps, a web app and one Off-Plate tool."},
   channel: {t:"Watch and learn",
-            d:"Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now, first episodes soon."},
+            d:"Videos of real AI builds, sorted into building with AI, for beginners, prompting and behind the build. Filming now, first episodes soon."},
   about:   {t:"Who I am",
             d:"Michael Florian has a normal day job and builds things with AI on the side, more than twenty finished projects so far. What he got good at, and what he still cannot do."},
   kit:     {t:"Michael's AI Starter Kit",
-            d:"A free starter kit for anyone beginning with AI: ten reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. The whole list is on the page before any email is asked for."}
+            d:"A starter kit for anyone beginning with AI: ten reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. The whole list is on the page before any email is asked for."}
 };
 const SITE = 'https://michaels-corner.netlify.app/';
 function applyMeta(page){
@@ -80,13 +80,13 @@ const VIDS = [
   {t:'Add a feature without breaking things', c:'Building with AI', d:'How I change working code and stay calm.'},
   {t:'AI for people who are not techies', c:'For beginners', d:'What AI is actually good at, explained without jargon.'},
   {t:'Your first hour with an AI assistant', c:'For beginners', d:'Set it up and do something useful right away.'},
-  {t:'The five prompts I use every day', c:'For beginners', d:'The short, boring prompts that do most of the work.'},
+  {t:'The five prompts I keep coming back to', c:'For beginners', d:'The short, boring prompts that do most of the work.'},
   {t:'Stop overthinking your prompts', c:'For beginners', d:'Say what you want, what to keep, what to drop.'},
   {t:'What can AI actually do for you?', c:'For beginners', d:'A plain tour of the jobs it is genuinely good at.'},
   {t:'Pick the right AI tool', c:'For beginners', d:'How to choose without trying all of them.'},
   {t:'Common beginner mistakes', c:'For beginners', d:'The small habits that lead to bad answers.'},
   {t:'How to talk to AI like a person', c:'For beginners', d:'Why plain language works better than clever tricks.'},
-  {t:'A simple daily AI habit', c:'For beginners', d:'A small daily routine that adds up.'},
+  {t:'A simple AI habit', c:'For beginners', d:'A small routine that adds up.'},
   {t:'Write prompts that actually work', c:'Prompting', d:'A simple shape for prompts that get good answers.'},
   {t:'Make AI sound like you', c:'Prompting', d:'Teach the model your voice in a few lines.'},
   {t:'Give the model a job, not a wish', c:'Prompting', d:'Why clear roles beat vague requests.'},
@@ -96,21 +96,21 @@ const VIDS = [
   {t:'How I debug code I cannot read', c:'Behind the build', d:'A loop anyone can follow, no computer science needed.'},
   {t:'I am not a developer. I build anyway.', c:'Behind the build', d:'Why the old gatekeeping does not hold up.'},
   {t:'A week of building in public', c:'Behind the build', d:'Five days, one project, shown in full.'},
-  {t:'My exact daily setup', c:'Behind the build', d:'The tools and tabs I actually keep open.'},
+  {t:'My exact setup', c:'Behind the build', d:'The tools and tabs I actually keep open.'},
   {t:'What I got wrong this month', c:'Behind the build', d:'Said out loud, so you can skip the same ones.'}
 ];
 const VCATS = ['Building with AI','For beginners','Prompting','Behind the build'];
 
 const APPS = [
   {n:'Tuck', img:'tuck', plat:'Chrome extension', d:'Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.',
-   cta:{label:"Add to Chrome, it's free", href:'https://chromewebstore.google.com/detail/tuck/njpclpglfhldbhlngnmkenjphjpjaijb'}},
+   cta:{label:"Add to Chrome", href:'https://chromewebstore.google.com/detail/tuck/njpclpglfhldbhlngnmkenjphjpjaijb'}},
   {n:'Recall', img:'recall', plat:'macOS app', d:'Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.'},
   {n:'Refill', img:'refill', plat:'macOS menu bar', d:'Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.'},
   {n:'Frost', img:'frost', plat:'Chrome extension', d:"Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history."},
   {n:'Cropper', img:'cutter', plat:'macOS app', appsPageOnly:true, d:'A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.'},
   {n:'TITIS', img:'titis', plat:'macOS app', appsPageOnly:true, d:'Select any text on your Mac and hear it read aloud. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.'},
   {n:'OWCO', img:'owco', plat:'Web app', appsPageOnly:true, d:'Points at your website and finds what it still claims that is no longer true: a stale number, an executive who left, an award given to someone else. Each finding comes back ranked with the fix and the source.',
-   cta:{label:'Try the free scan', href:'https://owco.netlify.app'}},
+   cta:{label:'Try the scan', href:'https://owco.netlify.app'}},
   {n:'Nexus', img:'nexus', plat:'Off-Plate tool', appsPageOnly:true, d:'Reads a prospect\'s Google profile, site, socials and the company register, then hands back one sentence: what is measurably broken, who can approve fixing it, and how to reach them. Built for Off-Plate, not for this site.',
    cta:{label:'See the demo', href:'https://claude.ai/code/artifact/ed6fb81f-4f4b-49c5-85e7-96490e19fbc9'}}
 ];
@@ -190,22 +190,20 @@ PAGES.home = () => `
 <section class="wrap hero">
   <h1 class="dsp h1 hero-head rv">AI should be your superpower<i class="dot" style="font-style:normal">.</i></h1>
   <div class="hero-body rv">
-    <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools daily and write down what works, free for you to take.</p>
+    <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools and write down what works.</p>
     <div class="hero-cta">
       <a class="btn btn-ink" href="/library" data-go="library">Browse the library <span class="arw">&#8594;</span></a>
       <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
     </div>
     <dl class="herostats">
-      <div class="hs-coral"><dt>64</dt><dd>free prompts, in eight packs</dd></div>
+      <div class="hs-coral"><dt>64</dt><dd>prompts, in eight packs</dd></div>
       <div class="hs-sun"><dt>7</dt><dd>tools that run in your browser</dd></div>
       <div class="hs-peri"><dt>20+</dt><dd>real projects, one day job</dd></div>
-      <div class="hs-sage"><dt>0</dt><dd>affiliate links anywhere on this site</dd></div>
+      <div class="hs-sage"><dt>8</dt><dd>apps, built with AI</dd></div>
     </dl>
   </div>
   <div class="hero-art rv">
     <img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder">
-    <span class="hero-badge" style="top:4%;left:-10px">No affiliate links</span>
-    <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">Built by one person</span>
   </div>
 </section>
 
@@ -214,7 +212,7 @@ PAGES.home = () => `
 
 <section class="sec">
   <div class="wrap">
-  ${shead('Apps I built','I still use every one of these myself every day.',
+  ${shead('Apps I built','Eight apps, from a Chrome extension to a full video editor.',
     '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
   </div>
   <div class="scroll" data-scroller>
@@ -256,7 +254,7 @@ PAGES.home = () => `
 
 <section class="sec">
   <div class="wrap">
-  ${shead('Small tools that do the math for you','Free calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating. Type into one and nothing leaves the page.',
+  ${shead('Small tools that do the math for you','Calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating.',
     '<a class="btn btn-ghost" href="/tools" data-go="tools">All the tools <span class="arw">&#8594;</span></a>')}
   </div>
   <div class="scroll" data-scroller>
@@ -279,7 +277,7 @@ PAGES.home = () => `
 </section>
 
 <section class="wrap sec-tight">
-  ${shead('Prompts you can steal right now','Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini. These are the ones I reach for most, out of the sixty-four in the full library.',
+  ${shead('Prompts you can steal right now','Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.',
     '<a class="btn btn-ghost" href="/library" data-go="library">The whole library <span class="arw">&#8594;</span></a>')}
   <div class="autogrid">
     ${PACKS.slice(0,4).map((p,i)=>`
@@ -293,7 +291,7 @@ PAGES.home = () => `
 </section>
 
 <section class="wrap sec">
-  ${shead('How it actually goes','Short videos of real builds, the dead ends included. I am filming now and the cards get their links as episodes go up.',
+  ${shead('How it actually goes','Short videos of real builds. I am filming now and the cards get their links as episodes go up.',
     '<a class="btn btn-ghost" href="/channel" data-go="channel">The channel <span class="arw">&#8594;</span></a>')}
   <div class="grid4">
     ${VIDS.slice(0,4).map((v,i)=>`
@@ -361,7 +359,7 @@ PAGES.start = () => `
 <section class="band sec">
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">That is the hour<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">When you want prompts already written this way, the library is next door. Sixty-four of them, in eight packs, free.</p>
+    <p class="lede">When you want prompts already written this way, the library is next door. Sixty-four of them, in eight packs.</p>
     <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
@@ -371,7 +369,7 @@ PAGES.library = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Steal these prompts<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Sixty-four prompts in eight packs, all free. Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini. These are the ones I keep going back to.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Sixty-four prompts in eight packs. Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.sign}" width="${DIM.sign.w}" height="${DIM.sign.h}" alt="A hanging shop sign reading Michael's Corner"></div>
   </div>
@@ -390,7 +388,7 @@ PAGES.library = () => `
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">Make it yours<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">Copy anything, change the words and make it yours. If one of them saves you an hour this week, the page has done its job.</p>
-    <a class="btn btn-onink" href="/kit" data-go="kit">Get the free kit <span class="arw">&#8594;</span></a>
+    <a class="btn btn-onink" href="/kit" data-go="kit">Get the kit <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
 
@@ -399,7 +397,7 @@ PAGES.tools = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1">Tools<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that run in your browser. Open any one and the number is real, computed on the spot, and nothing you type leaves the page.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that run in your browser. Open any one and the number is real, computed on the spot.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
@@ -438,8 +436,8 @@ PAGES.tools = () => `
 
 <section class="band sec">
   <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">Nothing you type leaves this page<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">Every tool runs in your browser and there is no server behind it, so there is nowhere for your data to go. Close the tab and it is gone.</p>
+    <h2 class="dsp h2" style="color:var(--cream)">Seven honest answers<i class="dot" style="font-style:normal">.</i></h2>
+    <p class="lede">Each one answers one question people ask: what a month of this costs, whether a document fits, when a task is worth automating.</p>
     <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
@@ -449,7 +447,7 @@ PAGES.bill = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1">Apps<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Eight things I built because I needed them, and still open every day.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Eight things I built because I needed them.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
@@ -471,8 +469,8 @@ PAGES.bill = () => `
 
 <section class="band sec">
   <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">Built by one person<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">None of these needed a team. If you want to see how one gets made, the videos show the whole thing, dead ends included.</p>
+    <h2 class="dsp h2" style="color:var(--cream)">See how they get made<i class="dot" style="font-style:normal">.</i></h2>
+    <p class="lede">Real builds, start to finish, once the videos are up.</p>
     <a class="btn btn-onink" href="/channel" data-go="channel">Watch the videos <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
@@ -482,7 +480,7 @@ PAGES.channel = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1">Watch and learn<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk about real builds, with the dead ends left in. Filter by topic or search for one.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk about real builds. Filter by topic or search for one.</p>
       
     </div>
     <div class="phero-art rv"><img src="${IMG.cornerman}" width="${DIM.cornerman.w}" height="${DIM.cornerman.h}" alt="A boxing corner with a stool and towel"></div>
@@ -511,7 +509,7 @@ PAGES.channel = () => `
 
 <section class="band sec">
   <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">Every build, dead ends included<i class="dot" style="font-style:normal">.</i></h2>
+    <h2 class="dsp h2" style="color:var(--cream)">First episodes soon<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">The parts that worked and the parts that broke, both shown. Episodes land here as they go up.</p>
     <a class="btn btn-onink" href="/library" data-go="library">Take the prompts in the meantime <span class="arw">&#8594;</span></a>
   </div>
@@ -529,9 +527,9 @@ PAGES.about = () => `
     <div class="rail">
       <div class="sidenote rv">
         <h3 class="h4" style="margin-bottom:12px">What I got good at</h3>
-        <div class="r2"><span>Describing what I want</span><span class="mono">daily</span></div>
-        <div class="r2"><span>Pushing back on a wrong answer</span><span class="mono">daily</span></div>
-        <div class="r2"><span>Doing the part it will not do</span><span class="mono">daily</span></div>
+        <div class="r2"><span>Describing what I want</span><span class="mono">yes</span></div>
+        <div class="r2"><span>Pushing back on a wrong answer</span><span class="mono">yes</span></div>
+        <div class="r2"><span>Doing the part it will not do</span><span class="mono">yes</span></div>
         <div class="r2"><span>Writing code</span><span class="mono">no</span></div>
       </div>
       <div class="sidenote rv">
@@ -548,7 +546,7 @@ PAGES.about = () => `
       <p class="leadin">I am not a developer. I have a normal day job, and I build things with AI anyway.</p>
       <p>The list so far includes a finance app that tracks my debts and my budget, a training site with a 3D wireframe figure I could never have coded myself, a road-trip planner with maps and expense splitting that four of us used on a real holiday in Italy, two Chrome extensions, a small tool that turns one sentence into a Spotify playlist, and this website.</p>
       <p>None of that made me an engineer. What I got good at is different: describing what I want clearly, pushing back when the answer is wrong, and doing the hands-on work a tool will not do for you. Most of what I put here comes straight out of that, the prompts I lean on and the small tools I built.</p>
-      <p class="pull">I take what has worked for me and write it down, <span style="color:var(--coral)">free for you to take</span>.</p>
+      <p class="pull">I take what has worked for me and <span style="color:var(--coral)">write it down here</span>.</p>
       <p>Two years in, I still have the same day job. I just get more done in the time I have. Take whatever is useful, and let me know how it goes.</p>
     </div>
 
@@ -574,7 +572,7 @@ PAGES.kit = () => `
 
 <section class="wrap sec-tight">
   <div class="slip rv">
-    <div class="sliphead"><span>Packing slip</span><span>6 items / free</span></div>
+    <div class="sliphead"><span>Packing slip</span><span>6 items</span></div>
     <div class="sliprows">
     ${KIT.map((k,i)=>`<div class="mrow"><span class="q">${String(i+1).padStart(2,'0')}</span><div><p class="h4" style="margin-bottom:6px">${k[0]}</p><p class="small">${k[1]}</p></div></div>`).join('')}
     </div>
@@ -582,7 +580,7 @@ PAGES.kit = () => `
 
   <div class="rv" style="margin-top:36px">
     <div class="bar"><i style="width:64%"></i></div>
-    <div class="blabels"><span>The free kit, all six items</span><span>the paid vault, later</span></div>
+    <div class="blabels"><span>This kit, all six items</span><span>the paid vault, later</span></div>
   </div>
 
   <div class="card rv sendbox" style="margin-top:36px;background:var(--sun);padding:clamp(26px,3vw,48px)">
@@ -722,7 +720,7 @@ function wire(page){
   document.querySelectorAll('[data-scroller]').forEach(wireScroller);
 
   if(page === 'home'){
-    const words = ['Free prompts','No affiliate links','Built by one person','Dead ends included'];
+    const words = ['64 prompts','7 tools','8 apps','One starter kit'];
     const one = words.map(w=>`<span>${w} <i class="dot" style="font-style:normal">&#9679;</i></span>`).join('');
     const mq = document.getElementById('mq');
     // one half of the track must be at least as wide as the viewport, or the
