@@ -258,6 +258,17 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:clamp(24px,4vw,72px);row-gap:clamp(20px,2.6vw,40px);
   align-items:end;padding-block:clamp(32px,4vw,64px) clamp(30px,4vw,56px)}
 .hero-head{grid-column:1/-1}
+/* The hero headline types, holds, deletes and moves to the next line, in an
+   endless loop. Height changes between phrases, but one character at a
+   time as it types or deletes, so it reads as the sentence growing rather
+   than a layout jump. The dot stays the brand's coral full stop -- it
+   fades in only once a phrase finishes typing, and fades out the moment
+   deletion
+   starts, rather than being typed/deleted as a character itself. */
+.hh-dot{transition:opacity .12s}
+.hh-caret{display:inline-block;width:3px;height:0.72em;background:var(--ink);margin-left:3px;vertical-align:-0.06em;animation:hhblink 1s steps(1) infinite}
+@keyframes hhblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hh-caret{display:none}.hh-dot{transition:none}}
 .hero-body{padding-bottom:clamp(6px,1vw,18px);align-self:stretch;display:flex;flex-direction:column}
 .hero-body .lede{max-width:56ch}
 .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,14px);
@@ -532,40 +543,77 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
-<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
-<div id="load" aria-hidden="true">
-  <div class="ldwrap">
-    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
-    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
-  </div>
-  <span class="ldtag">Practical AI, no hype</span>
-  <span class="ldbar"><i></i></span>
-</div>
 
-<header class="compact" id="hdr">
+
+
+
+<header class="" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"></nav>
+      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home">Home</a><a href="/start" data-go="start">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools">Free tools</a><a href="/bill" data-go="bill">Apps I built</a><a href="/channel" data-go="channel">Videos</a><a href="/about" data-go="about">Who I am</a></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main"></main>
+<main id="main">
+<section class="wrap phero">
+  <div class="phero-grid">
+    <div class="rv in">
+      <h1 class="dsp h1" style="font-size:clamp(38px,5.4vw,74px)">Michael’s AI Starter Kit<i class="dot" style="font-style:normal">.</i></h1>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Everything I would hand a friend who is starting with AI this week. The full list is below, so you know exactly what you trade your email for.</p>
+    </div>
+    <div class="phero-art rv in"><img src="assets/inline/kiosk.webp" width="440" height="416" alt="A small corner shop with the name over the awning"></div>
+  </div>
+</section>
+
+<section class="wrap sec-tight">
+  <div class="slip rv in">
+    <div class="sliphead"><span>Packing slip</span><span>6 items / free</span></div>
+    <div class="sliprows">
+    <div class="mrow"><span class="q">01</span><div><p class="h4" style="margin-bottom:6px">The 10 prompts I actually reuse</p><p class="small">Copied from my own library, paste-ready, with a note on when each one helps.</p></div></div><div class="mrow"><span class="q">02</span><div><p class="h4" style="margin-bottom:6px">The plain-words model guide</p><p class="small">Which AI to pick for which kind of job, explained without benchmark charts.</p></div></div><div class="mrow"><span class="q">03</span><div><p class="h4" style="margin-bottom:6px">The first-hour walkthrough</p><p class="small">Account, settings, and your first real task, in the order I would do them with you.</p></div></div><div class="mrow"><span class="q">04</span><div><p class="h4" style="margin-bottom:6px">The cost cheat sheet</p><p class="small">What the main tools cost per month, what the free versions cover, and when paying starts to make sense.</p></div></div><div class="mrow"><span class="q">05</span><div><p class="h4" style="margin-bottom:6px">The “is this an AI job?” checklist</p><p class="small">One page that tells you whether a task is worth handing to AI at all.</p></div></div><div class="mrow"><span class="q">06</span><div><p class="h4" style="margin-bottom:6px">The fix-it lines</p><p class="small">The short follow-up sentences I use when an answer is almost right.</p></div></div>
+    </div>
+  </div>
+
+  <div class="rv" style="margin-top:36px">
+    <div class="bar"><i style="width:64%"></i></div>
+    <div class="blabels"><span>The free kit, all six items</span><span>the paid vault, later</span></div>
+  </div>
+
+  <div class="card rv sendbox" style="margin-top:36px;background:var(--sun);padding:clamp(26px,3vw,48px)">
+    <div>
+      <h2 class="dsp h2">Send me the kit<i class="dot" style="font-style:normal">.</i></h2>
+      <p class="lede" style="color:#4A421F;margin-top:16px;max-width:52ch">There is no signup form behind this yet. Email me and I reply with the kit. One click below fills in the subject for you.</p>
+      <p style="margin:28px 0 0"><a class="btn btn-ink" href="mailto:mihael.florian@gmail.com?subject=Starter%20Kit&amp;body=Hi%20Michael%2C%20please%20send%20me%20the%20AI%20Starter%20Kit.">Email me for the kit <span class="arw">→</span></a></p>
+      <p class="small" style="color:#4A421F;margin-top:16px">I reply by hand, usually within a day.</p>
+    </div>
+    <ul class="nolist">
+      <li>No form</li>
+      <li>No list</li>
+      <li>No countdown</li>
+      <li>No upsell at the end</li>
+    </ul>
+  </div>
+
+  <div class="grid2 rv" style="margin-top:26px">
+    <div class="card"><p class="small">Your address is used for the kit and my occasional emails, never sold, never shared. When the proper list is ready you will be the first on it, and every email will have an unsubscribe link.</p></div>
+    <div class="card card-ink"><p class="small">The kit never expires and never gets taken back. After it, I write when I actually have something useful, which is closer to twice a month than twice a day.</p></div>
+  </div>
+</section></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -594,7 +642,10 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer src="app.js"></script>
+<script defer="" src="app.js"></script>
+
+
+
 
 
 </body>

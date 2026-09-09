@@ -188,7 +188,9 @@ const PAGES = {};
 
 PAGES.home = () => `
 <section class="wrap hero">
-  <h1 class="dsp h1 hero-head rv">AI moves too fast to read about<i class="dot" style="font-style:normal">.</i></h1>
+  <h1 class="dsp h1 hero-head rv" aria-label="AI should be your superpower. Imagine what YOU could do if AI worked alongside you.">
+    <span class="hh-text" aria-hidden="true">AI should be your superpower</span><i class="dot hh-dot" style="font-style:normal" aria-hidden="true">.</i><span class="hh-caret" aria-hidden="true"></span>
+  </h1>
   <div class="hero-body rv">
     <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools most evenings and write down what actually works, free for you to take.</p>
     <div class="hero-cta">
@@ -718,7 +720,73 @@ function wireScroller(sc){
   }, true);
 }
 
+/* Hero headline typewriter: types a phrase, holds it, deletes it, moves to
+   the next, forever. Off for prerendering and reduced motion -- both need
+   one complete, correct sentence sitting still, not a mid-type fragment. */
+let heroTypeTimer = null, heroTypeCleanup = null;
+function stopHeroTypewriter(){
+  if(heroTypeCleanup) heroTypeCleanup();
+  heroTypeTimer = null; heroTypeCleanup = null;
+}
+function startHeroTypewriter(){
+  const h1 = document.querySelector('.hero-head');
+  if(!h1) return;
+  const textEl = h1.querySelector('.hh-text');
+  const dotEl = h1.querySelector('.hh-dot');
+  if(!textEl || !dotEl) return;
+
+  const PHRASES = [
+    'AI should be your superpower',
+    'Imagine what YOU could do if AI worked alongside you'
+  ];
+
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced || window.__PRERENDER_ROUTE){
+    textEl.textContent = PHRASES[0];
+    dotEl.style.opacity = 1;
+    return;
+  }
+
+  // No reserved min-height here on purpose: pinning the box to the tallest
+  // phrase left a permanent gap under the shorter one. The height still
+  // changes between phrases, but one character at a time as it types or
+  // deletes, which reads as the sentence growing, not a layout jump.
+  let pi = 0, ci = PHRASES[0].length, deleting = false;
+  const TYPE_MS = 46, DELETE_MS = 28, HOLD_MS = 1900, GAP_MS = 350;
+
+  function tick(){
+    const phrase = PHRASES[pi];
+    if(deleting){
+      dotEl.style.opacity = 0;
+      ci--;
+      textEl.textContent = phrase.slice(0, ci);
+      if(ci === 0){
+        deleting = false;
+        pi = (pi + 1) % PHRASES.length;
+        heroTypeTimer = setTimeout(tick, GAP_MS);
+        return;
+      }
+      heroTypeTimer = setTimeout(tick, DELETE_MS);
+    } else {
+      ci++;
+      textEl.textContent = phrase.slice(0, ci);
+      if(ci >= phrase.length){
+        dotEl.style.opacity = 1;
+        heroTypeTimer = setTimeout(() => { deleting = true; tick(); }, HOLD_MS);
+        return;
+      }
+      heroTypeTimer = setTimeout(tick, TYPE_MS);
+    }
+  }
+  // The template already shows phrase 0 complete (for no-JS/prerender), so
+  // the loop starts by holding it rather than re-typing what's already there.
+  heroTypeTimer = setTimeout(() => { deleting = true; tick(); }, HOLD_MS);
+
+  heroTypeCleanup = () => { clearTimeout(heroTypeTimer); };
+}
+
 function wire(page){
+  stopHeroTypewriter();
   document.querySelectorAll('[data-scroller]').forEach(wireScroller);
 
   if(page === 'home'){
@@ -732,6 +800,7 @@ function wire(page){
     const reps = Math.max(2, Math.ceil((window.innerWidth + 200) / unit));
     mq.innerHTML = one.repeat(reps * 2);
     mq.style.setProperty('--mqdur', Math.round(unit * reps / 46) + 's');
+    startHeroTypewriter();
   }
 
   if(page === 'start'){

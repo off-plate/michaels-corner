@@ -258,6 +258,17 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:clamp(24px,4vw,72px);row-gap:clamp(20px,2.6vw,40px);
   align-items:end;padding-block:clamp(32px,4vw,64px) clamp(30px,4vw,56px)}
 .hero-head{grid-column:1/-1}
+/* The hero headline types, holds, deletes and moves to the next line, in an
+   endless loop. Height changes between phrases, but one character at a
+   time as it types or deletes, so it reads as the sentence growing rather
+   than a layout jump. The dot stays the brand's coral full stop -- it
+   fades in only once a phrase finishes typing, and fades out the moment
+   deletion
+   starts, rather than being typed/deleted as a character itself. */
+.hh-dot{transition:opacity .12s}
+.hh-caret{display:inline-block;width:3px;height:0.72em;background:var(--ink);margin-left:3px;vertical-align:-0.06em;animation:hhblink 1s steps(1) infinite}
+@keyframes hhblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hh-caret{display:none}.hh-dot{transition:none}}
 .hero-body{padding-bottom:clamp(6px,1vw,18px);align-self:stretch;display:flex;flex-direction:column}
 .hero-body .lede{max-width:56ch}
 .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,14px);
@@ -532,40 +543,121 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
-<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
-<div id="load" aria-hidden="true">
-  <div class="ldwrap">
-    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
-    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
-  </div>
-  <span class="ldtag">Practical AI, no hype</span>
-  <span class="ldbar"><i></i></span>
-</div>
 
-<header class="compact" id="hdr">
+
+
+
+<header class="" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"></nav>
+      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home">Home</a><a href="/start" data-go="start">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools">Free tools</a><a href="/bill" data-go="bill" aria-current="page">Apps I built</a><a href="/channel" data-go="channel">Videos</a><a href="/about" data-go="about">Who I am</a></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main"></main>
+<main id="main">
+<section class="wrap phero">
+  <div class="phero-grid">
+    <div class="rv in">
+      <h1 class="dsp h1">Apps<i class="dot" style="font-style:normal">.</i></h1>
+      <p class="lede" style="margin-top:20px;max-width:52ch">The apps I have built with AI in the evenings, and the same ones I use myself every day.</p>
+    </div>
+    <div class="phero-art rv in"><img src="assets/inline/machine.webp" width="411" height="440" alt="A workshop machine with a screen"></div>
+  </div>
+</section>
+
+<section class="wrap sec-tight">
+  <div class="grid2">
+    
+      <article class="app rv in">
+        <img src="assets/inline/tuck.webp" width="160" height="160" alt="Tuck app icon">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">Tuck</h2><span class="plat">Chrome extension</span></div>
+          <p class="small" style="margin-top:9px;color:var(--soft)">Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.</p>
+          <p style="margin:18px 0 0"><a class="btn btn-sun" style="padding:11px 20px" href="https://chromewebstore.google.com/detail/tuck/njpclpglfhldbhlngnmkenjphjpjaijb" target="_blank" rel="noopener">Add to Chrome, it's free <span class="arw">↗</span></a></p>
+        </div>
+      </article>
+      <article class="app rv in">
+        <img src="assets/inline/recall.webp" width="160" height="160" alt="Recall app icon">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">Recall</h2><span class="plat">macOS app</span></div>
+          <p class="small" style="margin-top:9px;color:var(--soft)">Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.</p>
+          
+        </div>
+      </article>
+      <article class="app rv in">
+        <img src="assets/inline/refill.webp" width="160" height="160" alt="Refill app icon">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">Refill</h2><span class="plat">macOS menu bar</span></div>
+          <p class="small" style="margin-top:9px;color:var(--soft)">Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.</p>
+          
+        </div>
+      </article>
+      <article class="app rv in">
+        <img src="assets/inline/frost.webp" width="128" height="128" alt="Frost app icon">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">Frost</h2><span class="plat">Chrome extension</span></div>
+          <p class="small" style="margin-top:9px;color:var(--soft)">Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history.</p>
+          
+        </div>
+      </article>
+      <article class="app rv">
+        <img src="assets/inline/cutter.webp" width="160" height="160" alt="Cropper app icon">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">Cropper</h2><span class="plat">macOS app</span></div>
+          <p class="small" style="margin-top:9px;color:var(--soft)">A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.</p>
+          
+        </div>
+      </article>
+      <article class="app rv">
+        <img src="assets/inline/titis.webp" width="160" height="160" alt="TITIS app icon">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">TITIS</h2><span class="plat">macOS app</span></div>
+          <p class="small" style="margin-top:9px;color:var(--soft)">Select any text on your Mac and hear it read aloud. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.</p>
+          
+        </div>
+      </article>
+      <article class="app rv">
+        <img src="assets/inline/owco.webp" width="160" height="160" alt="OWCO app icon">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">OWCO</h2><span class="plat">Web app</span></div>
+          <p class="small" style="margin-top:9px;color:var(--soft)">Points at your website and finds what it still claims that is no longer true: a stale number, an executive who left, an award given to someone else. Each finding comes back ranked with the fix and the source.</p>
+          <p style="margin:18px 0 0"><a class="btn btn-sun" style="padding:11px 20px" href="https://owco.netlify.app" target="_blank" rel="noopener">Try the free scan <span class="arw">↗</span></a></p>
+        </div>
+      </article>
+      <article class="app rv">
+        <img src="assets/inline/nexus.webp" width="160" height="160" alt="Nexus app icon">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h3">Nexus</h2><span class="plat">Off-Plate tool</span></div>
+          <p class="small" style="margin-top:9px;color:var(--soft)">Reads a prospect's Google profile, site, socials and the company register, then hands back one sentence: what is measurably broken, who can approve fixing it, and how to reach them. Built for Off-Plate, not for this site.</p>
+          <p style="margin:18px 0 0"><a class="btn btn-sun" style="padding:11px 20px" href="https://claude.ai/code/artifact/ed6fb81f-4f4b-49c5-85e7-96490e19fbc9" target="_blank" rel="noopener">See the demo <span class="arw">↗</span></a></p>
+        </div>
+      </article>
+  </div>
+</section>
+
+<section class="band sec">
+  <div class="wrap closer">
+    <h2 class="dsp h2" style="color:var(--cream)">Built in the evenings<i class="dot" style="font-style:normal">.</i></h2>
+    <p class="lede">None of these needed a team. If you want to see how one gets made, the videos show the whole thing, dead ends included.</p>
+    <a class="btn btn-onink" href="/channel" data-go="channel">Watch the videos <span class="arw">→</span></a>
+  </div>
+</section></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -594,7 +686,10 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer src="app.js"></script>
+<script defer="" src="app.js"></script>
+
+
+
 
 
 </body>

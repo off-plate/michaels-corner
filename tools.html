@@ -258,6 +258,17 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:clamp(24px,4vw,72px);row-gap:clamp(20px,2.6vw,40px);
   align-items:end;padding-block:clamp(32px,4vw,64px) clamp(30px,4vw,56px)}
 .hero-head{grid-column:1/-1}
+/* The hero headline types, holds, deletes and moves to the next line, in an
+   endless loop. Height changes between phrases, but one character at a
+   time as it types or deletes, so it reads as the sentence growing rather
+   than a layout jump. The dot stays the brand's coral full stop -- it
+   fades in only once a phrase finishes typing, and fades out the moment
+   deletion
+   starts, rather than being typed/deleted as a character itself. */
+.hh-dot{transition:opacity .12s}
+.hh-caret{display:inline-block;width:3px;height:0.72em;background:var(--ink);margin-left:3px;vertical-align:-0.06em;animation:hhblink 1s steps(1) infinite}
+@keyframes hhblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hh-caret{display:none}.hh-dot{transition:none}}
 .hero-body{padding-bottom:clamp(6px,1vw,18px);align-self:stretch;display:flex;flex-direction:column}
 .hero-body .lede{max-width:56ch}
 .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,14px);
@@ -532,40 +543,135 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
-<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
-<div id="load" aria-hidden="true">
-  <div class="ldwrap">
-    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
-    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
-  </div>
-  <span class="ldtag">Practical AI, no hype</span>
-  <span class="ldbar"><i></i></span>
-</div>
 
-<header class="compact" id="hdr">
+
+
+
+<header class="" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"></nav>
+      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home">Home</a><a href="/start" data-go="start">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools" aria-current="page">Free tools</a><a href="/bill" data-go="bill">Apps I built</a><a href="/channel" data-go="channel">Videos</a><a href="/about" data-go="about">Who I am</a></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main"></main>
+<main id="main">
+<section class="wrap phero">
+  <div class="phero-grid">
+    <div class="rv in">
+      <h1 class="dsp h1">Tools<i class="dot" style="font-style:normal">.</i></h1>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that run in your browser. Open any one and the number is real, computed on the spot, and nothing you type leaves the page.</p>
+    </div>
+    <div class="phero-art rv in"><img src="assets/inline/machine.webp" width="411" height="440" alt="A workshop machine with a screen"></div>
+  </div>
+</section>
+
+<section class="wrap sec-tight">
+  <div class="rv in" style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:24px">
+    <div class="chips" id="tchips"><button class="chip" data-c="all" aria-pressed="true">All tools</button><button class="chip" data-c="Money &amp; size" aria-pressed="false">Money &amp; size</button><button class="chip" data-c="The decision" aria-pressed="false">The decision</button><button class="chip" data-c="The words" aria-pressed="false">The words</button></div>
+    <div class="search" style="max-width:300px;padding:9px 18px"><input type="search" id="tq" placeholder="Search tools" aria-label="Search tools"></div>
+  </div>
+  <div class="toolsplit">
+    <div>
+      <div id="trows" style="display:flex;flex-direction:column;gap:26px">
+        <div>
+          <h2 class="h4" style="color:var(--mute);margin-bottom:12px">Money &amp; size</h2>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            
+              <a class="trow" href="https://michaels-corner.netlify.app/tools/ai-cost-calculator" target="_blank" rel="noopener">
+                <span class="desig">TOOL/01</span>
+                <span style="max-width:78ch"><span class="h4" style="display:block">AI cost calculator</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">What a month of AI actually costs, on rates you can edit.</span><span class="hint">editable rate table</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+              </a>
+              <a class="trow" href="https://michaels-corner.netlify.app/tools/fits-in-context" target="_blank" rel="noopener">
+                <span class="desig">TOOL/02</span>
+                <span style="max-width:78ch"><span class="h4" style="display:block">Fits-in-context checker</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Whether your document fits a model's window or needs splitting.</span><span class="hint">five window sizes</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+              </a>
+              <a class="trow" href="https://michaels-corner.netlify.app/tools/subscription-vs-api" target="_blank" rel="noopener">
+                <span class="desig">TOOL/03</span>
+                <span style="max-width:78ch"><span class="h4" style="display:block">Subscription vs API</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Your usage, both prices, one answer: which way is cheaper and where the lines cross.</span><span class="hint">shares your edited rates</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+              </a>
+          </div>
+        </div>
+        <div>
+          <h2 class="h4" style="color:var(--mute);margin-bottom:12px">The decision</h2>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            
+              <a class="trow" href="https://michaels-corner.netlify.app/tools/should-you-automate" target="_blank" rel="noopener">
+                <span class="desig">TOOL/04</span>
+                <span style="max-width:78ch"><span class="h4" style="display:block">Should you automate it?</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Six honest questions, one stamped verdict: automate now, assist only, or leave it human. Weights are published.</span><span class="hint">a scorecard with hard overrides</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+              </a>
+          </div>
+        </div>
+        <div>
+          <h2 class="h4" style="color:var(--mute);margin-bottom:12px">The words</h2>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            
+              <a class="trow" href="https://michaels-corner.netlify.app/tools/ai-slop-detector" target="_blank" rel="noopener">
+                <span class="desig">TOOL/05</span>
+                <span style="max-width:78ch"><span class="h4" style="display:block">AI-slop detector</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Paste text. A public rule list counts the AI tells and stamps a slop score, every flagged line shown.</span><span class="hint">English and Czech rules</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+              </a>
+              <a class="trow" href="https://michaels-corner.netlify.app/tools/prompt-tightener" target="_blank" rel="noopener">
+                <span class="desig">TOOL/06</span>
+                <span style="max-width:78ch"><span class="h4" style="display:block">Prompt tightener</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Strips the filler it can prove is filler, flags the vague asks it cannot fix, shows the word drop. Deletion only.</span><span class="hint">never rewrites your meaning</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+              </a>
+              <a class="trow" href="https://michaels-corner.netlify.app/tools/difficult-email-prompt-assembler" target="_blank" rel="noopener">
+                <span class="desig">TOOL/07</span>
+                <span style="max-width:78ch"><span class="h4" style="display:block">Difficult-email prompt builder</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">Six questions about the email you dread. The output is a copy-ready prompt with your facts and hard lines baked in.</span><span class="hint">builds the prompt, your AI runs it</span></span>
+                <span class="open" style="margin:0">Open <span class="arw">↗</span></span>
+              </a>
+          </div>
+        </div></div>
+      <p class="lede" id="tempty" hidden="" style="padding:20px 0">No tools match that. Try another word or clear the filter.</p>
+    </div>
+    <aside class="benchcol">
+      <div class="card rv" style="gap:10px">
+        <h2 class="h3">Tools I decided not to build</h2>
+        <p class="small">Three got planned and then cut, and the reason for each is written down so the same idea does not come back next month.</p>
+        <ul class="bench">
+          <li><span class="bn">CUT/01</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Automation ROI calculator.</b> The should-you-automate scorecard already answers the same question. Payback framing lives in its fine print. Built later only if demand shows up.</span></li><li><span class="bn">CUT/02</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Meeting-prep prompt builder.</b> Rarer than hard emails for a solo operator. The difficult-email builder covers the same translation pain with more reach.</span></li><li><span class="bn">CUT/03</span><span class="small" style="color:var(--soft)"><b style="color:var(--ink)">Model picker quiz.</b> Model names change monthly. A stale pick kills trust faster than no tool. The cost calculator teaches the same judgment without naming a model.</span></li>
+        </ul>
+      </div>
+      <div class="card card-ink rv" style="gap:10px">
+        <h2 class="h3" style="color:var(--cream)">What has to be true before I build one</h2>
+        <ul class="ticks">
+          <li>It answers a question you would otherwise guess at.</li>
+          <li>It runs entirely in your browser, with no key and no account.</li>
+          <li>The math is visible. You can argue with it.</li>
+          <li>It does not go stale the week a model is renamed.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="band sec">
+  <div class="wrap closer">
+    <h2 class="dsp h2" style="color:var(--cream)">Nothing you type leaves this page<i class="dot" style="font-style:normal">.</i></h2>
+    <p class="lede">Every tool runs in your browser and there is no server behind it, so there is nowhere for your data to go. Close the tab and it is gone.</p>
+    <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">→</span></a>
+  </div>
+</section></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -594,7 +700,10 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer src="app.js"></script>
+<script defer="" src="app.js"></script>
+
+
+
 
 
 </body>

@@ -257,6 +257,17 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:clamp(24px,4vw,72px);row-gap:clamp(20px,2.6vw,40px);
   align-items:end;padding-block:clamp(32px,4vw,64px) clamp(30px,4vw,56px)}
 .hero-head{grid-column:1/-1}
+/* The hero headline types, holds, deletes and moves to the next line, in an
+   endless loop. Height changes between phrases, but one character at a
+   time as it types or deletes, so it reads as the sentence growing rather
+   than a layout jump. The dot stays the brand's coral full stop -- it
+   fades in only once a phrase finishes typing, and fades out the moment
+   deletion
+   starts, rather than being typed/deleted as a character itself. */
+.hh-dot{transition:opacity .12s}
+.hh-caret{display:inline-block;width:3px;height:0.72em;background:var(--ink);margin-left:3px;vertical-align:-0.06em;animation:hhblink 1s steps(1) infinite}
+@keyframes hhblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hh-caret{display:none}.hh-dot{transition:none}}
 .hero-body{padding-bottom:clamp(6px,1vw,18px);align-self:stretch;display:flex;flex-direction:column}
 .hero-body .lede{max-width:56ch}
 .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,14px);
@@ -531,40 +542,260 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
-<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
-<div id="load" aria-hidden="true">
-  <div class="ldwrap">
-    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
-    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
-  </div>
-  <span class="ldtag">Practical AI, no hype</span>
-  <span class="ldbar"><i></i></span>
-</div>
 
-<header class="compact" id="hdr">
+
+
+
+<header class="" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"></nav>
+      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home" aria-current="page">Home</a><a href="/start" data-go="start">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools">Free tools</a><a href="/bill" data-go="bill">Apps I built</a><a href="/channel" data-go="channel">Videos</a><a href="/about" data-go="about">Who I am</a></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main"></main>
+<main id="main">
+<section class="wrap hero">
+  <h1 class="dsp h1 hero-head rv in" aria-label="AI should be your superpower. Imagine what YOU could do if AI worked alongside you.">
+    <span class="hh-text" aria-hidden="true">AI should be your superpower</span><i class="dot hh-dot" style="font-style: normal; opacity: 1;" aria-hidden="true">.</i><span class="hh-caret" aria-hidden="true"></span>
+  </h1>
+  <div class="hero-body rv in">
+    <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools most evenings and write down what actually works, free for you to take.</p>
+    <div class="hero-cta">
+      <a class="btn btn-ink" href="/library" data-go="library">Browse the library <span class="arw">→</span></a>
+      <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
+    </div>
+    <dl class="herostats">
+      <div class="hs-coral"><dt>64</dt><dd>free prompts, in eight packs</dd></div>
+      <div class="hs-sun"><dt>7</dt><dd>tools that run in your browser</dd></div>
+      <div class="hs-peri"><dt>20+</dt><dd>projects built in the evenings</dd></div>
+      <div class="hs-sage"><dt>0</dt><dd>signup forms anywhere on this site</dd></div>
+    </dl>
+  </div>
+  <div class="hero-art rv in">
+    <img src="assets/inline/hero.webp" width="620" height="720" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder">
+    <span class="hero-badge" style="top:4%;left:-10px">Free, all of it</span>
+    <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">No signup</span>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="mq" id="mq" style="--mqdur: 45s;"><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span><span>Free prompts <i class="dot" style="font-style:normal">●</i></span><span>No signup <i class="dot" style="font-style:normal">●</i></span><span>Built in the evenings <i class="dot" style="font-style:normal">●</i></span><span>Take what helps <i class="dot" style="font-style:normal">●</i></span></div></div>
+
+
+<section class="sec">
+  <div class="wrap">
+  
+  <div class="shead rv">
+    <div><h2 class="dsp h2">Apps I built<i class="dot" style="font-style:normal">.</i></h2><p class="lede">The apps I have built with AI in the evenings, and the same ones I use myself every day.</p></div>
+    <a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">→</span></a>
+  </div>
+  </div>
+  <div class="scrollwrap"><div class="scroll" data-scroller="">
+    
+      <a class="card lcard" href="https://chromewebstore.google.com/detail/tuck/njpclpglfhldbhlngnmkenjphjpjaijb" target="_blank" rel="noopener" style="text-decoration:none;background:var(--coral);color:var(--cream)">
+        <img src="assets/inline/tuck.webp" width="56" height="56" style="border-radius:14px" alt="Tuck app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Tuck</h3><span class="mono" style="color:rgba(245,242,232,.84)">Chrome extension</span></div>
+        <p class="small" style="color:rgba(245,242,232,.84)">Hides all your other extensions behind one icon with a clean dropdown. Your toolbar stops looking like a cockpit.</p>
+        <span class="open">Add to Chrome, it's free <span class="arw" style="color:var(--sun)">↗</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--sun);color:var(--ink)">
+        <img src="assets/inline/recall.webp" width="56" height="56" style="border-radius:14px" alt="Recall app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Recall</h3><span class="mono" style="color:#4A421F">macOS app</span></div>
+        <p class="small" style="color:#4A421F">Your desktop, restored in one click. Reopens the apps, files, and Chrome profiles for a saved workspace and puts each window back where you set it.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--peri);color:var(--cream)">
+        <img src="assets/inline/refill.webp" width="56" height="56" style="border-radius:14px" alt="Refill app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Refill</h3><span class="mono" style="color:rgba(245,242,232,.84)">macOS menu bar</span></div>
+        <p class="small" style="color:rgba(245,242,232,.84)">Shows how much of your Claude usage is left, up in the menu bar. It reads the live numbers. You see when the five-hour window resets instead of finding out by hitting the limit.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--sun)">→</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--sage);color:var(--ink)">
+        <img src="assets/inline/frost.webp" width="56" height="56" style="border-radius:14px" alt="Frost app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Frost</h3><span class="mono" style="color:#2E362C">Chrome extension</span></div>
+        <p class="small" style="color:#2E362C">Freezes tabs you have not touched in a while using Chrome's own discard. A sixty-tab window stops costing what a sixty-tab window costs. Every tab keeps its address, its title and its full history.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--cream);color:var(--ink)">
+        <img src="assets/inline/cutter.webp" width="56" height="56" style="border-radius:14px" alt="Cropper app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Cropper</h3><span class="mono" style="color:var(--mute)">macOS app</span></div>
+        <p class="small" style="color:var(--mute)">A video editor that runs on your own Mac. Drop a video in, it transcribes it locally and shows you every dead pause, filler word and repeated take with the actual words, you tick what to remove and get an MP4 back. Nothing uploads, no account, no watermark, no length limit.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--coral)">→</span></span>
+      </a>
+      <a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:var(--coral);color:var(--cream)">
+        <img src="assets/inline/titis.webp" width="56" height="56" style="border-radius:14px" alt="TITIS app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">TITIS</h3><span class="mono" style="color:rgba(245,242,232,.84)">macOS app</span></div>
+        <p class="small" style="color:rgba(245,242,232,.84)">Select any text on your Mac and hear it read aloud. Right-click and choose TITIS, or use the global hotkey. Detects English and Czech per selection and picks the best installed voice for each. Nothing leaves your Mac.</p>
+        <span class="open">See it on the Apps page <span class="arw" style="color:var(--sun)">→</span></span>
+      </a>
+      <a class="card lcard" href="https://owco.netlify.app" target="_blank" rel="noopener" style="text-decoration:none;background:var(--sun);color:var(--ink)">
+        <img src="assets/inline/owco.webp" width="56" height="56" style="border-radius:14px" alt="OWCO app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">OWCO</h3><span class="mono" style="color:#4A421F">Web app</span></div>
+        <p class="small" style="color:#4A421F">Points at your website and finds what it still claims that is no longer true: a stale number, an executive who left, an award given to someone else. Each finding comes back ranked with the fix and the source.</p>
+        <span class="open">Try the free scan <span class="arw" style="color:var(--coral)">↗</span></span>
+      </a>
+      <a class="card lcard" href="https://claude.ai/code/artifact/ed6fb81f-4f4b-49c5-85e7-96490e19fbc9" target="_blank" rel="noopener" style="text-decoration:none;background:var(--peri);color:var(--cream)">
+        <img src="assets/inline/nexus.webp" width="56" height="56" style="border-radius:14px" alt="Nexus app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">Nexus</h3><span class="mono" style="color:rgba(245,242,232,.84)">Off-Plate tool</span></div>
+        <p class="small" style="color:rgba(245,242,232,.84)">Reads a prospect's Google profile, site, socials and the company register, then hands back one sentence: what is measurably broken, who can approve fixing it, and how to reach them. Built for Off-Plate, not for this site.</p>
+        <span class="open">See the demo <span class="arw" style="color:var(--sun)">↗</span></span>
+      </a>
+  </div><button class="edgearrow left is-hidden" aria-label="Scroll left"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M11 18l-6-6 6-6"></path></svg></button><button class="edgearrow right" aria-label="Scroll right"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div>
+</section>
+
+<section class="band sec">
+  <div class="wrap split">
+    <div class="rv split-copy">
+      <h2 class="dsp h2" style="color:var(--cream)">What using it is really like<i class="dot" style="font-style:normal">.</i></h2>
+      <p class="lede" style="margin-top:20px">A first draft comes together in minutes and that part feels like magic. Then the real work starts: the checking, the fixing and the small calls only you can make. Most of the time goes there, and none of it gets automated. The shortcuts on this site are for the fast part.</p>
+      <div class="splitrow">
+        <div><span class="bignum">Minutes</span><span class="numlab">to a first draft that looks finished</span></div>
+        <div><span class="bignum" style="color:var(--sun)">The evening</span><span class="numlab">to make it actually true</span></div>
+        <div><span class="bignum">0</span><span class="numlab">of the evening part gets automated</span></div>
+      </div>
+    </div>
+    <div class="rv split-art"><img src="assets/inline/lamp.webp" width="422" height="440" alt="A desk lamp lighting the work"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+  
+  <div class="shead rv">
+    <div><h2 class="dsp h2">Small tools that do the math for you<i class="dot" style="font-style:normal">.</i></h2><p class="lede">Free calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating. Type into one and nothing leaves the page.</p></div>
+    <a class="btn btn-ghost" href="/tools" data-go="tools">All the tools <span class="arw">→</span></a>
+  </div>
+  </div>
+  <div class="scrollwrap"><div class="scroll" data-scroller="">
+    
+      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/ai-cost-calculator" target="_blank" rel="noopener" style="text-decoration:none;background:var(--coral);color:var(--cream)">
+        <span class="mono" style="color:rgba(245,242,232,.84)">TOOL/01</span>
+        <h3 class="h3">AI cost calculator</h3>
+        <p class="small" style="color:rgba(245,242,232,.84)">What a month of AI actually costs, on rates you can edit.</p>
+        <span class="open">Open the tool <span class="arw" style="color:var(--sun)">↗</span></span>
+      </a>
+      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/fits-in-context" target="_blank" rel="noopener" style="text-decoration:none;background:var(--sun);color:var(--ink)">
+        <span class="mono" style="color:#4A421F">TOOL/02</span>
+        <h3 class="h3">Fits-in-context checker</h3>
+        <p class="small" style="color:#4A421F">Whether your document fits a model's window or needs splitting.</p>
+        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">↗</span></span>
+      </a>
+      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/subscription-vs-api" target="_blank" rel="noopener" style="text-decoration:none;background:var(--peri);color:var(--cream)">
+        <span class="mono" style="color:rgba(245,242,232,.84)">TOOL/03</span>
+        <h3 class="h3">Subscription vs API</h3>
+        <p class="small" style="color:rgba(245,242,232,.84)">Your usage, both prices, one answer: which way is cheaper and where the lines cross.</p>
+        <span class="open">Open the tool <span class="arw" style="color:var(--sun)">↗</span></span>
+      </a>
+      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/should-you-automate" target="_blank" rel="noopener" style="text-decoration:none;background:var(--sage);color:var(--ink)">
+        <span class="mono" style="color:#2E362C">TOOL/04</span>
+        <h3 class="h3">Should you automate it?</h3>
+        <p class="small" style="color:#2E362C">Six honest questions, one stamped verdict: automate now, assist only, or leave it human. Weights are published.</p>
+        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">↗</span></span>
+      </a>
+      <a class="card lcard" href="https://michaels-corner.netlify.app/tools/ai-slop-detector" target="_blank" rel="noopener" style="text-decoration:none;background:var(--cream);color:var(--ink)">
+        <span class="mono" style="color:var(--mute)">TOOL/05</span>
+        <h3 class="h3">AI-slop detector</h3>
+        <p class="small" style="color:var(--mute)">Paste text. A public rule list counts the AI tells and stamps a slop score, every flagged line shown.</p>
+        <span class="open">Open the tool <span class="arw" style="color:var(--coral)">↗</span></span>
+      </a>
+  </div><button class="edgearrow left is-hidden" aria-label="Scroll left"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M11 18l-6-6 6-6"></path></svg></button><button class="edgearrow right" aria-label="Scroll right"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div>
+</section>
+
+<section class="wrap sec-tight">
+  
+  <div class="shead rv">
+    <div><h2 class="dsp h2">Prompts you can steal right now<i class="dot" style="font-style:normal">.</i></h2><p class="lede">Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini. These are the ones I reach for most, out of the sixty-four in the full library.</p></div>
+    <a class="btn btn-ghost" href="/library" data-go="library">The whole library <span class="arw">→</span></a>
+  </div>
+  <div class="autogrid">
+    
+      <a class="pack lcard rv" href="https://michaels-corner.netlify.app/packs/beginners" target="_blank" rel="noopener" style="">
+        <div class="top"><span class="tag">Beginners</span><span class="mono">8 prompts</span></div>
+        <h3 class="h3">Best prompts for beginners</h3>
+        <p class="small" style="color:var(--soft)">Start here. Simple prompts that work on your first day with ChatGPT or Claude. Copy one, fill in the brackets and paste it in.</p>
+        <span class="open">Open pack <span class="arw">↗</span></span>
+      </a>
+      <a class="pack lcard rv" href="https://michaels-corner.netlify.app/packs/writing" target="_blank" rel="noopener" style="background:var(--sun)">
+        <div class="top"><span class="tag">Writing</span><span class="mono">8 prompts</span></div>
+        <h3 class="h3">Best prompts for writing</h3>
+        <p class="small" style="color:var(--soft)">Draft faster and still sound like yourself. These keep your voice, cut the filler and stop your text from reading like something a machine wrote.</p>
+        <span class="open">Open pack <span class="arw">↗</span></span>
+      </a>
+      <a class="pack lcard rv" href="https://michaels-corner.netlify.app/packs/building" target="_blank" rel="noopener" style="">
+        <div class="top"><span class="tag">Building</span><span class="mono">8 prompts</span></div>
+        <h3 class="h3">Building software with AI</h3>
+        <p class="small" style="color:var(--soft)">Go from a rough idea to working software even if you do not code. Plan small, brief the AI properly, and get unstuck when it breaks. It will break.</p>
+        <span class="open">Open pack <span class="arw">↗</span></span>
+      </a>
+      <a class="pack lcard rv" href="https://michaels-corner.netlify.app/packs/founders" target="_blank" rel="noopener" style="">
+        <div class="top"><span class="tag">Founders</span><span class="mono">8 prompts</span></div>
+        <h3 class="h3">Founders and small business owners</h3>
+        <p class="small" style="color:var(--soft)">For people running a small business: customers, reviews, numbers and suppliers, plus the messages you keep putting off, drafted so you can actually send them.</p>
+        <span class="open">Open pack <span class="arw">↗</span></span>
+      </a>
+  </div>
+</section>
+
+<section class="wrap sec">
+  
+  <div class="shead rv">
+    <div><h2 class="dsp h2">Watch how it actually goes<i class="dot" style="font-style:normal">.</i></h2><p class="lede">Short videos of real builds, the dead ends included. I am filming now and the cards get their links as episodes go up.</p></div>
+    <a class="btn btn-ghost" href="/channel" data-go="channel">The channel <span class="arw">→</span></a>
+  </div>
+  <div class="grid4">
+    
+      <article class="vid rv">
+        <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+        <div class="vbody"><h3 class="h4">I built 20 apps in 30 days</h3><p class="small">What happened, what broke, and what I would skip next time.</p></div>
+      </article>
+      <article class="vid rv">
+        <div class="vthumb" style="background:var(--peri)"><span class="p"></span><span class="soon">Filming</span></div>
+        <div class="vbody"><h3 class="h4">Build a website with AI, start to finish</h3><p class="small">A full build, from empty folder to live page.</p></div>
+      </article>
+      <article class="vid rv">
+        <div class="vthumb" style="background:var(--coral)"><span class="p"></span><span class="soon">Filming</span></div>
+        <div class="vbody"><h3 class="h4">Build a small app in a weekend</h3><p class="small">Pick a tiny idea and get it working in two days.</p></div>
+      </article>
+      <article class="vid rv">
+        <div class="vthumb" style="background:var(--sun)"><span class="p"></span><span class="soon">Filming</span></div>
+        <div class="vbody"><h3 class="h4">From idea to live site in one sitting</h3><p class="small">I skip the planning week, open the laptop and build it.</p></div>
+      </article>
+  </div>
+</section>
+
+<section class="band-sun sec" style="border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)">
+  <div class="wrap split">
+    <div class="rv split-copy">
+      <h2 class="dsp h2">Everything I would hand a friend starting out<i class="dot" style="font-style:normal">.</i></h2>
+      <p class="lede" style="color:#4A421F;margin-top:20px">The full thing is written out on the kit page before any email is asked for: the prompts I reuse, the model guide, the first-hour walkthrough, the cost cheat sheet and the rest.</p>
+      <ol class="kitlist">
+        <li><span>01</span>The 10 prompts I actually reuse</li>
+        <li><span>02</span>The plain-words model guide</li>
+        <li><span>03</span>The first-hour walkthrough</li>
+        <li><span>04</span>The cost cheat sheet</li>
+        <li><span>05</span>The “is this an AI job?” checklist</li>
+        <li><span>06</span>The fix-it lines</li>
+      </ol>
+      <p style="margin-top:28px"><a class="btn btn-ink" href="/kit" data-go="kit">See what is inside <span class="arw">→</span></a></p>
+    </div>
+    <div class="rv split-art"><img src="assets/inline/kiosk.webp" width="440" height="416" alt="A small corner shop with the name over the awning"></div>
+  </div>
+</section></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -593,7 +824,10 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer src="app.js"></script>
+<script defer="" src="app.js"></script>
+
+
+
 
 
 </body>

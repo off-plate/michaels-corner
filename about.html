@@ -257,6 +257,17 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:clamp(24px,4vw,72px);row-gap:clamp(20px,2.6vw,40px);
   align-items:end;padding-block:clamp(32px,4vw,64px) clamp(30px,4vw,56px)}
 .hero-head{grid-column:1/-1}
+/* The hero headline types, holds, deletes and moves to the next line, in an
+   endless loop. Height changes between phrases, but one character at a
+   time as it types or deletes, so it reads as the sentence growing rather
+   than a layout jump. The dot stays the brand's coral full stop -- it
+   fades in only once a phrase finishes typing, and fades out the moment
+   deletion
+   starts, rather than being typed/deleted as a character itself. */
+.hh-dot{transition:opacity .12s}
+.hh-caret{display:inline-block;width:3px;height:0.72em;background:var(--ink);margin-left:3px;vertical-align:-0.06em;animation:hhblink 1s steps(1) infinite}
+@keyframes hhblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hh-caret{display:none}.hh-dot{transition:none}}
 .hero-body{padding-bottom:clamp(6px,1vw,18px);align-self:stretch;display:flex;flex-direction:column}
 .hero-body .lede{max-width:56ch}
 .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,14px);
@@ -531,40 +542,76 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
-<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
-<div id="load" aria-hidden="true">
-  <div class="ldwrap">
-    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
-    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
-  </div>
-  <span class="ldtag">Practical AI, no hype</span>
-  <span class="ldbar"><i></i></span>
-</div>
 
-<header class="compact" id="hdr">
+
+
+
+<header class="" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"></nav>
+      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home">Home</a><a href="/start" data-go="start">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools">Free tools</a><a href="/bill" data-go="bill">Apps I built</a><a href="/channel" data-go="channel">Videos</a><a href="/about" data-go="about" aria-current="page">Who I am</a></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main"></main>
+<main id="main">
+<section class="wrap phero abouthero">
+  <h1 class="dsp h1 rv in" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I build anyway<i class="dot" style="font-style:normal">.</i></h1>
+  <p class="lede rv in" style="max-width:56ch;align-self:end">I am Michael. The evenings around a normal day job add up to more than twenty finished projects so far.</p>
+  <div class="abouthero-art rv in"><img src="assets/inline/hero.webp" width="620" height="720" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder"></div>
+</section>
+
+<section class="wrap sec-tight">
+  <div class="profile">
+    <div class="rail">
+      <div class="sidenote rv in">
+        <h3 class="h4" style="margin-bottom:12px">What I got good at</h3>
+        <div class="r2"><span>Describing what I want</span><span class="mono">daily</span></div>
+        <div class="r2"><span>Pushing back on a wrong answer</span><span class="mono">daily</span></div>
+        <div class="r2"><span>Doing the part it will not do</span><span class="mono">daily</span></div>
+        <div class="r2"><span>Writing code</span><span class="mono">no</span></div>
+      </div>
+      <div class="sidenote rv">
+        <h3 class="h4" style="margin-bottom:12px">Where to find me</h3>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <a href="mailto:mihael.florian@gmail.com" style="font-size:14px">mihael.florian@gmail.com</a>
+          <a href="/channel" data-go="channel" style="font-size:14px">Watch</a>
+          <a href="/bill" data-go="bill" style="font-size:14px">Apps</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose rv in">
+      <p class="leadin">I am not a developer. I have a normal day job, and in the evenings I build things with AI anyway.</p>
+      <p>The list so far includes a finance app that tracks my debts and my budget, a training site with a 3D wireframe figure I could never have coded myself, a road-trip planner with maps and expense splitting that four of us used on a real holiday in Italy, two Chrome extensions, a small tool that turns one sentence into a Spotify playlist, and this website.</p>
+      <p>None of that made me an engineer. What I got good at is different: describing what I want clearly, pushing back when the answer is wrong, and doing the hands-on work a tool will not do for you. Most of what I put here comes straight out of that, the prompts I lean on and the small tools I built.</p>
+      <p class="pull">I take what has worked for me and write it down, <span style="color:var(--coral)">free for you to take</span>.</p>
+      <p>Two years in, I still have the same day job. The evenings just produce more than they used to. Take whatever helps, and let me know how it goes.</p>
+    </div>
+
+    <aside class="numrail">
+      <div class="rv"><span class="bignum" style="color:var(--ink)">20+</span><span class="numlab" style="color:var(--mute)">projects built, evenings only</span></div>
+      <div class="rv"><span class="bignum" style="color:var(--coral)">2 yrs</span><span class="numlab" style="color:var(--mute)">of doing this every week</span></div>
+      <div class="rv"><span class="bignum" style="color:var(--ink)">0</span><span class="numlab" style="color:var(--mute)">lines of code I could write before</span></div>
+      <div class="rv"><span class="bignum" style="color:var(--ink)">1</span><span class="numlab" style="color:var(--mute)">day job, still</span></div>
+    </aside>
+  </div>
+</section></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -593,7 +640,10 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer src="app.js"></script>
+<script defer="" src="app.js"></script>
+
+
+
 
 
 </body>

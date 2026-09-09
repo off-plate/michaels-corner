@@ -257,6 +257,17 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:clamp(24px,4vw,72px);row-gap:clamp(20px,2.6vw,40px);
   align-items:end;padding-block:clamp(32px,4vw,64px) clamp(30px,4vw,56px)}
 .hero-head{grid-column:1/-1}
+/* The hero headline types, holds, deletes and moves to the next line, in an
+   endless loop. Height changes between phrases, but one character at a
+   time as it types or deletes, so it reads as the sentence growing rather
+   than a layout jump. The dot stays the brand's coral full stop -- it
+   fades in only once a phrase finishes typing, and fades out the moment
+   deletion
+   starts, rather than being typed/deleted as a character itself. */
+.hh-dot{transition:opacity .12s}
+.hh-caret{display:inline-block;width:3px;height:0.72em;background:var(--ink);margin-left:3px;vertical-align:-0.06em;animation:hhblink 1s steps(1) infinite}
+@keyframes hhblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hh-caret{display:none}.hh-dot{transition:none}}
 .hero-body{padding-bottom:clamp(6px,1vw,18px);align-self:stretch;display:flex;flex-direction:column}
 .hero-body .lede{max-width:56ch}
 .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,14px);
@@ -531,40 +542,212 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </head>
 <body>
 
-<div id="sb" aria-hidden="true"><span id="sbt"></span></div>
 
-<div id="load" aria-hidden="true">
-  <div class="ldwrap">
-    <span class="ldmask"><img class="ldmark" src="assets/inline/x2-f6b82ff513.webp" alt=""></span>
-    <span class="ldname">Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
-  </div>
-  <span class="ldtag">Practical AI, no hype</span>
-  <span class="ldbar"><i></i></span>
-</div>
 
-<header class="compact" id="hdr">
+
+
+
+<header class="" id="hdr">
   <div class="wrap">
     <div class="htop">
       <a class="brand" href="/" data-go="home" aria-label="Michael's Corner, home">
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
-        <span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
+        <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"></nav>
+      <nav class="main" id="nav" aria-label="Main"><a href="/" data-go="home">Home</a><a href="/start" data-go="start">Start here</a><a href="/library" data-go="library">Prompt library</a><a href="/tools" data-go="tools">Free tools</a><a href="/bill" data-go="bill">Apps I built</a><a href="/channel" data-go="channel" aria-current="page">Videos</a><a href="/about" data-go="about">Who I am</a></nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
-        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">&#8594;</span></a>
+        <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Free kit <span class="arw">→</span></a>
       </span>
     </div>
   </div>
 </header>
 
-<main id="main"></main>
+<main id="main">
+<section class="wrap phero">
+  <div class="phero-grid">
+    <div class="rv in">
+      <h1 class="dsp h1">Watch and learn<i class="dot" style="font-style:normal">.</i></h1>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk about real builds, with the dead ends left in. Filter by topic or search for one.</p>
+      
+    </div>
+    <div class="phero-art rv in"><img src="assets/inline/cornerman.webp" width="440" height="438" alt="A boxing corner with a stool and towel"></div>
+  </div>
+</section>
+
+<section class="wrap sec-tight">
+  <p class="notice rv in"><span class="blip"></span> Filming now. Every card below becomes a real link the day its episode goes up.</p>
+
+  <div class="feat rv in" style="margin-top:26px">
+    <div class="thumb"><span class="play"></span></div>
+    <div style="padding:clamp(24px,3vw,40px)">
+      <h2 class="dsp" style="font-size:clamp(24px,2.8vw,38px);color:var(--cream)">Your first hour with an AI assistant</h2>
+      <p class="lede" style="margin-top:14px;max-width:44ch">Set it up and do something useful right away. The exact hour I would walk a friend through, no theory.</p>
+      <p style="margin-top:24px"><a class="btn btn-onink" href="/start" data-go="start">Read the written version <span class="arw">→</span></a></p>
+    </div>
+  </div>
+
+  <div class="rv" style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:34px 0 24px">
+    <div class="chips" id="vchips"><button class="chip" data-c="all" aria-pressed="true">Everything</button><button class="chip" data-c="Building with AI" aria-pressed="false">Building with AI</button><button class="chip" data-c="For beginners" aria-pressed="false">For beginners</button><button class="chip" data-c="Prompting" aria-pressed="false">Prompting</button><button class="chip" data-c="Behind the build" aria-pressed="false">Behind the build</button></div>
+    <div class="search" style="max-width:300px;padding:9px 18px"><input type="search" id="vq" placeholder="Search videos" aria-label="Search videos"></div>
+  </div>
+  <div id="vrows" style="display:flex;flex-direction:column;gap:30px">
+        <div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:14px">
+            <h2 class="h3">Building with AI</h2><span class="mono">7 planned</span>
+          </div>
+          <div class="grid4">
+            
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">I built 20 apps in 30 days</h3><p class="small">What happened, what broke, and what I would skip next time.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--peri)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Build a website with AI, start to finish</h3><p class="small">A full build, from empty folder to live page.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--coral)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Build a small app in a weekend</h3><p class="small">Pick a tiny idea and get it working in two days.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sun)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">From idea to live site in one sitting</h3><p class="small">I skip the planning week, open the laptop and build it.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Connect AI to a real database</h3><p class="small">Store and read real data without a backend team.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--peri)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Make it look good without a designer</h3><p class="small">Simple rules that make a rough build look finished.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--coral)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Add a feature without breaking things</h3><p class="small">How I change working code and stay calm.</p></div>
+              </article>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:14px">
+            <h2 class="h3">For beginners</h2><span class="mono">9 planned</span>
+          </div>
+          <div class="grid4">
+            
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">AI for people who are not techies</h3><p class="small">What AI is actually good at, explained without jargon.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--peri)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Your first hour with an AI assistant</h3><p class="small">Set it up and do something useful right away.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--coral)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">The five prompts I use every day</h3><p class="small">The short, boring prompts that do most of the work.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sun)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Stop overthinking your prompts</h3><p class="small">Say what you want, what to keep, what to drop.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">What can AI actually do for you?</h3><p class="small">A plain tour of the jobs it is genuinely good at.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--peri)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Pick the right AI tool</h3><p class="small">How to choose without trying all of them.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--coral)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Common beginner mistakes</h3><p class="small">The small habits that lead to bad answers.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sun)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">How to talk to AI like a person</h3><p class="small">Why plain language works better than clever tricks.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">A simple daily AI habit</h3><p class="small">A small daily routine that adds up.</p></div>
+              </article>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:14px">
+            <h2 class="h3">Prompting</h2><span class="mono">6 planned</span>
+          </div>
+          <div class="grid4">
+            
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Write prompts that actually work</h3><p class="small">A simple shape for prompts that get good answers.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--peri)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Make AI sound like you</h3><p class="small">Teach the model your voice in a few lines.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--coral)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Give the model a job, not a wish</h3><p class="small">Why clear roles beat vague requests.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sun)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Templates I reuse every week</h3><p class="small">The handful of prompts I never rewrite.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Fix a prompt that gives bad answers</h3><p class="small">A quick way to debug a prompt that is not working.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--peri)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">Prompts for editing and proofreading</h3><p class="small">Catch mistakes without losing your voice.</p></div>
+              </article>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:14px">
+            <h2 class="h3">Behind the build</h2><span class="mono">5 planned</span>
+          </div>
+          <div class="grid4">
+            
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">How I debug code I cannot read</h3><p class="small">A loop anyone can follow, no computer science needed.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--peri)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">I am not a developer. I build anyway.</h3><p class="small">Why the old gatekeeping does not hold up.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--coral)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">A week of building in public</h3><p class="small">Five days, one project, shown in full.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sun)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">My exact daily setup</h3><p class="small">The tools and tabs I actually keep open.</p></div>
+              </article>
+              <article class="vid">
+                <div class="vthumb" style="background:var(--sage)"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vbody"><h3 class="h4">What I got wrong this month</h3><p class="small">Said out loud, so you can skip the same ones.</p></div>
+              </article>
+          </div>
+        </div></div>
+  <p class="lede" id="vempty" hidden="" style="padding:20px 0">No videos match that. Try another topic.</p>
+</section>
+
+<section class="band sec">
+  <div class="wrap closer">
+    <h2 class="dsp h2" style="color:var(--cream)">Every build, dead ends included<i class="dot" style="font-style:normal">.</i></h2>
+    <p class="lede">The parts that worked and the parts that broke, both shown. Episodes land here as they go up.</p>
+    <a class="btn btn-onink" href="/library" data-go="library">Take the prompts in the meantime <span class="arw">→</span></a>
+  </div>
+</section></main>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael&#8217;s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
+        <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
         <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI did not take my job. It made me faster.</p>
       </div>
       <div>
@@ -593,7 +776,10 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   </div>
 </footer>
 
-<script defer src="app.js"></script>
+<script defer="" src="app.js"></script>
+
+
+
 
 
 </body>
