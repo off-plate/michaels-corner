@@ -1,11 +1,11 @@
 
-const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRev.webp", "cornerman": "assets/inline/cornerman.webp", "lamp": "assets/inline/lamp.webp", "machine": "assets/inline/machine.webp", "kiosk": "assets/inline/kiosk.webp", "sign": "assets/inline/sign.webp", "tuck": "assets/inline/tuck.webp", "recall": "assets/inline/recall.webp", "refill": "assets/inline/refill.webp", "frost": "assets/inline/frost.webp", "hero": "assets/inline/hero.webp", "cutter": "assets/inline/cutter.webp", "titis": "assets/inline/titis.webp", "owco": "assets/inline/owco.webp", "nexus": "assets/inline/nexus.webp"};
+const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRev.webp", "cornerman": "assets/inline/cornerman.webp", "lamp": "assets/inline/lamp.webp", "machine": "assets/inline/machine.webp", "kiosk": "assets/inline/kiosk.webp", "sign": "assets/inline/sign.webp", "tuck": "assets/inline/tuck.webp", "recall": "assets/inline/recall.webp", "refill": "assets/inline/refill.webp", "frost": "assets/inline/frost.webp", "hero": "assets/inline/hero.webp", "cutter": "assets/inline/cutter.webp", "titis": "assets/inline/titis.webp", "owco": "assets/inline/owco.webp", "nexus": "assets/inline/nexus.webp", "lost": "assets/inline/lost.webp"};
 // Real pixel dimensions of each IMG entry, so every <img> can carry width/height
 // attributes and the browser reserves its box before the file loads over the
 // network -- these used to be inline base64 (available synchronously, no CLS
 // risk); now they're separate files, so without this every one of them is a
 // layout-shift hazard the instant it finishes loading.
-const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}, titis:{w:160,h:160}, owco:{w:160,h:160}, nexus:{w:160,h:160}};
+const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}, titis:{w:160,h:160}, owco:{w:160,h:160}, nexus:{w:160,h:160}, lost:{w:640,h:640}};
 const NAV = [
   ['home','Home'],
   ['start','Start here'],
@@ -1038,6 +1038,11 @@ window.addEventListener('popstate', render);
   if(m){ const p = m[1]===''? 'home' : m[1];
     if(ROUTE_CLEAN[p]) history.replaceState({p}, '', href(p)); }
 })();
-render();
+/* window.__NO_ROUTE__ is set only by the static 404 page: its URL is
+   whatever the visitor mistyped, never a real route, so letting this
+   router run would silently replace the 404 content with the home
+   page the instant the script loads. Everything else below (loader,
+   nav sizing, custom scrollbar) still runs normally. */
+if(!window.__NO_ROUTE__) render();
 fitNav();
 if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
