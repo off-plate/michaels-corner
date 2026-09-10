@@ -55,7 +55,7 @@ if (!chromium) {
 /* Must match ROUTE_FILE in app.js. */
 const ROUTE_FILE = {
   home: "index.html", start: "start.html", library: "library.html", tools: "tools.html",
-  bill: "bill.html", channel: "channel.html", about: "about.html", kit: "kit.html",
+  bill: "bill.html", channel: "channel.html", kit: "kit.html",
 };
 
 const VIEWPORT = { width: 1440, height: 900 };   // pinned, see header note

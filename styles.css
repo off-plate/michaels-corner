@@ -330,14 +330,14 @@ footer{background:var(--ink);color:var(--cream);padding:clamp(44px,5vw,72px) 0 3
 .fgrid a{display:block;color:rgba(245,242,232,.72);text-decoration:none;padding:5px 0;font-size:14px;background:none;border:0;cursor:pointer;text-align:left}
 .fgrid a:hover{color:var(--sun)}
 .fmark{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.fmark img{height:56px;width:auto}
+.fmark img{height:88px;width:auto}
 .fmark span{font-weight:900;font-stretch:64%;text-transform:uppercase;font-size:22px;line-height:0.9}
-.fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid rgba(245,242,232,.16);font-size:12.5px;color:rgba(245,242,232,.5)}
-.handle{font-family:var(--mono);font-size:12px;color:rgba(245,242,232,.5);white-space:nowrap}
+.fbot{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid rgba(245,242,232,.16);font-size:12.5px;color:rgba(245,242,232,.5)}
+.handle{font-family:var(--sans);font-size:14px;color:rgba(245,242,232,.5);white-space:nowrap}
 @media (max-width:1100px){ .fgrid{grid-template-columns:1fr 1fr} }
 @media (max-width:760px){
   .fgrid{grid-template-columns:1fr;gap:24px}
-  .fmark img{height:46px}
+  .fmark img{height:64px}
   .fgrid a{padding:12px 0;min-height:44px;display:flex;align-items:center}
 }
 /* The all-packs rail: ten bare text links wrapped on a phone, ~22px tall each. */

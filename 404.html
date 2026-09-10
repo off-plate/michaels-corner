@@ -119,7 +119,7 @@ nav.main a{background:none;border:0;cursor:pointer;padding:8px 12px;border-radiu
 nav.main a:hover{background:var(--card);color:var(--ink)}
 nav.main a[]{background:var(--ink);color:var(--cream);font-weight:700}
 .hend{display:flex;align-items:center;gap:12px;flex:none;margin-left:auto}
-.handle{font-family:var(--mono);font-size:12px;color:var(--mute);white-space:nowrap}
+.handle{font-family:var(--sans);font-size:14px;color:var(--mute);white-space:nowrap}
 .burger{display:none}
 /* The nav labels are whole sentences, so no fixed breakpoint can be right.
    fitNav() measures the row and adds .compact only when it genuinely stops fitting. */
@@ -235,14 +235,14 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .fgrid a{display:block;color:rgba(245,242,232,.72);text-decoration:none;padding:5px 0;font-size:14px;background:none;border:0;cursor:pointer;text-align:left}
 .fgrid a:hover{color:var(--sun)}
 .fmark{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.fmark img{height:56px;width:auto}
+.fmark img{height:88px;width:auto}
 .fmark span{font-weight:900;font-stretch:64%;text-transform:uppercase;font-size:22px;line-height:0.9}
 .closer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:clamp(28px,4vw,80px);row-gap:20px}
 .closer h2{grid-column:1;grid-row:1}
 .closer .lede{grid-column:1;grid-row:2;max-width:64ch;margin-top:2px}
 .closer .btn{grid-column:2;grid-row:1/span 2;align-self:end;justify-self:end}
 @media (max-width:900px){ .closer{grid-template-columns:1fr} .closer .btn{grid-column:1;grid-row:3;justify-self:start} }
-.fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid rgba(245,242,232,.16);font-size:12.5px;color:rgba(245,242,232,.5)}
+.fbot{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid rgba(245,242,232,.16);font-size:12.5px;color:rgba(245,242,232,.5)}
 
 /* ---------- home ---------- */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:clamp(24px,4vw,72px);row-gap:clamp(20px,2.6vw,40px);
@@ -251,7 +251,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .hero-body{padding-bottom:clamp(6px,1vw,18px);align-self:stretch;display:flex;flex-direction:column}
 .hero-body .lede{max-width:56ch}
 .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,14px);
-  margin:clamp(28px,3vw,44px) 0 0;margin-top:auto;padding-top:clamp(28px,3vw,44px)}
+  margin:clamp(28px,3vw,44px) 0 0;padding-top:clamp(28px,3vw,44px)}
 .herostats>div{display:flex;flex-direction:column;gap:6px;border-radius:18px;padding:18px 20px 20px;
   transition:transform .18s cubic-bezier(.22,.61,.36,1);transform-origin:center}
 .herostats>div:hover{transform:scale(1.03)}
@@ -308,6 +308,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .mq span{font-weight:900;font-stretch:76%;text-transform:uppercase;font-size:15px;letter-spacing:.01em;padding:0 26px;white-space:nowrap}
 @keyframes mq{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.mq{animation:none}}
+.mdiv{color:var(--coral);font-weight:900}
 
 /* stat row */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);border-radius:20px;overflow:hidden;background:var(--cream)}
@@ -340,6 +341,8 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 
 /* ---------- library ---------- */
 .search{display:flex;align-items:center;gap:12px;background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:12px 22px}
+.libfilters{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.libselect{font:inherit;font-weight:700;font-size:14px;color:var(--ink);background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:12px 20px;cursor:pointer}
 .search input{flex:1;border:0;background:transparent;font:inherit;font-size:16px;outline:0;min-width:0}
 .search input::placeholder{color:var(--mute)}
 .tag{display:inline-flex;align-items:center;font-weight:800;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
@@ -354,7 +357,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .chip{border:2px solid var(--ink);background:transparent;border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:700;cursor:pointer;transition:background .15s,color .15s}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--cream)}
-.trow{transform-origin:center;display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:clamp(14px,2vw,26px);align-items:center;
+.trow{transform-origin:center;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(14px,2vw,26px);align-items:center;
   background:var(--card);border-radius:18px;padding:20px clamp(18px,2vw,26px);text-decoration:none;transition:transform .18s,background .18s}
 .trow:hover{transform:scale(1.01);background:var(--sun)}
 .trow .desig{font-family:var(--mono);font-size:12.5px;color:var(--mute)}
@@ -492,7 +495,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
   .closer{row-gap:16px}
   footer{padding:clamp(34px,8vw,46px) 0 26px}
   .fgrid{gap:24px}
-  .fmark img{height:46px}
+  .fmark img{height:64px}
   /* Tap targets. A standalone link in a footer, a rail or a list is something
      you aim a thumb at, so it gets 44px of height. Links inside a paragraph
      are not targets and keep their normal line height. */
@@ -533,7 +536,8 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
         <img src="assets/inline/x2-f6b82ff513.webp" alt="">
         <span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span>
       </a>
-      <nav class="main" id="nav" aria-label="Main"><a href="/">Home</a><a href="/start">Start here</a><a href="/library">Prompt library</a><a href="/tools">Tools</a><a href="/bill">Apps I built</a><a href="/channel">Videos</a><a href="/about">Who I am</a></nav>
+      <nav class="main" id="nav" aria-label="Main"><a href="/">Home</a><a href="/start">Start here</a><a href="/library">Prompt library</a><a href="/tools">Tools</a><a href="/bill">Apps I built</a><a href="/channel">Videos</a>
+</nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
         <a class="btn btn-sun" style="padding:11px 20px" href="/kit">Get the kit <span class="arw">→</span></a>
@@ -557,7 +561,6 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
     <div class="fgrid">
       <div>
         <div class="fmark"><img src="assets/inline/x3-89152d275d.webp" alt=""><span>Michael’s<br>Corner<i class="dot" style="font-style:normal">.</i></span></div>
-        <p class="small" style="color:rgba(245,242,232,.72);max-width:34ch">AI is my superpower. Not my replacement.</p>
       </div>
       <div>
         <p class="h4" style="color:var(--sun);margin-bottom:10px">Take something</p>
@@ -573,15 +576,11 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
       </div>
       <div>
         <p class="h4" style="color:var(--sun);margin-bottom:10px">Say hello</p>
-        <a href="mailto:mihael.florian@gmail.com">mihael.florian@gmail.com</a>
-        <a href="/about">Who I am</a>
+        <a href="mailto:michael@off-plate.com">michael@off-plate.com</a>
         <p class="handle" style="color:rgba(245,242,232,.5);margin:10px 0 0">@michaelflorian_ai</p>
       </div>
     </div>
-    <div class="fbot">
-      <span>Michael Florian.</span>
-      <span>Say hello any time.</span>
-    </div>
+    <div class="fbot"><a href="https://off-plate.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Website created by Off-Plate <span class="arw">&#8599;</span></a></div>
   </div>
 </footer>
 

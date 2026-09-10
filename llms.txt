@@ -12,7 +12,6 @@ The position is anti-hype: the first rough version out of a model takes minutes 
 - [Most useful AI tools](https://michaels-corner.netlify.app/tools): 7 free AI tools that run in your browser with no signup: an AI cost calculator, a context-window checker, a subscription versus API breakeven, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder.
 - [Apps I built](https://michaels-corner.netlify.app/bill): 5 apps built with AI in the evenings: Tuck and Frost for Chrome, Recall and Refill for macOS, and Cropper, a local video editor. All finished, all in daily use.
 - [Watch and learn](https://michaels-corner.netlify.app/channel): Videos of real AI builds with the dead ends left in, sorted into building with AI, for beginners, prompting and behind the build. Filming now.
-- [Who I am](https://michaels-corner.netlify.app/about): Michael Florian. Not a developer, with a normal day job and more than twenty finished projects built with AI in the evenings. What he got good at, and what he did not.
 - [Michael's AI Starter Kit](https://michaels-corner.netlify.app/kit): Six free things for anyone starting with AI this week: 10 reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. Listed in full before you give an email.
 
 ## Free browser tools

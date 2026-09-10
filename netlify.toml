@@ -66,11 +66,6 @@
   status = 301
   force = true
 [[redirects]]
-  from = "/about.html"
-  to = "/about"
-  status = 301
-  force = true
-[[redirects]]
   from = "/kit.html"
   to = "/kit"
   status = 301
@@ -95,10 +90,6 @@
 [[redirects]]
   from = "/channel"
   to = "/channel.html"
-  status = 200
-[[redirects]]
-  from = "/about"
-  to = "/about.html"
   status = 200
 [[redirects]]
   from = "/kit"

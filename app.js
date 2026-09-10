@@ -13,7 +13,6 @@ const NAV = [
   ['tools','Tools'],
   ['bill','Apps I built'],
   ['channel','Videos'],
-  ['about','Who I am']
 ];
 
 const PAGE_META = {
@@ -29,8 +28,6 @@ const PAGE_META = {
             d:"Eight apps built with AI: Chrome extensions, macOS apps, a web app and one Off-Plate tool."},
   channel: {t:"Watch and learn",
             d:"Videos of real AI builds, sorted into building with AI, for beginners, prompting and behind the build. Filming now, first episodes soon."},
-  about:   {t:"Who I am",
-            d:"Michael Florian has a normal day job and builds things with AI on the side, more than twenty finished projects so far. What he got good at, and what he still cannot do."},
   kit:     {t:"Michael's AI Starter Kit",
             d:"A starter kit for anyone beginning with AI: ten reusable prompts, a plain-words model guide, a first-hour walkthrough, a cost cheat sheet, an is-this-an-AI-job checklist and the fix-it lines. The whole list is on the page before any email is asked for."}
 };
@@ -215,9 +212,9 @@ const el = (h) => { const t=document.createElement('template'); t.innerHTML=h.tr
    rewrites /start (200, no visible redirect) to start.html and 301s the old
    start.html link to /start, so both resolve, but /start is canonical. */
 const ROUTE_FILE  = {home:'index.html', start:'start.html', library:'library.html',
-  tools:'tools.html', bill:'bill.html', channel:'channel.html', about:'about.html', kit:'kit.html'};
+  tools:'tools.html', bill:'bill.html', channel:'channel.html', kit:'kit.html'};
 const ROUTE_CLEAN = {home:'/', start:'/start', library:'/library', tools:'/tools',
-  bill:'/bill', channel:'/channel', about:'/about', kit:'/kit'};
+  bill:'/bill', channel:'/channel', kit:'/kit'};
 const CLEAN_ROUTE = Object.fromEntries(Object.entries(ROUTE_CLEAN).map(([k,v])=>[v,k]));
 const href = (p) => ROUTE_CLEAN[p];
 function currentRoute(){
@@ -324,8 +321,7 @@ PAGES.home = () => `
       ][i];
       return `
       <a class="card lcard" href="/tools/${t.id}" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">
-        <span class="mono" style="color:${sk.sub}">${esc(t.desig)}</span>
-        <h3 class="h3">${esc(t.n)}</h3>
+                <h3 class="h3">${esc(t.n)}</h3>
         <p class="small" style="color:${sk.sub}">${esc(t.desc)}</p>
         <span class="open">Open the tool <span class="arw" style="color:${sk.arw}">&#8594;</span></span>
       </a>`;}).join('')}
@@ -338,7 +334,7 @@ PAGES.home = () => `
   <div class="autogrid">
     ${PACKS.slice(0,4).map((p,i)=>`
       <a class="pack lcard rv" href="/packs/${p.id}" style="${i===1?'background:var(--sun)':''}">
-        <div class="top"><span class="tag">${esc(p.chip)}</span><span class="mono">8 prompts</span></div>
+        <div class="top"><span class="tag">${esc(p.chip)}</span></div>
         <h3 class="h3">${esc(p.n)}</h3>
         <p class="small" style="color:var(--soft)">${esc(p.d)}</p>
         <span class="open">Open pack <span class="arw">&#8594;</span></span>
@@ -352,7 +348,7 @@ PAGES.home = () => `
   <div class="grid4">
     ${VIDS.slice(0,4).map((v,i)=>`
       <article class="vid rv">
-        <div class="vthumb" style="background:${['var(--sage)','var(--peri)','var(--coral)','var(--sun)'][i]}"><span class="p"></span><span class="soon">Filming</span></div>
+        <div class="vthumb" style="background:${['var(--sage)','var(--peri)','var(--coral)','var(--sun)'][i]}"><span class="p"></span></div>
         <div class="vbody"><h3 class="h4">${esc(v.t)}</h3><p class="small">${esc(v.d)}</p></div>
       </article>`).join('')}
   </div>
@@ -381,7 +377,7 @@ PAGES.start = () => `
 <section class="wrap phero">
   <div class="phero-grid">
     <div class="rv">
-      <h1 class="dsp h1" style="font-size:clamp(40px,6vw,116px)">Your first hour with AI<i class="dot" style="font-style:normal">.</i></h1>
+      <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Your first hour with AI<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Everything below came from people describing what they got wrong first. Tick it off as you go. Your ticks are saved on this device, so you can close the tab and come back.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
@@ -450,11 +446,14 @@ PAGES.library = () => `
 </section>
 
 <section class="wrap sec-tight">
-  <div class="search rv">
-    <svg aria-hidden="true" width="19" height="19" viewBox="0 0 19 19" fill="none" style="flex:none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6 17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    <input type="search" id="libq" placeholder="Search the packs" autocomplete="off" aria-label="Search the prompt packs">
+  <div class="libfilters rv">
+    <div class="search" style="flex:1;min-width:240px">
+      <svg aria-hidden="true" width="19" height="19" viewBox="0 0 19 19" fill="none" style="flex:none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6 17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input type="search" id="libq" placeholder="Search the packs" autocomplete="off" aria-label="Search the prompt packs">
+    </div>
+    <select id="libcat" class="libselect" aria-label="Filter by category"></select>
   </div>
-  <p class="mono rv" style="margin:22px 0 14px" id="libcount">Ten packs, sorted by who they are for</p>
+  <p class="mono rv" style="margin:22px 0 14px" id="libcount"></p>
   <div class="autogrid" id="packgrid"></div>
 </section>
 
@@ -470,7 +469,7 @@ PAGES.tools = () => `
 <section class="wrap phero">
   <div class="phero-grid">
     <div class="rv">
-      <h1 class="dsp h1">Tools<i class="dot" style="font-style:normal">.</i></h1>
+      <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Tools<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Small tools that run in your browser. Open any one and the number is real, computed on the spot.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
@@ -510,7 +509,7 @@ PAGES.bill = () => `
 <section class="wrap phero">
   <div class="phero-grid">
     <div class="rv">
-      <h1 class="dsp h1">Apps<i class="dot" style="font-style:normal">.</i></h1>
+      <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Apps<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Eight things I built because I needed them.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
@@ -543,7 +542,7 @@ PAGES.channel = () => `
 <section class="wrap phero">
   <div class="phero-grid">
     <div class="rv">
-      <h1 class="dsp h1">Watch and learn<i class="dot" style="font-style:normal">.</i></h1>
+      <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Watch and learn<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Plain talk about real builds. Filter by topic or search for one.</p>
       
     </div>
@@ -579,55 +578,11 @@ PAGES.channel = () => `
   </div>
 </section>`;
 
-PAGES.about = () => `
-<section class="wrap phero abouthero">
-  <h1 class="dsp h1 rv" style="font-size:clamp(40px,6.6vw,150px);grid-column:1/-1">Not a developer.<br>I build anyway<i class="dot" style="font-style:normal">.</i></h1>
-  <p class="lede rv" style="max-width:56ch;align-self:end">I am Michael. A normal day job, and more than twenty finished projects on the side.</p>
-  <div class="abouthero-art rv"><img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder"></div>
-</section>
-
-<section class="wrap sec-tight">
-  <div class="profile">
-    <div class="rail">
-      <div class="sidenote rv">
-        <h3 class="h4" style="margin-bottom:12px">What I got good at</h3>
-        <div class="r2"><span>Describing what I want</span><span class="mono">yes</span></div>
-        <div class="r2"><span>Pushing back on a wrong answer</span><span class="mono">yes</span></div>
-        <div class="r2"><span>Doing the part it will not do</span><span class="mono">yes</span></div>
-        <div class="r2"><span>Writing code</span><span class="mono">no</span></div>
-      </div>
-      <div class="sidenote rv">
-        <h3 class="h4" style="margin-bottom:12px">Where to find me</h3>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <a href="mailto:mihael.florian@gmail.com" style="font-size:14px">mihael.florian@gmail.com</a>
-          <a href="/channel" data-go="channel" style="font-size:14px">Watch</a>
-          <a href="/bill" data-go="bill" style="font-size:14px">Apps</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prose rv">
-      <p class="leadin">I am not a developer. I have a normal day job, and I build things with AI anyway.</p>
-      <p>The list so far includes a finance app that tracks my debts and my budget, a training site with a 3D wireframe figure I could never have coded myself, a road-trip planner with maps and expense splitting that four of us used on a real holiday in Italy, two Chrome extensions, a small tool that turns one sentence into a Spotify playlist, and this website.</p>
-      <p>None of that made me an engineer. What I got good at is different: describing what I want clearly, pushing back when the answer is wrong, and doing the hands-on work a tool will not do for you. Most of what I put here comes straight out of that, the prompts I lean on and the small tools I built.</p>
-      <p class="pull">I take what has worked for me and <span style="color:var(--coral)">write it down here</span>.</p>
-      <p>Two years in, I still have the same day job. I just get more done in the time I have. Take whatever is useful, and let me know how it goes.</p>
-    </div>
-
-    <aside class="numrail">
-      <div class="rv"><span class="bignum" style="color:var(--ink)">20+</span><span class="numlab" style="color:var(--mute)">projects built, one day job</span></div>
-      <div class="rv"><span class="bignum" style="color:var(--coral)">2 yrs</span><span class="numlab" style="color:var(--mute)">of doing this every week</span></div>
-      <div class="rv"><span class="bignum" style="color:var(--ink)">0</span><span class="numlab" style="color:var(--mute)">lines of code I could write before</span></div>
-      <div class="rv"><span class="bignum" style="color:var(--ink)">1</span><span class="numlab" style="color:var(--mute)">day job, still</span></div>
-    </aside>
-  </div>
-</section>`;
-
 PAGES.kit = () => `
 <section class="wrap phero">
   <div class="phero-grid">
     <div class="rv">
-      <h1 class="dsp h1" style="font-size:clamp(38px,5.4vw,74px)">Michael&#8217;s AI Starter Kit<i class="dot" style="font-style:normal">.</i></h1>
+      <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Michael&#8217;s AI Starter Kit<i class="dot" style="font-style:normal">.</i></h1>
       <p class="lede" style="margin-top:20px;max-width:52ch">Everything I would hand a friend who is starting with AI this week. The full list is below, so you know exactly what you trade your email for.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.kiosk}" width="${DIM.kiosk.w}" height="${DIM.kiosk.h}" alt="A small corner shop with the name over the awning"></div>
@@ -651,7 +606,7 @@ PAGES.kit = () => `
     <div>
       <h2 class="dsp h2">Send me the kit<i class="dot" style="font-style:normal">.</i></h2>
       <p class="lede" style="color:#4A421F;margin-top:16px;max-width:52ch">There is no signup form behind this yet. Email me and I reply with the kit. One click below fills in the subject for you.</p>
-      <p style="margin:28px 0 0"><a class="btn btn-ink" href="mailto:mihael.florian@gmail.com?subject=Starter%20Kit&amp;body=Hi%20Michael%2C%20please%20send%20me%20the%20AI%20Starter%20Kit.">Email me for the kit <span class="arw">&#8594;</span></a></p>
+      <p style="margin:28px 0 0"><a class="btn btn-ink" href="mailto:michael@off-plate.com?subject=Starter%20Kit&amp;body=Hi%20Michael%2C%20please%20send%20me%20the%20AI%20Starter%20Kit.">Email me for the kit <span class="arw">&#8594;</span></a></p>
       <p class="small" style="color:#4A421F;margin-top:16px">I reply by hand, usually within a day.</p>
     </div>
     <ul class="nolist">
@@ -785,7 +740,7 @@ function wire(page){
 
   if(page === 'home'){
     const words = ['80 prompts','7 tools','8 apps','One starter kit'];
-    const one = words.map(w=>`<span>${w} <i class="dot" style="font-style:normal">&#9679;</i></span>`).join('');
+    const one = words.map(w=>`<span>${w}</span><span class="mdiv">/</span>`).join('');
     const mq = document.getElementById('mq');
     // one half of the track must be at least as wide as the viewport, or the
     // translate(-50%) loop shows empty space at the seam on a wide screen.
@@ -829,21 +784,25 @@ function wire(page){
   }
 
   if(page === 'library'){
-    const q = document.getElementById('libq'), grid = document.getElementById('packgrid'), count = document.getElementById('libcount');
+    const q = document.getElementById('libq'), grid = document.getElementById('packgrid'), count = document.getElementById('libcount'),
+          cat = document.getElementById('libcat');
+    const cats = [...new Set(PACKS.map(p => p.chip))];
+    cat.innerHTML = '<option value="">All categories</option>' + cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
     const draw = () => {
       const s = q.value.trim().toLowerCase();
-      const hits = PACKS.filter(p => !s || (p.n + ' ' + p.chip + ' ' + p.d).toLowerCase().includes(s));
-      count.textContent = s ? (hits.length + (hits.length === 1 ? ' pack matches' : ' packs match')) : 'Ten packs, sorted by who they are for';
+      const c = cat.value;
+      const hits = PACKS.filter(p => (!s || (p.n + ' ' + p.chip + ' ' + p.d).toLowerCase().includes(s)) && (!c || p.chip === c));
+      count.textContent = (s || c) ? (hits.length + (hits.length === 1 ? ' pack matches' : ' packs match')) : '';
       grid.innerHTML = hits.length ? hits.map((p,i)=>`
         <a class="pack lcard" href="/packs/${p.id}"${i%3===1?' style="background:var(--sun)"':''}>
-          <div class="top"><span class="tag">${esc(p.chip)}</span><span class="mono">8 prompts</span></div>
+          <div class="top"><span class="tag">${esc(p.chip)}</span></div>
           <h2 class="h3">${esc(p.n)}</h2>
           <p class="small" style="color:var(--soft)">${esc(p.d)}</p>
           <span class="open">Open pack <span class="arw">&#8594;</span></span>
         </a>`).join('')
         : '<p class="lede">No pack matches that. Try a shorter or different word.</p>';
     };
-    q.addEventListener('input', draw); draw();
+    q.addEventListener('input', draw); cat.addEventListener('change', draw); draw();
   }
 
   if(page === 'tools'){
@@ -867,8 +826,7 @@ function wire(page){
           <div style="display:flex;flex-direction:column;gap:10px">
             ${byCat[c].map(t=>`
               <a class="trow" href="/tools/${t.id}">
-                <span class="desig">${esc(t.desig)}</span>
-                <span style="max-width:78ch"><span class="h4" style="display:block">${esc(t.n)}</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">${esc(t.desc)}</span><span class="hint">${esc(t.hint)}</span></span>
+                                <span style="max-width:78ch"><span class="h4" style="display:block">${esc(t.n)}</span><span class="small" style="display:block;margin-top:6px;color:var(--soft)">${esc(t.desc)}</span><span class="hint">${esc(t.hint)}</span></span>
                 <span class="open" style="margin:0">Open <span class="arw">&#8594;</span></span>
               </a>`).join('')}
           </div>
@@ -900,7 +858,7 @@ function wire(page){
           <div class="grid4">
             ${byCat[c].map((v,j)=>`
               <article class="vid">
-                <div class="vthumb" style="background:${['var(--sage)','var(--peri)','var(--coral)','var(--sun)'][j%4]}"><span class="p"></span><span class="soon">Filming</span></div>
+                <div class="vthumb" style="background:${['var(--sage)','var(--peri)','var(--coral)','var(--sun)'][j%4]}"><span class="p"></span></div>
                 <div class="vbody"><h3 class="h4">${esc(v.t)}</h3><p class="small">${esc(v.d)}</p></div>
               </article>`).join('')}
           </div>
