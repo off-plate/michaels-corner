@@ -244,6 +244,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
 .fgrid a{display:block;color:rgba(245,242,232,.72);text-decoration:none;padding:5px 0;font-size:14px;background:none;border:0;cursor:pointer;text-align:left}
 .fgrid a.fhandle{text-decoration:underline;text-decoration-color:var(--sun);text-underline-offset:3px}
+.fgrid .fhandle-static{display:block;color:rgba(245,242,232,.72);padding:5px 0;font-size:14px}
 .fgrid a:hover{color:var(--sun)}
 .fmark{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .fmark img{height:120px;width:auto}
@@ -623,7 +624,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
       <div>
         <p class="h4" style="color:var(--sun);margin-bottom:10px">Say hello</p>
         <a href="mailto:michael@off-plate.com" class="fhandle">michael@off-plate.com</a>
-        <a href="https://x.com/michaelflorian_ai" target="_blank" rel="noopener" class="fhandle">@michaelflorian_ai</a>
+        <span class="fhandle-static">@michaelflorian_ai</span>
       </div>
     </div>
     <div class="fbot"><a href="https://off-plate.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Website created by Off-Plate <span class="arw">&#8599;</span></a></div>

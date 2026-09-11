@@ -267,7 +267,7 @@ PAGES.home = () => `
 
 <section class="sec">
   <div class="wrap">
-  ${shead('Apps I built','Eight apps, from a Chrome extension to a full video editor.',
+  ${shead('Apps I built','From a Chrome extension to a full video editor.',
     '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
   </div>
   <div class="scroll" data-scroller>
@@ -501,7 +501,7 @@ PAGES.tools = () => `
 
 <section class="band sec">
   <div class="wrap closer">
-    <h2 class="dsp h2" style="color:var(--cream)">Seven honest answers<i class="dot" style="font-style:normal">.</i></h2>
+    <h2 class="dsp h2" style="color:var(--cream)">Honest answers<i class="dot" style="font-style:normal">.</i></h2>
     <p class="lede">Each one answers one question people ask: what a month of this costs, whether a document fits, when a task is worth automating.</p>
     <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">&#8594;</span></a>
   </div>
@@ -512,7 +512,7 @@ PAGES.bill = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Apps<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Eight things I built because I needed them.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Things I built because I needed them.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.machine}" width="${DIM.machine.w}" height="${DIM.machine.h}" alt="A workshop machine with a screen"></div>
   </div>
