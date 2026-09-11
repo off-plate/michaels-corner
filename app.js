@@ -264,6 +264,21 @@ PAGES.home = () => `
 <div class="marquee" aria-hidden="true"><div class="mq" id="mq"></div></div>
 
 
+<section class="band sec">
+  <div class="wrap split">
+    <div class="rv split-copy">
+      <h2 class="dsp h2" style="color:var(--cream)">What using it is really like<i class="dot" style="font-style:normal">.</i></h2>
+      <p class="lede" style="margin-top:20px">A first draft comes together in minutes and that part feels like magic. Then the real work starts: the checking, the fixing and the small calls only you can make. Most of the time goes there, and none of it gets automated. The shortcuts on this site are for the fast part.</p>
+      <div class="splitrow">
+        <div><span class="bignum">Minutes</span><span class="numlab">to a first draft that looks finished</span></div>
+        <div><span class="bignum" style="color:var(--sun)">Hours</span><span class="numlab">to make it actually true</span></div>
+        <div><span class="bignum">0</span><span class="numlab">of that part gets automated</span></div>
+      </div>
+    </div>
+    <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
   ${shead('Small tools that do the math for you','Calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating.',
@@ -310,21 +325,6 @@ PAGES.home = () => `
         <div class="vthumb" style="background:${['var(--sage)','var(--peri)','var(--coral)','var(--sun)'][i]}"><span class="p"></span></div>
         <div class="vbody"><h3 class="h4">${esc(v.t)}</h3><p class="small">${esc(v.d)}</p></div>
       </article>`).join('')}
-  </div>
-</section>
-
-<section class="band sec">
-  <div class="wrap split">
-    <div class="rv split-copy">
-      <h2 class="dsp h2" style="color:var(--cream)">What using it is really like<i class="dot" style="font-style:normal">.</i></h2>
-      <p class="lede" style="margin-top:20px">A first draft comes together in minutes and that part feels like magic. Then the real work starts: the checking, the fixing and the small calls only you can make. Most of the time goes there, and none of it gets automated. The shortcuts on this site are for the fast part.</p>
-      <div class="splitrow">
-        <div><span class="bignum">Minutes</span><span class="numlab">to a first draft that looks finished</span></div>
-        <div><span class="bignum" style="color:var(--sun)">Hours</span><span class="numlab">to make it actually true</span></div>
-        <div><span class="bignum">0</span><span class="numlab">of that part gets automated</span></div>
-      </div>
-    </div>
-    <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
   </div>
 </section>
 
