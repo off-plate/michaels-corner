@@ -17,15 +17,15 @@ const NAV = [
 
 const PAGE_META = {
   home:    {t:"Michael's Corner",
-            d:"AI prompts, browser tools and apps from Michael Florian, who is not a developer. Eighty prompts in ten packs, seven tools that run entirely in your browser, eight apps."},
+            d:"AI prompts, browser tools and apps from Michael Florian, who is not a developer. Prompts sorted into packs, tools that run in your browser, and apps built the same way."},
   start:   {t:"Your first hour with AI",
-            d:"A twenty-point checklist and a six-step guide for your first hour with ChatGPT, Claude or Gemini, built from what beginners say they got wrong."},
+            d:"A checklist and a guide for your first hour with ChatGPT, Claude or Gemini, built from what beginners say they got wrong."},
   library: {t:"Steal these prompts",
-            d:"Eighty prompts in ten packs for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, job hunting, studying, sounding human, small business, office, freelance, getting found by AI, money and health."},
+            d:"Prompts for ChatGPT, Claude and Gemini, sorted by who they are for: beginners, job hunting, studying, sounding human, small business, office, freelance, getting found by AI, money and health."},
   tools:   {t:"Most useful AI tools",
-            d:"Seven AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
+            d:"AI tools that run entirely in your browser: an AI cost calculator, a context-window checker, a subscription versus API comparison, an automation scorecard, an AI-slop detector, a prompt tightener and a difficult-email builder."},
   bill:    {t:"Apps I built",
-            d:"Eight apps built with AI: Chrome extensions, macOS apps, a web app and one Off-Plate tool."},
+            d:"Apps built with AI: Chrome extensions, macOS apps, a web app and an Off-Plate tool."},
   channel: {t:"Watch and learn",
             d:"Videos of real AI builds, sorted into building with AI, for beginners, prompting and behind the build. Filming now, first episodes soon."},
   kit:     {t:"Michael's AI Starter Kit",
@@ -70,7 +70,7 @@ const PACKS = [
 ];
 
 const VIDS = [
-  {t:'I built 20 apps in 30 days', c:'Building with AI', d:'What happened, what broke, and what I would skip next time.'},
+  {t:'A month of building apps, back to back', c:'Building with AI', d:'What happened, what broke, and what I would skip next time.'},
   {t:'Build a website with AI, start to finish', c:'Building with AI', d:'A full build, from empty folder to live page.'},
   {t:'Build a small app in a weekend', c:'Building with AI', d:'Pick a tiny idea and get it working in two days.'},
   {t:'From idea to live site in one sitting', c:'Building with AI', d:'I skip the planning week, open the laptop and build it.'},
@@ -79,7 +79,7 @@ const VIDS = [
   {t:'Add a feature without breaking things', c:'Building with AI', d:'How I change working code and stay calm.'},
   {t:'AI for people who are not techies', c:'For beginners', d:'What AI is actually good at, explained without jargon.'},
   {t:'Your first hour with an AI assistant', c:'For beginners', d:'Set it up and do something useful right away.'},
-  {t:'The five prompts I keep coming back to', c:'For beginners', d:'The short, boring prompts that do most of the work.'},
+  {t:'The prompts I keep coming back to', c:'For beginners', d:'The short, boring prompts that do most of the work.'},
   {t:'Stop overthinking your prompts', c:'For beginners', d:'Say what you want, what to keep, what to drop.'},
   {t:'What can AI actually do for you?', c:'For beginners', d:'A plain tour of the jobs it is genuinely good at.'},
   {t:'Pick the right AI tool', c:'For beginners', d:'How to choose without trying all of them.'},
@@ -94,7 +94,7 @@ const VIDS = [
   {t:'Prompts for editing and proofreading', c:'Prompting', d:'Catch mistakes without losing your voice.'},
   {t:'How I debug code I cannot read', c:'Behind the build', d:'A loop anyone can follow, no computer science needed.'},
   {t:'I am not a developer. I build anyway.', c:'Behind the build', d:'Why the old gatekeeping does not hold up.'},
-  {t:'A week of building in public', c:'Behind the build', d:'Five days, one project, shown in full.'},
+  {t:'A week of building in public', c:'Behind the build', d:'A whole project, shown in full.'},
   {t:'My exact setup', c:'Behind the build', d:'The tools and tabs I actually keep open.'},
   {t:'What I got wrong this month', c:'Behind the build', d:'Said out loud, so you can skip the same ones.'}
 ];
@@ -185,14 +185,14 @@ window.__PAGE_JSONLD = {
   start: () => ({
     "@context": "https://schema.org", "@type": "HowTo",
     name: "Your first hour with AI",
-    description: `A ${CHECK_COUNT}-point checklist and a ${STEPS.length}-step guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week.`,
+    description: `A checklist and a guide for your first hour with ChatGPT, Claude or Gemini, built around one real task from your own week.`,
     totalTime: "PT1H",
     step: STEPS.map(([name, text], i) => ({ "@type": "HowToStep", position: i + 1, name, text }))
   })
 };
 
 const KIT = [
-  ['The 10 prompts I actually reuse','Copied from my own library, paste-ready, with a note on when each one helps.'],
+  ['The prompts I actually reuse','Copied from my own library, paste-ready, with a note on when each one helps.'],
   ['The plain-words model guide','Which AI to pick for which kind of job, explained without benchmark charts.'],
   ['The first-hour walkthrough','Account, settings, and your first real task, in the order I would do them with you.'],
   ['The cost cheat sheet','What the main tools cost per month, what the free versions cover, and when paying starts to make sense.'],
@@ -249,14 +249,16 @@ PAGES.home = () => `
       <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
     </div>
     <dl class="herostats">
-      <div class="hs-coral"><dt>80</dt><dd>prompts, in ten packs</dd></div>
+      <div class="hs-coral"><dt>80</dt><dd>prompts, in packs</dd></div>
       <div class="hs-sun"><dt>7</dt><dd>tools that run in your browser</dd></div>
-      <div class="hs-peri"><dt>20+</dt><dd>real projects, one day job</dd></div>
+      <div class="hs-peri"><dt>20+</dt><dd>real projects, alongside a day job</dd></div>
       <div class="hs-sage"><dt>8</dt><dd>apps, built with AI</dd></div>
     </dl>
   </div>
   <div class="hero-art rv">
     <img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder">
+    <span class="hero-badge" style="top:4%;left:-10px">No account needed</span>
+    <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">Peeks around the corner</span>
   </div>
 </section>
 
@@ -360,7 +362,7 @@ PAGES.home = () => `
       <h2 class="dsp h2">Everything I would hand a friend starting out<i class="dot" style="font-style:normal">.</i></h2>
       <p class="lede" style="color:#4A421F;margin-top:20px">The full thing is written out on the kit page before any email is asked for: the prompts I reuse, the model guide, the first-hour walkthrough, the cost cheat sheet and the rest.</p>
       <ol class="kitlist">
-        <li><span>01</span>The 10 prompts I actually reuse</li>
+        <li><span>01</span>The prompts I actually reuse</li>
         <li><span>02</span>The plain-words model guide</li>
         <li><span>03</span>The first-hour walkthrough</li>
         <li><span>04</span>The cost cheat sheet</li>
@@ -429,7 +431,7 @@ PAGES.start = () => `
 <section class="band sec">
   <div class="wrap closer">
     <h2 class="dsp h2" style="color:var(--cream)">That is the hour<i class="dot" style="font-style:normal">.</i></h2>
-    <p class="lede">When you want prompts already written this way, the library is next door. Eighty of them, in ten packs.</p>
+    <p class="lede">When you want prompts already written this way, the library is next door.</p>
     <a class="btn btn-onink" href="/library" data-go="library">Open the prompt library <span class="arw">&#8594;</span></a>
   </div>
 </section>`;
@@ -439,7 +441,7 @@ PAGES.library = () => `
   <div class="phero-grid">
     <div class="rv">
       <h1 class="dsp h1" style="font-size:clamp(44px,6.6vw,92px)">Steal these prompts<i class="dot" style="font-style:normal">.</i></h1>
-      <p class="lede" style="margin-top:20px;max-width:52ch">Eighty prompts in ten packs. Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.</p>
+      <p class="lede" style="margin-top:20px;max-width:52ch">Prompts sorted into packs. Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.</p>
     </div>
     <div class="phero-art rv"><img src="${IMG.sign}" width="${DIM.sign.w}" height="${DIM.sign.h}" alt="A hanging shop sign reading Michael's Corner"></div>
   </div>
@@ -599,7 +601,7 @@ PAGES.kit = () => `
 
   <div class="rv" style="margin-top:36px">
     <div class="bar"><i style="width:64%"></i></div>
-    <div class="blabels"><span>This kit, all six items</span><span>the paid vault, later</span></div>
+    <div class="blabels"><span>This kit, all of it</span><span>the paid vault, later</span></div>
   </div>
 
   <div class="card rv sendbox" style="margin-top:36px;background:var(--sun);padding:clamp(26px,3vw,48px)">
@@ -739,7 +741,7 @@ function wire(page){
   document.querySelectorAll('[data-scroller]').forEach(wireScroller);
 
   if(page === 'home'){
-    const words = ['80 prompts','7 tools','8 apps','One starter kit'];
+    const words = ['Prompts to steal','Tools in your browser','Apps built with AI','The starter kit'];
     const one = words.map(w=>`<span>${w}</span><span class="mdiv">/</span>`).join('');
     const mq = document.getElementById('mq');
     // one half of the track must be at least as wide as the viewport, or the

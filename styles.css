@@ -269,6 +269,13 @@ label{ font-size:14px; }
 .readout,.out-block,.spec,.term,.prompt-block,.abody,.demo,.echo{
   background:var(--cream-3); border:2px solid var(--ink); border-radius:var(--radius-lg);
   padding:clamp(16px,2vw,24px); }
+/* .spec doubles as the page's own .wrap on the prompt pages (class="wrap
+   section spec"): a visible bordered card sitting directly on width:100%,
+   so its border painted flush against the true page edge no matter what
+   its own padding said -- padding insets content, not a border. margin
+   is what actually has to move here, with width:auto so it doesn't also
+   keep claiming the full 100% and overflow past the inset. */
+.wrap.spec{ width:auto; margin-inline:var(--pad); }
 .term,.term-body,.prompt-block,.spec-body{ font-family:var(--mono-f); font-size:13.5px; line-height:1.6; }
 .term-bar,.a-head{ font-family:var(--mono-f); font-size:12px; letter-spacing:.06em;
   text-transform:uppercase; color:var(--grey-2); }
@@ -328,16 +335,17 @@ th{ font-weight:800; font-size:12.5px; letter-spacing:.06em; text-transform:uppe
 footer{background:var(--ink);color:var(--cream);padding:clamp(44px,5vw,72px) 0 34px}
 .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
 .fgrid a{display:block;color:rgba(245,242,232,.72);text-decoration:none;padding:5px 0;font-size:14px;background:none;border:0;cursor:pointer;text-align:left}
+.fgrid a.fhandle{text-decoration:underline;text-decoration-color:var(--sun);text-underline-offset:3px}
 .fgrid a:hover{color:var(--sun)}
 .fmark{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.fmark img{height:88px;width:auto}
+.fmark img{height:120px;width:auto}
 .fmark span{font-weight:900;font-stretch:64%;text-transform:uppercase;font-size:22px;line-height:0.9}
 .fbot{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid rgba(245,242,232,.16);font-size:12.5px;color:rgba(245,242,232,.5)}
 .handle{font-family:var(--sans);font-size:14px;color:rgba(245,242,232,.5);white-space:nowrap}
 @media (max-width:1100px){ .fgrid{grid-template-columns:1fr 1fr} }
 @media (max-width:760px){
   .fgrid{grid-template-columns:1fr;gap:24px}
-  .fmark img{height:64px}
+  .fmark img{height:88px}
   .fgrid a{padding:12px 0;min-height:44px;display:flex;align-items:center}
 }
 /* The all-packs rail: ten bare text links wrapped on a phone, ~22px tall each. */
