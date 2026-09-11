@@ -266,48 +266,6 @@ PAGES.home = () => `
 
 <section class="sec">
   <div class="wrap">
-  ${shead('Apps I built','From a Chrome extension to a full video editor.',
-    '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
-  </div>
-  <div class="scroll" data-scroller>
-    ${APPS.map((a,i)=>{
-      const sk = [
-        {bg:'var(--coral)', fg:'var(--cream)', sub:'rgba(245,242,232,.84)'},
-        {bg:'var(--sun)',   fg:'var(--ink)',   sub:'#4A421F'},
-        {bg:'var(--peri)',  fg:'var(--cream)', sub:'rgba(245,242,232,.84)'},
-        {bg:'var(--sage)',  fg:'var(--ink)',   sub:'#2E362C'},
-        {bg:'var(--cream)', fg:'var(--ink)',   sub:'var(--mute)'}
-      ][i % 5];
-      const tag = a.cta
-        ? `<a class="card lcard" href="${a.cta.href}" target="_blank" rel="noopener" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">`
-        : `<a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">`;
-      return `
-      ${tag}
-        <img src="${IMG[a.img]}" width="56" height="56" style="border-radius:14px" alt="${esc(a.n)} app icon">
-        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">${esc(a.n)}</h3><span class="mono" style="color:${sk.sub}">${esc(a.plat)}</span></div>
-        <p class="small" style="color:${sk.sub}">${esc(a.d)}</p>
-        <span class="open">${a.cta ? esc(a.cta.label) : 'See it on the Apps page'} <span class="arw" style="color:${sk.fg==='var(--ink)'?'var(--coral)':'var(--sun)'}">${a.cta?'&#8599;':'&#8594;'}</span></span>
-      </a>`;}).join('')}
-  </div>
-</section>
-
-<section class="band sec">
-  <div class="wrap split">
-    <div class="rv split-copy">
-      <h2 class="dsp h2" style="color:var(--cream)">What using it is really like<i class="dot" style="font-style:normal">.</i></h2>
-      <p class="lede" style="margin-top:20px">A first draft comes together in minutes and that part feels like magic. Then the real work starts: the checking, the fixing and the small calls only you can make. Most of the time goes there, and none of it gets automated. The shortcuts on this site are for the fast part.</p>
-      <div class="splitrow">
-        <div><span class="bignum">Minutes</span><span class="numlab">to a first draft that looks finished</span></div>
-        <div><span class="bignum" style="color:var(--sun)">Hours</span><span class="numlab">to make it actually true</span></div>
-        <div><span class="bignum">0</span><span class="numlab">of that part gets automated</span></div>
-      </div>
-    </div>
-    <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
   ${shead('Small tools that do the math for you','Calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating.',
     '<a class="btn btn-ghost" href="/tools" data-go="tools">All the tools <span class="arw">&#8594;</span></a>')}
   </div>
@@ -352,6 +310,48 @@ PAGES.home = () => `
         <div class="vthumb" style="background:${['var(--sage)','var(--peri)','var(--coral)','var(--sun)'][i]}"><span class="p"></span></div>
         <div class="vbody"><h3 class="h4">${esc(v.t)}</h3><p class="small">${esc(v.d)}</p></div>
       </article>`).join('')}
+  </div>
+</section>
+
+<section class="band sec">
+  <div class="wrap split">
+    <div class="rv split-copy">
+      <h2 class="dsp h2" style="color:var(--cream)">What using it is really like<i class="dot" style="font-style:normal">.</i></h2>
+      <p class="lede" style="margin-top:20px">A first draft comes together in minutes and that part feels like magic. Then the real work starts: the checking, the fixing and the small calls only you can make. Most of the time goes there, and none of it gets automated. The shortcuts on this site are for the fast part.</p>
+      <div class="splitrow">
+        <div><span class="bignum">Minutes</span><span class="numlab">to a first draft that looks finished</span></div>
+        <div><span class="bignum" style="color:var(--sun)">Hours</span><span class="numlab">to make it actually true</span></div>
+        <div><span class="bignum">0</span><span class="numlab">of that part gets automated</span></div>
+      </div>
+    </div>
+    <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+  ${shead('Apps I built','From a Chrome extension to a full video editor.',
+    '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
+  </div>
+  <div class="scroll" data-scroller>
+    ${APPS.map((a,i)=>{
+      const sk = [
+        {bg:'var(--coral)', fg:'var(--cream)', sub:'rgba(245,242,232,.84)'},
+        {bg:'var(--sun)',   fg:'var(--ink)',   sub:'#4A421F'},
+        {bg:'var(--peri)',  fg:'var(--cream)', sub:'rgba(245,242,232,.84)'},
+        {bg:'var(--sage)',  fg:'var(--ink)',   sub:'#2E362C'},
+        {bg:'var(--cream)', fg:'var(--ink)',   sub:'var(--mute)'}
+      ][i % 5];
+      const tag = a.cta
+        ? `<a class="card lcard" href="${a.cta.href}" target="_blank" rel="noopener" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">`
+        : `<a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">`;
+      return `
+      ${tag}
+        <img src="${IMG[a.img]}" width="56" height="56" style="border-radius:14px" alt="${esc(a.n)} app icon">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">${esc(a.n)}</h3><span class="mono" style="color:${sk.sub}">${esc(a.plat)}</span></div>
+        <p class="small" style="color:${sk.sub}">${esc(a.d)}</p>
+        <span class="open">${a.cta ? esc(a.cta.label) : 'See it on the Apps page'} <span class="arw" style="color:${sk.fg==='var(--ink)'?'var(--coral)':'var(--sun)'}">${a.cta?'&#8599;':'&#8594;'}</span></span>
+      </a>`;}).join('')}
   </div>
 </section>
 
