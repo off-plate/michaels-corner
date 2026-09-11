@@ -243,7 +243,7 @@ PAGES.home = () => `
 <section class="wrap hero">
   <h1 class="dsp h1 hero-head rv">AI should be your superpower<i class="dot" style="font-style:normal">.</i></h1>
   <div class="hero-body rv">
-    <p class="lede">Every week a new model drops and Instagram Reels tell you that you are already behind. You are not. I use these tools and write down what works.</p>
+    <p class="lede">The world of AI is overwhelming. There is a lot of good in it, and a lot of people selling you a quick five-minute dream. I go through it so you don't have to, taking things realistically and practically, based on years of experience.</p>
     <div class="hero-cta">
       <a class="btn btn-ink" href="/library" data-go="library">Browse the library <span class="arw">&#8594;</span></a>
       <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
