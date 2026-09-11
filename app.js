@@ -249,10 +249,9 @@ PAGES.home = () => `
       <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
     </div>
     <dl class="herostats">
-      <div class="hs-coral"><dt>80</dt><dd>prompts, in packs</dd></div>
-      <div class="hs-sun"><dt>7</dt><dd>tools that run in your browser</dd></div>
-      <div class="hs-peri"><dt>20+</dt><dd>real projects, alongside a day job</dd></div>
-      <div class="hs-sage"><dt>8</dt><dd>apps, built with AI</dd></div>
+      <div class="hs-coral"><dt>150K</dt><dd>prompts tested</dd></div>
+      <div class="hs-sun"><dt>10B+</dt><dd>combined AI tokens spent</dd></div>
+      <div class="hs-peri"><dt>20+</dt><dd>apps, since 2026</dd></div>
     </dl>
   </div>
   <div class="hero-art rv">
