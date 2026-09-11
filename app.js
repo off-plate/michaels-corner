@@ -302,7 +302,7 @@ PAGES.home = () => `
   </div>
 </section>
 
-<section class="wrap sec-tight">
+<section class="wrap sec">
   ${shead('Prompts you can steal right now','Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.',
     '<a class="btn btn-ghost" href="/library" data-go="library">The whole library <span class="arw">&#8594;</span></a>')}
   <div class="autogrid">
