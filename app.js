@@ -245,8 +245,8 @@ PAGES.home = () => `
   <div class="hero-body rv">
     <p class="lede">The world of AI is overwhelming. There is a lot of good in it, and a lot of people selling you a quick five-minute dream. I go through it so you don't have to, taking things realistically and practically, based on years of experience.</p>
     <div class="hero-cta">
-      <a class="btn btn-ink" href="/library" data-go="library">Browse the library <span class="arw">&#8594;</span></a>
-      <a class="btn btn-ghost" href="/bill" data-go="bill">See the apps</a>
+      <a class="btn btn-ink" href="/library" data-go="library">Prompt library <span class="arw">&#8594;</span></a>
+      <a class="btn btn-ghost" href="/start" data-go="start">I want to learn AI</a>
     </div>
     <dl class="herostats">
       <div class="hs-coral"><dt>150 000+</dt><dd>prompts tested</dd></div>
