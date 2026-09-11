@@ -250,7 +250,7 @@ PAGES.home = () => `
     </div>
     <dl class="herostats">
       <div class="hs-coral"><dt>150 000+</dt><dd>prompts tested</dd></div>
-      <div class="hs-sun"><dt>10 000 MIL+</dt><dd>combined AI tokens spent</dd></div>
+      <div class="hs-sun"><dt class="tight">10 000 MIL+</dt><dd>combined AI tokens spent</dd></div>
       <div class="hs-peri"><dt>20+</dt><dd>built apps this year</dd></div>
     </dl>
   </div>
