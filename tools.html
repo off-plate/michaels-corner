@@ -129,6 +129,7 @@ nav.main a{background:none;border:0;cursor:pointer;padding:8px 12px;border-radiu
 nav.main a:hover{background:var(--card);color:var(--ink)}
 nav.main a[aria-current="page"]{background:var(--ink);color:var(--cream);font-weight:700}
 .hend{display:flex;align-items:center;gap:12px;flex:none;margin-left:auto}
+@media (max-width:720px){ .hend .btn-ghost{display:none} }
 .handle{font-family:var(--sans);font-size:14px;color:var(--mute);white-space:nowrap}
 .burger{display:none}
 /* The nav labels are whole sentences, so no fixed breakpoint can be right.
@@ -549,6 +550,7 @@ main>section:last-child:not(.band):not(.band-sun){padding-block-end:clamp(56px,7
 </nav>
       <span class="hend">
         <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+        <a class="btn btn-ghost" style="padding:11px 20px;border:2px solid var(--ink)" href="/start" data-go="start">I want to learn AI</a>
         <a class="btn btn-sun" style="padding:11px 20px" href="/kit" data-go="kit">Get the kit <span class="arw">→</span></a>
       </span>
     </div>
