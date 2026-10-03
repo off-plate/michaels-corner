@@ -34,6 +34,28 @@
 # an old .html link 301s to the clean one first, then the clean path is
 # rewritten (200, no visible redirect) to the real file that serves it.
 
+# TEMPORARILY HIDDEN pages. 302 so nothing is cached as moved. Delete a rule to bring its page back.
+[[redirects]]
+  from = "/library"
+  to = "/"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/tools"
+  to = "/"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/bill"
+  to = "/"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/channel"
+  to = "/"
+  status = 302
+  force = true
+
 # top-level pages
 [[redirects]]
   from = "/index.html"

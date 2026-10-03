@@ -6,14 +6,7 @@ const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRe
 // risk); now they're separate files, so without this every one of them is a
 // layout-shift hazard the instant it finishes loading.
 const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}, titis:{w:160,h:160}, owco:{w:160,h:160}, nexus:{w:160,h:160}, lost:{w:640,h:640}};
-const NAV = [
-  ['home','Home'],
-  ['start','Start here'],
-  ['library','Prompt library'],
-  ['tools','Tools'],
-  ['bill','Apps I built'],
-  ['channel','Videos'],
-];
+const NAV = [];
 
 const PAGE_META = {
   home:    {t:"Michael's Corner",
@@ -245,7 +238,6 @@ PAGES.home = () => `
   <div class="hero-body rv">
     <p class="lede">The world of AI is overwhelming. There is a lot of good in it, and a lot of people selling you a quick five-minute dream. I go through it so you don't have to, taking things realistically and practically, based on years of experience.</p>
     <div class="hero-cta">
-      <a class="btn btn-ink" href="/library" data-go="library">Prompt library <span class="arw">&#8594;</span></a>
       <a class="btn btn-ghost" href="/start" data-go="start">I want to learn AI</a>
     </div>
     <dl class="herostats">
@@ -276,82 +268,6 @@ PAGES.home = () => `
       </div>
     </div>
     <div class="rv split-art"><img src="${IMG.lamp}" width="${DIM.lamp.w}" height="${DIM.lamp.h}" alt="A desk lamp lighting the work"></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-  ${shead('Small tools that do the math for you','Calculators and checkers that run in your browser: what a month of AI costs, whether your text fits, when a task is worth automating.',
-    '<a class="btn btn-ghost" href="/tools" data-go="tools">All the tools <span class="arw">&#8594;</span></a>')}
-  </div>
-  <div class="scroll" data-scroller>
-    ${TOOLS.slice(0,5).map((t,i)=>{
-      const sk = [
-        {bg:'var(--coral)', fg:'var(--cream)', sub:'rgba(245,242,232,.84)', arw:'var(--sun)'},
-        {bg:'var(--sun)',   fg:'var(--ink)',   sub:'#4A421F',               arw:'var(--coral)'},
-        {bg:'var(--peri)',  fg:'var(--cream)', sub:'rgba(245,242,232,.84)', arw:'var(--sun)'},
-        {bg:'var(--sage)',  fg:'var(--ink)',   sub:'#2E362C',               arw:'var(--coral)'},
-        {bg:'var(--cream)', fg:'var(--ink)',   sub:'var(--mute)',           arw:'var(--coral)'}
-      ][i];
-      return `
-      <a class="card lcard" href="/tools/${t.id}" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">
-                <h3 class="h3">${esc(t.n)}</h3>
-        <p class="small" style="color:${sk.sub}">${esc(t.desc)}</p>
-        <span class="open">Open the tool <span class="arw" style="color:${sk.arw}">&#8594;</span></span>
-      </a>`;}).join('')}
-  </div>
-</section>
-
-<section class="wrap sec">
-  ${shead('Prompts you can steal right now','Copy one, fill in the brackets and paste it into ChatGPT, Claude or Gemini.',
-    '<a class="btn btn-ghost" href="/library" data-go="library">The whole library <span class="arw">&#8594;</span></a>')}
-  <div class="autogrid">
-    ${PACKS.slice(0,4).map((p,i)=>`
-      <a class="pack lcard rv" href="/packs/${p.id}" style="${i===1?'background:var(--sun)':''}">
-        <div class="top"><span class="tag">${esc(p.chip)}</span></div>
-        <h3 class="h3">${esc(p.n)}</h3>
-        <p class="small" style="color:var(--soft)">${esc(p.d)}</p>
-        <span class="open">Open pack <span class="arw">&#8594;</span></span>
-      </a>`).join('')}
-  </div>
-</section>
-
-<section class="wrap sec">
-  ${shead('How it actually goes','Short videos of real builds. I am filming now and the cards get their links as episodes go up.',
-    '<a class="btn btn-ghost" href="/channel" data-go="channel">The channel <span class="arw">&#8594;</span></a>')}
-  <div class="grid4">
-    ${VIDS.slice(0,4).map((v,i)=>`
-      <article class="vid rv">
-        <div class="vthumb" style="background:${['var(--sage)','var(--peri)','var(--coral)','var(--sun)'][i]}"><span class="p"></span></div>
-        <div class="vbody"><h3 class="h4">${esc(v.t)}</h3><p class="small">${esc(v.d)}</p></div>
-      </article>`).join('')}
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-  ${shead('Apps I built','From a Chrome extension to a full video editor.',
-    '<a class="btn btn-ghost" href="/bill" data-go="bill">All apps <span class="arw">&#8594;</span></a>')}
-  </div>
-  <div class="scroll" data-scroller>
-    ${APPS.map((a,i)=>{
-      const sk = [
-        {bg:'var(--coral)', fg:'var(--cream)', sub:'rgba(245,242,232,.84)'},
-        {bg:'var(--sun)',   fg:'var(--ink)',   sub:'#4A421F'},
-        {bg:'var(--peri)',  fg:'var(--cream)', sub:'rgba(245,242,232,.84)'},
-        {bg:'var(--sage)',  fg:'var(--ink)',   sub:'#2E362C'},
-        {bg:'var(--cream)', fg:'var(--ink)',   sub:'var(--mute)'}
-      ][i % 5];
-      const tag = a.cta
-        ? `<a class="card lcard" href="${a.cta.href}" target="_blank" rel="noopener" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">`
-        : `<a class="card lcard" href="/bill" data-go="bill" style="text-decoration:none;background:${sk.bg};color:${sk.fg}">`;
-      return `
-      ${tag}
-        <img src="${IMG[a.img]}" width="56" height="56" style="border-radius:14px" alt="${esc(a.n)} app icon">
-        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 class="h3">${esc(a.n)}</h3><span class="mono" style="color:${sk.sub}">${esc(a.plat)}</span></div>
-        <p class="small" style="color:${sk.sub}">${esc(a.d)}</p>
-        <span class="open">${a.cta ? esc(a.cta.label) : 'See it on the Apps page'} <span class="arw" style="color:${sk.fg==='var(--ink)'?'var(--coral)':'var(--sun)'}">${a.cta?'&#8599;':'&#8594;'}</span></span>
-      </a>`;}).join('')}
   </div>
 </section>
 
