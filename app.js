@@ -6,7 +6,9 @@ const IMG = {"mark": "assets/inline/mark.webp", "markRev": "assets/inline/markRe
 // risk); now they're separate files, so without this every one of them is a
 // layout-shift hazard the instant it finishes loading.
 const DIM = {mark:{w:299,h:440}, markRev:{w:272,h:400}, cornerman:{w:440,h:438}, lamp:{w:422,h:440}, machine:{w:411,h:440}, kiosk:{w:440,h:416}, sign:{w:440,h:423}, tuck:{w:160,h:160}, recall:{w:160,h:160}, refill:{w:160,h:160}, frost:{w:128,h:128}, hero:{w:620,h:720}, cutter:{w:160,h:160}, titis:{w:160,h:160}, owco:{w:160,h:160}, nexus:{w:160,h:160}, lost:{w:640,h:640}};
-const NAV = [];
+const NAV = [
+  ['home','Home'],
+];
 
 const PAGE_META = {
   home:    {t:"Michael's Corner",
