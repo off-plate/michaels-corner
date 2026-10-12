@@ -105,7 +105,7 @@ function header(prefix) {
         <a href="/channel" data-nav="channel">Videos</a>
       </nav>
       <a class="head-cta no-fx" href="/start" data-nav="start">I want to learn AI</a>
-      <a class="head-cta-ghost no-fx" href="/kit" data-nav="kit">Get the kit</a>
+      <a class="head-cta-ghost no-fx" href="mailto:michael@off-plate.com?subject=Implement%20AI%20for%20me">Implement AI for me</a>
     </div>
   </div>
 </header>`;

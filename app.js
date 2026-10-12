@@ -250,8 +250,6 @@ PAGES.home = () => `
   </div>
   <div class="hero-art rv">
     <img src="${IMG.hero}" width="${DIM.hero.w}" height="${DIM.hero.h}" fetchpriority="high" alt="Michael, drawn, with the character peeking over his shoulder">
-    <span class="hero-badge" style="top:4%;left:-10px">No account needed</span>
-    <span class="hero-badge" style="bottom:16%;right:-8px;background:var(--cream)">Peeks around the corner</span>
   </div>
 </section>
 
